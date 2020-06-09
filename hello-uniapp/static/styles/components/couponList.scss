@@ -1,0 +1,75 @@
+@import '../rules';
+.coupon-box-more {
+    height: 100%;
+    padding: 0;
+    .popup-coupon-itemcon {
+        height: 100%;
+        @include flexColumn();
+    }
+    .scroll-box {
+        @include flex(1);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 23/$ppr 20/$ppr 17/$ppr;
+        .item-left {
+            .item-d {
+                font-size: 24/$ppr;
+                color: #5d5d5d;
+            }
+        }
+        .item-right {
+            @include flex(1);
+            display: flex;
+            justify-content: space-between;
+            .coupn-con {
+                margin-right: 35/$ppr;
+            }
+            .shop-name {
+                // width: 330/$ppr;
+                min-height: 72/$ppr;
+                max-height: 72/$ppr;
+                @include clamp(2);
+                line-height: 36/$ppr;
+                font-size: 24/$ppr;
+                color: #5d5d5d;
+                // margin:26/$ppr 0 6/$ppr;
+            }
+            .shop-prolis {
+                line-height: 36/$ppr;
+                font-size: 20/$ppr;
+                color: #999;
+            }
+            .coupn-sele {
+                margin-top: 55/$ppr;
+            }
+        }
+    }
+    .shop-coupon-name {
+        padding: 30/$ppr 30/$ppr 20/$ppr;
+        font-size: 28/$ppr;
+        color: #666;
+    }
+    .item{
+        .conpon-list:not(:last-child) {
+            margin-bottom: 18/$ppr;
+        }
+    }
+    .nav-bar {
+        height: 92/$ppr;
+        line-height: 92/$ppr;
+        text-align: center;
+        background: #fff;
+        border-top: 1px solid #e0e0e0;
+        span {
+            background: #f23530;
+            display: inline-block;
+            width: 316/$ppr;
+            line-height: 62/$ppr;
+            color: #fff;
+            font-size: 32/$ppr;
+            text-align: center;
+            border-radius: 30px;
+            vertical-align: middle;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@import '../rules';
+.m-dialog-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    z-index: 888;
+    border-radius: 10/$ppr;
+    font-size: 32/$ppr;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10/$ppr);
+    transform: translate3d(-50%, -50%, 0);
+    .m-dialog-content {
+        padding: 40/$ppr 40/$ppr 30/$ppr 40/$ppr;
+        min-height: 200/$ppr;
+    }
+    .m-dialog-footer {
+        height: 95/$ppr;
+        line-height: 95/$ppr;
+        display: flex;
+        border-top: 1/$ppr solid $border-color-e4e;
+        .m-dialog-btn {
+            flex: 1;
+            text-align: center;
+            &.sure {
+                color: #26a2ff;
+            }
+            &.cancel {
+                color: $text-999;
+                border-right: 1/$ppr solid $border-color-e4e;
+            }
+        }
+    }
+    .m-dialog-close {
+        width: 50/$ppr;
+        height: 50/$ppr;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: center;
+        line-height: 50/$ppr;
+        color: $text-999;
+        span {
+            font-size: 24/$ppr;
+        }
+    }
+}

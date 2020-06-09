@@ -1,0 +1,92 @@
+//$ppr : 750/10/1rem;
+$ppr: 100/1rem;
+$main-color-l: #1A8EEF; // 主色（渐变-左）
+$main-coclor-r: #1A8EEF; // 主色（渐变-右）
+$main-color: #ff2116; // 主色
+$com-color: #ff2116; // 辅色
+// $main-color: #f23530; // 主色
+// $com-color: #ff9600; // 辅色
+// 背景用色
+$bg-color-f5f: #ffffff;
+// 分割线
+$border-color-e8e: #e8e8e8;
+$border-color-e4e: #e4e4e4;
+//
+$text-ccc: #ccc;
+$text-333: #333;
+$text-666: #666;
+$text-999: #999;
+.color_530 {
+    color: #f23530;
+}
+
+.color_666 {
+    color: #666;
+}
+
+// 渐变色
+.xe-gradient-color {
+    background: linear-gradient(left, $main-color-l, $main-coclor-r) no-repeat;
+    background: -webkit-linear-gradient(left, $main-color-l, $main-coclor-r) no-repeat;
+}
+
+.border-1px-bot {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.m-support-con {
+    p {
+        word-break: break-all;
+    }
+}
+
+.boldLine {
+    strong {
+        text-decoration: underline;
+    }
+}
+
+@mixin ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin clamp($values) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $values;
+    overflow: hidden;
+}
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+@mixin flexColumn() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}

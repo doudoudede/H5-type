@@ -1,0 +1,184 @@
+.mint-button {
+    &.xe-button-primary {
+        padding: 0 24/$ppr;
+        border-radius: 6/$ppr;
+        height: 82/$ppr;
+        font-size: 32/$ppr;
+        border-width: 1px;
+        // @extend .xe-gradient-color;
+        background: $main-color-l;
+        &.is-plain {
+            background: none;
+            border: 1px solid $main-color-l;
+            color: $main-color-l;
+        }
+        &.is-radius {
+            border-radius: 41/$ppr;
+        }
+        &.mint-button--small {
+            font-size: 28/$ppr;
+            padding: 0 25/$ppr;
+            height: 56/$ppr;
+        }
+    }
+    &.xe-button-white {
+        padding: 0 24/$ppr;
+        border-radius: 6/$ppr;
+        height: 82/$ppr;
+        font-size: 32/$ppr;
+        background: #fff;
+        border-width: 1px;
+        &.mint-button--small {
+            font-size: 28/$ppr;
+            padding: 0 25/$ppr;
+            height: 56/$ppr;
+            &.is-radius {
+                border-radius: 28/$ppr;
+            }
+        }
+    }
+    &.xe-button-default {
+        padding: 0 24/$ppr;
+        border-radius: 6/$ppr;
+        height: 82/$ppr;
+        font-size: 32/$ppr;
+        border-width: 1px;
+        &.mint-button--small {
+            font-size: 28/$ppr;
+            padding: 0 25/$ppr;
+            height: 56/$ppr;
+            &.is-radius {
+                border-radius: 28/$ppr;
+            }
+        }
+    }
+    &.xe-button-red {
+        color: #f23530;
+        margin-left: 20/$ppr;
+        border-color: #f23530;
+    }
+    &.xe-button-5230 {
+        color: #fff;
+        border-color: #f23530;
+        background: #f23530;
+    }
+    .mint-button-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        vertical-align: top;
+    }
+}
+
+.mint-msgbox {
+    border-radius: 10/$ppr;
+    font-size: 32/$ppr;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10/$ppr);
+    .mint-msgbox-btns {
+        height: 95/$ppr;
+        line-height: 95/$ppr;
+    }
+    .mint-msgbox-btn {
+        background: rgba(255, 255, 255, 0.2);
+        line-height: 95/$ppr;
+    }
+    .mint-msgbox-content {
+        padding: 30/$ppr 40/$ppr 30/$ppr;
+        min-height: 72/$ppr;
+    }
+    .mint-msgbox-message {
+        //line-height: 72/$ppr;
+        line-height: 1.5;
+        color: $text-333;
+    }
+    .mint-msgbox-header {
+        padding: 30/$ppr 0 30/$ppr 0;
+        // border-bottom:1/$ppr solid $border-color-e8e;
+    }
+    .mint-msgbox-title {
+        font-size: 32/$ppr;
+        color: $text-666;
+    }
+    .mint-msgbox-cancel {
+        color: $text-999;
+        &.blue {
+            color: #26a2ff;
+        }
+    }
+}
+
+.mint-toast {
+    border-radius: 8/$ppr;
+    padding: 20/$ppr !important;
+    .mint-toast-text {
+        font-size: 28/$ppr;
+    }
+}
+
+.mint-indicator-wrapper {
+    border-radius: 8/$ppr;
+    padding: 35/$ppr 30/$ppr !important;
+    .mint-spinner-snake {
+        width: 64/$ppr !important;
+        height: 64/$ppr !important;
+    }
+    .mint-indicator-text {
+        font-size: 30/$ppr;
+        margin-top: 20/$ppr;
+    }
+}
+
+// popup
+.popup-box-bottom {
+    &.mint-popup-bottom {
+        left: 0;
+        right: 0;
+        top: 40%;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+// spinner
+.mint-spinner-triple-bounce {
+    .mint-spinner-triple-bounce-bounce1,
+    .mint-spinner-triple-bounce-bounce2,
+    .mint-spinner-triple-bounce-bounce3 {
+        width: 15/$ppr !important;
+        height: 15/$ppr !important;
+    }
+}
+
+//
+.swiper-lazy-preloader {
+    width: 42/$ppr !important;
+    height: 42/$ppr !important;
+    ;
+}
+
+.infinite-contanier {
+    padding: 19/$ppr;
+    .infinite-status-prompt {
+        padding: 0;
+        .infinite-no-more {
+            padding: 0 !important;
+            line-height: 42/$ppr;
+            font-size: 24/$ppr !important;
+        }
+    }
+    .loading-default {
+        width: 42/$ppr !important;
+        height: 42/$ppr !important;
+        margin: 0/$ppr auto !important;
+    }
+}
+
+//
+.mint-indicator-wrapper {
+    z-index: 9999;
+}
+
+.mint-indicator-mask {
+    z-index: 9998;
+}
