@@ -1,63 +1,63 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="m-search-barcon" slot="header" style="background: #fff;">
-            <view class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></view>
-            <view class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
-                <view class="m-search-newcon">
+        <div class="m-search-barcon" slot="header" style="background: #fff;">
+            <div class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></div>
+            <div class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
+                <div class="m-search-newcon">
                     <form class="s-form" id="s-search" method="get" action="/" onsubmit="return false" @submit.prevent="searchBtnFn">
                         <label for="s-search-input" class="xe-iconfont xe-icon-sousuo"></label>
                         <input v-model.trim="searchText" class="s-search-input" id="s-search-input" @focus="focusFlag = true" @blur="focusFlag = false" type="search" placeholder="输入关键词">
                     </form>
                     <span v-show="searchText.length" @click="searchText = ''" class="xe-iconfont xe-icon-cuowu"></span>
-                    <view class="m-search-btn" @click="searchBtnFn">
+                    <div class="m-search-btn" @click="searchBtnFn">
                         <span>搜索</span>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <router-link slot="header" v-if="vendor" tag="view" class="m-store-namecons" :to="{name: 'StoreDet', query: {userCode: this.$route.query.userCode, proCount: vendor.proCount}}">
-            <view class="pic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <router-link slot="header" v-if="vendor" tag="div" class="m-store-namecons" :to="{name: 'StoreDet', query: {userCode: this.$route.query.userCode, proCount: vendor.proCount}}">
+            <div class="pic">
                 <img v-if="vendor.shopLogo" :src="logoPicServer + vendor.shopLogo" alt="">
                 <img v-else src="../../static/images/default.png" alt="">
-            </view>
-            <view class="msg">
-                <view class="name-cons">
-                    <view class="name">{{vendor.shopName}}</view>
-                    <view class="name-count"><span>{{vendor.proCount}}件商品</span>｜<span>月销{{vendor.orderCount}}单</span><i class="u-arrow xe-iconfont xe-icon-unfold u-arrow-right"></i></view>
-                </view>
-                <view class="des">
-                    <view>主营商品：</view><view class="content">{{vendor.businessTypeName}}</view>
-                </view>
-            </view>
+            </div>
+            <div class="msg">
+                <div class="name-cons">
+                    <div class="name">{{vendor.shopName}}</div>
+                    <div class="name-count"><span>{{vendor.proCount}}件商品</span>｜<span>月销{{vendor.orderCount}}单</span><i class="u-arrow xe-iconfont xe-icon-unfold u-arrow-right"></i></div>
+                </div>
+                <div class="des">
+                    <div>主营商品：</div><div class="content">{{vendor.businessTypeName}}</div>
+                </div>
+            </div>
         </router-link>
-        <view class="m-store-coupon" v-if="couponList && couponList.length">
-            <view class="m-store-contanier">
-                <view class="store-coupon"
+        <div class="m-store-coupon" v-if="couponList && couponList.length">
+            <div class="m-store-contanier">
+                <div class="store-coupon"
                         v-for="item in couponList"
                         :key="item.couTempId"
                         :class="{'disabled': item.giveOutNum >= item.sendNum}"
                         @click.prevent="stCouponClick(item)"
                 >
-                    <view class="store-circle">
+                    <div class="store-circle">
                         <i v-for="item in circleNum" :key="item"></i>
-                    </view>
-                    <view class="store-coupon-num">
+                    </div>
+                    <div class="store-coupon-num">
                         <p><em>&yen;</em>{{item.useDisAmount}}</p>
-                        <view class="coupon-des">满&yen;{{item.useOrderAmount}}可用</view>
-                    </view>
-                    <view class="store-coupon-btns">
+                        <div class="coupon-des">满&yen;{{item.useOrderAmount}}可用</div>
+                    </div>
+                    <div class="store-coupon-btns">
                         立即<br>领取
-                        <view class="sold-out xe-iconfont xe-icon-yilingwan"></view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="store-procons">
-            <view class="store-pronav" v-if="navListData.length">
+                        <div class="sold-out xe-iconfont xe-icon-yilingwan"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="store-procons">
+            <div class="store-pronav" v-if="navListData.length">
                 <xe-navtab-con :itemData="navListData" @swiperItemClick="swiperItemClick" ref="navTab"></xe-navtab-con>
-            </view>
-        </view>
-        <view class="store-proitem m-content-view">
+            </div>
+        </div>
+        <div class="store-proitem m-content-div">
             <proItem
                 v-if="productData.length"
                 v-for="item in productData"
@@ -66,22 +66,22 @@
                 :key="item.proSpu"
                 :showVendor="false"
             ></proItem>
-        </view>
+        </div>
         <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
                 <span slot="no-more" class="infinite-no-more">
                     暂无更多数据~
                 </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">暂无商品~</p>
-                </view>
-                <!--<view class="btn">-->
+                </div>
+                <!--<div class="btn">-->
                 <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-                <!--</view>-->
-            </view>
+                <!--</div>-->
+            </div>
         </infinite-loading>
         <!--订单详情-->
         <router-view slot="outer"></router-view>

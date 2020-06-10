@@ -3,17 +3,17 @@
 		<view class="uni-collapse-cell__title" @click="onClick">
 			<image v-if="thumb" :src="thumb" class="uni-collapse-cell__title-img" />
 			<text class="uni-collapse-cell__title-text">{{ title }}</text>
-			<!-- #ifdef MP-ALIPAY -->
-			<view :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showAnimation === true }" class="uni-collapse-cell__title-arrow">
+			<!-- #ifdef MP-aLIPaY -->
+			<view :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showanimation === true }" class="uni-collapse-cell__title-arrow">
 				<uni-icons color="#bbb" size="20" type="arrowdown" />
 			</view>
 			<!-- #endif -->
-			<!-- #ifndef MP-ALIPAY -->
-			<uni-icons :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showAnimation === true }" class="uni-collapse-cell__title-arrow" color="#bbb" size="20" type="arrowdown" />
+			<!-- #ifndef MP-aLIPaY -->
+			<uni-icons :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showanimation === true }" class="uni-collapse-cell__title-arrow" color="#bbb" size="20" type="arrowdown" />
 			<!-- #endif -->
 		</view>
 		<view :class="{'uni-collapse-cell__content--hide':!isOpen}" class="uni-collapse-cell__content">
-			<view :class="{ 'uni-collapse-cell--animation': showAnimation === true }" class="uni-collapse-cell__wrapper" :style="{'transform':isOpen?'translateY(0)':'translateY(-50%)','-webkit-transform':isOpen?'translateY(0)':'translateY(-50%)'}">
+			<view :class="{ 'uni-collapse-cell--animation': showanimation === true }" class="uni-collapse-cell__wrapper" :style="{'transform':isOpen?'translateY(0)':'translateY(-50%)','-webkit-transform':isOpen?'translateY(0)':'translateY(-50%)'}">
 				<slot />
 			</view>
 		</view>
@@ -28,7 +28,7 @@
 	 * @property {String} title 标题文字
 	 * @property {String} thumb 标题左侧缩略图
 	 * @property {Boolean} disabled = [true|false] 是否展开面板
-	 * @property {Boolean} showAnimation = [true|false] 开启动画
+	 * @property {Boolean} showanimation = [true|false] 开启动画
 	 */
 	export default {
 		name: 'UniCollapseItem',
@@ -51,7 +51,7 @@
 				type: Boolean,
 				default: false
 			},
-			showAnimation: {
+			showanimation: {
 				// 是否显示动画
 				type: Boolean,
 				default: false
@@ -151,7 +151,7 @@
 	.uni-collapse-cell__title {
 		padding: 12px 12px;
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		width: 100%;
 		box-sizing: border-box;
@@ -188,11 +188,11 @@
 	.uni-collapse-cell__title-text {
 		flex: 1;
 		font-size: 28rpx;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		white-space: nowrap;
 		color: inherit;
 		/* #endif */
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		lines: 1;
 		/* #endif */
 		overflow: hidden;
@@ -204,7 +204,7 @@
 	}
 
 	.uni-collapse-cell__wrapper {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;

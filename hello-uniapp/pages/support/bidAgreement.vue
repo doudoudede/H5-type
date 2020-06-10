@@ -1,30 +1,30 @@
 <template>
     <xe-layout>
-        <view class="m-support-con boldLine">
-            <view class="m-support-top">
+        <div class="m-support-con boldLine">
+            <div class="m-support-top">
                 <h3>竞标服务协议</h3>
                 <p>最新版本生效日期：2018年【09】月【01】日</p>
                 <p>本协议具有合同效力，在您接受本协议之前，请您务必仔细阅读本协议的全部内容，特别是以<strong>粗体下划线</strong>形式提示您注意的条款。如果您对本协议的条款有疑问的，请通过如来云商客服渠道进行询问，如来云商将向您解释条款内容。如果您不同意本协议的任意内容，或者无法准确理解如来云商对条款的解释，请不要进行后续操作。</p>
-            </view>
-            <view>
-                <view class="m-support-item" v-for="(item, index) in itemData" :key="index">
-                    <view class="m-list-block" @click.prevent="item.show = !item.show">
+            </div>
+            <div>
+                <div class="m-support-item" v-for="(item, index) in itemData" :key="index">
+                    <div class="m-list-block" @click.prevent="item.show = !item.show">
                         <ul>
                             <li class="item-content item-link">
-                                <view class="item-inner">
-                                    <view class="item-title f32">{{item.title}}</view>
-                                </view>
+                                <div class="item-inner">
+                                    <div class="item-title f32">{{item.title}}</div>
+                                </div>
                             </li>
                         </ul>
-                    </view>
+                    </div>
                     <CollapseTransition>
-                        <view class="m-support-text" v-show="item.show">
+                        <div class="m-support-text" v-show="item.show">
                             <p v-for="(content, cindex) in item.content" :key="cindex" v-html="content.text"></p>
-                        </view>
+                        </div>
                     </CollapseTransition>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

@@ -166,7 +166,7 @@
 </script>
 <style scoped>
 	.uni-countdown {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -175,7 +175,7 @@
 	}
 
 	.uni-countdown__splitor {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		justify-content: center;
@@ -185,7 +185,7 @@
 	}
 
 	.uni-countdown__number {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		justify-content: center;

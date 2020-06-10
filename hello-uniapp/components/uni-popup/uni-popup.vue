@@ -93,7 +93,7 @@
 							this.ani = ['zoom-out', 'fade']
 							this.transClass = {
 								'position': 'fixed',
-								/* #ifndef APP-NVUE */
+								/* #ifndef aPP-NVUE */
 								'display': 'flex',
 								'flexDirection': 'column',
 								/* #endif */
@@ -166,7 +166,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		z-index: 99;
 		/* #endif */
 	}
@@ -199,7 +199,7 @@
 	}
 
 	.uni-popup__wrapper {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: block;
 		/* #endif */
 		position: absolute;
@@ -220,7 +220,7 @@
 	}
 
 	.center {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		flex-direction: column;
 		/* #endif */
@@ -235,7 +235,7 @@
 	}
 
 	.uni-popup__wrapper-box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: block;
 		/* #endif */
 		position: relative;

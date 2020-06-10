@@ -1,14 +1,14 @@
 <template>
-    <view class="m-index-grid" v-if="eightData.length">
-        <view class="m-grid-item" :style="{backgroundImage: backgroundImg ? 'url('+ picServer + backgroundImg+')' : ''}">
-            <view class="item" v-for="(item, index) in eightData" :key="index" @click.prevent="itemClick(item)">
-                <view>
+    <div class="m-index-grid" v-if="eightData.length">
+        <div class="m-grid-item" :style="{backgroundImage: backgroundImg ? 'url('+ picServer + backgroundImg+')' : ''}">
+            <div class="item" v-for="(item, index) in eightData" :key="index" @click.prevent="itemClick(item)">
+                <div>
                     <img :src="picServer + item.imgUrl" alt="">
-                </view>
+                </div>
                 <p>{{item.contentTitle}}</p>
-            </view>
-        </view>
-    </view>
+            </div>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import {getXeUrl} from 'utils';
@@ -91,7 +91,7 @@
                 flex: 0 0 146/$ppr;
                 margin-top: 15/$ppr;
                 padding: 0 10/$ppr;
-                view {
+                div {
                     width: 86/$ppr;
                     height: 86/$ppr;
                     margin: 0 auto;

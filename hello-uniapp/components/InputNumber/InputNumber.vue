@@ -1,5 +1,5 @@
 <template>
-    <view class="el-input-number countnum-con"
+    <div class="el-input-number countnum-con"
          :class="[
       size ? 'el-input-number--' + size : '',
       { 'is-disabled': disabled },
@@ -14,7 +14,7 @@
         >
           <i class="xe-iconfont xe-icon-jian-copy"></i>
         </span>
-        <view class="num-input">
+        <div class="num-input">
             <input
                 :value="currentValue"
                 @keydown.up.prevent="increase"
@@ -27,7 +27,7 @@
                 :min="min"
                 ref="input"
             >
-        </view>
+        </div>
         <span
             v-if="controls"
             class="el-input-number__increase plus"
@@ -36,7 +36,7 @@
         >
             <i class="xe-iconfont xe-icon-jiahao"></i>
         </span>
-    </view>
+    </div>
 </template>
 <script>
 //    import { once, on } from 'utils/dom';

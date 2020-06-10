@@ -1,35 +1,35 @@
 <template>
-    <view class="m-floor-item m-presec" v-if="productList.length >= 4">
-        <view class="m-presec-tit">
-            <view class="title">
+    <div class="m-floor-item m-presec" v-if="productList.length >= 4">
+        <div class="m-presec-tit">
+            <div class="title">
                 <span class="xe-iconfont xe-icon-miaoshazi"></span>
                 <em class="xe-iconfont xe-icon-xianshiqianggou"></em>
-            </view>
-            <view class="more">
+            </div>
+            <div class="more">
                 <!--<a href="#">更多>></a>-->
                 <router-link tag="a"  :to="{name: 'SeckillList', params: {areaId: paramsData.cityId}}">
                     更多>>
                 </router-link>
-            </view>
-        </view>
+            </div>
+        </div>
         <swiper :options="swiperOption" class="m-presec-content" ref='secKillControl'>
             <swiper-slide class="item" v-for="item in productList"  :key="item.proSpu + Math.random()">
                 <a @click.prevent="goDetails(item)">
-                    <view class="pic">
+                    <div class="pic">
                         <img alt="" :src="item.proImg">
-                    </view>
-                    <view class="name">
+                    </div>
+                    <div class="name">
                         {{item.proName}}
-                    </view>
-                    <view class="price-n" v-html="splitPrice(item.skuPrice)">
-                    </view>
-                    <view class="price-o">
+                    </div>
+                    <div class="price-n" v-html="splitPrice(item.skuPrice)">
+                    </div>
+                    <div class="price-o">
                         <s>&yen;{{parseFloat(item.costPrice ? item.costPrice : 0).toFixed(2)}}</s>
-                    </view>
+                    </div>
                 </a>
             </swiper-slide>
         </swiper>
-    </view>
+    </div>
 </template>
 
 <script>

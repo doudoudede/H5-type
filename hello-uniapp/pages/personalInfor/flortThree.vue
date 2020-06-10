@@ -1,47 +1,47 @@
 <template>
-    <view>
+    <div>
         <!--基本信息-->
-        <view class="content-flor">
-            <view class="m-list-block">
+        <div class="content-flor">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content item-link" @click.prevent="showcust = true">
-                        <view class="item-inner">
-                            <view class="item-title">客户经理</view>
-                            <view class="item-input3">&nbsp;&nbsp;{{userInfo.saleManNameAndPhone}}</view>
-                        </view>
+                        <div class="item-inner">
+                            <div class="item-title">客户经理</div>
+                            <div class="item-input3">&nbsp;&nbsp;{{userInfo.saleManNameAndPhone}}</div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="text-introduce">请选择一位客户经理。客户经理是您所在区域的负责人，将全面负责您的商品采购和售后。
-        </view>
+            </div>
+        </div>
+        <div class="text-introduce">请选择一位客户经理。客户经理是您所在区域的负责人，将全面负责您的商品采购和售后。
+        </div>
         <!--修改客户经理-->
         <!-- <xe-popup
             slot="outer"
             :show.sync="showcust"
             popupTit="客户经理"
             position="bottom">
-            <view class="user-custon">
-                <view class="user-search">
+            <div class="user-custon">
+                <div class="user-search">
                     <input v-model='mtel' :maxlength="11" type="tel" placeholder="请输入客户经理手机号">
                     <span v-show="mtel.length" @click="mtel = ''" class="xe-iconfont xe-icon-cuowu"></span>
-                </view>
-                <view class="user-content">
+                </div>
+                <div class="user-content">
                     <ul v-if="mcustlist && mcustlist.length">
                         <li v-for="item in mcustlist" :key="item.salesmanId" @click.prevent="mcustClick(item)">{{item.phone}} {{item.salesmanName}}</li>
                     </ul>
-                    <view v-show="mcustlist && mcustlist.length === 0" class="m-cart-none">
-                        <view class="pic">
+                    <div v-show="mcustlist && mcustlist.length === 0" class="m-cart-none">
+                        <div class="pic">
                             <img src="../../static/images/cart-n1.png" alt="">
-                        </view>
-                        <view class="des">
+                        </div>
+                        <div class="des">
                             <p class="f32">没有找到相关的客户经理~</p>
-                        </view>
-                    </view>
-                </view>
-            </view>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </xe-popup> -->
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import {Popup} from 'components/Popup';

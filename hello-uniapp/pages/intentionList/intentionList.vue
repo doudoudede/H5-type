@@ -1,17 +1,17 @@
 <template>
     <xe-layout class="m-flexlay m-flexlay-inten">
-        <view class="intention-content">
+        <div class="intention-content">
             <!--tab区域-->
-            <view class="m-category-tab intention-tabBox">
-                <view :class="{'active': activeIndex === 1}" @click.prevent="checkTab(1)"><span>待确认</span></view>
-                <view :class="{'active': activeIndex === 2}" @click.prevent="checkTab(2)"><span>已完成</span></view>
-                <view :class="{'active': activeIndex === 3}" @click.prevent="checkTab(3)"><span>已失效</span></view>
-                <!--<view :class="{'active': paramsData.productType === 1}" @click.prevent="paramsData.productType = 1"><p>询报价</p></view>-->
-            </view>
+            <div class="m-category-tab intention-tabBox">
+                <div :class="{'active': activeIndex === 1}" @click.prevent="checkTab(1)"><span>待确认</span></div>
+                <div :class="{'active': activeIndex === 2}" @click.prevent="checkTab(2)"><span>已完成</span></div>
+                <div :class="{'active': activeIndex === 3}" @click.prevent="checkTab(3)"><span>已失效</span></div>
+                <!--<div :class="{'active': paramsData.productType === 1}" @click.prevent="paramsData.productType = 1"><p>询报价</p></div>-->
+            </div>
             <!--滚动区域-->
-            <view class="intention-scrollBox">
-                <view class="intention-scroItem" v-if="wishOrderList && wishOrderList.length"  v-for="item in wishOrderList">
-                    <view class="intention-orderNum">
+            <div class="intention-scrollBox">
+                <div class="intention-scroItem" v-if="wishOrderList && wishOrderList.length"  v-for="item in wishOrderList">
+                    <div class="intention-orderNum">
                         <p>意向单编号:{{item.wishCode}}</p>
                         <p class="col_red">
                             <xe-countdown v-if="activeIndex === 1 && !item.hasEnd" timetype="second" :wishCode="item.wishCode" @timehasDown="timehasDown" :time="item.endTime">
@@ -21,92 +21,92 @@
                             <span v-if="activeIndex === 2">已完成</span>
                             <span v-if="activeIndex === 3">已失效</span>
                         </p>
-                    </view>
-                    <view class="intention-proCon">
+                    </div>
+                    <div class="intention-proCon">
                         <!--单条信息-->
                         <template v-if="item.wishOrderDetailList && item.wishOrderDetailList.length == 1">
-                            <view class="proCon-picShow"  @click.prevent="goDetails(item.wishOrderDetailList[0])">
+                            <div class="proCon-picShow"  @click.prevent="goDetails(item.wishOrderDetailList[0])">
                                 <img :src="picServer + item.wishOrderDetailList[0].proPicture" alt="">
-                            </view>
-                            <view class="proCon-textShow" @click.prevent="goDetails(item.wishOrderDetailList[0])">
-                                <view class="proCon-tithea">
+                            </div>
+                            <div class="proCon-textShow" @click.prevent="goDetails(item.wishOrderDetailList[0])">
+                                <div class="proCon-tithea">
                                     {{item.wishOrderDetailList[0].proName}}
-                                </view>
-                                <view class="proCon-shopname">{{item.wishOrderDetailList[0].shopName}}</view>
-                            </view>
+                                </div>
+                                <div class="proCon-shopname">{{item.wishOrderDetailList[0].shopName}}</div>
+                            </div>
                         </template>
                         <template  v-if="item.wishOrderDetailList && item.wishOrderDetailList.length > 1">
                             <!--多条信息-->
                             <swiper :options="swiperOption" class="intent-proCon-picScro" ref='secKillControl'>
                                 <swiper-slide class="item" v-for="items in item.wishOrderDetailList"  :key="Math.random()">
                                     <a @click.prevent="goDetails(items)">
-                                        <view class="pic">
+                                        <div class="pic">
                                             <img :src="picServer + items.proPicture">
-                                        </view>
+                                        </div>
                                     </a>
                                 </swiper-slide>
                             </swiper>
                         </template>
-                    </view>
-                    <view class="intention-profoter">
-                        <view class="intent-allMoney">共{{item.wishOrderDetailList.length}}件商品&nbsp;
+                    </div>
+                    <div class="intention-profoter">
+                        <div class="intent-allMoney">共{{item.wishOrderDetailList.length}}件商品&nbsp;
                             <span v-if="item.pmtTotalAmount > 0">优惠￥{{parseFloat(item.pmtTotalAmount).toFixed(2)}}元</span>
                             合计：<span class="col_red" v-if="item.payAmount >= 0">￥{{item.payAmount.toString().split('.')[0]}}</span>
                             <i class="col_red" v-if="item.payAmount >= 0 && item.payAmount.toString().split('.')[1]">.{{item.payAmount.toString().split('.')[1].length === 1 ? item.payAmount.toString().split('.')[1] + '0' : item.payAmount.toString().split('.')[1]}}</i>
                             <i class="col_red" v-if="item.payAmount >= 0 && !item.payAmount.toString().split('.')[1]">.00</i>
-                        </view>
-                        <view class="intent-butContro" v-if="activeIndex === 1 && !item.hasEnd">
+                        </div>
+                        <div class="intent-butContro" v-if="activeIndex === 1 && !item.hasEnd">
                             <span  @click.prevent="orderCancel(item.wishCode)">取消</span>
                             <span class="col_red" @click.prevent="goConfirmor(item)">去下单</span>
-                        </view>
-                    </view>
-                </view>
+                        </div>
+                    </div>
+                </div>
                 <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
                     <span slot="no-more" class="infinite-no-more">
                         暂无更多数据~
                     </span>
-                    <view slot="no-results" class="m-cart-none">
-                        <view class="pic">
+                    <div slot="no-results" class="m-cart-none">
+                        <div class="pic">
                             <img src="../../static/images/cart-n1.png" alt="">
-                        </view>
-                        <view class="des">
+                        </div>
+                        <div class="des">
                             <!--<p class="f32">暂无{{orderType | newOrderStatusToText}}订单</p>-->
                             <p class="f32">暂无意向单信息</p>
-                        </view>
-                        <view class="btn">
+                        </div>
+                        <div class="btn">
                             <mt-button type="primary" class="xe-button-primary" size="small" plain @click.prevent="toCategory">开始选购</mt-button>
-                        </view>
-                    </view>
+                        </div>
+                    </div>
                 </infinite-loading>
-            </view>
+            </div>
             <!--底部弹框-->
             <xe-popup
                 :show.sync="showFlag"
                 popupTit="取消原因"
                 position="bottom">
-                <view class='useInfor-selec-box'>
-                    <view class="useInfor-selec-top">
+                <div class='useInfor-selec-box'>
+                    <div class="useInfor-selec-top">
                         <ul>
                             <xe-radio-group v-model="cancelType">
                                 <li class="selec-item" v-for="(item, index) in userProperData" :key="index">
-                                    <view class="selec-radio">
+                                    <div class="selec-radio">
                                         <xe-radio :label="item.value">
                                             {{item.name}}&nbsp;&nbsp;&nbsp;
                                             <input type="text" v-model.trim="cancelRemark" v-if="item.value == 5" style="width:80%" placeholder="请输入取消原因">
                                         </xe-radio>
-                                    </view>
+                                    </div>
                                 </li>
                             </xe-radio-group>
                         </ul>
-                    </view>
-                    <view class="useInfor-selec-tishi">取消后意向单失效，不可下单</view>
-                    <view class="useInfor-selec-footer">
+                    </div>
+                    <div class="useInfor-selec-tishi">取消后意向单失效，不可下单</div>
+                    <div class="useInfor-selec-footer">
                         <mt-button  type="primary" class="xe-button-primary" @click.prevent="dialogCancel" style="width: 50%;background: #fff;color: #333;" >取消</mt-button>
                         <mt-button  type="primary" class="xe-button-primary" style="width: 50%;" @click.prevent="orderCancelGo">确定</mt-button>
-                    </view>
-                </view>
+                    </div>
+                </div>
             </xe-popup>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

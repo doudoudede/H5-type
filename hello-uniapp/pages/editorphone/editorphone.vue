@@ -1,54 +1,54 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="m-editorphone">
-            <view class="m-list-block">
+        <div class="m-editorphone">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">原手机号</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">原手机号</div>
+                            <div class="item-input">
                                 <input type="tel" readonly v-model="onephone" maxlength="11" placeholder="输入原手机号">
-                            </view>
-                            <!--<view class="act">-->
+                            </div>
+                            <!--<div class="act">-->
                                 <!--<span class="xe-iconfont xe-icon-cuowu" v-if="onephone.length" @click.prevent="onephone = ''"></span>-->
-                            <!--</view>-->
-                            <view class="getyzm" :class="{'nodisabled': onephone && onephone.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</view>
-                        </view>
+                            <!--</div>-->
+                            <div class="getyzm" :class="{'nodisabled': onephone && onephone.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">验证码</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">验证码</div>
+                            <div class="item-input">
                                 <input type="tel"  v-model="oneyzm" maxlength="4" placeholder="请输入验证码">
-                            </view>
-                            <view class="act">
+                            </div>
+                            <div class="act">
                                 <span class="xe-iconfont xe-icon-cuowu" v-if="oneyzm.length" @click.prevent="oneyzm = ''"></span>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="m-cphone-btn">
+            </div>
+        </div>
+        <div class="m-cphone-btn">
             <mt-button type="primary" :disabled="disabledBtn" class="xe-button-primary" style="width: 100%;" @click.prevent="btnfn">下一步</mt-button>
-        </view>
-        <view class="aboutus-tel" slot="footer"></view>
+        </div>
+        <div class="aboutus-tel" slot="footer"></div>
         <!--Dialog-->
         <xe-dialog slot="outer" :show.sync="yzmDialog">
-            <view class="yzmcons">
-                <view class="yzm-input">
-                    <view class="yzm-inputin">
+            <div class="yzmcons">
+                <div class="yzm-input">
+                    <div class="yzm-inputin">
                         <input type="text" v-model="yzmvalue" maxlength="4" placeholder="请输入图形验证码">
-                    </view>
-                    <view class="yzmimgcon" @click.prevent="getImgCode">
+                    </div>
+                    <div class="yzmimgcon" @click.prevent="getImgCode">
                         <img :src="yzmImgCodeUrl" id="yzmImgsrc">
-                    </view>
-                </view>
-                <view class="yzm-tips">为了您的账户安全，请输入图文验证码！</view>
-            </view>
+                    </div>
+                </div>
+                <div class="yzm-tips">为了您的账户安全，请输入图文验证码！</div>
+            </div>
             <template slot="footer">
-                <view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>
-                <view class="m-dialog-btn sure" @click="yzmDialogSure">确认</view>
+                <div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>
+                <div class="m-dialog-btn sure" @click="yzmDialogSure">确认</div>
             </template>
         </xe-dialog>
     </xe-layout>

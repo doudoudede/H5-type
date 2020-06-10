@@ -1,37 +1,37 @@
 <template>
     <xe-layout class="m-bg-dark">
-        <view class="m-succ-item">
-            <view class="m-succ-top" v-if="flag20">
-                <view class="xe-iconfont xe-icon-tc"></view>
-                <view class="tips">
+        <div class="m-succ-item">
+            <div class="m-succ-top" v-if="flag20">
+                <div class="xe-iconfont xe-icon-tc"></div>
+                <div class="tips">
                     您的支付正在处理中...<br>
                     处理成功后，我们会尽快为您发货！
-                </view>
-            </view>
-            <view class="m-succ-top" v-if="flag30">
-                <view class="xe-iconfont xe-icon-rfill2"></view>
-                <view class="tips">
+                </div>
+            </div>
+            <div class="m-succ-top" v-if="flag30">
+                <div class="xe-iconfont xe-icon-rfill2"></div>
+                <div class="tips">
                     恭喜您成功提交订单，<br>
                     我们会尽快为您发货！
-                </view>
-            </view>
-            <view class="m-succ-top" v-if="flag40">
-                <view class="xe-iconfont xe-icon-cuowu"></view>
-                <view class="tips">
+                </div>
+            </div>
+            <div class="m-succ-top" v-if="flag40">
+                <div class="xe-iconfont xe-icon-cuowu"></div>
+                <div class="tips">
                     对不起，支付失败！<br>
                     请您核对支付信息是否正确或<br>选择其他支付方式！
-                </view>
-            </view>
-            <view class="m-succ-bot">
-                <!-- <view>订单编号：{{$route.params.mid}}</view> -->
-                <view>应付款金额：<span>&yen;{{$route.params.payamount | toFixed2}}</span></view>
-                <view>支付方式：<span>货到付款</span></view>
-            </view>
-        </view>
-        <view class="m-succbtns">
+                </div>
+            </div>
+            <div class="m-succ-bot">
+                <!-- <div>订单编号：{{$route.params.mid}}</div> -->
+                <div>应付款金额：<span>&yen;{{$route.params.payamount | toFixed2}}</span></div>
+                <div>支付方式：<span>货到付款</span></div>
+            </div>
+        </div>
+        <div class="m-succbtns">
             <mt-button class="btns-01 xe-button-white" @click.prevent="navToMy">查看订单</mt-button>
             <mt-button type="primary" class="xe-button-primary btns-01" @click.prevent="navToCategory">继续采购</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">
@@ -101,7 +101,7 @@
         .m-succ-bot {
             padding: 20/$ppr;
             border-top: 1/$ppr solid $border-color-e8e;
-            view {
+            div {
                 line-height: 1.4;
                 color: $text-999;
                 font-size: 28/$ppr;

@@ -1,5 +1,5 @@
 <template>
-    <view @click="handleRadioClick"
+    <div @click="handleRadioClick"
         class="van-radio"
         :class="{
             'van-radio--disabled': isDisabled
@@ -20,7 +20,7 @@
         <span class="van-radio__label" @click="handleLabelClick">
             <slot></slot>
         </span>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import findParent from '@/mixins/findParent';

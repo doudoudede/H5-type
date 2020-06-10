@@ -1,6 +1,6 @@
 <template>
     <xe-layout class="helan61">
-        <view class="helan61-top">
+        <div class="helan61-top">
             <p>
                 <img src="/static/img/helan61/helan01.png" alt="">
             </p>
@@ -10,25 +10,25 @@
             <p>
                 <img src="/static/img/helan61/helan03.png" alt="">
             </p>
-        </view>
-        <view class="bgs">
+        </div>
+        <div class="bgs">
             <img src="/static/img/helan61/helan06.png" alt="">
-        </view>
-        <view class="clogo">
+        </div>
+        <div class="clogo">
             <p>
                 <img src="/static/img/helan61/helan04.png" alt="">
             </p>
             <p>
                 <img src="/static/img/helan61/helan05.png" alt="">
             </p>
-        </view>
-        <view class="ctext">
+        </div>
+        <div class="ctext">
             <p>Vion是国际著名的肉类生产商，总部设在荷兰，为荷兰国内市场、欧洲和世界其他国家的客户提供新鲜的猪肉和牛肉及衍生产品。</p>
             <p>Vion提供最高质量的Food Family品牌新鲜猪肉。猪肉部门由坐落于荷兰跟德国的16个生产基地组成，拥有周屠宰量30万头猪的高产能。 Food Family品牌系列代表严格的品质和统一的高加工标准。</p>
             <p>Vion通过遍布全球的分销系统，始终保证为客户提供新鲜、风味、高质、安全的产品。</p>
             <p>tVion希望成为食品供应链中领先的可靠合作伙伴，为世界各地的人们提供高质量和安全的肉类产品。</p>
-        </view>
-        <router-link tag="view" :to="{name: 'Store', query: {userCode: 'SH171107486958'}}" class="cbtns">进入店铺</router-link>
+        </div>
+        <router-link tag="div" :to="{name: 'Store', query: {userCode: 'SH171107486958'}}" class="cbtns">进入店铺</router-link>
     </xe-layout>
 </template>
 <style lang="scss">

@@ -129,10 +129,10 @@
 
 <style scoped>
 	.uni-nav-bar-text {
-		/* #ifdef APP-PLUS */
+		/* #ifdef aPP-PLUS */
 		font-size: 34rpx;
 		/* #endif */
-		/* #ifndef APP-PLUS */
+		/* #ifndef aPP-PLUS */
 		font-size: 32rpx;
 		/* #endif */
 	}
@@ -148,7 +148,7 @@
 	}
 
 	.uni-navbar__content_view {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		align-items: center;
@@ -158,7 +158,7 @@
 	}
 
 	.uni-navbar__header {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -170,7 +170,7 @@
 	}
 
 	.uni-navbar__header-btns {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-wrap: nowrap;
@@ -181,7 +181,7 @@
 	}
 
 	.uni-navbar__header-btns-left {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		width: 150rpx;
@@ -189,7 +189,7 @@
 	}
 
 	.uni-navbar__header-btns-right {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		width: 150rpx;
@@ -202,7 +202,7 @@
 	}
 
 	.uni-navbar__header-container-inner {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -222,7 +222,7 @@
 	}
 
 	.uni-navbar--shadow {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		box-shadow: 0 1px 6px #ccc;
 		/* #endif */
 	}

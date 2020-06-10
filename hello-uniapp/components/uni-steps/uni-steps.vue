@@ -33,7 +33,7 @@
 	 * 	@value row 横向
 	 * 	@value column 纵向
 	 * @property {String} activeColor 选中状态的颜色
-	 * @property {Array} options 数据源，格式为：[{title:'xxx',desc:'xxx'},{title:'xxx',desc:'xxx'}]
+	 * @property {array} options 数据源，格式为：[{title:'xxx',desc:'xxx'},{title:'xxx',desc:'xxx'}]
 	 */
 
 	export default {
@@ -63,7 +63,7 @@
 				default: 0
 			},
 			options: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -77,39 +77,39 @@
 
 <style scoped>
 	.uni-steps {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		width: 100%;
 		/* #endif */
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		flex: 1;
 		/* #endif */
 		flex-direction: column;
 	}
 
 	.uni-steps__row {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
 	}
 
 	.uni-steps__column {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row-reverse;
 	}
 
 	.uni-steps__row-text-container {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
 	}
 
 	.uni-steps__column-text-container {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
@@ -117,7 +117,7 @@
 	}
 
 	.uni-steps__row-text {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: inline-flex;
 		/* #endif */
 		flex: 1;
@@ -129,7 +129,7 @@
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
 		border-bottom-color: #e5e5e5;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
@@ -160,14 +160,14 @@
 	}
 
 	.uni-steps__row-container {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
 	}
 
 	.uni-steps__column-container {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: inline-flex;
 		/* #endif */
 		width: 30px;
@@ -175,7 +175,7 @@
 	}
 
 	.uni-steps__row-line-item {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: inline-flex;
 		/* #endif */
 		flex-direction: row;
@@ -187,7 +187,7 @@
 	}
 
 	.uni-steps__column-line-item {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;

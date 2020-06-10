@@ -1,8 +1,8 @@
 <template>
     <xe-layout class="m-flexlay">
-        <view class="m-search-barcon" slot="header">
-            <view class="m-search-bar" :class="{'m-search-typing': focusFlag}">
-                <view class="m-search-newcon">
+        <div class="m-search-barcon" slot="header">
+            <div class="m-search-bar" :class="{'m-search-typing': focusFlag}">
+                <div class="m-search-newcon">
                     <form class="s-form" id="s-search" method="get" action="/" onsubmit="return false">
                         <label for="s-search-input" class="xe-iconfont xe-icon-sousuo"></label>
                         <input
@@ -16,52 +16,52 @@
                         >
                     </form>
                     <span v-show="searchText.length" @click="searchText = ''" class="xe-iconfont xe-icon-cuowu"></span>
-                    <view class="m-search-btn" @click="searchBtnFn">
+                    <div class="m-search-btn" @click="searchBtnFn">
                         <span>搜索</span>
-                    </view>
-                </view>
+                    </div>
+                </div>
 
-            </view>
-        </view>
-        <view class="suggestArea" v-if="suggestAreaList === null || suggestAreaList.length">
+            </div>
+        </div>
+        <div class="suggestArea" v-if="suggestAreaList === null || suggestAreaList.length">
             <ul v-show="suggestAreaList && suggestAreaList.length">
                 <li v-for="item in suggestAreaList" :key="item.areaId" @click.prevent="areaClickFn(item.areaId)">{{item.areaName}}</li>
             </ul>
-            <view v-show="suggestAreaList === null" class="m-cart-none">
-                <view class="pic">
+            <div v-show="suggestAreaList === null" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">没有找到相关区域~</p>
-                </view>
-                <view class="btn">
+                </div>
+                <div class="btn">
                     <mt-button class="xe-button-default" size="small" plain @click.prevent="searchText = ''">清空</mt-button>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
         <template v-else>
-            <view class="location-item" v-if="regionMap">
+            <div class="location-item" v-if="regionMap">
                 <h3>当前定位城市</h3>
-                <view class="location-ul">
+                <div class="location-ul">
                     <a href="#" @click.prevent="areaClickFn(regionMap.cityId)">{{regionMap.cityName}}</a>
-                </view>
-            </view>
-            <view class="location-item" v-if="hotCityData.length">
+                </div>
+            </div>
+            <div class="location-item" v-if="hotCityData.length">
                 <h3>热门城市</h3>
-                <view class="location-ul">
+                <div class="location-ul">
                     <a href="#" v-for="item in hotCityData" :key="item.areaId" @click.prevent="areaClickFn(item.hotCityId)">
                         {{item.hotCityName.split('-')[1]}}
                     </a>
-                </view>
-            </view>
-            <view class="location-city">
+                </div>
+            </div>
+            <div class="location-city">
                 <ul>
                     <li @click="goSearch(item.name)" v-for="(item,index) in hotCity" :key="index">{{item.name}}</li>
                 </ul>
-            </view>
-            <view class="location-tips">
+            </div>
+            <div class="location-tips">
                 更多城市，请通过搜索查询
-            </view>
+            </div>
         </template>
     </xe-layout>
 </template>

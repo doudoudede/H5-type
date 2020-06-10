@@ -1,51 +1,51 @@
 <template>
-    <view class="apply-cons">
+    <div class="apply-cons">
        <!-- fromdata -->
        <el-form :model="formData" :rules="rules" ref="formData" label-width="100px" :inline="true" class="apply-formData">
             <h5>基本信息</h5>
-            <view class="infor-baseApply">
-               <view class="floor-apply">
+            <div class="infor-baseApply">
+               <div class="floor-apply">
                     <el-form-item label="企业性质" prop="userProperties" required>
                         <el-radio-group v-model="formData.userProperties">
                             <el-radio :disabled="dis" :label="1">公司企业</el-radio>
                             <el-radio  :disabled="dis" :label="3">个体工商户</el-radio>
                         </el-radio-group>
                     </el-form-item>
-                </view>
-                <view class="floor-apply" >
+                </div>
+                <div class="floor-apply" >
                     <el-form-item label="企业名称" prop="venName" required>
                         <el-input :disabled="dis" v-model="formData.venName" class="inp-apply" :maxlength="40"></el-input>
                     </el-form-item>
-                </view>
-                <view class="floor-apply yingye" >
+                </div>
+                <div class="floor-apply yingye" >
                     <el-form-item label="营业执照号码"  prop="businessNum" required>
                         <el-input :disabled="dis" v-model="formData.businessNum" class="inp-apply" :maxlength="18"></el-input>
                     </el-form-item>
-                </view>
-                <view class="floor-apply" >
+                </div>
+                <div class="floor-apply" >
                     <el-form-item label="法定代表人" prop="juridicalPerson" required>
                         <el-input :disabled="dis" v-model="formData.juridicalPerson" class="inp-apply" :maxlength="15"></el-input>
                     </el-form-item>
-                </view>
-                <view class="floor-apply number"  >
+                </div>
+                <div class="floor-apply number"  >
                     <el-form-item label="法人身份证号" prop="userIdNumber" required>
                         <el-input :disabled="dis" v-model="formData.userIdNumber" class="inp-apply" :maxlength="18"></el-input>
                     </el-form-item>
-                </view>
+                </div>
                 <!-- 上传照片 -->
-                <view class="floor-apply for-itemlis" >
+                <div class="floor-apply for-itemlis" >
                     <el-form-item label=" " >
-                        <view class="item-uploadImg_box2 clearfix" v-loading='loadingUploadImg'>
+                        <div class="item-uploadImg_box2 clearfix" v-loading='loadingUploadImg'>
                             <ol class="fl up-active">
                                 <li class="up-imgLI">
                                     <img style="width:110px" v-if="formData.idCardFrontPic" :src=" formData.idCardFrontPic" alt="身份证（正面）">
                                 </li>
                                 <li class="up-slotTips">身份证（正面）</li>
                                 <li class="uploadImg-btn">
-                                    <view>
+                                    <div>
                                         <span class="iconfont icon-upload2"></span>
                                         <p>上传文件</p>
-                                    </view>
+                                    </div>
                                     <form name='form2' id='formFile2'>
                                         <input :disabled="dis" type="file" title="点击添加或修改图片" multiple name='imgFiles' class='inputFile2' @change='inputFile2Fn("formFile2", 1)' accept="image/gif,image/jpeg,image/jpg,image/png">
                                     </form>
@@ -58,10 +58,10 @@
                                 </li>
                                 <li class="up-slotTips">身份证（反面）</li>
                                 <li class="uploadImg-btn">
-                                    <view >
+                                    <div >
                                         <span class="iconfont icon-upload2"></span>
                                         <p>上传文件</p>
-                                    </view>
+                                    </div>
                                     <form name='form3' id='formFile3'>
                                         <input :disabled="dis" type="file" title="点击添加或修改图片" multiple name='imgFiles' class='inputFile2' @change='inputFile2Fn("formFile3", 2)' accept="image/gif,image/jpeg,image/jpg,image/png">
                                     </form>
@@ -73,19 +73,19 @@
                                 </li>
                                 <li class="up-slotTips">食品许可证</li>
                                 <li class="uploadImg-btn">
-                                    <view>
+                                    <div>
                                         <span class="iconfont icon-upload2"></span>
                                         <p>上传文件</p>
-                                    </view>
+                                    </div>
                                     <form name='form4' id='formFile4'>
                                         <input :disabled="dis" type="file" title="点击添加或修改图片" multiple name='imgFiles' class='inputFile2' @change='inputFile2Fn("formFile4", 3)' accept="image/gif,image/jpeg,image/jpg,image/png">
                                     </form>
                                 </li>
                             </ol>
-                        </view>
+                        </div>
                     </el-form-item>
-                </view>
-                <view class="floor-apply comcity">
+                </div>
+                <div class="floor-apply comcity">
                     <el-form-item prop="formProCitys" label="企业所在地" >
                         <el-select :disabled="dis"  @change="getSheng" v-model="formData.provinceId" placeholder="请选择">
                             <el-option
@@ -112,50 +112,50 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                </view>
-                <view class="floor-apply">
+                </div>
+                <div class="floor-apply">
                     <el-form-item  label="详细地址" prop="venAddr" required>
                         <el-input :disabled="dis" style="width: 257px;margin-left: 28px;" v-model="formData.venAddr" class="inp-apply"></el-input>
                     </el-form-item>
-                </view>
-                <view v-if="isSell" class="floor-apply">
+                </div>
+                <div v-if="isSell" class="floor-apply">
                     <el-form-item label="店铺名称" prop="shopName" required>
                         <el-input :disabled="dis" v-model="formData.shopName" class="inp-apply" :maxlength="30"></el-input>
                     </el-form-item>
-                </view>
-                <view v-if="isPart" class="floor-apply">
+                </div>
+                <div v-if="isPart" class="floor-apply">
                     <el-form-item label="商城名称" prop="shopName" required>
                         <el-input :disabled="dis" v-model="formData.shopName" class="inp-apply" :maxlength="30"></el-input>
                     </el-form-item>
-                </view>
-                <view class="inf-Merchant">
+                </div>
+                <div class="inf-Merchant">
                 <h5>商户联系人信息</h5>
-                <view class="floor-apply names">
+                <div class="floor-apply names">
                     <el-form-item label="联系人姓名" prop="userName" required>
                         <el-input :disabled="dis" v-model="formData.userName" class="inp-apply"></el-input>
                     </el-form-item>
-                </view>
-                <view class="floor-apply">
+                </div>
+                <div class="floor-apply">
                     <el-form-item label="联系人手机" prop="userPhone" required>
                         <el-input :disabled="dis" v-model="formData.userPhone" class="inp-apply" :maxlength="11"></el-input>
                     </el-form-item>
-                </view>
-                <view class="floor-apply">
+                </div>
+                <div class="floor-apply">
                     <el-form-item label="联系人邮箱" prop="email">
                         <el-input :disabled="dis" v-model="formData.email" class="inp-apply"></el-input>
                     </el-form-item>
-                </view>
-                <view class="floor-apply c-next" style="width:100%">
+                </div>
+                <div class="floor-apply c-next" style="width:100%">
                     <el-form-item label=" " >  
                         <el-button class="apply_method" v-if="visible" type="primary" @click="formSubmit('formData')" :disabled="nextDisabled">
                             提交申请
                         </el-button>
                     </el-form-item>
-                </view>
-            </view>
-           </view>
+                </div>
+            </div>
+           </div>
        </el-form>
-    </view>
+    </div>
 </template>
 <script>
 import NavBar from '@/components/NavBar/NavBar'

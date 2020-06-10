@@ -1,40 +1,40 @@
 <template>
     <xe-layout  class="m-flexlay userInfor-results">
         <!--认证成功-->
-        <view v-if="status == 1">
-            <view class="auth-icon">
+        <div v-if="status == 1">
+            <div class="auth-icon">
                 <span class="xe-iconfont xe-icon-jinduduihao"></span>
-            </view>
-            <view class="auth-content">
+            </div>
+            <div class="auth-content">
                 您已成功提交身份认证<br>
                 我们将在1个工作日内完成审核~
-            </view>
-            <view style="text-align: center">
+            </div>
+            <div style="text-align: center">
                 <!-- <a href="tel:400-662-6366">
                     <mt-button class="xe-button-default" size="small" plain>联系客服</mt-button>
                 </a> -->
                 <mt-button class="xe-button-default xe-button-red" size="small" plain @click.prevent="goCategory">随便逛逛</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
 
         <!--认证失败-->
-        <view v-if="status == 4">
-            <view class="auth-icon">
+        <div v-if="status == 4">
+            <div class="auth-icon">
                 <span class="xe-iconfont xe-icon-round_clouse_fill"></span>
-            </view>
-            <view class="auth-content">
+            </div>
+            <div class="auth-content">
                 <span style="font-weight: 500; display: block;">身份认证失败</span>
                 <span style="color: #666; line-height: 1.5; margin-top: 0.15rem; display:block; word-wrap:break-word; word-break:break-all;" v-if='reason'>
                     {{reason}}
                 </span>
-            </view>
-            <view style="text-align: center">
+            </div>
+            <div style="text-align: center">
                 <!-- <a href="tel:400-662-6366">
                     <mt-button class="xe-button-default" size="small" plain>联系客服</mt-button>
                 </a> -->
                 <mt-button class="xe-button-default xe-button-red" size="small" plain @click.prevent="reAuth">重新认证</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

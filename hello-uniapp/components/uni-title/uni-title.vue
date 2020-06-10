@@ -1,5 +1,5 @@
 <template>
-	<view class="uni-title__box" :style="{'align-items':textAlign}">
+	<view class="uni-title__box" :style="{'align-items':textalign}">
 		<text class="uni-title__base" :class="['uni-'+type]" :style="{'color':color}">{{title}}</text>
 	</view>
 </template>
@@ -52,7 +52,7 @@
 			};
 		},
 		computed: {
-			textAlign() {
+			textalign() {
 				let align = 'center';
 				switch (this.align) {
 					case 'left':
@@ -119,7 +119,7 @@
 
 	} */
 	.uni-title__box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;

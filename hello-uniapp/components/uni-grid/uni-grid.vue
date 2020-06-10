@@ -7,7 +7,7 @@
 </template>
 
 <script>
-	// #ifdef APP-NVUE
+	// #ifdef aPP-NVUE
 	const dom = uni.requireNativePlugin('dom');
 	// #endif
 
@@ -82,7 +82,7 @@
 				this.$emit('change', e)
 			},
 			_getSize(fn) {
-				// #ifndef APP-NVUE
+				// #ifndef aPP-NVUE
 				uni.createSelectorQuery()
 					.in(this)
 					.select(`#${this.elId}`)
@@ -92,7 +92,7 @@
 						fn(this.width)
 					})
 				// #endif
-				// #ifdef APP-NVUE
+				// #ifdef aPP-NVUE
 				dom.getComponentRect(this.$refs['uni-grid'], (ret) => {
 					this.width = parseInt((ret.size.width - 1) / this.column) + 'px'
 					fn(this.width)
@@ -105,7 +105,7 @@
 
 <style scoped>
 	.uni-grid-wrap {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -116,7 +116,7 @@
 	}
 
 	.uni-grid {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		/* flex: 1;

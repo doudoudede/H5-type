@@ -1,54 +1,54 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay m-flexlay-confirm">
         <template v-if="loaded">
-            <!-- <view class="m-corder-warning" slot="header" v-if="authPerson.status !== '3'" @click.prevent="navToWallet">
-                <view class="xe-iconfont xe-icon-renzheng"></view>
-                <view class="con arrow-right-commons">您的账户安全等级过低，建议先进行身份认证！</view>
-            </view> -->
-            <view class="det-inquiry-adr">
-                <view @click.prevent="adrVisibleFn" v-if="adrTempItem">
-                    <view class="adr-user">
+            <!-- <div class="m-corder-warning" slot="header" v-if="authPerson.status !== '3'" @click.prevent="navToWallet">
+                <div class="xe-iconfont xe-icon-renzheng"></div>
+                <div class="con arrow-right-commons">您的账户安全等级过低，建议先进行身份认证！</div>
+            </div> -->
+            <div class="det-inquiry-adr">
+                <div @click.prevent="adrVisibleFn" v-if="adrTempItem">
+                    <div class="adr-user">
                         <span>{{adrTempItem.caConsignee}}</span><span>{{adrTempItem.caPhone}}</span>
-                    </view>
-                    <view class="adr-msg">
-                        <view class="xe-iconfont xe-icon-dingwei"></view>
-                        <view class="adr-msg-text arrow-right-commons">{{adrTempItem.caProvName}}{{adrTempItem.caCityName}}{{adrTempItem.caAreaName}}{{adrTempItem.caStreet}}</view>
-                    </view>
-                </view>
+                    </div>
+                    <div class="adr-msg">
+                        <div class="xe-iconfont xe-icon-dingwei"></div>
+                        <div class="adr-msg-text arrow-right-commons">{{adrTempItem.caProvName}}{{adrTempItem.caCityName}}{{adrTempItem.caAreaName}}{{adrTempItem.caStreet}}</div>
+                    </div>
+                </div>
                 <template v-else-if="orderMsg.addrFlag === '2'">
-                    <view class="adr-none">
+                    <div class="adr-none">
                         <mt-button class="xe-button-primary is-radius" @click.prevent="adrVisibleFn" size="small" plain>+ 选择地址</mt-button>
-                    </view>
+                    </div>
                 </template>
                 <template v-else>
-                    <view class="adr-none">
+                    <div class="adr-none">
                         <mt-button class="xe-button-primary is-radius" size="small" plain @click.prevent="navToAddNewAdr">+ 新增地址</mt-button>
-                    </view>
+                    </div>
                 </template>
-            </view>
-            <view class="m-corder-item" v-for="(item, index) in orderMsg.venProList" :key="index">
-                <view class="order-item-shop">
+            </div>
+            <div class="m-corder-item" v-for="(item, index) in orderMsg.venProList" :key="index">
+                <div class="order-item-shop">
                     <span class="xe-iconfont xe-icon-dian"></span>
                     <span>{{item.venName}}</span>
-                </view>
-                <view class="m-corder-pros">
-                    <view class="item" v-for="proItem in item.proList" :key="proItem.proSku">
-                        <view class="pic">
+                </div>
+                <div class="m-corder-pros">
+                    <div class="item" v-for="proItem in item.proList" :key="proItem.proSku">
+                        <div class="pic">
                             <img :src="picServer + proItem.proMainImg" alt="">
-                        </view>
-                        <view class="msg">
-                            <view class="name">
+                        </div>
+                        <div class="msg">
+                            <div class="name">
                                 <p>
                                     <!-- <span v-if="proItem.disLimitProNum" class="coupon-style coupon-style-miao">秒</span>{{proItem.proName}} -->
                                     <span v-if="proItem.disLimitProNum" class="xe-iconfont xe-icon-miaoshafuben coupon-style-icon"></span>
                                     <span v-if="proItem.preSaleFlag === 1" class="xe-iconfont xe-icon-yushoufuben coupon-style-icon1"></span>
                                     {{proItem.proName}}
                                 </p>
-                            </view>
-                            <view class="msg-con">
-                                <view class="spec">规格: {{proItem.specValue}}</view>
-                                <view class="pricenum">
-                                    <view class="price">
+                            </div>
+                            <div class="msg-con">
+                                <div class="spec">规格: {{proItem.specValue}}</div>
+                                <div class="pricenum">
+                                    <div class="price">
                                         <template v-if="proItem.disLimitProNum">
                                             <!--商品为限时抢购-->
                                             <template v-if="proItem.buyNum > proItem.disLimitProNum">
@@ -63,94 +63,94 @@
                                         <template v-else>
                                             <p><span>&yen;</span>{{proItem.areaPrice | toFixed2}}<span>/{{proItem.proUnit}}</span></p>
                                         </template>
-                                    </view>
-                                    <view class="num">
+                                    </div>
+                                    <div class="num">
                                         x{{proItem.buyNum}}
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="m-list-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-list-block">
                     <ul>
                         <li class="item-content align-right" @click="showCouponList(item)" :class="{'item-link': item.couponList && item.couponList.length > 0}">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     店铺优惠券
-                                </view>
-                                <view class="item-after" v-if="item.couponList && item.couponList.length > 0">
+                                </div>
+                                <div class="item-after" v-if="item.couponList && item.couponList.length > 0">
                                     <span class="coupon-mark" v-if="item.disAomuntZw === 0 || !item.disAomuntZw">可用{{item.couponList.length}}张</span>
                                     <span v-else>&yen;{{item.disAomuntZw}}</span>
-                                </view>
-                                <view v-else class="item-after">
+                                </div>
+                                <div v-else class="item-after">
                                     暂无可用优惠券
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right item-link" :class="{'item-link': !(item.shipTypeList.length === 1 && item.shipTypeList[0] === '1' && item.appointCarFlag === 2)}" @click.prevent="setDelivery(item)">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     配送方式
-                                </view>
-                                <view class="item-after">
+                                </div>
+                                <div class="item-after">
                                     <template v-if="item.shipTyped">
                                         {{parseInt(item.shipTyped) | shipTypeToText}}
                                     </template>
                                     <template v-else>
                                         {{parseInt(item.shipTypeList[0]) | shipTypeToText}}
                                     </template>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     订单备注
-                                </view>
-                                <view class="item-input">
+                                </div>
+                                <div class="item-input">
                                     <input type="text" v-model="item.orderRemark" placeholder="输入对商家的留言（30字内）" :maxlength="30">
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                </view>
-            </view>
-            <view class="m-corder-item">
-                <view class="m-list-block">
+                </div>
+            </div>
+            <div class="m-corder-item">
+                <div class="m-list-block">
                     <ul>
                         <li class="item-content align-right item-link">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     支付方式
-                                </view>
-                                <view class="item-input">
+                                </div>
+                                <div class="item-input">
                                     <select v-model="paytypeValue">
                                         <option v-for="item in paytypeArrs" :value='item.type' :key="item.type">{{item.name}}</option>
                                     </select>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right" @click="showCouponListxb()" :class="{'item-link': orderMsg.platCouponList && orderMsg.platCouponList.length > 0}">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     如来云商优惠券
-                                </view>
-                                <view class="item-after" v-if="orderMsg.platCouponList && orderMsg.platCouponList.length > 0">
+                                </div>
+                                <div class="item-after" v-if="orderMsg.platCouponList && orderMsg.platCouponList.length > 0">
                                     <span class="coupon-mark" v-if="!couponTypePlatAmount">可用{{orderMsg.platCouponList.length}}张</span>
                                     <span v-else>&yen;{{couponTypePlatAmount}}</span>
-                                </view>
-                                <view v-else class="item-after">
+                                </div>
+                                <div v-else class="item-after">
                                     暂无可用如来云商优惠券
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right item-link" @click="setInvoice">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     发票信息
-                                </view>
-                                <view class="item-after">
+                                </div>
+                                <div class="item-after">
                                     <template v-if="!orderMsg.taxInfoDto.taxTitle">
                                         请填写发票信息
                                     </template>
@@ -160,48 +160,48 @@
                                     <template v-else>
                                         {{orderMsg.taxInfoDto.taxTitle | taxTitleToText}}
                                     </template>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                </view>
-            </view>
-            <view class="m-corder-item">
-                <view class="corder-total">
-                    <view>
-                        <view class="tit">商品总额</view>
-                        <view class="pri">&yen;{{orderMsg.totalAmount | toFixed2}}</view>
-                    </view>
-                    <view>
-                        <view class="tit">优惠金额</view>
-                        <view class="pri">-&yen;{{(parseFloat(disAmount) + parseFloat(couponTypePlatAmount)) | toFixed2}}</view>
-                    </view>
-                    <view>
-                        <view class="tit">运费</view>
-                        <view class="pri">+&yen;{{freAmount | toFixed2}}</view>
-                    </view>
-                </view>
-            </view>
-            <view class="m-payment-agree" v-if="orderMsg.orderCount === 0">
+                </div>
+            </div>
+            <div class="m-corder-item">
+                <div class="corder-total">
+                    <div>
+                        <div class="tit">商品总额</div>
+                        <div class="pri">&yen;{{orderMsg.totalAmount | toFixed2}}</div>
+                    </div>
+                    <div>
+                        <div class="tit">优惠金额</div>
+                        <div class="pri">-&yen;{{(parseFloat(disAmount) + parseFloat(couponTypePlatAmount)) | toFixed2}}</div>
+                    </div>
+                    <div>
+                        <div class="tit">运费</div>
+                        <div class="pri">+&yen;{{freAmount | toFixed2}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-payment-agree" v-if="orderMsg.orderCount === 0">
                 <xe-checkbox v-model="checkboxAgres" size="large">
-                    <view class="con">阅读并同意<router-link :to="{name: 'PaymentAgreement'}">《如来云商支付协议》</router-link>所有条款</view>
+                    <div class="con">阅读并同意<router-link :to="{name: 'PaymentAgreement'}">《如来云商支付协议》</router-link>所有条款</div>
                 </xe-checkbox>
-            </view>
-            <view class="m-corder-btns" slot="footer">
-                <view class="det-pri">
+            </div>
+            <div class="m-corder-btns" slot="footer">
+                <div class="det-pri">
                     <!-- <span>合计：</span>&yen;{{payTotalPrice}} -->
-                    <view class="allmoney">
-                        <view class="pay-coupon no-margin">
+                    <div class="allmoney">
+                        <div class="pay-coupon no-margin">
                             <p class="pay_all" :class="{'pay_top': !couponTempMaxNum}">合计: <span>&yen;{{payTotalPrice}}</span></p>
                             <p class="pay_money" v-if="couponTempMaxNum" >订单确认收货后可得{{couponTempMaxNum}}元优惠券</p>
-                        </view>
-                    </view>
-                </view>
-                <view class="det-btns">
-                    <!-- <view class="det-tobuy"  @click.prevent="submitOrder">提交订单</view> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="det-btns">
+                    <!-- <div class="det-tobuy"  @click.prevent="submitOrder">提交订单</div> -->
                     <mt-button :disabled='submitOrderLoading' class="det-tobuy xe-button-primary"  @click.prevent="submitOrder">提交订单</mt-button>
-                </view>
-            </view>
+                </div>
+            </div>
 
             <!--发票信息-->
             <xe-popup
@@ -239,70 +239,70 @@
                 :show.sync="couponVisible"
                 popupTit="优惠券"
                 position="bottom">
-                <view class="popup-coupon-itemcon coupon-itemcon-confirm" v-if="couponList.length">
-                    <view class="itemcon-confirm">
-                        <view class="item" v-for="item in couponList" :key="item.couTempId">
-                        <view class="item-circle-bot"></view>
-                        <view class="item-circle">
+                <div class="popup-coupon-itemcon coupon-itemcon-confirm" v-if="couponList.length">
+                    <div class="itemcon-confirm">
+                        <div class="item" v-for="item in couponList" :key="item.couTempId">
+                        <div class="item-circle-bot"></div>
+                        <div class="item-circle">
                             <i v-for="item in 20" :key="item"></i>
-                        </view>
-                        <view class="item-left">
-                            <view class="item-left-con">
-                                <view class="item-t">
+                        </div>
+                        <div class="item-left">
+                            <div class="item-left-con">
+                                <div class="item-t">
                                     <em>&yen;</em><span class="big-pri">{{item.useDisAmount | retainedDecimalToNum}}</span><!--span class="small-pri">.00</span-->
-                                </view>
-                                <view class="item-d">
+                                </div>
+                                <div class="item-d">
                                     <template v-if="item.useRuleType === 1">
                                         满&yen;{{item.useOrderAmount}}可用
                                     </template>
                                     <template v-else>
                                         无门槛优惠券
                                     </template>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="item-right">
-                            <view class="item-r-msg">{{item.useRange, item.sendPlat | useRangeToText}}</view>
-                            <view class="item-r-time">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</view>
-                            <!-- <view class="item-r-time" v-else>优惠券到账后{{item.activeDay}}天内有效</view> -->
-                            <view class="item-r-btn">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-right">
+                            <div class="item-r-msg">{{item.useRange, item.sendPlat | useRangeToText}}</div>
+                            <div class="item-r-time">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</div>
+                            <!-- <div class="item-r-time" v-else>优惠券到账后{{item.activeDay}}天内有效</div> -->
+                            <div class="item-r-btn">
                                 <mt-button type="primary" size='small' class="xe-button-primary is-radius" plain @click.prevent="createCoupTempletById(item)">立即使用</mt-button>
-                            </view>
-                        </view>
-                    </view>
-                    </view>
-                    <view class="item-btn" @click.prevent="delCoupTemplet">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="item-btn" @click.prevent="delCoupTemplet">
                         暂不使用优惠券
-                    </view>
-                </view>
+                    </div>
+                </div>
             </xe-popup>
 
             <!--Dialog-->
             <xe-dialog slot="outer" :show.sync="yzmDialog">
-                <view class="yzmcons">
-                    <view class="yzm-input">
-                        <view class="yzm-inputin">
+                <div class="yzmcons">
+                    <div class="yzm-input">
+                        <div class="yzm-inputin">
                             <input type="tel" v-model.trim="orderConfirmTel" maxlength="11" placeholder="客户经理手机号">
-                        </view>
+                        </div>
                         <transition name="slide-in">
-                            <view class="yzm-suggest" v-show="showSuggest">
+                            <div class="yzm-suggest" v-show="showSuggest">
                                 <p v-for="item in suggestData" :key="item.mobile" @click.prevent="suggestClick(item)">{{item.mobile}}({{item.name}})</p>
-                            </view>
+                            </div>
                         </transition>
-                    </view>
-                    <view class="yzm-input">
-                        <view class="yzm-inputin">
+                    </div>
+                    <div class="yzm-input">
+                        <div class="yzm-inputin">
                             <input type="tel" v-model.trim="smsCode" maxlength="4" placeholder="验证码">
-                        </view>
-                        <view class="yzmbtns" :class="{'nodisabled': orderConfirmTel && orderConfirmTel.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</view>
-                    </view>
-                    <view class="yzm-tips-xieyi">
+                        </div>
+                        <div class="yzmbtns" :class="{'nodisabled': orderConfirmTel && orderConfirmTel.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</div>
+                    </div>
+                    <div class="yzm-tips-xieyi">
                         请核对您购买产品的产品名称、产地、产品型号、产品标准(重量、包装)、数量、价格；如有“产品超出保质期、产品严重变质、配送一周未到货三种情况”，您可在2日内，包装完好的情况下，我公司无条件接受退货；其他情形退货，产生的物流费、装卸费以及产品损失由您本人承担。
-                    </view>
-                </view>
+                    </div>
+                </div>
                 <template slot="footer">
-                    <view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>
-                    <view class="m-dialog-btn sure" @click="yzmDialogSure">确认</view>
+                    <div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>
+                    <div class="m-dialog-btn sure" @click="yzmDialogSure">确认</div>
                 </template>
             </xe-dialog>
         </template>
@@ -1347,7 +1347,7 @@
     .corder-total {
         padding: 5/$ppr 20/$ppr;
         font-size: 28/$ppr;
-        > view {
+        > div {
             display: flex;
             justify-content: space-between;
             margin: 15/$ppr 0;

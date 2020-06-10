@@ -1,7 +1,7 @@
 <template>
-    <view class="audit">
+    <div class="audit">
         <h2>{{status}},{{msg}}</h2>
-    </view>
+    </div>
 </template>
 <script>
 export default {

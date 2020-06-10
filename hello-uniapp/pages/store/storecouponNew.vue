@@ -1,51 +1,51 @@
 <template>
     <transition name="slideInRight">
-        <view class="m-stcoupon-con" v-if="couponInfo">
-            <view class="stcoupon-content">
-                <view class="coupon-cons">
-                    <view class="couon-msg">
-                        <view class="store-circle store-circle-top">
+        <div class="m-stcoupon-con" v-if="couponInfo">
+            <div class="stcoupon-content">
+                <div class="coupon-cons">
+                    <div class="couon-msg">
+                        <div class="store-circle store-circle-top">
                             <i v-for="(item, index) in circleNum" :key="index"></i>
-                        </view>
-                        <view class="sname" v-if="couponInfo.sendPlat === 2">
+                        </div>
+                        <div class="sname" v-if="couponInfo.sendPlat === 2">
                             <!-- 发放平台：1、平台 2、商户 -->
                             <span> {{couponInfo.shopName ? couponInfo.shopName : couponInfo.venName}}</span>
-                        </view>
-                        <view class="stime">
-                            <view></view>
+                        </div>
+                        <div class="stime">
+                            <div></div>
                             <p v-if="couponInfo.useTimeType === 1">有限期：{{couponInfo.activeTimeStart}} - {{couponInfo.activeTimeEnd}}</p>
                             <p v-else>优惠券到账后{{couponInfo.activeDay}}天内有效</p>
-                            <view></view>
-                        </view>
-                        <view class="spri">
+                            <div></div>
+                        </div>
+                        <div class="spri">
                             &yen; {{couponInfo.useDisAmount | toFixed2}}
-                        </view>
-                        <view class="sdesc" v-if="couponInfo.useRuleType === 1">
+                        </div>
+                        <div class="sdesc" v-if="couponInfo.useRuleType === 1">
                             满&yen;{{couponInfo.useOrderAmount}}减&yen;{{couponInfo.useDisAmount}}
-                        </view>
-                        <view class="sdesc" v-else>
+                        </div>
+                        <div class="sdesc" v-else>
                             无门槛优惠券
-                        </view>
-                        <view class="store-circle store-circle-bottom">
+                        </div>
+                        <div class="store-circle store-circle-bottom">
                             <i v-for="(item, index) in circleNum" :key="index"></i>
-                        </view>
+                        </div>
                         <!-- 店铺 -->
-                        <view v-if="couponInfo.shopName" class="stcoupon-icon xe-iconfont xe-icon-dian"></view>
+                        <div v-if="couponInfo.shopName" class="stcoupon-icon xe-iconfont xe-icon-dian"></div>
                         <!-- 使用状态 1 已使用 2 未使用 3 已过期 -->
                         <!-- 已过期 -->
-                        <view v-if="parseFloat($route.query.useStatus) == 3" class="cxcoupon-icon xe-iconfont xe-icon-yiguoqi"></view>
+                        <div v-if="parseFloat($route.query.useStatus) == 3" class="cxcoupon-icon xe-iconfont xe-icon-yiguoqi"></div>
                         <!-- 已使用 -->
-                        <view v-if="parseFloat($route.query.useStatus) == 1" class="cxcoupon-icon xe-iconfont xe-icon-yishiyong"></view>
+                        <div v-if="parseFloat($route.query.useStatus) == 1" class="cxcoupon-icon xe-iconfont xe-icon-yishiyong"></div>
                         <!-- 已使用 -->
-                        <view v-if="parseFloat($route.query.sendStatus) == 3" class="cxcoupon-icon xe-iconfont xe-icon-yilingwan"></view>
-                    </view>
-                    <view class="stcoupon-des" v-if="couponInfo.usePlat">
+                        <div v-if="parseFloat($route.query.sendStatus) == 3" class="cxcoupon-icon xe-iconfont xe-icon-yilingwan"></div>
+                    </div>
+                    <div class="stcoupon-des" v-if="couponInfo.usePlat">
                         <h4>使用平台</h4>
                         <p>
                             {{couponInfo.usePlat | usePlatToText}}
                         </p>
-                    </view>
-                    <view class="stcoupon-des">
+                    </div>
+                    <div class="stcoupon-des">
                         <h4>适用商品</h4>
                         <p>
                             <!-- 店铺券 -->
@@ -61,12 +61,12 @@
                                 <span v-else>可购买如来云商全部商品</span>
                             </template>
                         </p>
-                    </view>
-                    <view class="stcoupon-des">
+                    </div>
+                    <div class="stcoupon-des">
                         <h4>适用范围</h4>
                         <p>{{couponInfo.useAreaName}}</p>
-                    </view>
-                    <view class="stcoupon-des" v-if="couponInfo.sendType === 2">
+                    </div>
+                    <div class="stcoupon-des" v-if="couponInfo.sendType === 2">
                         <h4>领取条件</h4>
                         <p>
                             <!--  "sendPlat":1,//发放平台：1、平台 2、商户 -->
@@ -82,24 +82,24 @@
                                 <span  v-if="couponInfo.sendRule == 3">首次身份认证成功发放</span>
                             </template>
                         </p>
-                    </view>
-                    <view class="stcoupon-des" v-if="couponInfo.useRuleType === 2">
+                    </div>
+                    <div class="stcoupon-des" v-if="couponInfo.useRuleType === 2">
                         <h4>使用条件</h4>
                         <p>
                             订单金额大于优惠券金额可用
                         </p>
-                    </view>
-                </view>
-            </view>
-            <view class="stcoupon-btns" v-if="parseFloat($route.query.type) == 0">
+                    </div>
+                </div>
+            </div>
+            <div class="stcoupon-btns" v-if="parseFloat($route.query.type) == 0">
                 <mt-button v-if="couponInfo.sendType == 2 && couponInfo.sendPlat == 1 && couponInfo.sendRule == 3" class="xe-button-primary" type="primary" style="width: 100%;" @click.prevent="toPerson">立即认证</mt-button>
                 <mt-button v-if="couponInfo.sendType == 2 && couponInfo.sendRule !== 3" class="xe-button-primary" type="primary" style="width: 100%;" @click.prevent="buynow">开始采购</mt-button>
                 <mt-button v-if="couponInfo.sendType == 1 && parseFloat($route.query.sendStatus) != 3" class="xe-button-primary" type="primary" style="width: 100%;" @click.prevent="getCoupon">立即领取</mt-button>
-            </view>
-            <view class="stcoupon-btns" v-if="parseFloat($route.query.type) == 2">
+            </div>
+            <div class="stcoupon-btns" v-if="parseFloat($route.query.type) == 2">
                 <mt-button class="xe-button-primary" type="primary" style="width: 100%;" @click.prevent="useCoupon">去使用</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
     </transition>
 </template>
 <script type="text/ecmascript-6">
@@ -279,7 +279,7 @@
                 flex: 1;
                 font-size: 20/$ppr;
             }
-            view {
+            div {
                 width: 120/$ppr;
                 flex: 0 0 120/$ppr;
                 border: 1/$ppr solid #fff;

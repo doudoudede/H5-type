@@ -1,38 +1,38 @@
 <template>
     <xe-layout  class="m-flexlay person-befor">
-        <view>
-            <view class="authen-content">
-                <view class="authen-tithea">
+        <div>
+            <div class="authen-content">
+                <div class="authen-tithea">
                     欢迎进行身份认证，您需要操作以下步骤
-                </view>
-                <view class="authen-flor">
+                </div>
+                <div class="authen-flor">
                     <ul>
                         <li class="flor-lis">
-                            <view class="flor-tit"><span class="flor-num">1</span>填写基本信息</view>
-                            <view class="flor-con">姓名、手机、店铺名称、地址</view>
+                            <div class="flor-tit"><span class="flor-num">1</span>填写基本信息</div>
+                            <div class="flor-con">姓名、手机、店铺名称、地址</div>
                         </li>
                         <li class="flor-lis">
-                            <view class="flor-tit"><span class="flor-num">2</span>填写业务信息</view>
-                            <view class="flor-con">用户类型、性质、主营、证照</view>
+                            <div class="flor-tit"><span class="flor-num">2</span>填写业务信息</div>
+                            <div class="flor-con">用户类型、性质、主营、证照</div>
                         </li>
                         <li class="flor-lis">
-                            <view class="flor-tit"><span class="flor-num">3</span>提交审核</view>
-                            <view class="flor-con">选择客户经理</view>
+                            <div class="flor-tit"><span class="flor-num">3</span>提交审核</div>
+                            <div class="flor-con">选择客户经理</div>
                         </li>
                     </ul>
-                </view>
-                <view class="authen-mescon">
+                </div>
+                <div class="authen-mescon">
                     <xe-checkbox size="" v-model="checkedAll">
                         <i>阅读并接受</i><router-link tag="a" :to="{name: 'AuthSupport'}">
                             《如来云商身份认证服务协议》
                         </router-link> <i>所有条款</i>
                     </xe-checkbox>
-                </view>
-            </view>
-            <view class="person-repeat">
+                </div>
+            </div>
+            <div class="person-repeat">
                 <mt-button class="xe-button-primary" @click.prevent="goCategory">开始身份认证</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

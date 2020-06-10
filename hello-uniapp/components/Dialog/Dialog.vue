@@ -1,20 +1,20 @@
 <template>
-    <view class="m-dialog">
+    <div class="m-dialog">
         <transition name="fadein">
-            <view v-show="showBox" class="m-mask-bg" @click.stop="close" @touchmove.prevent></view>
+            <div v-show="showBox" class="m-mask-bg" @click.stop="close" @touchmove.prevent></div>
         </transition>
         <transition name="slideMoveIn">
-            <view v-show="showBox" class="m-dialog-box">
-                <view class="m-dialog-close" v-show='showClose' @click.prevent="close"><span class="xe-iconfont xe-icon-guanbi"></span></view>
-                <view class="m-dialog-content">
+            <div v-show="showBox" class="m-dialog-box">
+                <div class="m-dialog-close" v-show='showClose' @click.prevent="close"><span class="xe-iconfont xe-icon-guanbi"></span></div>
+                <div class="m-dialog-content">
                     <slot></slot>
-                </view>
-                <view class="m-dialog-footer" v-if="$slots.footer">
+                </div>
+                <div class="m-dialog-footer" v-if="$slots.footer">
                     <slot name="footer"></slot>
-                </view>
-            </view>
+                </div>
+            </div>
         </transition>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default {

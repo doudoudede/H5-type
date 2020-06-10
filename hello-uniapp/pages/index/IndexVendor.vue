@@ -1,35 +1,35 @@
 <template>
-    <view class="vendor-content">
-        <!-- <view class="vendor-tite">
+    <div class="vendor-content">
+        <!-- <div class="vendor-tite">
             <img src="../../static/images/vendorFont.png" alt=""><span class="big_fot">&nbsp;好商推荐</span>&nbsp;&nbsp;平台精选商家 你值得拥有！
-        </view> -->
-        <view class="vendor-main-box" v-if="vendorData.length">
+        </div> -->
+        <div class="vendor-main-box" v-if="vendorData.length">
             <swiper :options="swiperOption" ref="swiperControl">
                 <swiper-slide class="swiper-item" v-for="(item, index) in vendorData" :key="index">
-                    <router-link tag="view" :to="{name: 'Store', query: {userCode: item.userCode}}" style="width: 100%">
-                        <view class="vendor-item-box" :style="{background: 'url(' + picServer + item.shopLogo + ')' + 'center no-repeat', backgroundSize: 'cover'}">
-                            <view class="vendor-order-numCon">
+                    <router-link tag="div" :to="{name: 'Store', query: {userCode: item.userCode}}" style="width: 100%">
+                        <div class="vendor-item-box" :style="{background: 'url(' + picServer + item.shopLogo + ')' + 'center no-repeat', backgroundSize: 'cover'}">
+                            <div class="vendor-order-numCon">
                                 <span>{{item.proCount}}件商品</span>
                                 <span>月销{{item.orderCount}}单</span>
-                            </view>
-                            <view class="vendor-proItem-box" v-if="item.proSpuInfo.length">
-                                <router-link tag="view" class="pro-flr"  v-for="(items, indexs) in item.proSpuInfo" v-if="indexs <= 2" :key="items.proSpu" :to="{name: 'ProductDetails', params: {prospu: items.proSpu}}">
-                                    <view class="pro-imgCon">
+                            </div>
+                            <div class="vendor-proItem-box" v-if="item.proSpuInfo.length">
+                                <router-link tag="div" class="pro-flr"  v-for="(items, indexs) in item.proSpuInfo" v-if="indexs <= 2" :key="items.proSpu" :to="{name: 'ProductDetails', params: {prospu: items.proSpu}}">
+                                    <div class="pro-imgCon">
                                         <img :src="picServerPro + items.proMainImg">
                                         <!-- <span class="hot-sub">HOT</span> -->
-                                    </view>
-                                    <view class="pro-titCon">{{items.proName}}</view>
-                                    <view class="pro-priCon">¥&nbsp;<span>{{items.areaPrice | moneySkinToText('rmbs')}}</span></view>
+                                    </div>
+                                    <div class="pro-titCon">{{items.proName}}</div>
+                                    <div class="pro-priCon">¥&nbsp;<span>{{items.areaPrice | moneySkinToText('rmbs')}}</span></div>
                                 </router-link>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </router-link>
-                    <view class="swiper-lazy-preloader" v-if="!picServer"></view>
+                    <div class="swiper-lazy-preloader" v-if="!picServer"></div>
                 </swiper-slide>
-                <view class="swiper-pagination" slot="pagination"></view>
+                <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
-        </view>
-    </view>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import VendorCon from 'components/vendor/VendorCon';

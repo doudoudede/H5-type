@@ -30,7 +30,7 @@ function touchstart(e, ins) {
 	var pageX = e.touches[0].pageX;
 	// 开始触摸时移除动画类
 	instance.removeClass('ani');
-	var owner = ins.selectAllComponents('.button-hock')
+	var owner = ins.selectallComponents('.button-hock')
 	for (var i = 0; i < owner.length; i++) {
 		owner[i].removeClass('ani');
 	}
@@ -134,7 +134,7 @@ function moveDirection(left, value, ins, ownerInstance) {
  * @param {Object} ownerInstance
  */
 function buttonFold(value, instance, ownerInstance) {
-	var ins = ownerInstance.selectAllComponents('.button-hock');
+	var ins = ownerInstance.selectallComponents('.button-hock');
 	var state = instance.getState();
 	var position = state.position;
 	var arr = [];
@@ -186,7 +186,7 @@ function openState(type, ins, ownerInstance) {
 
 	// 添加动画类
 	ins.addClass('ani');
-	var owner = ownerInstance.selectAllComponents('.button-hock')
+	var owner = ownerInstance.selectallComponents('.button-hock')
 	for (var i = 0; i < owner.length; i++) {
 		owner[i].addClass('ani');
 	}

@@ -1,80 +1,80 @@
 <template>
     <xe-layout class="m-page-category m-flexlay">
-        <view class="m-cate-search" slot="header">
-            <view class="m-index-searchcons m-content-view">
-                <router-link tag="view" class="adrres" :to="{name: 'Location', query: {redirect: $route.fullPath}}">
+        <div class="m-cate-search" slot="header">
+            <div class="m-index-searchcons m-content-div">
+                <router-link tag="div" class="adrres" :to="{name: 'Location', query: {redirect: $route.fullPath}}">
                    <img  class="img " src="../../static/images/location.png" alt="">
-                    <view>{{cityName}}</view>
+                    <div>{{cityName}}</div>
                 </router-link>
-                <router-link tag="view" class="con" :to="{name: 'Search'}">
+                <router-link tag="div" class="con" :to="{name: 'Search'}">
                     <input type="text" value="搜索">
                     <span class="xe-iconfont xe-icon-sousuo"></span>
                 </router-link>
-            </view>
-        </view>
-        <view  class="m-category-con m-content-view">
+            </div>
+        </div>
+        <div  class="m-category-con m-content-div">
             <swiper class="swiper-container-typeOne" id="swiperControls" :options="swiperOption" ref="swiperControls">
                 <swiper-slide  
                     v-for="item in cateList"
                     :key="item.cateId"
                 >
-                    <view class="m-nav-flr" :class="{'active': item.cateId === onceTemp.cateId}">
+                    <div class="m-nav-flr" :class="{'active': item.cateId === onceTemp.cateId}">
                         <p>{{item.cateName}}</p>
-                    </view>
+                    </div>
                 </swiper-slide>
             </swiper>
             <mt-spinner v-if="!filterCateListed.length" class="sp-bounce"></mt-spinner>
-            <view class="m-category-right">
-                <view class="m-category-listcon" ref="mCatelistcon">
-                    <view v-if="cateProductList.length">
-                        <view class="proImg-box">
+            <div class="m-category-right">
+                <div class="m-category-listcon" ref="mCatelistcon">
+                    <div v-if="cateProductList.length">
+                        <div class="proImg-box">
                             <img src="../../static/images/catetory.png" alt="">
-                        </view>
-                        <view class="proList-content">
+                        </div>
+                        <div class="proList-content">
                          
  
-  <view  v-for="item in second"   >
+  <div  v-for="item in second"   >
                        <h2 class="with_lineTitle"> <span class="line"></span> 　<span class="Tbox">{{item.cateName}}</span> <span class="line"></span></h2>
  
 　 
  
-   <view class="pro-item-box"  v-for="(it,index) in item.threeList" :key=index   @click.prevent="goCatThreetails(it)">
-                                <view class="pro-img" v-if="it.cateImg">
+   <div class="pro-item-box"  v-for="(it,index) in item.threeList" :key=index   @click.prevent="goCatThreetails(it)">
+                                <div class="pro-img" v-if="it.cateImg">
                                     <img :src="picServer + it.cateImg" alt="">
-                                </view>
-                                <view class="pro-name">{{it.cateName}}</view>
+                                </div>
+                                <div class="pro-name">{{it.cateName}}</div>
 
-                            </view> 
+                            </div> 
 
 
 
-</view   >  
+</div   >  
 
-                        </view>
-                    </view>
-                    <view v-if="!cateProductList.length" class="m-cart-none">
-                        <view class="pic">
+                        </div>
+                    </div>
+                    <div v-if="!cateProductList.length" class="m-cart-none">
+                        <div class="pic">
                             <img src="../../static/images/cart-n1.png" alt="">
-                        </view>
-                        <view class="des">
+                        </div>
+                        <div class="des">
                             <p class="f32">暂无商品</p>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="m-cart-none" v-if=" ! cateList ">
-            <view class="pic2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-cart-none" v-if=" ! cateList ">
+            <div class="pic2">
                 <img src="../../static/images/cart-n2.png" alt="">
-            </view>
-            <view class="des">
+            </div>
+            <div class="des">
                 <p class="f32">该城市暂无在售商品</p>
                 <p class="f28">去其他城市看看吧~</p>
-            </view>
-            <view class="btn">
+            </div>
+            <div class="btn">
                 <mt-button class="xe-button-default" size="small" plain @click.prevent="toLocation">切换城市</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">
@@ -501,8 +501,8 @@
             }
         }
     }
-   .m-index-searchcons.m-content-view{background: #1B8EEF}
-   .proList-content>view {display: block;width:100%;}
+   .m-index-searchcons.m-content-div{background: #1B8EEF}
+   .proList-content>div {display: block;width:100%;}
    .demo_line_01{
   
 color: #999;

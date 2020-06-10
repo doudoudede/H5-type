@@ -1,29 +1,29 @@
 <template>
     <xe-layout>
         <FixedCart slot="header"></FixedCart>
-        <view class="m-content-view" v-if="oftenProData.length">
+        <div class="m-content-div" v-if="oftenProData.length">
             <proItem
                 v-for="(item, index) in oftenProData"
                 :key="index"
                 :picServerPro="picServerPro"
                 :itemData="item"
             ></proItem>
-        </view>
+        </div>
         <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
             <span slot="no-more" class="infinite-no-more">
                 没有更多了~
             </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">暂无常购商品~</p>
-                </view>
-                <view class="btn">
+                </div>
+                <div class="btn">
                     <mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>
-                </view>
-            </view>
+                </div>
+            </div>
         </infinite-loading>
     </xe-layout>
 </template>

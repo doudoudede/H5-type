@@ -1,69 +1,69 @@
 <template>
     <xe-layout class="m-flexlay">
-        <view class="m-content-view">
-            <view class="m-sec-banner">
+        <div class="m-content-div">
+            <div class="m-sec-banner">
                 <img src="../../static/images/pindaomiaosha.jpg" alt="">
-            </view>
-            <view class="m-sec-list">
-                <view class="item" v-for="(item, index) in startList" :key="index" @click.prevent="goDetails(item)">
-                    <view class="item-procon">
-                        <view class="pic">
+            </div>
+            <div class="m-sec-list">
+                <div class="item" v-for="(item, index) in startList" :key="index" @click.prevent="goDetails(item)">
+                    <div class="item-procon">
+                        <div class="pic">
                             <img v-lazy="picServer + item.proMainImg" alt="">
-                        </view>
-                        <view class="msg">
-                            <view class="proname">
+                        </div>
+                        <div class="msg">
+                            <div class="proname">
                                 <span class="xe-iconfont xe-icon-miaoshafuben coupon-style-icon"></span>
                                 {{item.proName}}
-                            </view>
-                            <view class="pro-des">
+                            </div>
+                            <div class="pro-des">
                                 {{item.shopName}}
-                            </view>
-                            <view class="pro-spce">
+                            </div>
+                            <div class="pro-spce">
                                 规格：{{item.specValue ? item.specValue : '无'}}
-                            </view>
-                            <view class="pro-prcent">
+                            </div>
+                            <div class="pro-prcent">
                                 <span class='pr' :style="'width:' + item.prePercent + '%'"></span>
-                            </view>
-                            <view class="pro-price">
+                            </div>
+                            <div class="pro-price">
                                 <span class="price" v-html="splitPrice(item.skuPrice ? item.skuPrice : 0)"></span><em class="unit" v-if="item.proUnit">/{{item.proUnit}}</em>
                                 <s class="del">&yen;{{item.costPrice}}</s>
-                            </view>
-                            <view class="pro-btn">
+                            </div>
+                            <div class="pro-btn">
                                 <a href="#" class="gotoBuy">去抢购</a>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view slot="no-results" class="m-cart-none" v-if="!startList || startList.length === 0">
-                <view class="pic">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div slot="no-results" class="m-cart-none" v-if="!startList || startList.length === 0">
+                <div class="pic">
                     <img src="../../static/images/cart-n2.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">当前城市暂无秒杀活动~</p>
-                </view>
-                <view style="text-align: center">
+                </div>
+                <div style="text-align: center">
                     <mt-button class="xe-button-default" size="small" plain @click.prevent="goLocal">切换城市</mt-button>
                     <mt-button class="xe-button-default xe-button-red" size="small" plain @click.prevent="goCategory">随便逛逛</mt-button>
-                </view>
-            </view>
+                </div>
+            </div>
             <!--<infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">-->
                 <!--<span slot="no-more" class="infinite-no-more">-->
                     <!--暂无更多数据~-->
                 <!--</span>-->
-            <!--<view slot="no-results" class="m-cart-none">-->
-                <!--<view class="pic">-->
+            <!--<div slot="no-results" class="m-cart-none">-->
+                <!--<div class="pic">-->
                     <!--<img src="../../static/images/cart-n1.png" alt="">-->
-                <!--</view>-->
-                <!--<view class="des">-->
+                <!--</div>-->
+                <!--<div class="des">-->
                     <!--<p class="f32">当前城市暂无秒杀活动~</p>-->
-                <!--</view>-->
-                <!--<view class="btn">-->
+                <!--</div>-->
+                <!--<div class="btn">-->
                 <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-                <!--</view>-->
-            <!--</view>-->
+                <!--</div>-->
+            <!--</div>-->
         <!--</infinite-loading>-->
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script>

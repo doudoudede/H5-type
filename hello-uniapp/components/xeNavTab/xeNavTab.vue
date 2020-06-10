@@ -1,5 +1,5 @@
 <template>
-    <view class="xe-navtab-contanier">
+    <div class="xe-navtab-contanier">
         <swiper :options="swiperOption" class="xe-navtab-con" :class="{'showarrow': showArrow}" ref="swiperControl">
             <swiper-slide
                 :class="{'current': activeIndex === index}"
@@ -9,8 +9,8 @@
                 <span>{{item.name}}</span>
             </swiper-slide>
         </swiper>
-        <view v-if="showArrow" class="xe-navtab-arrow xe-iconfont xe-icon-unfold"></view>
-    </view>
+        <div v-if="showArrow" class="xe-navtab-arrow xe-iconfont xe-icon-unfold"></div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import { swiper, swiperSlide } from 'vue-awesome-swiper';

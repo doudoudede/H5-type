@@ -1,7 +1,7 @@
 <template>
-    <view class="van-radio-group">
+    <div class="van-radio-group">
         <slot></slot>
-    </view>
+    </div>
 </template>
 
 <script>

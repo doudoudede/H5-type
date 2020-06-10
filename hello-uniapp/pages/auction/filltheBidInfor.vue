@@ -1,80 +1,80 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="fillTheBidInfor">
-            <view class="auction-endTimeshow">
+        <div class="fillTheBidInfor">
+            <div class="auction-endTimeshow">
                 <span class="xe-iconfont xe-icon-jingpai"></span>
                 &nbsp;正在竞价&nbsp;&nbsp;距结束 <xe-countdown timetype="second" :time="+this.$route.query.disEndTime">
                     <span><u>{%d}</u><i>天</i></span><span><u>{%h}</u><i>时</i></span><span><u>{%m}</u><i>分</i></span><span><u>{%s}</u><i>秒</i></span>
                 </xe-countdown>
-            </view>
-            <view class="fillBidInfor-content">
+            </div>
+            <div class="fillBidInfor-content">
                 <ul>
                     <li>
-                        <view class="labs-how">竞拍价格</view>
-                        <view class="loab-con">
+                        <div class="labs-how">竞拍价格</div>
+                        <div class="loab-con">
                             <input type="text" :maxlength="10" v-model="formData.bidPrice" @blur="inpuNumberFun($event)" placeholder="请输入">
-                        </view>
+                        </div>
                     </li>
                     <li  class="sty-padi">
-                        <view class="labs-how"></view>
-                        <view class="loab-con">
+                        <div class="labs-how"></div>
+                        <div class="loab-con">
                             <xe-radio-group v-model="formData.currency" @change="currencyChange">
                                 <xe-radio v-for="(item, index) in currencyList" :key="index" :label="item.id">{{item.name}}</xe-radio>
                             </xe-radio-group>
-                        </view>
+                        </div>
                     </li>
                     <li>
-                        <view class="labs-how">竞拍数量</view>
-                        <view class="loab-con">
+                        <div class="labs-how">竞拍数量</div>
+                        <div class="loab-con">
                             <input type="tel" :maxlength="3" @blur="inpubidNumFun($event)"  v-model="formData.bidNum" :placeholder="bidNumplaceholder">
-                        </view>
+                        </div>
                     </li>
                     <li>
-                        <view class="labs-how">提货港口</view>
-                        <view class="loab-con">
+                        <div class="labs-how">提货港口</div>
+                        <div class="loab-con">
                             <label for="portId">
                                 <select v-model="formData.portId" placeholder="请选择" id="portId">
                                     <option value="" disabled>请选择</option>
                                     <option v-for="(item, index) in portList" :key="index" :value="item.id">{{item.name}}</option>
                                 </select>
-                                <view class="arrow-sp arrow-right-commons" for="portId"></view>
+                                <div class="arrow-sp arrow-right-commons" for="portId"></div>
                             </label>
-                        </view>
+                        </div>
                     </li>
                     <li v-if="formData.portId === 7">
-                        <view class="labs-how"></view>
-                        <view class="loab-con">
+                        <div class="labs-how"></div>
+                        <div class="loab-con">
                             <input type="text" :maxlength="20" v-model="formData.portInfo" placeholder="请备注提货港口">
-                        </view>
+                        </div>
                     </li>
                     <li v-if="shipmentList.length">
-                        <view class="labs-how">选择船期</view>
-                        <view class="loab-con">
+                        <div class="labs-how">选择船期</div>
+                        <div class="loab-con">
                             <label for="shipment">
                                 <select name="" v-model="formData.shipment" id="shipment">
                                     <option value="" disabled selected>请选择</option>
                                     <option v-for="(item, index) in shipmentList" :key="index" :value="item">{{item}}月</option>
                                 </select>
-                                <view class="arrow-sp arrow-right-commons"></view>
+                                <div class="arrow-sp arrow-right-commons"></div>
                             </label>
-                        </view>
+                        </div>
                     </li>
                 </ul>
-            </view>
-            <view class="m-login-xy read-only">
+            </div>
+            <div class="m-login-xy read-only">
                 <xe-checkbox v-model="checkBox">
-                    <view class="con">我已阅读并同意
+                    <div class="con">我已阅读并同意
                         <router-link :to="{name: 'bidRules'}">《如来云商招标投标活动管理规则》</router-link>
                         <router-link :to="{name: 'biddingAgreement'}">《招标服务协议》</router-link>
                         <router-link :to="{name: 'bidAgreement'}">《竞标服务协议》</router-link>
-                    </view>
+                    </div>
                 </xe-checkbox>
-            </view>
-            <view class="auction-footer-btn">
+            </div>
+            <div class="auction-footer-btn">
                 <mt-button class="xe-button-white" @click.prevent="goBackFn()">取消竞价</mt-button>
                 <mt-button class="xe-button-primary xe-button-5230" :disabled='!checkBox' @click.prevent="formSubmit">确定竞价</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">
@@ -420,7 +420,7 @@
                         .van-radio__label {
                             font-size: 32/$ppr;
                         }
-                        >view:first-child{
+                        >div:first-child{
                             margin-right: 112/$ppr;
                         }
                     }

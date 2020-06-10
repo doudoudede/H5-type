@@ -1,16 +1,16 @@
 <template>
-    <view>
-        <view style="height: 500px; margin: 10px 0; background: red">1</view>
-        <view style="height: 500px; margin: 10px 0; background: red">2</view>
-        <view style="height: 500px; margin: 10px 0; background: red">3</view>
-        <view style="height: 500px; margin: 10px 0; background: red">4</view>
-        <view style="height: 500px; margin: 10px 0; background: red">5</view>
+    <div>
+        <div style="height: 500px; margin: 10px 0; background: red">1</div>
+        <div style="height: 500px; margin: 10px 0; background: red">2</div>
+        <div style="height: 500px; margin: 10px 0; background: red">3</div>
+        <div style="height: 500px; margin: 10px 0; background: red">4</div>
+        <div style="height: 500px; margin: 10px 0; background: red">5</div>
         <router-link :to="{name: 'Details'}">跳转详情页</router-link>
-        <view style="height: 500px; margin: 10px 0; background: red">6</view>
-        <view id="aaa" style="height: 500px; margin: 10px 0; background: red">7</view>
-        <view style="height: 500px; margin: 10px 0; background: red">8</view>
-        <view style="height: 500px; margin: 10px 0; background: red">9</view>
-    </view>
+        <div style="height: 500px; margin: 10px 0; background: red">6</div>
+        <div id="aaa" style="height: 500px; margin: 10px 0; background: red">7</div>
+        <div style="height: 500px; margin: 10px 0; background: red">8</div>
+        <div style="height: 500px; margin: 10px 0; background: red">9</div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default {};

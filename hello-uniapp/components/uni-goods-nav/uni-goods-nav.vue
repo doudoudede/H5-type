@@ -29,8 +29,8 @@
 	 * GoodsNav 商品导航
 	 * @description 商品加入购物车、立即购买等
 	 * @tutorial https://ext.dcloud.net.cn/plugin?id=865
-	 * @property {Array} options 组件参数
-	 * @property {Array} buttonGroup 组件按钮组参数
+	 * @property {array} options 组件参数
+	 * @property {array} buttonGroup 组件按钮组参数
 	 * @property {Boolean} fill = [true | false] 组件按钮组参数
 	 * @event {Function} click 左侧点击事件
 	 * @event {Function} buttonClick 右侧按钮组点击事件
@@ -43,7 +43,7 @@
 		},
 		props: {
 			options: {
-				type: Array,
+				type: array,
 				default () {
 					return [{
 						icon: 'shop',
@@ -55,7 +55,7 @@
 				}
 			},
 			buttonGroup: {
-				type: Array,
+				type: array,
 				default () {
 					return [{
 							text: '加入购物车',
@@ -98,14 +98,14 @@
 
 <style scoped>
 	.flex {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
 	}
 
 	.uni-goods-nav {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -135,7 +135,7 @@
 	}
 
 	.uni-tab__cart-button-left {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		/* flex: 1;
@@ -164,7 +164,7 @@
 	}
 
 	.uni-tab__cart-button-right {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		flex-direction: column;
 		/* #endif */
@@ -183,7 +183,7 @@
 	}
 
 	.uni-tab__dot-box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		flex-direction: column;
 		/* #endif */

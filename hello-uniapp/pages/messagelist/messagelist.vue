@@ -1,33 +1,33 @@
 <template>
     <xe-layout class="m-bg-dark">
         <template v-if="msgRecordList.length">
-            <view class="m-msglist-item" v-for="(item, index) in msgRecordList">
-                <view class="m-msglist-date">
+            <div class="m-msglist-item" v-for="(item, index) in msgRecordList">
+                <div class="m-msglist-date">
                     <span>{{item.createDate | uploadTimeFormat}}</span>
-                </view>
-                <view class="m-msglist-con" @click.prevent="navtodet(item)">
+                </div>
+                <div class="m-msglist-con" @click.prevent="navtodet(item)">
                     <h3>{{item.msgTitle}}</h3>
-                    <view class="content">
-                        <view class="msg-pic" :class="'notice' + item.msgSuitType.toString() + item.status"></view>
-                        <view class="msg-text">
+                    <div class="content">
+                        <div class="msg-pic" :class="'notice' + item.msgSuitType.toString() + item.status"></div>
+                        <div class="msg-text">
                             {{item.msgContent}}
-                        </view>
-                    </view>
-                </view>
-            </view>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </template>
         <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
             <span slot="no-more" class="infinite-no-more">
                 没有更多了~
             </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">暂无系统消息~</p>
-                </view>
-            </view>
+                </div>
+            </div>
         </infinite-loading>
     </xe-layout>
 </template>

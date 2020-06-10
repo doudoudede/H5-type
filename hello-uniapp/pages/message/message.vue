@@ -1,36 +1,36 @@
 <template>
     <xe-layout class="m-bg-dark">
-        <view class="m-msg-item">
-            <view class="m-list-block">
+        <div class="m-msg-item">
+            <div class="m-list-block">
                 <ul>
                     <router-link tag="li" :to="{name: 'MessageList'}" class="item-content align-right item-link align-center">
-                        <view class="item-media"><i class="xe-iconfont xe-icon-xtxx color1"></i></view>
-                        <view class="item-inner">
-                            <view class="item-title f32">系统消息</view>
-                            <view class="item-after">
-                                <view class="badge" v-if="systemCount > 0">{{systemCount}}</view>
-                            </view>
-                        </view>
+                        <div class="item-media"><i class="xe-iconfont xe-icon-xtxx color1"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title f32">系统消息</div>
+                            <div class="item-after">
+                                <div class="badge" v-if="systemCount > 0">{{systemCount}}</div>
+                            </div>
+                        </div>
                     </router-link>
                     <!--<li class="item-content align-right item-link align-center">-->
-                        <!--<view class="item-media"><i class="xe-iconfont xe-icon-ggtz color2"></i></view>-->
-                        <!--<view class="item-inner">-->
-                            <!--<view class="item-title f32">公告通知</view>-->
-                            <!--<view class="item-after">-->
-                                <!--<view class="badge">99</view>-->
-                            <!--</view>-->
-                        <!--</view>-->
+                        <!--<div class="item-media"><i class="xe-iconfont xe-icon-ggtz color2"></i></div>-->
+                        <!--<div class="item-inner">-->
+                            <!--<div class="item-title f32">公告通知</div>-->
+                            <!--<div class="item-after">-->
+                                <!--<div class="badge">99</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     <!--</li>-->
                     <li class="item-content align-right item-link align-center" @click.prevent="toKeFu">
-                        <view class="item-media"><i class="xe-iconfont xe-icon-kefu1 color3"></i></view>
-                        <view class="item-inner">
-                            <view class="item-title f32">在线客服</view>
-                            <view class="item-after"></view>
-                        </view>
+                        <div class="item-media"><i class="xe-iconfont xe-icon-kefu1 color3"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title f32">在线客服</div>
+                            <div class="item-after"></div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

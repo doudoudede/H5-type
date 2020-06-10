@@ -41,7 +41,7 @@
 				default: ''
 			},
 			candidates: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -115,7 +115,7 @@
 
 <style scoped>
 	.uni-combox {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		height: 40px;
@@ -134,7 +134,7 @@
 
 	.uni-combox__input-box {
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -185,7 +185,7 @@
 
 	.uni-combox__selector-empty,
 	.uni-combox__selector-item {
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		line-height: 36px;

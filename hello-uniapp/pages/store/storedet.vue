@@ -1,15 +1,15 @@
 <template>
     <transition name="slideInRight">
-        <view class="storedet-con" v-if="venShopInfo">
-            <view class="m-shop-details">
-                <view class="shop-tit">
-                    <view class="shop-pic">
+        <div class="storedet-con" v-if="venShopInfo">
+            <div class="m-shop-details">
+                <div class="shop-tit">
+                    <div class="shop-pic">
                         <img v-if="venShopInfo.shopLogo" :src="logoPicServer + venShopInfo.shopLogo" alt="">
                         <img v-else src="../../static/images/default.png" alt="">
-                    </view>
-                    <view class="shop-name"> {{venShopInfo.shopName}}</view>
-                </view>
-                <view class="shop-introduction" v-if="venShopInfo.comDesc">
+                    </div>
+                    <div class="shop-name"> {{venShopInfo.shopName}}</div>
+                </div>
+                <div class="shop-introduction" v-if="venShopInfo.comDesc">
                     <p>
                         {{venShopInfo.comDesc.slice(0, 120)}}
                     </p>
@@ -18,91 +18,91 @@
                             {{venShopInfo.comDesc.slice(120)}}
                         </p>
                     </CollapseTransition>
-                </view>
-                <view class="shop-allDetail-contro" v-if="venShopInfo.comDesc && venShopInfo.comDesc.length >= 120" @click="showFlag = !showFlag">
+                </div>
+                <div class="shop-allDetail-contro" v-if="venShopInfo.comDesc && venShopInfo.comDesc.length >= 120" @click="showFlag = !showFlag">
                     <span class="xe-iconfont xe-icon-triangle" :class="{'ralateDeg': showFlag}"></span>
-                </view>
-            </view>
-            <view class="det-item">
-                <view class="m-list-block">
+                </div>
+            </div>
+            <div class="det-item">
+                <div class="m-list-block">
                     <ul>
                         <!-- <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">店铺名称</view>
-                                <view class="item-text2">{{venShopInfo.shopName}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">店铺名称</div>
+                                <div class="item-text2">{{venShopInfo.shopName}}</div>
+                            </div>
                         </li> -->
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">店主信息</view>
-                                <view class="item-text2">{{venShopInfo.userName}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">店主信息</div>
+                                <div class="item-text2">{{venShopInfo.userName}}</div>
+                            </div>
                         </li>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">联系方式</view>
-                                <view class="item-text2">{{venShopInfo.userPhone.substr(0, 3) + '****' + venShopInfo.userPhone.substr(7)}}</view>
+                            <div class="item-inner">
+                                <div class="item-title">联系方式</div>
+                                <div class="item-text2">{{venShopInfo.userPhone.substr(0, 3) + '****' + venShopInfo.userPhone.substr(7)}}</div>
                                 <a class="phonecall xe-iconfont xe-icon-phone" :href="'tel:' + venShopInfo.userPhone"></a>
-                            </view>
+                            </div>
                         </li>
                         <!--<li class="item-content align-top">-->
-                            <!--<view class="item-inner">-->
-                                <!--<view class="item-title">联系地址</view>-->
-                                <!--<view class="item-text2">北京市海淀区中关村泰鹏大厦1002泰鹏大厦1002泰鹏大厦1002</view>-->
-                            <!--</view>-->
+                            <!--<div class="item-inner">-->
+                                <!--<div class="item-title">联系地址</div>-->
+                                <!--<div class="item-text2">北京市海淀区中关村泰鹏大厦1002泰鹏大厦1002泰鹏大厦1002</div>-->
+                            <!--</div>-->
                         <!--</li>-->
                     </ul>
-                </view>
-            </view>
-            <view class="det-item">
-                <view class="m-list-block">
+                </div>
+            </div>
+            <div class="det-item">
+                <div class="m-list-block">
                     <ul>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">商户名称</view>
-                                <view class="item-text2">{{venShopInfo.venName}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">商户名称</div>
+                                <div class="item-text2">{{venShopInfo.venName}}</div>
+                            </div>
                         </li>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">企业性质</view>
-                                <view class="item-text2">{{venShopInfo.venPropertiesName}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">企业性质</div>
+                                <div class="item-text2">{{venShopInfo.venPropertiesName}}</div>
+                            </div>
                         </li>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">所在地区</view>
-                                <view class="item-text2">{{venShopInfo.cityName}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">所在地区</div>
+                                <div class="item-text2">{{venShopInfo.cityName}}</div>
+                            </div>
                         </li>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">入驻时间</view>
-                                <view class="item-text2">{{venShopInfo.createDate}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">入驻时间</div>
+                                <div class="item-text2">{{venShopInfo.createDate}}</div>
+                            </div>
                         </li>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">主营产品</view>
-                                <view class="item-text2">{{venShopInfo.businessTypeName}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">主营产品</div>
+                                <div class="item-text2">{{venShopInfo.businessTypeName}}</div>
+                            </div>
                         </li>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">商品数量</view>
-                                <view class="item-text2">{{$route.query.proCount}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">商品数量</div>
+                                <div class="item-text2">{{$route.query.proCount}}</div>
+                            </div>
                         </li>
                         <li class="item-content align-top">
-                            <view class="item-inner">
-                                <view class="item-title">销售范围</view>
-                                <view class="item-text2">{{venShopInfo.areaNames}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title">销售范围</div>
+                                <div class="item-text2">{{venShopInfo.areaNames}}</div>
+                            </div>
                         </li>
                     </ul>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
     </transition>
 </template>
 <script type="text/ecmascript-6">

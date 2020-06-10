@@ -1,16 +1,16 @@
 <template>
-    <view class="shopDetial">
+    <div class="shopDetial">
         <h2>商城信息</h2>
         <p>商城名称:{{list.mallName}}</p>
         <p>所属行业：{{list.typeName}}</p>
         <p>所在区域：{{list.provinceName}}{{list.cityName}} {{list.areaName}}北京市-北京</p>
         <p>商城开通时间：2018-3-21 18:00:00</p>
         <p>商城介绍</p>
-        <view class="text">
+        <div class="text">
             {{text}}
-        </view>
+        </div>
         <el-button type="primary" style="margin-top:20px;" @click="goback" >返回</el-button>
-    </view>
+    </div>
 </template>
 <script>
 export default {

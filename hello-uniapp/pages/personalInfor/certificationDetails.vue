@@ -1,136 +1,136 @@
 <template>
     <xe-layout  class="m-flexlay certification-details">
         <!--认证成功-->
-        <view>
-            <view class="m-item">
+        <div>
+            <div class="m-item">
                 <ul>
                     <li class="item-content" >
-                        <view class="item-title">姓名</view>
-                        <view class="item-after">
+                        <div class="item-title">姓名</div>
+                        <div class="item-after">
                             {{userInfoData.userName ? userInfoData.userName : '未填写'}}
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">手机号</view>
-                        <view class="item-after">
+                        <div class="item-title">手机号</div>
+                        <div class="item-after">
                             {{userInfoData.userPhone ? userInfoData.userPhone : '未填写'}}
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">微信号</view>
-                        <view class="item-after">
+                        <div class="item-title">微信号</div>
+                        <div class="item-after">
                             {{userInfoData.wechatNumber ? userInfoData.wechatNumber : '未填写'}}
-                        </view>
+                        </div>
                     </li>
                 </ul>
-            </view>
-            <view class="m-item">
+            </div>
+            <div class="m-item">
                 <ul>
                     <li class="item-content" >
-                        <view class="item-title">店铺名称</view>
-                        <view class="item-after">
+                        <div class="item-title">店铺名称</div>
+                        <div class="item-after">
                             {{userInfoData.shopName ? userInfoData.shopName : '未填写'}}
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">店铺地址</view>
-                        <view class="item-after">
+                        <div class="item-title">店铺地址</div>
+                        <div class="item-after">
                             {{userInfoData.provinceName}}{{userInfoData.cityName}}{{userInfoData.areaName}}{{userInfoData.userAddr ? userInfoData.userAddr : '未填写'}}
-                        </view>
+                        </div>
                     </li>
                 </ul>
-            </view>
-            <view class="m-item">
+            </div>
+            <div class="m-item">
                 <ul>
                     <li class="item-content" >
-                        <view class="item-title">用户性质</view>
-                        <view class="item-after">
+                        <div class="item-title">用户性质</div>
+                        <div class="item-after">
                             {{userInfoData.userProperties | userPropertiesToText}}
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">用户类型</view>
-                        <view class="item-after">
+                        <div class="item-title">用户类型</div>
+                        <div class="item-after">
                             {{userType}}
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">主营品类</view>
-                        <view class="item-after">
+                        <div class="item-title">主营品类</div>
+                        <div class="item-after">
                             {{userInfoData.businessTypeName}}
-                        </view>
+                        </div>
                     </li>
                 </ul>
-            </view>
-            <view class="m-item">
+            </div>
+            <div class="m-item">
                 <ul>
                     <li class="item-content" >
-                        <view class="item-title">身份证</view>
-                        <view class="item-after">
+                        <div class="item-title">身份证</div>
+                        <div class="item-after">
                             <p class="text-num" v-if="userInfoData.userIdNumber">{{userInfoData.userIdNumber}}</p>
                             <p class="text-pic" v-if="userInfoData.idCardFrontPic">
                                 <img :src="picServer +　userInfoData.idCardFrontPic" alt="">
                                 <img :src="picServer +　userInfoData.idCardBackPic" alt="">
                             </p>
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" v-if="userInfoData.userProperties !== 1">
-                        <view class="item-title">营业执照</view>
-                        <view class="item-after">
+                        <div class="item-title">营业执照</div>
+                        <div class="item-after">
                             <p class="text-pic" v-if="userInfoData.businessPic && userInfoData.businessPic.length">
                                 <img v-for="item in userInfoData.businessPic" :src="picServer +　item" alt="">
                             </p>
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">食品流通许可证</view>
-                        <view class="item-after">
+                        <div class="item-title">食品流通许可证</div>
+                        <div class="item-after">
                             <template>
                                 <p class="text-pic" v-if="userInfoData.foodLicensePic">
                                     <img :src="picServer +　userInfoData.foodLicensePic" alt="">
                                 </p>
                                 <p v-else>未上传</p>
                             </template>
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">CS认证</view>
-                        <view class="item-after">
+                        <div class="item-title">CS认证</div>
+                        <div class="item-after">
                             <template>
                                 <p class="text-pic" v-if="userInfoData.csPic">
                                     <img :src="picServer +　userInfoData.csPic" alt="">
                                 </p>
                                 <p v-else>未上传</p>
                             </template>
-                        </view>
+                        </div>
                     </li>
                     <li class="item-content" >
-                        <view class="item-title">门头照</view>
-                        <view class="item-after">
+                        <div class="item-title">门头照</div>
+                        <div class="item-after">
                             <template>
                                 <p class="text-pic" v-if="userInfoData.doorPic && userInfoData.doorPic.length">
                                     <img v-for="item in userInfoData.doorPic" :src="picServer +　item" alt="">
                                 </p>
                                 <p v-else>未上传</p>
                             </template>
-                        </view>
+                        </div>
                     </li>
                 </ul>
-            </view>
-            <view class="m-item">
+            </div>
+            <div class="m-item">
                 <ul>
                     <li class="item-content" >
-                        <view class="item-title">客户经理</view>
-                        <view class="item-after">
+                        <div class="item-title">客户经理</div>
+                        <div class="item-after">
                             {{userInfoData.saleManNameAndPhone ? userInfoData.saleManNameAndPhone : '未填写'}}
-                        </view>
+                        </div>
                     </li>
                 </ul>
-            </view>
-            <view class="person-repeat">
+            </div>
+            <div class="person-repeat">
                 <mt-button class="xe-button-primary" @click.prevent="goCategory">重新认证</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

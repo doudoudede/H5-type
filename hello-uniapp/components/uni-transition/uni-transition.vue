@@ -5,7 +5,7 @@
 </template>
 
 <script>
-	// #ifdef APP-NVUE
+	// #ifdef aPP-NVUE
 	const animation = uni.requireNativePlugin('animation');
 	// #endif
 	/**
@@ -13,7 +13,7 @@
 	 * @description 简单过渡动画组件
 	 * @tutorial https://ext.dcloud.net.cn/plugin?id=985
 	 * @property {Boolean} show = [false|true] 控制组件显示或隐藏
-	 * @property {Array} modeClass = [fade|slide-top|slide-right|slide-bottom|slide-left|zoom-in|zoom-out] 过渡动画类型
+	 * @property {array} modeClass = [fade|slide-top|slide-right|slide-bottom|slide-left|zoom-in|zoom-out] 过渡动画类型
 	 *  @value fade 渐隐渐出过渡
 	 *  @value slide-top 由上至下过渡
 	 *  @value slide-right 由右至左过渡
@@ -32,7 +32,7 @@
 				default: false
 			},
 			modeClass: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -123,7 +123,7 @@
 			},
 			_animation(type) {
 				let styles = this.getTranfrom(type)
-				// #ifdef APP-NVUE
+				// #ifdef aPP-NVUE
 				if (!this.$refs['ani']) return
 				animation.transition(this.$refs['ani'].ref, {
 					styles,
@@ -140,7 +140,7 @@
 					})
 				})
 				// #endif
-				// #ifndef APP-NVUE
+				// #ifndef aPP-NVUE
 				this.transform = ''
 				for (let i in styles) {
 					if (i === 'opacity') {
@@ -192,7 +192,7 @@
 				})
 				return styles
 			},
-			_modeClassArr(type) {
+			_modeClassarr(type) {
 				let mode = this.modeClass
 				if (typeof(mode) !== "string") {
 					let modestr = ''
@@ -209,7 +209,7 @@
 			// 	return el || el.ref || null
 			// },
 			toLine(name) {
-				return name.replace(/([A-Z])/g, "-$1").toLowerCase();
+				return name.replace(/([a-Z])/g, "-$1").toLowerCase();
 			}
 		}
 	}

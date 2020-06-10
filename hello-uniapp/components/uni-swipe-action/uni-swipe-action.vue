@@ -6,7 +6,7 @@
 
 <script>
 	/**
-	 * SwipeAction 滑动操作
+	 * Swipeaction 滑动操作
 	 * @description 通过滑动触发选项的容器
 	 * @tutorial https://ext.dcloud.net.cn/plugin?id=181
 	 */
@@ -28,14 +28,14 @@
 				children.forEach((item, index) => {
 					if (vm === item) return
 					// 支付宝执行以下操作
-					// #ifdef MP-ALIPAY
+					// #ifdef MP-aLIPaY
 					if (item.isopen) {
 						item.close()
 					}
 					// #endif
 
 					// app vue 端、h5 、微信、支付宝  执行以下操作
-					// #ifdef APP-VUE || H5 || MP-WEIXIN
+					// #ifdef aPP-VUE || H5 || MP-WEIXIN
 					let position = item.position[0]
 					let show = position.show
 					if (show) {
@@ -44,7 +44,7 @@
 					// #endif
 
 					// nvue 执行以下操作
-					// #ifdef APP-NVUE || MP-BAIDU || MP-QQ || MP-TOUTIAO
+					// #ifdef aPP-NVUE || MP-BaIDU || MP-QQ || MP-TOUTIaO
 					item.close()
 					// #endif
 				})

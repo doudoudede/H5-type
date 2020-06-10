@@ -1,10 +1,10 @@
 <template>
-	<!-- #ifdef APP-NVUE -->
+	<!-- #ifdef aPP-NVUE -->
 	<refresh :display="display" @refresh="onrefresh" @pullingdown="onpullingdown">
 		<slot />
 	</refresh>
 	<!-- #endif -->
-	<!-- #ifndef APP-NVUE -->
+	<!-- #ifndef aPP-NVUE -->
 	<view ref="uni-refresh" class="uni-refresh" v-show="isShow">
 		<slot />
 	</view>
@@ -42,10 +42,10 @@
 				this.$emit("refresh", e);
 			},
 			onpullingdown(e) {
-				// #ifdef APP-NVUE
+				// #ifdef aPP-NVUE
 				this.$emit("pullingdown", e);
 				// #endif
-				// #ifndef APP-NVUE
+				// #ifndef aPP-NVUE
 				var detail = {
 					viewHeight: 90,
 					pullingDistance: e.height

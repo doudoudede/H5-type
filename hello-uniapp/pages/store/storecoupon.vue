@@ -1,63 +1,63 @@
 <template>
     <transition name="slideInRight">
-        <view class="m-stcoupon-con" v-if="couponInfo">
-            <view class="stcoupon-content">
-                <view class="coupon-cons">
-                    <view class="couon-msg">
-                        <view class="store-circle store-circle-top">
+        <div class="m-stcoupon-con" v-if="couponInfo">
+            <div class="stcoupon-content">
+                <div class="coupon-cons">
+                    <div class="couon-msg">
+                        <div class="store-circle store-circle-top">
                             <i v-for="(item, index) in circleNum" :key="index"></i>
-                        </view>
-                        <view class="sname">
+                        </div>
+                        <div class="sname">
                             {{couponInfo.shopName}}
-                        </view>
-                        <view class="stime">
-                            <view></view>
+                        </div>
+                        <div class="stime">
+                            <div></div>
                             <p v-if="couponInfo.useTimeType === 1">有限期：{{couponInfo.activeTimeStart}} - {{couponInfo.activeTimeEnd}}</p>
                             <p v-else>优惠券到账后{{couponInfo.activeDay}}天内有效</p>
-                            <view></view>
-                        </view>
-                        <view class="spri">
+                            <div></div>
+                        </div>
+                        <div class="spri">
                             &yen; {{couponInfo.useDisAmount | toFixed2}}
-                        </view>
-                        <view class="sdesc" v-if="couponInfo.useRuleType === 1">
+                        </div>
+                        <div class="sdesc" v-if="couponInfo.useRuleType === 1">
                             满&yen;{{couponInfo.useOrderAmount}}减&yen;{{couponInfo.useDisAmount}}
-                        </view>
-                        <view class="sdesc" v-else>
+                        </div>
+                        <div class="sdesc" v-else>
                             无门槛优惠券
-                        </view>
-                        <view class="store-circle store-circle-bottom">
+                        </div>
+                        <div class="store-circle store-circle-bottom">
                             <i v-for="item in circleNum" :key="item"></i>
-                        </view>
+                        </div>
                         <!-- 店铺 -->
-                        <view class="stcoupon-icon xe-iconfont xe-icon-dian"></view>
-                    </view>
-                    <view class="stcoupon-des">
+                        <div class="stcoupon-icon xe-iconfont xe-icon-dian"></div>
+                    </div>
+                    <div class="stcoupon-des">
                         <h4>适用商品</h4>
                         <p>
                             <template v-if="couponInfo.useRange === 3">可购买本店铺部分单品：{{proRangeText}}</template>
                             <template v-else-if="couponInfo.useRange === 2">可购买本店铺部分品类商品：{{proRangeText}}</template>
                             <template v-else>可购买本店全部商品</template>
                         </p>
-                    </view>
-                    <view class="stcoupon-des">
+                    </div>
+                    <div class="stcoupon-des">
                         <h4>适用范围</h4>
                         <p>{{couponInfo.useAreaName}}</p>
-                    </view>
-                    <view class="stcoupon-des" v-if="couponInfo.useRuleType === 2">
+                    </div>
+                    <div class="stcoupon-des" v-if="couponInfo.useRuleType === 2">
                         <h4>使用条件</h4>
                         <p>订单金额大于优惠券金额可用</p>
-                    </view>
-                    <view class="stcoupon-des" v-if="couponInfo.sendType === 2">
+                    </div>
+                    <div class="stcoupon-des" v-if="couponInfo.sendType === 2">
                         <h4>领取条件</h4>
                         <p>本店铺单次购买满&yen;{{couponInfo.sendOrderAmount}}发放</p>
-                    </view>
-                </view>
-            </view>
-            <view class="stcoupon-btns">
+                    </div>
+                </div>
+            </div>
+            <div class="stcoupon-btns">
                 <mt-button v-if="couponInfo.sendType === 2 && couponInfo.sendPlat === 2" class="xe-button-primary" type="primary" style="width: 100%;" @click.prevent="buynow">开始采购</mt-button>
                 <mt-button v-if='couponInfo.sendType !== 2' class="xe-button-primary" type="primary" style="width: 100%;" @click.prevent="getCoupon">立即领取</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
     </transition>
 </template>
 <script type="text/ecmascript-6">
@@ -189,7 +189,7 @@
                 flex: 1;
                 font-size: 20/$ppr;
             }
-            view {
+            div {
                 width: 120/$ppr;
                 flex: 0 0 120/$ppr;
                 border: 1/$ppr solid #fff;

@@ -1,5 +1,5 @@
 <template>
-    <view class="van-checkbox"
+    <div class="van-checkbox"
     :class="{
         'van-checkbox--disabled': isDisabled,
         'van-checkbox--large': !!size,
@@ -20,7 +20,7 @@
         <span class="van-checkbox__label" @click="handleLabelClick">
             <slot></slot>
         </span>
-    </view>
+    </div>
 </template>
 
 <script>

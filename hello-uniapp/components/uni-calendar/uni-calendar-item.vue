@@ -55,7 +55,7 @@
 				}
 			},
 			selected: {
-				type: Array,
+				type: array,
 				default: () => {
 					return []
 				}
@@ -76,7 +76,7 @@
 <style scoped>
 	.uni-calendar-item__weeks-box {
 		flex: 1;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
@@ -96,7 +96,7 @@
 
 	.uni-calendar-item__weeks-box-item {
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;

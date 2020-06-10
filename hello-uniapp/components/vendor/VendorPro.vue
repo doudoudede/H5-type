@@ -1,12 +1,12 @@
 <template>
-    <view class="m-vendor-pro">
-        <router-link tag="view" :to="{name: 'ProductDetails', params: {prospu: item.proSpu}}" v-for="item in itemData" :key="item.proSpu">
-            <view class="pic">
+    <div class="m-vendor-pro">
+        <router-link tag="div" :to="{name: 'ProductDetails', params: {prospu: item.proSpu}}" v-for="item in itemData" :key="item.proSpu">
+            <div class="pic">
                 <img v-lazy="picServerPro + item.proMainImg" alt="">
-            </view>
+            </div>
             <p class="price" v-html="splitPrice(item.areaPrice)"></p>
         </router-link>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default {

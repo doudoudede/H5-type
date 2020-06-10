@@ -1,41 +1,41 @@
 <template>
     <xe-layout class='m-bg-dark'>
-        <view class="m-search-barcon" slot="header" style="background: #fff;">
-            <view class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></view>
-            <view class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
+        <div class="m-search-barcon" slot="header" style="background: #fff;">
+            <div class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></div>
+            <div class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
                 <form class="s-form" id="s-search" method="get" action="/" onsubmit="return false" @submit.prevent="searchBtnFn">
                     <label for="s-search-input" class="xe-iconfont xe-icon-sousuo"></label>
                     <input v-model.trim="searchText" class="s-search-input" id="s-search-input" @focus="focusFlag = true" @blur="focusFlag = false" type="search" placeholder="输入关键词">
                 </form>
                 <span v-show="searchText.length" @click="searchTextClear" class="xe-iconfont xe-icon-cuowu"></span>
-                <view class="m-search-btn" @click="searchBtnFn">
+                <div class="m-search-btn" @click="searchBtnFn">
                     <span>搜索</span>
-                </view>
-            </view>
-        </view>
-        <view v-if="productList.length">
+                </div>
+            </div>
+        </div>
+        <div v-if="productList.length">
             <proItem
                 v-for="(item, index) in productList"
                 :key="item.proSpu"
                 :picServerPro="picServerPro"
                 :itemData="item"
             ></proItem>
-        </view>
+        </div>
         <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
             <span slot="no-more" class="infinite-no-more">
                 暂无更多数据~
             </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">暂无符合条件的商品</p>
-                </view>
-                <!--<view class="btn">-->
+                </div>
+                <!--<div class="btn">-->
                 <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-                <!--</view>-->
-            </view>
+                <!--</div>-->
+            </div>
         </infinite-loading>
     </xe-layout>
 </template>

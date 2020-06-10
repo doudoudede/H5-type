@@ -67,7 +67,7 @@
 
 <style scoped>
 	.uni-badge {
-		/* #ifndef APP-PLUS */
+		/* #ifndef aPP-PLUS */
 		display: flex;
 		/* #endif */
 		justify-content: center;

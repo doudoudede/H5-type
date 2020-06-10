@@ -1,28 +1,28 @@
 <template>
     <xe-layout>
-        <view class="m-support-con boldLine">
-            <view class="m-support-top">
+        <div class="m-support-con boldLine">
+            <div class="m-support-top">
                 <h3>如来云商招标投标活动管理规则</h3>
-            </view>
-            <view>
-                <view class="m-support-item" v-for="(item, index) in itemData" :key="index">
-                    <view class="m-list-block" @click.prevent="item.show = !item.show">
+            </div>
+            <div>
+                <div class="m-support-item" v-for="(item, index) in itemData" :key="index">
+                    <div class="m-list-block" @click.prevent="item.show = !item.show">
                         <ul>
                             <li class="item-content item-link">
-                                <view class="item-inner">
-                                    <view class="item-title f32">{{item.title}}</view>
-                                </view>
+                                <div class="item-inner">
+                                    <div class="item-title f32">{{item.title}}</div>
+                                </div>
                             </li>
                         </ul>
-                    </view>
+                    </div>
                     <CollapseTransition>
-                        <view class="m-support-text" v-show="item.show">
+                        <div class="m-support-text" v-show="item.show">
                             <p v-for="(content, cindex) in item.content" :key="cindex" v-html="content.text"></p>
-                        </view>
+                        </div>
                     </CollapseTransition>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

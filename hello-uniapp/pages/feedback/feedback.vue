@@ -1,38 +1,38 @@
 <template>
     <xe-layout class='m-bg-dark'>
-        <view class="m-feedback-item">
-            <view class="m-list-block">
+        <div class="m-feedback-item">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title f32">联系人</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title f32">联系人</div>
+                            <div class="item-input">
                                 <input class="input-cls" v-model="contactPeople" placeholder="输入联系人姓名" type="text">
-                            </view>
-                            <view class="act">
+                            </div>
+                            <div class="act">
                                 <span class="xe-iconfont xe-icon-cuowu" v-if="contactPeople.length" @click.prevent="contactPeople = ''"></span>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title f32">手机号</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title f32">手机号</div>
+                            <div class="item-input">
                                 <input class="input-cls" v-model.number="mobile" placeholder="输入手机号" type="tel" maxlength="11">
-                            </view>
-                            <view class="act">
+                            </div>
+                            <div class="act">
                                 <span class="xe-iconfont xe-icon-cuowu" v-if="mobile.length" @click.prevent="mobile = ''"></span>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="m-feedback-item">
-            <view class="m-feedback-textarea">
+            </div>
+        </div>
+        <div class="m-feedback-item">
+            <div class="m-feedback-textarea">
                 <textarea v-model="feedbackContent" placeholder="请输入反馈内容" maxlength="500"></textarea>
-            </view>
-            <view class="item-uploadImg_box clearfix">
+            </div>
+            <div class="item-uploadImg_box clearfix">
                 <ul>
                     <template v-if="uploadImg2.length">
                         <li class="items" v-for="(item, index) in uploadImg2">
@@ -55,11 +55,11 @@
                         </form>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="m-feedback-btn">
+            </div>
+        </div>
+        <div class="m-feedback-btn">
             <mt-button type="primary" class="xe-button-primary" style="width: 100%;" @click.prevent="btnfn">提交</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

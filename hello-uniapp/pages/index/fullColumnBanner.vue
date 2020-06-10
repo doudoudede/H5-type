@@ -1,9 +1,9 @@
 <template>
-    <view class="m-banner-full" v-if="fullColumnData.length">
+    <div class="m-banner-full" v-if="fullColumnData.length">
         <a href="#" @click.prevent="itemClickFn(fullColumnData[0])">
             <img :src="picServer + fullColumnData[0].imgUrl" alt="">
         </a>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import {getXeUrl} from 'utils';

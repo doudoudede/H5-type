@@ -1,43 +1,43 @@
 <template>
-    <view class="m-logistics">
+    <div class="m-logistics">
         <transition name="fadein">
-            <v-touch tag="view" v-show="showBox" class="m-mask-bg" @tap="close" @touchmove.prevent></v-touch>
+            <v-touch tag="div" v-show="showBox" class="m-mask-bg" @tap="close" @touchmove.prevent></v-touch>
         </transition>
         <transition name="slideMoveIn">
-            <view v-if="showBox" class="m-logistics-con">
-                <view class="m-logistics-msg">
-                    <view class="m-logistics-pro xe-gradient-color">
-                        <router-link tag="view" :to="{name: 'OrderDet', params: {mid: datas.morderId, oid: datas.orderId}}" class="arrow-right-commons">
-                            <view class="pic">
+            <div v-if="showBox" class="m-logistics-con">
+                <div class="m-logistics-msg">
+                    <div class="m-logistics-pro xe-gradient-color">
+                        <router-link tag="div" :to="{name: 'OrderDet', params: {mid: datas.morderId, oid: datas.orderId}}" class="arrow-right-commons">
+                            <div class="pic">
                                 <img :src="datas.picServer + datas.proImage" alt="">
-                            </view>
-                            <view class="msg">
+                            </div>
+                            <div class="msg">
                                 <p class="name">{{datas.proName}}</p>
                                 <p class="tips" v-if="datas.driverCarNumber">
                                     承运车辆：{{datas.driverCarNumber}}
                                     <template v-if="datas.uploadTime"><br>预计{{parseInt(datas.uploadTime) | uploadTimeFormat}}送达</template>
                                 </p>
-                            </view>
+                            </div>
                         </router-link>
-                    </view>
-                    <view class="m-logistics-listcon" v-if="datas.logisticDetail.length">
-                        <view class="m-logistics-list">
-                            <view class="list-con" v-for="(item, index) in datas.logisticDetail" :key="item.index" :class="{'current': index === 0}">
-                                <view class="time">
+                    </div>
+                    <div class="m-logistics-listcon" v-if="datas.logisticDetail.length">
+                        <div class="m-logistics-list">
+                            <div class="list-con" v-for="(item, index) in datas.logisticDetail" :key="item.index" :class="{'current': index === 0}">
+                                <div class="time">
                                     <p>{{item.createDateStr.split(' ')[1]}}</p>
                                     <p>{{item.createDateStr.split(' ')[0]}}</p>
-                                </view>
-                                <view class="msg">
+                                </div>
+                                <div class="msg">
                                     {{item.logtsDesc}}
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="m-logistics-close xe-iconfont xe-icon-gb" @click="close"></view>
-            </view>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-logistics-close xe-iconfont xe-icon-gb" @click="close"></div>
+            </div>
         </transition>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default {

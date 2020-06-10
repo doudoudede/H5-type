@@ -1,4 +1,4 @@
-// #ifdef APP-NVUE
+// #ifdef aPP-NVUE
 const dom = weex.requireModule('dom');
 // #endif
 export default {
@@ -120,11 +120,11 @@ export default {
 			}, 300)
 		},
 		getSelectorQuery() {
-			// #ifndef APP-NVUE
+			// #ifndef aPP-NVUE
 			const views = uni.createSelectorQuery()
 				.in(this)
 			views
-				.selectAll('.selector-query-hock')
+				.selectall('.selector-query-hock')
 				.boundingClientRect(data => {
 					this.position.content = data[1]
 					this.position.button = data[0]
@@ -137,7 +137,7 @@ export default {
 				})
 				.exec()
 			// #endif
-			// #ifdef APP-NVUE
+			// #ifdef aPP-NVUE
 			dom.getComponentRect(this.$refs['selector-content-hock'], (data) => {
 				if (this.position.content) return
 				this.position.content = data.size

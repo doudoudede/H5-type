@@ -1,18 +1,18 @@
 <template>
-    <view :class="classes">
+    <div :class="classes">
         <transition name="fadein">
-            <v-touch tag="view" v-show="showBox" class="m-mask-bg" @tap="close" @touchmove.prevent></v-touch>
+            <v-touch tag="div" v-show="showBox" class="m-mask-bg" @tap="close" @touchmove.prevent></v-touch>
         </transition>
         <transition :name="slideInType">
-            <view class="content" v-show="showBox">
-                <view class="popup-header">{{popupTit}}</view>
-                <view class="popup-close xe-iconfont xe-icon-guanbi" @click.stop="close"></view>
-                <view class="popup-box">
+            <div class="content" v-show="showBox">
+                <div class="popup-header">{{popupTit}}</div>
+                <div class="popup-close xe-iconfont xe-icon-guanbi" @click.stop="close"></div>
+                <div class="popup-box">
                     <slot></slot>
-                </view>
-            </view>
+                </div>
+            </div>
         </transition>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default {

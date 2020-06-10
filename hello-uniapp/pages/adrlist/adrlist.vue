@@ -1,39 +1,39 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
         <template v-if="adrListData.length">
-            <view class="m-adr-item" v-for="(item, index) in adrListData" :key="item.caId">
-                <view class="m-adr-user">
-                    <view class="name">{{item.caConsignee}}</view>
-                    <view class="tel">{{item.caPhone}}</view>
-                </view>
-                <view class="m-adr-text">
+            <div class="m-adr-item" v-for="(item, index) in adrListData" :key="item.caId">
+                <div class="m-adr-user">
+                    <div class="name">{{item.caConsignee}}</div>
+                    <div class="tel">{{item.caPhone}}</div>
+                </div>
+                <div class="m-adr-text">
                     收货地址：{{item.caProvName}}{{item.caCityName}}{{item.caAreaName}}{{item.caStreet}}
-                </view>
-                <view class="m-adr-action">
-                    <view>
+                </div>
+                <div class="m-adr-action">
+                    <div>
                         <xe-checkbox v-model="item.checkflag" @input="defaultValueFn(item)">设为默认地址</xe-checkbox>
-                    </view>
-                    <view class="action-btns">
+                    </div>
+                    <div class="action-btns">
                         <span @click.prevent="editorAdrBtn(item.caId)"><em class="xe-iconfont xe-icon-bianji"></em>编辑</span>
                         <span @click.prevent="delAdrBtn(item.caId, index)"><em class="xe-iconfont xe-icon-shanchu"></em>删除</span>
-                    </view>
-                </view>
-            </view>
+                    </div>
+                </div>
+            </div>
         </template>
-        <view class="m-cart-none" v-else>
-            <view class="pic">
+        <div class="m-cart-none" v-else>
+            <div class="pic">
                 <img src="../../static/images/cart-n1.png" alt="">
-            </view>
-            <view class="des">
+            </div>
+            <div class="des">
                 <p class="f32">暂无地址信息~</p>
-            </view>
-            <!--<view class="btn">-->
+            </div>
+            <!--<div class="btn">-->
             <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-            <!--</view>-->
-        </view>
-        <view slot="footer" class="m-adr-add">
+            <!--</div>-->
+        </div>
+        <div slot="footer" class="m-adr-add">
             <mt-button class="xe-button-primary" type="primary" style="width: 100%;" @click.prevent="addNew">+ 新建地址</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

@@ -1,110 +1,110 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="orderlist-nav" slot='header'>
+        <div class="orderlist-nav" slot='header'>
             <xe-navtab-con :itemData="navListData" @swiperItemClick="swiperItemClick" ref="navTab"></xe-navtab-con>
-        </view>
-        <view class="m-content-view" v-if="mainOrderList.length">
-            <view
+        </div>
+        <div class="m-content-div" v-if="mainOrderList.length">
+            <div
                 class="orderlist-item"
                 v-for="(item, index) in mainOrderList"
                 :key="item.morderId + Math.random()">
                 <template v-for="subItem in item.orderList">
-                    <view class="order-item-num clearfix">
-                        <view class="fl">订单编号:{{subItem.orderId}}</view><view class="fr">{{item.newOrderStatus | newOrderStatusToText}}</view>
-                    </view>
-                    <view class="order-item-shop">
+                    <div class="order-item-num clearfix">
+                        <div class="fl">订单编号:{{subItem.orderId}}</div><div class="fr">{{item.newOrderStatus | newOrderStatusToText}}</div>
+                    </div>
+                    <div class="order-item-shop">
                         <router-link :to="{name: 'Store', query: {'userCode': subItem.userCode}}">
                             <span class="xe-iconfont xe-icon-dian"></span>
                             <span class="arrow-right-commons">{{subItem.venName}}</span>
                         </router-link>
-                    </view>
-                    <view class="order-item-procon">
-                        <view
+                    </div>
+                    <div class="order-item-procon">
+                        <div
                             class="order-item-pro"
                             v-for="proItem in subItem.orderDetailList"
                             :key="proItem.proSku +  + Math.random()"
                             @click.prevent="OrderToDet(item.newOrderStatus, item.morderId, proItem, subItem.orderStatus, index)"
                         >
-                            <view class="pic">
+                            <div class="pic">
                                 <img v-lazy="picServer + proItem.proPicture" alt="">
-                            </view>
-                            <view class="msg">
-                                <view class="pro-name">
+                            </div>
+                            <div class="msg">
+                                <div class="pro-name">
                                     <!-- <span v-if="proItem.proType === 4" class="coupon-style coupon-style-miao">秒</span>{{proItem.proName}} -->
                                     <span v-if="proItem.proType === 4" class="xe-iconfont xe-icon-miaoshafuben coupon-style-icon"></span>
                                     <span v-else-if="proItem.proType === 6" class="xe-iconfont xe-icon-yushoufuben coupon-style-icon1"></span>{{proItem.proName}}
-                                </view>
-                                <view class="pro-spec">规格：{{proItem.specValue}}</view>
-                                <view class="pro-spec" v-if="proItem.realSendNum">实发量：{{proItem.realSendNum}}{{proItem.proUnit}}</view>
-                            </view>
-                            <view class="pri">
-                                <view class="price">
+                                </div>
+                                <div class="pro-spec">规格：{{proItem.specValue}}</div>
+                                <div class="pro-spec" v-if="proItem.realSendNum">实发量：{{proItem.realSendNum}}{{proItem.proUnit}}</div>
+                            </div>
+                            <div class="pri">
+                                <div class="price">
                                     <p class="npri">&yen;{{proItem.proCostPrice | toFixed2}}/{{proItem.proUnit}}</p>
                                     <p class="opri" v-if="proItem.proCostPrice !== proItem.proBasePrice"><s>&yen;{{proItem.proBasePrice | toFixed2}}/{{proItem.proUnit}}</s></p>
-                                </view>
-                                <view class="nums">
+                                </div>
+                                <div class="nums">
                                     x{{proItem.purchaseNum}}
-                                </view>
-                            </view>
-                        </view>
-                    </view>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </template>
-                <view class="order-item-total">
+                <div class="order-item-total">
                     合计：<span>&yen;{{item.payAmount | toFixed2}}</span>
-                </view>
+                </div>
                 <!-- newOrderStatus 1 已完成 2 待收货 3待发货 4已取消 10待付款 -->
-                <view v-if="item.newOrderStatus === 1" class="order-item-btns">
-                    <view class="btns">
+                <div v-if="item.newOrderStatus === 1" class="order-item-btns">
+                    <div class="btns">
                         <mt-button v-if="item.newOrderType === 1" type='primary' size="small" class="xe-button-primary is-radius" plain @click.prevent.stop="buyAgain(item.orderList, false)">再次购买</mt-button>
                         <mt-button v-if="item.newOrderType !== 1" type='primary' size="small" class="xe-button-primary is-radius" plain @click.prevent.stop="aginInquiry(item, false)">再次询价</mt-button>
                         <mt-button size="small" v-if="item.orderList[0].payStatus == 1 && item.payType == 1" class="xe-button-default is-radius" plain @click.prevent.stop="detailsOfpayment(item)">付款详情</mt-button>
-                    </view>
-                </view>
-                <view v-else-if="item.newOrderStatus === 2" class="order-item-btns">
-                    <view class="btns">
+                    </div>
+                </div>
+                <div v-else-if="item.newOrderStatus === 2" class="order-item-btns">
+                    <div class="btns">
                         <!-- 已发货 未支付 在待收货中和全部列表里应该展示立即支付 -->
                         <mt-button type='primary' size="small" v-if="item.orderList[0].payStatus == 2 && item.payType == 1" class="xe-button-primary is-radius" plain @click.prevent.stop="goToPay(item, false)">立即支付</mt-button>
                         <mt-button size="small" v-if="item.orderList[0].payStatus !== 2 && item.payType == 1" class="xe-button-default is-radius" plain @click.prevent.stop="detailsOfpayment(item)">付款详情</mt-button>
                         <mt-button type='primary' size="small" class="xe-button-primary is-radius" plain @click.prevent.stop="confirmReceipt(item.morderId, item.orderList[0].orderId, item.orderList[0].version, item.orderList[0].payStatus, index)">确认收货</mt-button>
-                    </view>
-                </view>
-                <view v-else-if="item.newOrderStatus === 4" class="order-item-btns">
-                    <view class="btns">
+                    </div>
+                </div>
+                <div v-else-if="item.newOrderStatus === 4" class="order-item-btns">
+                    <div class="btns">
                         <mt-button size="small" class="xe-button-default is-radius" plain @click.prevent.stop="confirmDelOrder(item.orderList[0].orderId, index)">删除订单</mt-button>
                         <mt-button v-if="item.newOrderType === 1" type='primary' size="small" class="xe-button-primary is-radius" plain @click.prevent.stop="buyAgain(item.orderList, false)">再次购买</mt-button>
                         <mt-button v-else type='primary' size="small" class="xe-button-primary is-radius" plain @click.prevent.stop="aginInquiry(item, false)">再次询价</mt-button>
-                    </view>
-                </view>
-                <view v-else-if="item.newOrderStatus === 10" class="order-item-btns">
-                    <view class="btns">
+                    </div>
+                </div>
+                <div v-else-if="item.newOrderStatus === 10" class="order-item-btns">
+                    <div class="btns">
                         <mt-button size="small" class="xe-button-default is-radius" plain @click.prevent.stop="confirmCancelOrder(item, index, false)">取消订单</mt-button>
                         <mt-button type='primary' size="small" class="xe-button-primary is-radius" plain @click.prevent.stop="goToPay(item, false)">立即支付</mt-button>
-                    </view>
-                </view>
-                <view v-else-if="item.newOrderStatus === 11" class="order-item-btns">
-                    <view class="btns">
+                    </div>
+                </div>
+                <div v-else-if="item.newOrderStatus === 11" class="order-item-btns">
+                    <div class="btns">
                         <mt-button size="small" v-if="item.payType == 1" class="xe-button-default is-radius" plain @click.prevent.stop="detailsOfpayment(item)">付款详情</mt-button>
                         <mt-button type='primary' size="small" class="xe-button-primary is-radius" plain @click.prevent.stop="confirmReceipt(item.morderId, item.orderList[0].orderId, item.orderList[0].version, item.orderList[0].payStatus, index)">确认收货</mt-button>
-                    </view>
-                </view>
-            </view>
-        </view>
+                    </div>
+                </div>
+            </div>
+        </div>
         <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
             <span slot="no-more" class="infinite-no-more">
                 暂无更多数据~
             </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <!--<p class="f32">暂无{{orderType | newOrderStatusToText}}订单</p>-->
                     <p class="f32">暂无订单信息</p>
-                </view>
-                <view class="btn">
+                </div>
+                <div class="btn">
                     <mt-button type="primary" class="xe-button-primary" size="small" plain @click.prevent="toCategory">开始选购</mt-button>
-                </view>
-            </view>
+                </div>
+            </div>
         </infinite-loading>
         <!--订单详情-->
         <template slot="outer">

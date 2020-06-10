@@ -1,30 +1,30 @@
 <template>
     <swiper :options="swiperOption" class="m-ystimes" ref="swiperControl">
         <swiper-slide v-for="(item, index) in itemdata" class="item" :key="index" :class="{'disable': getDisTime[index]}">
-            <view class='time'>
+            <div class='time'>
                 <p>开始时间</p>
-                <view>
+                <div>
                     {{item.startdate.split(' ')[0]}}<br>
                     {{item.startdate.split(' ')[1]}}
-                </view>
-            </view>
-            <view class='price'>
+                </div>
+            </div>
+            <div class='price'>
                 <span v-html="splitPrice(item.prePrice)"></span><em class="unit">/{{priceUnit}}</em>
-            </view>
-            <view class='time'>
+            </div>
+            <div class='time'>
                 <p>结束时间</p>
                 <p>
                     {{item.enddate.split(' ')[0]}}<br>
                     {{item.enddate.split(' ')[1]}}
                 </p>
-            </view>
+            </div>
         </swiper-slide>
-        <view class="swiper-button-next"  slot="button-prev">
+        <div class="swiper-button-next"  slot="button-prev">
             <span class="xe-iconfont xe-icon-double-arrow-right"></span>
-        </view>
-        <view class="swiper-button-prev"  slot="button-next">
+        </div>
+        <div class="swiper-button-prev"  slot="button-next">
             <span class="xe-iconfont xe-icon-double-arrow-right"></span>
-        </view>
+        </div>
     </swiper>
 </template>
 
@@ -128,7 +128,7 @@
             display: flex;
             align-items: center;
             padding: 0 25/$ppr;
-            > view {
+            > div {
                 flex: 1;
                 text-align: center;
                 font-size: 24/$ppr;

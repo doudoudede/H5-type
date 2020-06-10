@@ -25,7 +25,7 @@
 	 * 	@value button 按钮类型
 	 * 	@value text 文字类型
 	 * @property {String} activeColor 选中的标签背景色与边框颜色
-	 * @property {Array} values 选项数组
+	 * @property {array} values 选项数组
 	 * @event {Function} clickItem 组件触发点击事件时触发，e={currentIndex}
 	 */
 
@@ -37,7 +37,7 @@
 				default: 0
 			},
 			values: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -81,7 +81,7 @@
 
 <style scoped>
 	.segmented-control {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		box-sizing: border-box;
 		/* #endif */
@@ -91,7 +91,7 @@
 	}
 
 	.segmented-control__item {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: inline-flex;
 		box-sizing: border-box;
 		/* #endif */

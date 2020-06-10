@@ -136,7 +136,7 @@ export default {
 		},
 		getQuerySelect() {
 			const query = uni.createSelectorQuery().in(this);
-			query.selectAll('.viewWidth-hook').boundingClientRect(data => {
+			query.selectall('.viewWidth-hook').boundingClientRect(data => {
 
 				this.viewWidth = data[0].width
 				this.buttonWidth = data[1].width

@@ -93,7 +93,7 @@
 	/* 抽屉宽度
  */
 	.uni-drawer {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: block;
 		/* #endif */
 		position: fixed;
@@ -106,7 +106,7 @@
 	}
 
 	.uni-drawer__content {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: block;
 		/* #endif */
 		position: absolute;
@@ -133,7 +133,7 @@
 
 
 	.uni-drawer__mask {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: block;
 		/* #endif */
 		opacity: 0;
@@ -147,7 +147,7 @@
 	}
 
 	.uni-drawer__mask--visible {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: block;
 		/* #endif */
 		opacity: 1;

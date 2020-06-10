@@ -1,9 +1,9 @@
 <template>
     <xe-layout class="m-flexlay m-bg-dark">
-        <view class="personInfor-box">
+        <div class="personInfor-box">
             <!--进度条 class名为person-stepBox的增加class名字显示对应的步骤条step-progress-one、step-progress-two、step-progress-three、step-progress-four-->
             <!-- step -->
-            <view class="m-user-step">
+            <div class="m-user-step">
                 <xe-step :current="stepCurrent">
                     <xe-step-item>
                         <span slot="text">基本信息</span>
@@ -15,18 +15,18 @@
                         <span slot="text">提交审核</span>
                     </xe-step-item>
                 </xe-step>
-            </view>
+            </div>
             <!--具体内容区域-->
-            <view class="person-content">
+            <div class="person-content">
                 <keep-alive>
                     <component v-if="componentflag" :is="currentView" ref='currentComponent'></component>
                 </keep-alive>
-            </view>
-        </view>
-        <view v-show='btnshow' class="person-button" slot="footer">
+            </div>
+        </div>
+        <div v-show='btnshow' class="person-button" slot="footer">
             <mt-button class="xe-button-white" @click="stepPrevFn" style="width: 50%;">{{stepCurrent === 1 ? '返回': '返回上一步'}}</mt-button>
             <mt-button type="primary" class="xe-button-primary" :loading="subLoading" @click="stepNextFn" style="width: 50%;background: #f53226" >{{stepCurrent >= 3 ? '提交审核': '下一步'}}</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

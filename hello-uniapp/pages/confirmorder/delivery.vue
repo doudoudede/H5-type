@@ -1,50 +1,50 @@
 <template>
-    <view class="m-delivery-con">
-        <view class="delivery-item">
-            <view class="m-list-block">
+    <div class="m-delivery-con">
+        <div class="delivery-item">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content" v-if="itemData.shipTypeList.length > 0">
-                        <view class="item-inner">
-                            <view class="item-title">
+                        <div class="item-inner">
+                            <div class="item-title">
                                 配送方式
-                            </view>
-                            <view class="item-after">
-                                    <view class="delivery-item-cons">
+                            </div>
+                            <div class="item-after">
+                                    <div class="delivery-item-cons">
                                         <xe-radio-group v-model="shipType">
-                                            <view v-for="(item, index) in itemData.shipTypeList" :key="index">
+                                            <div v-for="(item, index) in itemData.shipTypeList" :key="index">
                                                 <xe-radio :label="item">{{parseInt(item) | shipTypeToText}}</xe-radio>
-                                            </view>
+                                            </div>
                                         </xe-radio-group>
-                                    </view>
-                            </view>
-                        </view>
+                                    </div>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content" v-show="(shipType === '1' && itemData.appointCarFlag === 1) || shipType === '2'" style="position: relative;">
-                        <view class="item-inner">
-                            <view class="item-title">
+                        <div class="item-inner">
+                            <div class="item-title">
                                 指定车辆
-                            </view>
-                            <view class="item-input">
+                            </div>
+                            <div class="item-input">
                                 <input type="text" v-model="telNum" placeholder="请输入车牌号、联系电话">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                         <transition name="slide-in">
-                            <view class="autocombox" v-show="telNumArr && telNumArr.length">
+                            <div class="autocombox" v-show="telNumArr && telNumArr.length">
                                 <ul>
                                     <li v-for="item in telNumArr" :key="item.carId" @click.prevent="chooseCar(item)">
                                         {{item.carPlateNum}} ({{item.contactPerson}} {{item.mobilePhone}})
                                     </li>
                                 </ul>
-                            </view>
+                            </div>
                         </transition>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="deliver-btns">
+            </div>
+        </div>
+        <div class="deliver-btns">
             <mt-button type="primary" style="width: 100%;" class="xe-button-primary" @click.prevent="setDeliveryFn">确定</mt-button>
-        </view>
-    </view>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import debounce from 'throttle-debounce/debounce';
@@ -157,7 +157,7 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            > view {
+            > div {
                 margin: 0 10/$ppr;
             }
         }

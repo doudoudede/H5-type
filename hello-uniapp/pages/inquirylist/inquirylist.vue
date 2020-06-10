@@ -1,283 +1,283 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="inquirylist-nav m-content-view" slot='header'>
+        <div class="inquirylist-nav m-content-div" slot='header'>
             <xe-navtab-con ref="navTab" :itemData="navListData" @swiperItemClick="swiperItemClick"></xe-navtab-con>
-        </view>
-        <view class="m-content-view">
+        </div>
+        <div class="m-content-div">
             <template v-if="inquiryType === 0">
                 <xe-checkbox-group v-model="checkedPros">
-                    <view class="m-inquiry-item" v-for="(item, index) in inquirysheetList" :key="item.inquirysheetCode">
-                    <view class="m-inquiry-tit">
-                        <view class="left">
+                    <div class="m-inquiry-item" v-for="(item, index) in inquirysheetList" :key="item.inquirysheetCode">
+                    <div class="m-inquiry-tit">
+                        <div class="left">
                             <xe-checkbox :label="item.inquirysheetCode">编号: {{item.inquirysheetCode}}</xe-checkbox>
-                        </view>
-                        <!--<view class="right">人顶起人顶起</view>-->
-                    </view>
-                    <view class="m-inquiry-pro">
+                        </div>
+                        <!--<div class="right">人顶起人顶起</div>-->
+                    </div>
+                    <div class="m-inquiry-pro">
                         <router-link :to="{name: 'ProductDetails', params: {prospu: item.proSpu}, query: {prosku: item.productSku}}" class="m-product-item">
-                            <view class="pic">
+                            <div class="pic">
                                 <img v-lazy="picServer + item.proMainImg" alt="">
-                            </view>
-                            <view class="msg">
-                                <view class="msg-con">
-                                    <view class="name">
+                            </div>
+                            <div class="msg">
+                                <div class="msg-con">
+                                    <div class="name">
                                         <p v-html="item.productName"></p>
-                                    </view>
-                                    <view class="vendor">
+                                    </div>
+                                    <div class="vendor">
                                         {{item.shopName ? item.shopName : item.venName}}
-                                    </view>
-                                    <view class="msg-scon">
-                                        <view class="qutaliy">{{item.minQuantity}}{{item.proUnit}}起订 ({{item.productSpecifications}})</view>
-                                        <!--<view class="marketPri">-->
+                                    </div>
+                                    <div class="msg-scon">
+                                        <div class="qutaliy">{{item.minQuantity}}{{item.proUnit}}起订 ({{item.productSpecifications}})</div>
+                                        <!--<div class="marketPri">-->
                                             <!--&yen;{{item.unitPrice}}/{{item.proUnit}}-->
-                                        <!--</view>-->
-                                        <view class="price" v-if="item.priceMethod !== 3">
+                                        <!--</div>-->
+                                        <div class="price" v-if="item.priceMethod !== 3">
                                             &yen;<span class="big-price">{{item.skuPrice | toFixed2}}</span><span class="unit">/{{item.proUnit}}</span>
-                                        </view>
-                                        <view class="price" v-else>
+                                        </div>
+                                        <div class="price" v-else>
                                             面议
-                                        </view>
-                                    </view>
-                                </view>
-                            </view>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </router-link>
-                    </view>
-                    <view class="det-inquiry-item">
-                        <view class="item">
-                            <view class="item-left">采购数量</view>
-                            <view class="item-right">
-                                <view class="num-con">
+                    </div>
+                    <div class="det-inquiry-item">
+                        <div class="item">
+                            <div class="item-left">采购数量</div>
+                            <div class="item-right">
+                                <div class="num-con">
                                     <InputNumber
                                         v-model="item.productCount"
                                         :min="item.minQuantity"
                                         :max="item.saleQuantity"
                                     ></InputNumber>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="item">
-                            <view class="item-left">采购询价</view>
-                            <view class="item-right">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-left">采购询价</div>
+                            <div class="item-right">
                                 <template v-if="item.priceMethod !== 3">
                                     <input maxlength="8" type="number" v-model.number="item.proPrice" @blur="item.proPrice = Number(Math.abs(parseFloat(item.proPrice)).toFixed(2))" placeholder="请输入价格" class="inquiry-input"><span>元/{{item.proUnit}}</span>
                                 </template>
                                 <template v-else>
                                     <input maxlength="8" type="number" v-model.number="item.myprice" @blur="item.myprice = Number(Math.abs(parseFloat(item.myprice)).toFixed(2))" placeholder="请输入价格" class="inquiry-input"><span>元/{{item.proUnit}}</span>
                                 </template>
-                            </view>
-                        </view>
-                        <view class="item">
-                            <view class="item-left">询价类型</view>
-                            <view class="item-right">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-left">询价类型</div>
+                            <div class="item-right">
                                 <xe-radio-group v-model="item.inquiryType">
-                                    <view class="clearfix" v-if="item.deliveryType === 1">
-                                        <view class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></view>
-                                    </view>
-                                    <view class="clearfix" v-else-if="item.deliveryType === 2">
-                                        <view class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></view>
-                                    </view>
-                                    <view class="clearfix" v-else>
-                                        <view class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></view>
-                                        <view class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></view>
-                                    </view>
+                                    <div class="clearfix" v-if="item.deliveryType === 1">
+                                        <div class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></div>
+                                    </div>
+                                    <div class="clearfix" v-else-if="item.deliveryType === 2">
+                                        <div class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></div>
+                                    </div>
+                                    <div class="clearfix" v-else>
+                                        <div class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></div>
+                                        <div class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></div>
+                                    </div>
                                 </xe-radio-group>
-                            </view>
-                        </view>
-                    </view>
-                    <v-touch v-if="adrDatas.length" class="det-inquiry-item det-inquiry-itemadr" tag="view" @tap="adrVisibleFn(item)">
-                        <view class="arrow-right-commons">
-                            <view class="item">
-                                <view class="item-left">收货人</view>
-                                <view class="item-right">{{item.conName}} {{item.conPhone}}</view>
-                            </view>
-                            <view class="item">
-                                <view class="item-left">收货地址</view>
-                                <view class="item-right">
-                                    <view class="item-right-adr">{{item.deliveryAddress}}</view>
-                                </view>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
+                    </div>
+                    <v-touch v-if="adrDatas.length" class="det-inquiry-item det-inquiry-itemadr" tag="div" @tap="adrVisibleFn(item)">
+                        <div class="arrow-right-commons">
+                            <div class="item">
+                                <div class="item-left">收货人</div>
+                                <div class="item-right">{{item.conName}} {{item.conPhone}}</div>
+                            </div>
+                            <div class="item">
+                                <div class="item-left">收货地址</div>
+                                <div class="item-right">
+                                    <div class="item-right-adr">{{item.deliveryAddress}}</div>
+                                </div>
+                            </div>
+                        </div>
                     </v-touch>
-                    <view class="m-inquiry-add" v-else>
+                    <div class="m-inquiry-add" v-else>
                         <mt-button type="primary" size="small" class="xe-button-primary is-radius" plain @click.prevent="navToAddNewAdr">+ 新增地址</mt-button>
-                    </view>
-                </view>
+                    </div>
+                </div>
                 </xe-checkbox-group>
             </template>
             <template v-else>
                 <xe-checkbox-group v-if="inquirysheetList.length" v-model="checkedPros" @change="checkedProsFn">
-                    <view class="m-inquiry-item" v-for="(item, index) in inquirysheetList" :key="item.inquirysheetCode">
-                        <view class="m-inquiry-tit">
-                            <view class="left">
+                    <div class="m-inquiry-item" v-for="(item, index) in inquirysheetList" :key="item.inquirysheetCode">
+                        <div class="m-inquiry-tit">
+                            <div class="left">
                                 <xe-checkbox :label="item.inquirysheetCode">编号: {{item.inquirysheetCode}}</xe-checkbox>
-                            </view>
-                            <view class="right countime" v-if="inquiryType === 1">
+                            </div>
+                            <div class="right countime" v-if="inquiryType === 1">
                                 <p><em class="xe-iconfont xe-icon-tc"></em><xe-countdown :time="item.residueTime" timetype="second" format="{%h}时{%m}分{%s}秒"></xe-countdown></p>
-                            </view>
-                            <view class="right" v-else><span class="red">{{item.inquiryStatus | inquiryStatusToText}}</span></view>
-                        </view>
-                        <view class="m-inquiry-pro">
+                            </div>
+                            <div class="right" v-else><span class="red">{{item.inquiryStatus | inquiryStatusToText}}</span></div>
+                        </div>
+                        <div class="m-inquiry-pro">
                             <router-link :to="{name: 'ProductDetails', params: {prospu: item.proSpu}, query: {prosku: item.productSku}}" class="m-product-item">
-                                <view class="pic">
+                                <div class="pic">
                                     <img v-lazy="picServer + item.proMainImg" alt="">
-                                </view>
-                                <view class="msg">
-                                    <view class="msg-con">
-                                        <view class="name">
+                                </div>
+                                <div class="msg">
+                                    <div class="msg-con">
+                                        <div class="name">
                                             <p v-html="item.productName"></p>
-                                        </view>
-                                        <view class="vendor">
+                                        </div>
+                                        <div class="vendor">
                                             {{item.shopName ? item.shopName : item.venName}}
-                                        </view>
-                                        <view class="msg-scon" v-if="inquiryType === 1 || inquiryType === 4 || item.inquiryStatus === 6">
-                                            <view class="qutaliy">采购数量：{{item.productCount}}{{item.proUnit}}</view>
-                                            <view class="price">
+                                        </div>
+                                        <div class="msg-scon" v-if="inquiryType === 1 || inquiryType === 4 || item.inquiryStatus === 6">
+                                            <div class="qutaliy">采购数量：{{item.productCount}}{{item.proUnit}}</div>
+                                            <div class="price">
                                                 商家报价：&yen;<span class="big-price">{{item.agreePrice | toFixed2}}</span><span class="unit">/{{item.proUnit}}</span>
-                                            </view>
-                                        </view>
-                                        <view class="msg-scon" v-else>
-                                            <view class="qutaliy">{{item.minQuantity}}{{item.proUnit}}起订 ({{item.productSpecifications}})</view>
-                                            <!--<view class="marketPri">-->
+                                            </div>
+                                        </div>
+                                        <div class="msg-scon" v-else>
+                                            <div class="qutaliy">{{item.minQuantity}}{{item.proUnit}}起订 ({{item.productSpecifications}})</div>
+                                            <!--<div class="marketPri">-->
                                             <!--&yen;{{item.unitPrice}}/{{item.proUnit}}-->
-                                            <!--</view>-->
-                                            <view class="price" v-if="item.priceMethod !== 3">
+                                            <!--</div>-->
+                                            <div class="price" v-if="item.priceMethod !== 3">
                                                 &yen;<span class="big-price">{{item.skuPrice | toFixed2}}</span><span class="unit">/{{item.proUnit}}</span>
-                                            </view>
-                                            <view class="price" v-else>
+                                            </div>
+                                            <div class="price" v-else>
                                                 面议
-                                            </view>
-                                        </view>
-                                    </view>
-                                </view>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </router-link>
-                        </view>
+                        </div>
                         <CollapseTransition>
-                            <view v-show="item.showFlag">
-                                <view class="m-inquiry-msg">
+                            <div v-show="item.showFlag">
+                                <div class="m-inquiry-msg">
                                     <template v-if="item.inquiryStatus !== 5 && item.inquiryStatus !== 3 && item.inquiryStatus !== 7">
-                                        <view>
-                                            <view>商品规格</view>
-                                            <view>{{item.productSpecifications}}</view>
-                                        </view>
-                                        <view>
-                                            <view>起订量</view>
-                                            <view>{{item.minQuantity}}{{item.proUnit}}</view>
-                                        </view>
+                                        <div>
+                                            <div>商品规格</div>
+                                            <div>{{item.productSpecifications}}</div>
+                                        </div>
+                                        <div>
+                                            <div>起订量</div>
+                                            <div>{{item.minQuantity}}{{item.proUnit}}</div>
+                                        </div>
                                     </template>
                                     <template v-if="item.inquiryStatus === 5 || item.inquiryStatus === 3 || item.inquiryStatus === 7">
-                                        <view>
-                                            <view>采购数量</view>
-                                            <view>{{item.productCount}}{{item.proUnit}}</view>
-                                        </view>
+                                        <div>
+                                            <div>采购数量</div>
+                                            <div>{{item.productCount}}{{item.proUnit}}</div>
+                                        </div>
                                     </template>
-                                    <view v-else>
-                                        <view>参考价</view>
-                                        <view v-if="item.priceMethod !== 3">&yen;{{item.skuPrice | toFixed2}}/{{item.proUnit}}</view>
-                                        <view v-else>面议</view>
-                                    </view>
-                                    <view>
-                                        <view>采购询价</view>
-                                        <view>&yen;{{item.proPrice | toFixed2}}/{{item.proUnit}}</view>
-                                    </view>
-                                    <view>
-                                        <view>询价类型</view>
-                                        <view>{{item.inquiryType | inquiryTypeToText}}</view>
-                                    </view>
-                                </view>
-                                <view class="m-inquiry-msg border" v-if="item.inquiryStatus === 7">
-                                    <view>
-                                        <view style="white-space: nowrap;line-height: 1.4">驳回原因:</view>
-                                        <view style="line-height: 1.4">{{item.rejectReason ? item.rejectReason : '无'}}</view>
-                                    </view>
-                                </view>
-                                <view class="det-inquiry-item det-inquiry-itemadr">
-                                    <view>
-                                        <view class="item">
-                                            <view class="item-left">收货人</view>
-                                            <view class="item-right">{{item.conName}} {{item.conPhone}}</view>
-                                        </view>
-                                        <view class="item">
-                                            <view class="item-left">收货地址</view>
-                                            <view class="item-right">
-                                                <view class="item-right-adr">{{item.deliveryAddress}}</view>
-                                            </view>
-                                        </view>
-                                    </view>
-                                </view>
-                            </view>
+                                    <div v-else>
+                                        <div>参考价</div>
+                                        <div v-if="item.priceMethod !== 3">&yen;{{item.skuPrice | toFixed2}}/{{item.proUnit}}</div>
+                                        <div v-else>面议</div>
+                                    </div>
+                                    <div>
+                                        <div>采购询价</div>
+                                        <div>&yen;{{item.proPrice | toFixed2}}/{{item.proUnit}}</div>
+                                    </div>
+                                    <div>
+                                        <div>询价类型</div>
+                                        <div>{{item.inquiryType | inquiryTypeToText}}</div>
+                                    </div>
+                                </div>
+                                <div class="m-inquiry-msg border" v-if="item.inquiryStatus === 7">
+                                    <div>
+                                        <div style="white-space: nowrap;line-height: 1.4">驳回原因:</div>
+                                        <div style="line-height: 1.4">{{item.rejectReason ? item.rejectReason : '无'}}</div>
+                                    </div>
+                                </div>
+                                <div class="det-inquiry-item det-inquiry-itemadr">
+                                    <div>
+                                        <div class="item">
+                                            <div class="item-left">收货人</div>
+                                            <div class="item-right">{{item.conName}} {{item.conPhone}}</div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item-left">收货地址</div>
+                                            <div class="item-right">
+                                                <div class="item-right-adr">{{item.deliveryAddress}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </CollapseTransition>
-                        <view class="m-inquiry-zk" :class="{'active': item.showFlag}" @click.prevent="zkfn(item)">
+                        <div class="m-inquiry-zk" :class="{'active': item.showFlag}" @click.prevent="zkfn(item)">
                             {{item.showFlag ? '收起' : '展开'}} <span class="xe-iconfont xe-icon-unfold"></span>
-                        </view>
-                    </view>
+                        </div>
+                    </div>
                 </xe-checkbox-group>
             </template>
-        </view>
+        </div>
         <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
             <span slot="no-more" class="infinite-no-more">
                 暂无更多数据~
             </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">暂无询价单信息</p>
-                </view>
-                <view class="btn">
+                </div>
+                <div class="btn">
                     <mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">开始选购</mt-button>
-                </view>
-            </view>
+                </div>
+            </div>
         </infinite-loading>
         <template v-if="inquiryType === 0 && inquirysheetList.length">
             <!--待询价-->
-            <view class="m-inquiry-btns" slot="footer">
-                <view class="det-pri">
+            <div class="m-inquiry-btns" slot="footer">
+                <div class="det-pri">
                     <span>合计：</span>&yen;{{totalPrice}}
-                </view>
-                <view class="det-btns">
-                    <view class="det-tocart" @click.prevent="delInquiryList">删除</view>
-                    <view class="det-tobuy xe-gradient-color" @click.prevent="sendInquiry">询价<span v-show="checkedPros.length">({{checkedPros.length}})</span></view>
-                </view>
-                <!--<view class="det-btn-tips">-->
+                </div>
+                <div class="det-btns">
+                    <div class="det-tocart" @click.prevent="delInquiryList">删除</div>
+                    <div class="det-tobuy xe-gradient-color" @click.prevent="sendInquiry">询价<span v-show="checkedPros.length">({{checkedPros.length}})</span></div>
+                </div>
+                <!--<div class="det-btn-tips">-->
                 <!--当前区域暂不支持配送-->
-                <!--</view>-->
-            </view>
+                <!--</div>-->
+            </div>
         </template>
         <template v-if="inquiryType === 1 && inquirysheetList.length">
             <!--待询价-->
-            <view class="m-inquiry-btns" slot="footer">
-                <view class="det-pri">
+            <div class="m-inquiry-btns" slot="footer">
+                <div class="det-pri">
                     <span>合计：</span>&yen;{{totalPrice}}
-                </view>
-                <view class="det-btns">
-                    <view class="det-tocart" @click.prevent="delInquiryList">删除</view>
-                    <view class="det-tobuy xe-gradient-color" @click.prevent="inquiryCheckOrder">去下单<span v-show="checkedPros.length">({{checkedPros.length}})</span></view>
-                </view>
-            </view>
+                </div>
+                <div class="det-btns">
+                    <div class="det-tocart" @click.prevent="delInquiryList">删除</div>
+                    <div class="det-tobuy xe-gradient-color" @click.prevent="inquiryCheckOrder">去下单<span v-show="checkedPros.length">({{checkedPros.length}})</span></div>
+                </div>
+            </div>
         </template>
         <template v-if="(inquiryType === 2 || inquiryType === 4) && inquirysheetList.length">
             <!--已失效 已完成-->
-            <view class="m-inquiry-btns" slot="footer">
-                <view class="m-all-check">
+            <div class="m-inquiry-btns" slot="footer">
+                <div class="m-all-check">
                     <xe-checkbox size="large" v-model="checkedAll" @input="checkedAllFn">全选</xe-checkbox>
-                </view>
-                <view class="det-btns">
-                    <view class="det-tocart" @click.prevent="delInquiryList">删除</view>
-                    <view class="det-tobuy xe-gradient-color" @click.prevent="aginInquiry">再次询价</view>
-                </view>
-            </view>
+                </div>
+                <div class="det-btns">
+                    <div class="det-tocart" @click.prevent="delInquiryList">删除</div>
+                    <div class="det-tobuy xe-gradient-color" @click.prevent="aginInquiry">再次询价</div>
+                </div>
+            </div>
         </template>
         <template v-if="inquiryType === 3 && inquirysheetList.length">
             <!--询价中-->
-            <view class="m-inquiry-btns align-right" slot="footer">
-                <view class="m-all-check">
+            <div class="m-inquiry-btns align-right" slot="footer">
+                <div class="m-all-check">
                     <xe-checkbox size="large" v-model="checkedAll" @input="checkedAllFn">全选</xe-checkbox>
-                </view>
-                <view class="det-btns det-btns-3">
-                    <view class="det-tocart" @click.prevent="delInquiryList">取消</view>
-                </view>
-            </view>
+                </div>
+                <div class="det-btns det-btns-3">
+                    <div class="det-tocart" @click.prevent="delInquiryList">取消</div>
+                </div>
+            </div>
         </template>
         <!--选择地址-->
         <xe-popup
@@ -840,11 +840,11 @@
             &.border {
                  border-top: 1/$ppr solid $border-color-e8e;
              }
-            > view {
+            > div {
                 margin: 15/$ppr 0;
                 display: flex;
                 font-size: 28/$ppr;
-                view {
+                div {
                     &:nth-child(1) {
                          margin-right: 25/$ppr;
                     }
@@ -979,7 +979,7 @@
                     color: $text-333;
                 }
             }
-            > view {
+            > div {
                 flex:1;
                 font-size: 34/$ppr;
                 text-align: center;

@@ -1,23 +1,23 @@
 <template>
     <xe-layout class="m-bg-dark">
-        <view class="m-succ-item">
-            <view class="m-succ-top">
-                <view class="xe-iconfont xe-icon-rfill2"></view>
-                <view class="tips">
+        <div class="m-succ-item">
+            <div class="m-succ-top">
+                <div class="xe-iconfont xe-icon-rfill2"></div>
+                <div class="tips">
                     您的订单已成功提交<br>
                     我们会尽快为您安排发货！
-                </view>
-            </view>
-            <view class="m-succ-bot">
-                <!-- <view>订单编号：{{$route.params.mid}}</view> -->
-                <view>应付款金额：<span>&yen;{{$route.params.payamount | toFixed2}}</span></view>
-                <view>支付方式：<span>货到付款</span></view>
-            </view>
-        </view>
-         <view class="m-succbtns">
+                </div>
+            </div>
+            <div class="m-succ-bot">
+                <!-- <div>订单编号：{{$route.params.mid}}</div> -->
+                <div>应付款金额：<span>&yen;{{$route.params.payamount | toFixed2}}</span></div>
+                <div>支付方式：<span>货到付款</span></div>
+            </div>
+        </div>
+         <div class="m-succbtns">
             <mt-button class="mint-button xe-button-white btns-01" @click.prevent="navToOrderList">查看订单</mt-button>
             <mt-button type="primary" class="xe-button-primary btns-01" @click.prevent="navToCategory">继续采购</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">
@@ -62,7 +62,7 @@
         .m-succ-bot {
             padding: 20/$ppr;
             border-top: 1/$ppr solid $border-color-e8e;
-            view {
+            div {
                 line-height: 1.4;
                 color: $text-999;
                 font-size: 28/$ppr;

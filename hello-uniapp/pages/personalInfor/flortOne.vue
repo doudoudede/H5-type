@@ -1,90 +1,90 @@
 <template>
-    <view>
+    <div>
         <!--基本信息-->
-        <view class="content-flor">
-            <view class="m-cell">
+        <div class="content-flor">
+            <div class="m-cell">
                 <ul>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</div>
+                            <div class="item-input">
                                 <input type="text" ref='userName' v-model="basicInfo.userName" maxlength="10" placeholder="请填写真实姓名">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机&nbsp;</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机&nbsp;</div>
+                            <div class="item-input">
                                 <input type="tel" ref='userPhone' v-model="basicInfo.userPhone" maxlength="11" placeholder="请输入手机号">
-                            </view>
-                            <view class="getyzm" :class="{'nodisabled': basicInfo.userPhone && basicInfo.userPhone.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</view>
-                        </view>
+                            </div>
+                            <div class="getyzm" :class="{'nodisabled': basicInfo.userPhone && basicInfo.userPhone.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</div>
+                        </div>
                     </li>
                     <li class="item-content" v-if="yzmFlagjy">
-                        <view class="item-inner">
-                            <view class="item-title">验&nbsp;证&nbsp;码&nbsp;</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">验&nbsp;证&nbsp;码&nbsp;</div>
+                            <div class="item-input">
                                 <input type="tel" ref='verifyCode' v-model="basicInfo.verifyCode" maxlength="4" placeholder="请输入验证码">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">微&nbsp;信&nbsp;号&nbsp;</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">微&nbsp;信&nbsp;号&nbsp;</div>
+                            <div class="item-input">
                                 <input type="text" ref='wechatNumber' v-model="basicInfo.wechatNumber" maxlength="20" placeholder="填写微信号(选填)">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">店铺名称</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">店铺名称</div>
+                            <div class="item-input">
                                 <input type="text" ref='shopName' v-model="basicInfo.shopName" maxlength="20" placeholder="请填写店铺名称">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="content-flor">
-            <view class="m-cell">
+            </div>
+        </div>
+        <div class="content-flor">
+            <div class="m-cell">
                 <ul>
                     <li class="item-content item-link" @click="chooseCity">
-                        <view class="item-inner">
-                            <view class="item-title">店铺地址</view>
-                            <view class="item-after" :class="{'c333': adrAreaShopStr}">
+                        <div class="item-inner">
+                            <div class="item-title">店铺地址</div>
+                            <div class="item-after" :class="{'c333': adrAreaShopStr}">
                                 {{adrAreaShopStr ? adrAreaShopStr : '请选择店铺地址'}}
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-text">
+                        <div class="item-inner">
+                            <div class="item-text">
                                 <textarea ref='userAddr' style="width: 100%; height: 1rem; line-height: 1.4;" maxlength="40" v-model='basicInfo.userAddr' placeholder="请输入店铺详细地址"></textarea>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
+            </div>
+        </div>
         <!--Dialog-->
         <xe-dialog :show.sync="yzmDialog">
-            <view class="yzmcons">
-                <view class="yzm-input">
-                    <view class="yzm-inputin">
+            <div class="yzmcons">
+                <div class="yzm-input">
+                    <div class="yzm-inputin">
                         <input type="text" v-model="imgverifyCode" maxlength="4" placeholder="请输入图形验证码">
-                    </view>
-                    <view class="yzmimgcon" @click.prevent="getImgCode">
+                    </div>
+                    <div class="yzmimgcon" @click.prevent="getImgCode">
                         <img :src="yzmImgCodeUrl" id="yzmImgsrc">
-                    </view>
-                </view>
-                <view class="yzm-tips">为了您的账户安全，请输入图文验证码！</view>
-            </view>
+                    </div>
+                </div>
+                <div class="yzm-tips">为了您的账户安全，请输入图文验证码！</div>
+            </div>
             <template slot="footer">
-                <view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>
-                <view class="m-dialog-btn sure" @click="yzmDialogSure">确认</view>
+                <div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>
+                <div class="m-dialog-btn sure" @click="yzmDialogSure">确认</div>
             </template>
         </xe-dialog>
         <!--地址插件-->
@@ -98,7 +98,7 @@
                 @on-adr-change="adrChange"
             ></CitySelect>
         </xe-popup>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import {mapState, mapMutations} from 'vuex';

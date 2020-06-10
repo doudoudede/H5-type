@@ -1,5 +1,5 @@
 <template>
-  <view class="chooseshop">
+  <div class="chooseshop">
     <el-input placeholder="请输商城名称" v-model="input" clearable></el-input>
     <el-table :data="tableData" border style="width: 100%">
       <el-table-column fixed prop="date" label="商城名称" width="150"></el-table-column>
@@ -13,7 +13,7 @@
         </template>
       </el-table-column>
     </el-table>
-  </view>
+  </div>
 </template>
 <script>
 export default {
@@ -46,7 +46,7 @@ export default {
 }
 </style>
 // <template>
-//   <view class="chooseshop">
+//   <div class="chooseshop">
 //     <el-input placeholder="请输商城名称" v-model="input" clearable style="width:260px"></el-input>
 //     <el-button type="primary" style="
 //         margin-top: 45px;
@@ -79,7 +79,7 @@ export default {
 //         <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
 //       </span>
 //     </el-dialog>
-//   </view>
+//   </div>
 // </template>
 // <script>
 // export default {

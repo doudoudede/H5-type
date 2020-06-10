@@ -1,86 +1,86 @@
 <template>
     <xe-layout class="m-flexlay m-flexlay-inten">
-        <view class="intention-contentDetails">
-            <view class="contenDetails-scroBox">
-                <view class="contenDetails-userInfo">
-                    <view class="uerInfo-topItem">
-                        <view class="topItem-orderlis">
+        <div class="intention-contentDetails">
+            <div class="contenDetails-scroBox">
+                <div class="contenDetails-userInfo">
+                    <div class="uerInfo-topItem">
+                        <div class="topItem-orderlis">
                             <p>意向单编号:{{orderDtoData.wishCode}}</p>
                             <p class="col_red">{{orderDtoData.wishStatus | wishStatusToText}}</p>
-                        </view>
-                        <view class="topItem-orderlis" v-if="orderDtoData.wishStatus === 1">
+                        </div>
+                        <div class="topItem-orderlis" v-if="orderDtoData.wishStatus === 1">
                             <p v-if="orderDtoData.orderId">生成订单号:
                                 <span class="cor_blu" v-for="(item, index) in orderDtoData.orderId.split(',')" :key="index" @click.prevent="goOrderDet(item)">
                                 {{item}}&nbsp;
                             </span></p>
-                        </view>
-                        <view class="topItem-orderTit">{{orderDtoData.wishStatus === 1 ? '成交金额' : '意向金额'}}</view>
-                        <view class="topItem-orderFri"> <i>¥</i>{{orderDtoData.wishStatus === 1 ? (orderDtoData.orderPayAmount ? parseFloat(orderDtoData.orderPayAmount).toFixed(2) : '0.00') : (orderDtoData.payAmount ? parseFloat(orderDtoData.payAmount).toFixed(2) : '0.00')}}</view>
-                    </view>
-                    <view class="uerInfo-botItem">
-                        <view class="userInfo-item"><span class="xe-iconfont xe-icon-wo"></span>{{orderDtoData.caConsignee}}&nbsp;&nbsp;{{orderDtoData.caPhone}}</view>
-                        <view class="userInfo-item"><span class="xe-iconfont xe-icon-dizhi"></span>{{orderDtoData.addrDetail}}</view>
-                    </view>
-                </view>
-                <view class="contenDetails-proCont">
-                    <view class="pro-Cont-tit">商品信息</view>
-                    <view class="pro-Cont-item" v-for="(item, index) in orderDtoData.wishOrderDetailList" :key='index' @click.prevent="goDetails(item)">
-                        <view class="msg-picshow">
+                        </div>
+                        <div class="topItem-orderTit">{{orderDtoData.wishStatus === 1 ? '成交金额' : '意向金额'}}</div>
+                        <div class="topItem-orderFri"> <i>¥</i>{{orderDtoData.wishStatus === 1 ? (orderDtoData.orderPayAmount ? parseFloat(orderDtoData.orderPayAmount).toFixed(2) : '0.00') : (orderDtoData.payAmount ? parseFloat(orderDtoData.payAmount).toFixed(2) : '0.00')}}</div>
+                    </div>
+                    <div class="uerInfo-botItem">
+                        <div class="userInfo-item"><span class="xe-iconfont xe-icon-wo"></span>{{orderDtoData.caConsignee}}&nbsp;&nbsp;{{orderDtoData.caPhone}}</div>
+                        <div class="userInfo-item"><span class="xe-iconfont xe-icon-dizhi"></span>{{orderDtoData.addrDetail}}</div>
+                    </div>
+                </div>
+                <div class="contenDetails-proCont">
+                    <div class="pro-Cont-tit">商品信息</div>
+                    <div class="pro-Cont-item" v-for="(item, index) in orderDtoData.wishOrderDetailList" :key='index' @click.prevent="goDetails(item)">
+                        <div class="msg-picshow">
                             <img :src="picServer + item.proPicture" alt="">
-                        </view>
-                        <view class="msg-pre-text">
-                            <view class="pre-mainCon">
+                        </div>
+                        <div class="msg-pre-text">
+                            <div class="pre-mainCon">
                                 {{item.proName}}
-                            </view>
-                            <view class="pre-shopname">{{item.shopName}}</view>
-                            <view class="pre-Spes">
+                            </div>
+                            <div class="pre-shopname">{{item.shopName}}</div>
+                            <div class="pre-Spes">
                                 规格：
                                 <span v-if="item.specValue">
                                     {{item.specValue}}
                                 </span>
                                 <span v-else>无</span>
-                            </view>
-                            <view class="pre-frice">
+                            </div>
+                            <div class="pre-frice">
                                 <span class="cor_red" v-if="item.matchPrice"><i>¥</i>{{parseFloat(item.matchPrice).toFixed(2)}} <i>/{{item.proUnit}}</i></span>
                                 <span class="flo_R">x{{item.matchNum}}</span>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="contenDetails-butfixed" v-if="orderDtoData.wishStatus === 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contenDetails-butfixed" v-if="orderDtoData.wishStatus === 2">
                 <mt-button  class="xe-button-default" @click.prevent="orderCancel(orderDtoData.wishCode)" style="width: 50%;border-radius:0">取消</mt-button>
                 <mt-button type="primary"  style="width: 50%;border-radius:0" :loading="subLoading"  class="xe-button-primary bj_red" @click.prevent="goConfirmor">去下单</mt-button>
-            </view>
+            </div>
             <!--底部弹框-->
             <xe-popup
                 :show.sync="showFlag"
                 popupTit="取消原因"
                 slot="outer"
                 position="bottom">
-                <view class='useInfor-selec-box'>
-                    <view class="useInfor-selec-top">
+                <div class='useInfor-selec-box'>
+                    <div class="useInfor-selec-top">
                         <ul>
                             <xe-radio-group v-model="cancelType">
                                 <li class="selec-item" v-for="(item, index) in userProperData" :key="index">
-                                    <view class="selec-radio">
+                                    <div class="selec-radio">
                                         <xe-radio :label="item.value">
                                             {{item.name}}&nbsp;&nbsp;&nbsp;
                                             <input type="text" v-model.trim="cancelRemark" v-if="item.value == 5" :maxlength="20" style="width:80%" placeholder="请输入取消原因">
                                         </xe-radio>
-                                    </view>
+                                    </div>
                                 </li>
                             </xe-radio-group>
                         </ul>
-                    </view>
-                    <view class="useInfor-selec-tishi">取消后意向单失效，不可下单</view>
-                    <view class="useInfor-selec-footer">
+                    </div>
+                    <div class="useInfor-selec-tishi">取消后意向单失效，不可下单</div>
+                    <div class="useInfor-selec-footer">
                         <mt-button  type="primary" class="xe-button-primary" @click.prevent="dialogCancel" style="width: 50%;background: #fff;color: #333;" >取消</mt-button>
                         <mt-button  type="primary" class="xe-button-primary" style="width: 50%;" @click.prevent="orderCancelGo">确定</mt-button>
-                    </view>
-                </view>
+                    </div>
+                </div>
             </xe-popup>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

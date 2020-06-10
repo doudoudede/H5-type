@@ -1,16 +1,16 @@
 <template>
-    <view class="extension">
+    <div class="extension">
         <h3>推广链接</h3>
         <h3>{{link}}</h3>
-        <view class="qrcode"></view>
-        <view class="copy">
+        <div class="qrcode"></div>
+        <div class="copy">
             <el-button type="primary" style="
                 margin-top: 45px;
                 font-size: 45px;"
                 v-clipboard:copy="link" v-clipboard:success="onCopy" v-clipboard:error="onError"
             >复制</el-button>
-        </view>
-    </view>
+        </div>
+    </div>
 </template>
 <script>
 import QRCode from 'qrcodejs2'  

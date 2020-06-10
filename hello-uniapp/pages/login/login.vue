@@ -1,61 +1,61 @@
 <template>
     <xe-layout class="m-login">
-        <view class="login-box-top">
-            <view >
+        <div class="login-box-top">
+            <div >
                 <img style="display:block;width:1.3rem;height:1.3rem;margin:auto" src="../../static/images/shangpinpingjia.png" alt="">
-            </view>
-            <view class="logo-txt">线上采购 送药到家</view>
-        </view>
-        <view class="loin-box-content" slot="outer">
-            <view class="ml-list" v-show="loginWay === 1" key="loginPassword">
-                <view class="ml-list-item">
-                    <view class="con">
+            </div>
+            <div class="logo-txt">线上采购 送药到家</div>
+        </div>
+        <div class="loin-box-content" slot="outer">
+            <div class="ml-list" v-show="loginWay === 1" key="loginPassword">
+                <div class="ml-list-item">
+                    <div class="con">
                         <input class="input-cls" type="number" v-model.trim="loginByPassword.loginName" placeholder="输入手机号/邮箱">
-                    </view>
-                    <view class="act">
+                    </div>
+                    <div class="act">
                         <span class="xe-iconfont xe-icon-cuowu" v-if="loginByPassword.loginName.length" @click.prevent="loginByPassword.loginName = ''"></span>
-                    </view>
-                </view>
-                <view class="ml-list-item">
-                    <view class="con">
+                    </div>
+                </div>
+                <div class="ml-list-item">
+                    <div class="con">
                         <input v-if="pwdType" class="input-cls" v-model.trim="loginByPassword.pwd" @keyup.13="loginPassFn" placeholder="输入密码" type="text">
                         <input v-else class="input-cls" v-model.trim="loginByPassword.pwd" @keyup.13="loginPassFn" placeholder="输入密码" type="password">
-                    </view>
-                    <view class="act">
+                    </div>
+                    <div class="act">
                         <span class="xe-iconfont " :class="[pwdType ? 'xe-icon-yanjing2' : 'xe-icon-yanjing']" @click.prevent="pwdType = !pwdType"></span>
                         <span class="xe-iconfont xe-icon-cuowu" v-if="loginByPassword.pwd.length" @click.prevent="loginByPassword.pwd = ''"></span>
-                    </view>
-                </view>
-                <view class="ml-list-item" v-if="yzmPicFlag">
-                    <view class="con">
+                    </div>
+                </div>
+                <div class="ml-list-item" v-if="yzmPicFlag">
+                    <div class="con">
                         <input class="input-cls" placeholder="输入验证码" type="password">
-                    </view>
-                    <view class="act">
+                    </div>
+                    <div class="act">
                         <span class="xe-iconfont xe-icon-cuowu"></span>
-                    </view>
-                    <view class="yzm-img"></view>
-                </view>
-            </view>
-            <view class="ml-list" v-show="loginWay === 2" key="loginTelYzm">
-                <view class="ml-list-item">
-                    <view class="con">
+                    </div>
+                    <div class="yzm-img"></div>
+                </div>
+            </div>
+            <div class="ml-list" v-show="loginWay === 2" key="loginTelYzm">
+                <div class="ml-list-item">
+                    <div class="con">
                         <input class="input-cls" v-model.trim="loginByFast.loginName" :maxlength="11" placeholder="输入手机号" type="tel">
-                    </view>
-                    <view class="act">
+                    </div>
+                    <div class="act">
                         <span class="xe-iconfont xe-icon-cuowu" v-if="loginByFast.loginName.length" @click.prevent="loginByFast.loginName = ''"></span>
-                    </view>
-                    <view class="getyzm" :class="{'nodisabled': loginByFast.loginName && loginByFast.loginName.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</view>
-                </view>
-                <view class="ml-list-item">
-                    <view class="con">
+                    </div>
+                    <div class="getyzm" :class="{'nodisabled': loginByFast.loginName && loginByFast.loginName.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</div>
+                </div>
+                <div class="ml-list-item">
+                    <div class="con">
                         <input class="input-cls" v-model.trim="loginByFast.verifyCode" placeholder="输入验证码" type="tel">
-                    </view>
-                    <view class="act">
+                    </div>
+                    <div class="act">
                         <span class="xe-iconfont xe-icon-cuowu" v-if="loginByFast.verifyCode.length" @click.prevent="loginByFast.verifyCode = ''"></span>
-                    </view>
-                </view>
-            </view>
-            <view class="m-login-btn" v-if="loginWay === 1">
+                    </div>
+                </div>
+            </div>
+            <div class="m-login-btn" v-if="loginWay === 1">
                 <mt-button
                     type="primary"
                     :disabled="disabledFlag"
@@ -65,8 +65,8 @@
                 >
                     登 录
                 </mt-button>
-            </view>
-            <view class="m-login-btn" v-else>
+            </div>
+            <div class="m-login-btn" v-else>
                 <mt-button
                     type="primary"
                     :disabled="disabledFlag2"
@@ -76,48 +76,48 @@
                 >
                     登 录
                 </mt-button>
-            </view>
-            <view class="quick-login">
-                <view>
-                    <view href="#" class="cor_y520" @click.prevent="navToReg">注册</view>
-                    <view href="#" class="cor_y520" @click.prevent="changeLoginWay">{{loginWay === 1 ? '短信登录' : '密码登录'}}</view>
-                    <router-link tag="view" :to="{name: 'RetakePassword'}" v-if="loginWay === 1">忘记密码?</router-link>
-                </view>
-            </view>
-        </view>
-        <view v-show="loginWay === 2" slot="outer" class="m-login-xy">
+            </div>
+            <div class="quick-login">
+                <div>
+                    <div href="#" class="cor_y520" @click.prevent="navToReg">注册</div>
+                    <div href="#" class="cor_y520" @click.prevent="changeLoginWay">{{loginWay === 1 ? '短信登录' : '密码登录'}}</div>
+                    <router-link tag="div" :to="{name: 'RetakePassword'}" v-if="loginWay === 1">忘记密码?</router-link>
+                </div>
+            </div>
+        </div>
+        <div v-show="loginWay === 2" slot="outer" class="m-login-xy">
             <span class="xe-iconfont xe-icon-ronud_check"></span>
-            <view class="con">我已阅读并同意<router-link :to="{name: 'Support'}">《如来云商服务协议》</router-link>同时开通易支付账户</view>
-        </view>
-        <view class="login-footer" slot="footer">
-        </view>
+            <div class="con">我已阅读并同意<router-link :to="{name: 'Support'}">《如来云商服务协议》</router-link>同时开通易支付账户</div>
+        </div>
+        <div class="login-footer" slot="footer">
+        </div>
         <!--Dialog-->
         <xe-dialog slot="outer" :show.sync="yzmDialog">
-            <view class="yzmcons">
-                <view class="yzm-input">
-                    <view class="yzm-inputin">
+            <div class="yzmcons">
+                <div class="yzm-input">
+                    <div class="yzm-inputin">
                         <input type="text" v-model="yzmvalue" maxlength="4" placeholder="请输入图形验证码">
-                    </view>
-                    <view class="yzmimgcon" @click.prevent="getImgCode">
+                    </div>
+                    <div class="yzmimgcon" @click.prevent="getImgCode">
                         <img :src="yzmImgCodeUrl" id="yzmImgsrc">
-                    </view>
-                </view>
-                <view class="yzm-tips">为了您的账户安全，请输入图文验证码！</view>
-            </view>
+                    </div>
+                </div>
+                <div class="yzm-tips">为了您的账户安全，请输入图文验证码！</div>
+            </div>
             <template slot="footer">
-                <view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>
-                <view class="m-dialog-btn sure" @click="yzmDialogSure">确认</view>
+                <div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>
+                <div class="m-dialog-btn sure" @click="yzmDialogSure">确认</div>
             </template>
         </xe-dialog>
         <!--认证提示弹框-->
         <!-- <xe-dialog slot="outer" :show.sync="personFlag">
-            <view class="person-auth">
+            <div class="person-auth">
                 恭喜您注册如来云商！<br>
                 认证身份，即可随心采购~
-            </view>
+            </div>
             <template slot="footer">
-                <view class="m-dialog-btn sure" @click="">稍后再说</view>
-                <view class="m-dialog-btn sure" @click="">立即认证</view>
+                <div class="m-dialog-btn sure" @click="">稍后再说</div>
+                <div class="m-dialog-btn sure" @click="">立即认证</div>
             </template>
         </xe-dialog> -->
     </xe-layout>
@@ -458,9 +458,9 @@
         }
         .quick-login {
             text-align: center;
-            >view {
+            >div {
                 display: inline;
-                >view {
+                >div {
                     position: relative;
                     display: inline-block;
                     padding: 0 28/$ppr;

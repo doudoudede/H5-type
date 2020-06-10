@@ -1,5 +1,5 @@
 <template>
-  <view class="chooseshop">
+  <div class="chooseshop">
     <el-input placeholder="请输商城名称" v-model="input" clearable style="width:260px"></el-input>
     <el-button type="primary">搜索</el-button>
     <el-table :data="tableData" border style="width: 100%;margin-top:40px;font-size: 18px;" >
@@ -26,7 +26,7 @@
         <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
       </span>
     </el-dialog>
-  </view>
+  </div>
 </template>
 <script>
 export default {

@@ -1,30 +1,30 @@
 <template>
-    <view class="m-banner-item clearfix" v-if="adData.length === 4">
-        <view class="banner-left fl">
+    <div class="m-banner-item clearfix" v-if="adData.length === 4">
+        <div class="banner-left fl">
             <a href="#" @click.prevent="itemClickFn(adData[0])">
                 <img :src="picServer + adData[0].imgUrl" alt="">
             </a>
-        </view>
-        <view class="banner-right fr">
-            <view class="banner-right-top clearfix">
-                <view class="fl">
+        </div>
+        <div class="banner-right fr">
+            <div class="banner-right-top clearfix">
+                <div class="fl">
                     <a href="#" @click.prevent="itemClickFn(adData[1])">
                         <img :src="picServer + adData[1].imgUrl">
                     </a>
-                </view>
-                <view class="fr">
+                </div>
+                <div class="fr">
                     <a href="#" @click.prevent="itemClickFn(adData[2])">
                         <img :src="picServer + adData[2].imgUrl">
                     </a>
-                </view>
-            </view>
-            <view class="banner-right-bottom">
+                </div>
+            </div>
+            <div class="banner-right-bottom">
                 <a href="#" @click.prevent="itemClickFn(adData[3])">
                     <img :src="picServer + adData[3].imgUrl" alt="">
                 </a>
-            </view>
-        </view>
-    </view>
+            </div>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import {getXeUrl} from 'utils';

@@ -1,4 +1,4 @@
-import CALENDAR from './calendar.js'
+import CaLENDaR from './calendar.js'
 
 class Calendar {
 	constructor({
@@ -32,7 +32,7 @@ class Calendar {
 	/**
 	 * 获取任意时间
 	 */
-	getDate(date, AddDayCount = 0, str = 'day') {
+	getDate(date, addDayCount = 0, str = 'day') {
 		if (!date) {
 			date = new Date()
 		}
@@ -42,17 +42,17 @@ class Calendar {
 		const dd = new Date(date)
 		switch (str) {
 			case 'day':
-				dd.setDate(dd.getDate() + AddDayCount) // 获取AddDayCount天后的日期
+				dd.setDate(dd.getDate() + addDayCount) // 获取addDayCount天后的日期
 				break
 			case 'month':
 				if (dd.getDate() === 31) {
-					dd.setDate(dd.getDate() + AddDayCount)
+					dd.setDate(dd.getDate() + addDayCount)
 				} else {
-					dd.setMonth(dd.getMonth() + AddDayCount) // 获取AddDayCount天后的日期
+					dd.setMonth(dd.getMonth() + addDayCount) // 获取addDayCount天后的日期
 				}
 				break
 			case 'year':
-				dd.setFullYear(dd.getFullYear() + AddDayCount) // 获取AddDayCount天后的日期
+				dd.setFullYear(dd.getFullYear() + addDayCount) // 获取addDayCount天后的日期
 				break
 		}
 		const y = dd.getFullYear()
@@ -72,23 +72,23 @@ class Calendar {
 	 * 获取上月剩余天数
 	 */
 	_getLastMonthDays(firstDay, full) {
-		let dateArr = []
+		let datearr = []
 		for (let i = firstDay; i > 0; i--) {
 			const beforeDate = new Date(full.year, full.month - 1, -i + 1).getDate()
-			dateArr.push({
+			datearr.push({
 				date: beforeDate,
 				month: full.month - 1,
 				lunar: this.getlunar(full.year, full.month - 1, beforeDate),
 				disable: true
 			})
 		}
-		return dateArr
+		return datearr
 	}
 	/**
 	 * 获取本月天数
 	 */
 	_currentMonthDys(dateData, full) {
-		let dateArr = []
+		let datearr = []
 		let fullDate = this.date.fullDate
 		for (let i = 1; i <= dateData; i++) {
 			let isinfo = false
@@ -106,15 +106,15 @@ class Calendar {
 
 			// 日期禁用
 			let disableBefore = true
-			let disableAfter = true
+			let disableafter = true
 			if (this.startDate) {
 				let dateCompBefore = this.dateCompare(this.startDate, fullDate)
 				disableBefore = this.dateCompare(dateCompBefore ? this.startDate : fullDate, nowDate)
 			}
 
 			if (this.endDate) {
-				let dateCompAfter = this.dateCompare(fullDate, this.endDate)
-				disableAfter = this.dateCompare(nowDate, dateCompAfter ? this.endDate : fullDate)
+				let dateCompafter = this.dateCompare(fullDate, this.endDate)
+				disableafter = this.dateCompare(nowDate, dateCompafter ? this.endDate : fullDate)
 			}
 
 			let multiples = this.multipleStatus.data
@@ -138,31 +138,31 @@ class Calendar {
 				multiple: this.range ? checked : false,
 				month: full.month,
 				lunar: this.getlunar(full.year, full.month, i),
-				disable: !disableBefore || !disableAfter,
+				disable: !disableBefore || !disableafter,
 				isDay
 			}
 			if (info) {
 				data.extraInfo = info
 			}
 
-			dateArr.push(data)
+			datearr.push(data)
 		}
-		return dateArr
+		return datearr
 	}
 	/**
 	 * 获取下月天数
 	 */
 	_getNextMonthDays(surplus, full) {
-		let dateArr = []
+		let datearr = []
 		for (let i = 1; i < surplus + 1; i++) {
-			dateArr.push({
+			datearr.push({
 				date: i,
 				month: Number(full.month) + 1,
 				lunar: this.getlunar(full.year, Number(full.month) + 1, i),
 				disable: true
 			})
 		}
-		return dateArr
+		return datearr
 	}
 	/**
 	 * 设置日期
@@ -219,7 +219,7 @@ class Calendar {
 	 * @param {Object} begin
 	 * @param {Object} end
 	 */
-	geDateAll(begin, end) {
+	geDateall(begin, end) {
 		var arr = []
 		var ab = begin.split('-')
 		var ae = end.split('-')
@@ -239,7 +239,7 @@ class Calendar {
 	 * 计算阴历日期显示
 	 */
 	getlunar(year, month, date) {
-		return CALENDAR.solar2lunar(year, month, date)
+		return CaLENDaR.solar2lunar(year, month, date)
 	}
 	/**
 	 * 设置打点
@@ -269,9 +269,9 @@ class Calendar {
 			} else {
 				this.multipleStatus.after = fullDate
 				if (this.dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
-					this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
+					this.multipleStatus.data = this.geDateall(this.multipleStatus.before, this.multipleStatus.after);
 				} else {
-					this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
+					this.multipleStatus.data = this.geDateall(this.multipleStatus.after, this.multipleStatus.before);
 				}
 				this._getWeek(fullDate)
 			}
@@ -306,7 +306,7 @@ class Calendar {
 		// 拼接数组  上个月开始几天 + 本月天数+ 下个月开始几天
 		for (let i = 0; i < canlender.length; i++) {
 			if (i % 7 === 0) {
-				weeks[parseInt(i / 7)] = new Array(7)
+				weeks[parseInt(i / 7)] = new array(7)
 			}
 			weeks[parseInt(i / 7)][i % 7] = canlender[i]
 		}

@@ -1,20 +1,20 @@
 <template>
-    <view class="m-floor-item" v-if="oftenProData.length">
-        <view class="vendor-tite mar-hei">
+    <div class="m-floor-item" v-if="oftenProData.length">
+        <div class="vendor-tite mar-hei">
             <img src="../../static/images/regularPur.png" alt=""><span class="big_fot">&nbsp;常购商品</span>&nbsp;&nbsp;为您量身挑选的专业货源！
-        </view>
-        <view class="m-often-item">
-            <router-link tag="view" class="pro-item-box" v-for="(item, index) in oftenProData"  :key="item.proSpu + index" :to="{name: 'ProductDetails', params: {prospu: item.proSpu}}">
-                <view class="pro-imgCon">
+        </div>
+        <div class="m-often-item">
+            <router-link tag="div" class="pro-item-box" v-for="(item, index) in oftenProData"  :key="item.proSpu + index" :to="{name: 'ProductDetails', params: {prospu: item.proSpu}}">
+                <div class="pro-imgCon">
                     <img v-if="item.skuList.length" v-lazy="picServerPro + item.skuList[0].proMainImg" alt="">
-                </view>
-                <view class="pro-txtCon">
-                    <view class="pro-nameCon">
+                </div>
+                <div class="pro-txtCon">
+                    <div class="pro-nameCon">
                         <span class="miaosha cor_red" v-if="item.discountStatus">秒杀</span>
                         <span class="miaosha cor_red" v-if="item.preSaleStatus">预售</span>
-                        {{item.proName}}</view>
-                    <view class="pro-shopCon"><span> {{item.shopName}}</span></view>
-                    <view class="pro-numsCon">
+                        {{item.proName}}</div>
+                    <div class="pro-shopCon"><span> {{item.shopName}}</span></div>
+                    <div class="pro-numsCon">
                         <p>
                             <span class="cor_red fot_big">
                             ¥<i>{{item.areaPrice | moneySkinToText('rmbs')}}</i>/{{item.proUnit}}</span>
@@ -22,24 +22,24 @@
                         <p>
                             {{item.skuList[0].minQuantity}}{{item.proUnit}}起订
                         </p>
-                    </view>
-                </view>
+                    </div>
+                </div>
             </router-link>
-        </view>
+        </div>
         <infinite-loading @infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
             <span slot="no-more" class="infinite-no-more">
                 暂无更多数据~
             </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">暂无更多数据~</p>
-                </view>
-            </view>
+                </div>
+            </div>
         </infinite-loading>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import proItem from 'components/ProItem/ProItem';

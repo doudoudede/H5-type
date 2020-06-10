@@ -44,7 +44,7 @@
 		name: 'UniSwiperDot',
 		props: {
 			info: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -111,7 +111,7 @@
 
 <style scoped>
 	.uni-swiper__warp {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -125,7 +125,7 @@
 		bottom: 10px;
 		left: 0;
 		right: 0;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -162,7 +162,7 @@
 	.uni-swiper__dots-nav {
 		bottom: 0px;
 		height: 40px;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -182,7 +182,7 @@
 	}
 
 	.uni-swiper__dots-indexes {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		/* flex: 1;

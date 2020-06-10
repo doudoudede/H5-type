@@ -1,20 +1,20 @@
 <script>
 export default {
 	onLaunch: function() {
-		console.log('App Launch');
+		console.log('app Launch');
 	},
 	onShow: function() {
-		console.log('App Show');
+		console.log('app Show');
 	},
 	onHide: function() {
-		console.log('App Hide');
+		console.log('app Hide');
 	}
 };
 </script>
 
 <style>
 /* 解决头条小程序组件内引入字体不生效的问题 */
-/* #ifdef MP-TOUTIAO */
+/* #ifdef MP-TOUTIaO */
 @font-face {
 	font-family: uniicons;
 	src: url('/static/uni.ttf');

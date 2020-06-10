@@ -118,7 +118,7 @@
 
 <style scoped>
 	.uni-pagination {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		position: relative;
@@ -129,7 +129,7 @@
 	}
 
 	.uni-pagination__btn {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		width: 60px;
@@ -148,7 +148,7 @@
 	}
 
 	.uni-pagination__child-btn {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		font-size: 28rpx;
@@ -160,7 +160,7 @@
 	}
 
 	.uni-pagination__num {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -174,7 +174,7 @@
 	}
 
 	.uni-pagination__num-current {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;

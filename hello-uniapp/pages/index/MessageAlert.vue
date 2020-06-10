@@ -1,65 +1,65 @@
 <template>
-    <view>
+    <div>
         <transition name="fadein">
-            <v-touch tag="view" v-show="showBox" class="m-mask-bg" @tap="close" @touchmove.prevent></v-touch>
+            <v-touch tag="div" v-show="showBox" class="m-mask-bg" @tap="close" @touchmove.prevent></v-touch>
         </transition>
-        <view class="m-index-message" v-show="showBox">
-            <view class="msg-tithea">
+        <div class="m-index-message" v-show="showBox">
+            <div class="msg-tithea">
                 您有{{proListData.orderCount}}条待确认的意向单
-            </view>
-            <view class="msg-content">
+            </div>
+            <div class="msg-content">
                 <!--单条意向单-->
-                <view class="msg-typeone" @click.prevent="goDetails('one', proListData)" v-if="proListData.proList && proListData.proList.length == 1">
-                    <view class="msg-picshow">
+                <div class="msg-typeone" @click.prevent="goDetails('one', proListData)" v-if="proListData.proList && proListData.proList.length == 1">
+                    <div class="msg-picshow">
                         <img :src="proListData.picServer + proListData.proList[0].proPicture" alt="">
-                    </view>
-                    <view class="msg-pre-text">
-                        <view class="pre-mainCon">
+                    </div>
+                    <div class="msg-pre-text">
+                        <div class="pre-mainCon">
                             {{proListData.proList[0].proName}}
-                        </view>
-                        <view class="pre-Spes">
+                        </div>
+                        <div class="pre-Spes">
                             规格：<span v-if="proListData.proList[0].specValue">{{proListData.proList[0].specValue}}/{{proListData.proList[0].specName}}</span>
                                   <span v-else>无</span>
-                        </view>
-                        <view class="pre-frice">
+                        </div>
+                        <div class="pre-frice">
                             <span class="cor_red" v-if="proListData.proList[0].matchPrice"><i>¥</i>{{proListData.proList[0].matchPrice}}<i></i></span>
                             <span class="flo_R" v-if="proListData.proList[0].matchNum">x{{proListData.proList[0].matchNum}}</span>
-                        </view>
-                    </view>
-                </view>
+                        </div>
+                    </div>
+                </div>
 
                 <!--多条意向单-->
-                <!--<view class="msg-typemore">-->
+                <!--<div class="msg-typemore">-->
                     <!--<swiper :options="swiperOption" class="m-presec-picScro" ref='secKillControl'>-->
                         <!--<swiper-slide class="item" v-for="item in proListData.proList"  :key="Math.random()">-->
                             <!--<a @click.prevent="goDetails('two', item, proListData)">-->
-                                <!--<view class="pic">-->
+                                <!--<div class="pic">-->
                                     <!--<img :src="proListData.picServer + item.proPicture" alt="">-->
-                                <!--</view>-->
+                                <!--</div>-->
                             <!--</a>-->
                         <!--</swiper-slide>-->
                     <!--</swiper>-->
-                <!--</view>-->
-            </view>
+                <!--</div>-->
+            </div>
             <!--底部-->
-            <view class="msg-footer">
-                <view class="msg-allMoneycon" v-if="parseFloat(proListData.orderCount) > 0">共{{proListData.orderCount}}件商品 已为您优惠 <span>{{proListData.pmtAmount.toString().split('.')[0]}}</span><i>.{{proListData.pmtAmount.toString().split('.')[1] ? proListData.pmtAmount.toString().split('.')[1] : '00'}}</i> 元
-                </view>
-                <view class="msg-lastTime" v-if="proListData.endTime">还剩
+            <div class="msg-footer">
+                <div class="msg-allMoneycon" v-if="parseFloat(proListData.orderCount) > 0">共{{proListData.orderCount}}件商品 已为您优惠 <span>{{proListData.pmtAmount.toString().split('.')[0]}}</span><i>.{{proListData.pmtAmount.toString().split('.')[1] ? proListData.pmtAmount.toString().split('.')[1] : '00'}}</i> 元
+                </div>
+                <div class="msg-lastTime" v-if="proListData.endTime">还剩
                     <xe-countdown timetype="second" :time="proListData.endTime.toString().split('-')[1] / 1000" @timehasDown="timehasDown">
                         <span>{%d}<i>天</i></span><span  style="color: blue">{%h}<i>时</i></span><span style="color: blue">{%m}<i>分</i></span><span style="color: blue">{%s}<i>秒</i></span>
                     </xe-countdown>
                     失效，请尽快下单
-                </view>
-                <view class="msg-butcontro" v-if="proListData.endTime && proListData.endTime !== 0">
+                </div>
+                <div class="msg-butcontro" v-if="proListData.endTime && proListData.endTime !== 0">
                     <span @click.prevent="goDown">去下单</span>
-                </view>
-            </view>
-            <view class="msg-close">
+                </div>
+            </div>
+            <div class="msg-close">
                 <span class="xe-iconfont xe-icon-gb" @click="close"></span>
-            </view>
-        </view>
-    </view>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>

@@ -1,152 +1,152 @@
 <template>
-    <view>
+    <div>
         <!--基本信息-->
-        <view class="content-flor">
-            <view class="m-list-block">
+        <div class="content-flor">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content item-link" @click.prevent="userTypeSelec('1')">
-                        <view class="item-inner">
-                            <view class="item-title">用户性质</view>
-                            <view class="item-input3">
+                        <div class="item-inner">
+                            <div class="item-title">用户性质</div>
+                            <div class="item-input3">
                                 &nbsp;&nbsp;{{userProp}}
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content item-link" @click.prevent="userTypeSelec('2')">
-                        <view class="item-inner">
-                            <view class="item-title">用户类型</view>
-                            <view class="item-input3" v-if="userType">
+                        <div class="item-inner">
+                            <div class="item-title">用户类型</div>
+                            <div class="item-input3" v-if="userType">
                                 {{userType}}
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content item-link" @click.prevent="userTypeSelec('3')">
-                        <view class="item-inner">
-                            <view class="item-title">主营品类</view>
-                            <view class="item-input3">
-                                <view class="textOverflows">
+                        <div class="item-inner">
+                            <div class="item-title">主营品类</div>
+                            <div class="item-input3">
+                                <div class="textOverflows">
                                     &nbsp;&nbsp;{{mainCategory ? mainCategory.slice(0, mainCategory.length - 1) : ''}}
-                                </view>
-                            </view>
-                        </view>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
+            </div>
+        </div>
         <!--身份证上传-->
-        <view class="content-flor"   v-show="formDatas.userProperties !== ''">
-            <view class="infor-pic-upload">
-                <view class="pic-upload-tit">
+        <div class="content-flor"   v-show="formDatas.userProperties !== ''">
+            <div class="infor-pic-upload">
+                <div class="pic-upload-tit">
                     <!--<span class="other-type">(选填)</span>-->
                     身&nbsp;份&nbsp;证&nbsp;&nbsp;&nbsp;<input class='inputcart' type="text" v-model="formDatas.userIdNumber"   maxlength="18" placeholder="请填写身份证号">
-                </view>
-                <view class="item-uploadImg_box clearfix">
+                </div>
+                <div class="item-uploadImg_box clearfix">
                     <xeImgUpload uploadText="正面" :oldUploadImgComputed="oldUploadImgComputed1" class="fl" @imgUpload="imgUpload1"></xeImgUpload>
                     <xeImgUpload uploadText="反面" :oldUploadImgComputed="oldUploadImgComputed2" class="fl" @imgUpload="imgUpload2"></xeImgUpload>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
 
         <!--营业执照上传-->
-        <view class="content-flor" v-show="formDatas.userProperties !== '' && formDatas.userProperties !== 1">
-            <view class="infor-pic-upload">
-                <view class="pic-upload-tit">
+        <div class="content-flor" v-show="formDatas.userProperties !== '' && formDatas.userProperties !== 1">
+            <div class="infor-pic-upload">
+                <div class="pic-upload-tit">
                     <!--<span class="other-type">(选填)</span>-->
                     营业执照&nbsp;&nbsp;
-                </view>
-                <view class="item-uploadImg_box clearfix">
+                </div>
+                <div class="item-uploadImg_box clearfix">
                     <xeImgUpload  :oldUploadImgComputed="oldUploadImgComputed3" :maxLen="3" @imgUpload="imgUpload3"></xeImgUpload>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
 
         <!--食品流通许可证上传-->
-        <!-- <view class="content-flor"  v-show="formDatas.userProperties !== '' && formDatas.userProperties !== 1">
-            <view class="infor-pic-upload">
-                <view class="pic-upload-tit">
+        <!-- <div class="content-flor"  v-show="formDatas.userProperties !== '' && formDatas.userProperties !== 1">
+            <div class="infor-pic-upload">
+                <div class="pic-upload-tit">
                     食品流通许可证&nbsp;&nbsp;<span class="other-type">(选填)</span>
-                </view>
-                <view class="item-uploadImg_box clearfix">
+                </div>
+                <div class="item-uploadImg_box clearfix">
                     <xeImgUpload :oldUploadImgComputed="oldUploadImgComputed4" @imgUpload="imgUpload4"></xeImgUpload>
-                </view>
-            </view>
-        </view> -->
+                </div>
+            </div>
+        </div> -->
 
         <!--CS认证上传-->
-        <!-- <view class="content-flor"  v-show="formDatas.userProperties !== '' && formDatas.userProperties !== 1">
-            <view class="infor-pic-upload">
-                <view class="pic-upload-tit">
+        <!-- <div class="content-flor"  v-show="formDatas.userProperties !== '' && formDatas.userProperties !== 1">
+            <div class="infor-pic-upload">
+                <div class="pic-upload-tit">
                     CS&nbsp;认&nbsp;证&nbsp;&nbsp;<span class="other-type">(选填)</span>
-                </view>
-                <view class="item-uploadImg_box clearfix">
+                </div>
+                <div class="item-uploadImg_box clearfix">
                     <xeImgUpload :oldUploadImgComputed="oldUploadImgComputed5" @imgUpload="imgUpload5"></xeImgUpload>
-                </view>
-            </view>
-        </view> -->
+                </div>
+            </div>
+        </div> -->
 
         <!--门头照上传-->
-        <view class="content-flor"  v-show="formDatas.userProperties !== ''">
-            <view class="infor-pic-upload">
-                <view class="pic-upload-tit">
+        <div class="content-flor"  v-show="formDatas.userProperties !== ''">
+            <div class="infor-pic-upload">
+                <div class="pic-upload-tit">
                     门&nbsp;头&nbsp;照&nbsp;&nbsp;<span class="other-type">(选填)</span>
-                </view>
-                <view class="item-uploadImg_box clearfix">
+                </div>
+                <div class="item-uploadImg_box clearfix">
                     <xeImgUpload :oldUploadImgComputed="oldUploadImgComputed6" :maxLen="3" @imgUpload="imgUpload6"></xeImgUpload>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
         <!--底部弹框-->
         <xe-popup
             :class="{'tred': typeTit === '主营品类'}"
             :show.sync="showFlag"
             :popupTit="typeTit === '主营品类' ? '主营品类(可多选)' : typeTit"
             position="bottom">
-            <view class='useInfor-selec-box'>
+            <div class='useInfor-selec-box'>
                 <ul>
                     <xe-radio-group v-model="formDatas.userProperties"  v-if="typeTit == '用户性质'">
                         <li class="selec-item" v-for="(item, index) in botData" :key="index">
-                            <view class="selec-radio">
+                            <div class="selec-radio">
                                 <xe-radio :label="item.cateId">
                                     {{item.cateName}}
                                 </xe-radio>
-                            </view>
+                            </div>
                         </li>
                     </xe-radio-group>
                     <xe-radio-group v-model="formDatas.userTypeId" v-if="typeTit == '用户类型'">
                         <li class="selec-item" v-for="(item, index) in botData" :key="index">
-                            <view class="selec-radio">
+                            <div class="selec-radio">
                                 <xe-radio :label="item.typeId">
                                     <span class="mainTit">{{item.typeName}}</span>&nbsp;&nbsp;
                                     <span v-if="item.typeName === '批发商'" class="mainTit-con">批发商、经销商、零售商</span>
                                     <span v-if="item.typeName === '餐饮'" class="mainTit-con">烧烤店、火锅店、卤肉店、小吃店</span>
                                 </xe-radio>
-                            </view>
+                            </div>
                         </li>
                     </xe-radio-group>
                     <xe-checkbox-group v-model="businessType" v-if="typeTit == '主营品类'">
                         <li class="selec-item" v-for="(item, index) in botData" :key="index">
-                            <view class="selec-radio">
+                            <div class="selec-radio">
                                 <xe-checkbox :label="item.cateId">
                                     <span class="mainTit">{{item.cateName}}</span>
                                     <span class="mainTit-con">{{item.cateId | businessTypeconToText}}</span>
                                 </xe-checkbox>
-                            </view>
+                            </div>
                         </li>
                     </xe-checkbox-group>
                 </ul>
-            </view>
-            <view v-show="typeTit == '主营品类'" class='t-btn'>
+            </div>
+            <div v-show="typeTit == '主营品类'" class='t-btn'>
                 <mt-button  type="primary" class="xe-button-primary" @click="businessTypeChange" style="width: 100%;background: #f53226" >确定</mt-button>
-            </view>
+            </div>
         </xe-popup>
 
         <!--图片放大-->
         <xe-dialog :show.sync="picShowFlag">
-            <view class="showBigPic-box">
+            <div class="showBigPic-box">
                 <img :src="checkPicUrl" alt="">
-            </view>
+            </div>
         </xe-dialog>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import {Popup} from 'components/Popup';

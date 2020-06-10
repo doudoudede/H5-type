@@ -1,29 +1,29 @@
 <template>
-    <view v-if="itemData" class="m-product-item" @click="productClickFn">
-        <view class="pic">
+    <div v-if="itemData" class="m-product-item" @click="productClickFn">
+        <div class="pic">
             <img v-if="itemData.skuList.length" v-lazy="picServerPro + itemData.skuList[0].proMainImg" alt="">
-        </view>
-        <view class="msg">
-            <view class="msg-con">
-                <view class="name" :class="{'arrow': showArrow && itemData.skuList.length > 1}">
+        </div>
+        <div class="msg">
+            <div class="msg-con">
+                <div class="name" :class="{'arrow': showArrow && itemData.skuList.length > 1}">
                     <p>
                         <span v-if="itemData.discountStatus === 1" class="xe-iconfont xe-icon-miaoshafuben coupon-style-icon"></span><span v-if="itemData.preSaleStatus === 1" class="xe-iconfont xe-icon-yushoufuben coupon-style-icon1"></span><span v-html="itemData.proName"></span>
                     </p>
                     <span v-if="showArrow && itemData.skuList.length > 1" @click.stop="arrowClickFn" class="xe-iconfont xe-icon-unfold"></span>
-                </view>
-                <view class="vendor" v-if="showVendor">
+                </div>
+                <div class="vendor" v-if="showVendor">
                     {{itemData.shopName}}
-                </view>
-                <view v-for="(item, index) in itemData.skuList" :key="item.proSku">
-                    <view class="msg-scon" v-if="index === 0">
-                        <view class="qutaliy">{{item.minQuantity}}{{itemData.proUnit}}起订</view>
-                        <!-- <view class="marketPri" v-if="itemData.priceMethod !== 3"> -->
+                </div>
+                <div v-for="(item, index) in itemData.skuList" :key="item.proSku">
+                    <div class="msg-scon" v-if="index === 0">
+                        <div class="qutaliy">{{item.minQuantity}}{{itemData.proUnit}}起订</div>
+                        <!-- <div class="marketPri" v-if="itemData.priceMethod !== 3"> -->
                             <!-- &yen;{{item.unitPrice | toFixed2}}/斤 <template v-if="item.specValue">({{item.specValue}})</template>
-                        </view> -->
-                        <!-- <view class="marketPri" v-else>
+                        </div> -->
+                        <!-- <div class="marketPri" v-else>
                             <template v-if="item.specValue">({{item.specValue}})</template>
-                        </view> -->
-                        <view class="price">
+                        </div> -->
+                        <div class="price">
                             <template v-if="itemData.priceMethod === 3">
                                 <span class="big-price">面议</span>
                             </template>
@@ -36,26 +36,26 @@
                                     &yen;<span class="big-price">{{item.skuPrice | toFixed2}}</span><span class="unit">/{{itemData.proUnit}}</span>
                                 </template>
                             </template>
-                        </view>
-                        <view class="buyBtn" v-if="showBtn && itemData.priceMethod === 2">
+                        </div>
+                        <div class="buyBtn" v-if="showBtn && itemData.priceMethod === 2">
                             <span v-if="item.saleQuantity >= item.minQuantity" @click.stop="buyBtnClickFn(item)" class="xe-iconfont xe-icon-jinhuodan1"></span>
                             <span v-else class="sold-out">售罄</span>
-                        </view>
-                        <view class="buyBtn" v-if="showBtn && itemData.priceMethod === 1 || itemData.priceMethod === 3">
+                        </div>
+                        <div class="buyBtn" v-if="showBtn && itemData.priceMethod === 1 || itemData.priceMethod === 3">
                             <span v-if="item.saleQuantity >= item.minQuantity" @click.stop="inquiryBtnClickFn(item)" class="xe-iconfont xe-icon-xunjiadan"></span>
                             <span v-else class="sold-out">售罄</span>
-                        </view>
-                    </view>
+                        </div>
+                    </div>
                     <CollapseTransition v-else>
-                        <view class="msg-scon" v-show="itemData.showMore">
-                            <view class="qutaliy">{{item.minQuantity}}{{itemData.proUnit}}起订</view>
-                            <view class="marketPri" v-if="itemData.priceMethod !== 3">
+                        <div class="msg-scon" v-show="itemData.showMore">
+                            <div class="qutaliy">{{item.minQuantity}}{{itemData.proUnit}}起订</div>
+                            <div class="marketPri" v-if="itemData.priceMethod !== 3">
                                 &yen;{{item.unitPrice | toFixed2}}/斤 <template v-if="item.specValue">({{item.specValue}})</template>
-                            </view>
-                            <view class="marketPri" v-else>
+                            </div>
+                            <div class="marketPri" v-else>
                                 <template v-if="item.specValue">({{item.specValue}})</template>
-                            </view>
-                            <view class="price">
+                            </div>
+                            <div class="price">
                                 <template v-if="itemData.priceMethod === 3">
                                     <span class="big-price">面议</span>
                                 </template>
@@ -67,21 +67,21 @@
                                         &yen;<span class="big-price">{{item.skuPrice | toFixed2}}</span><span class="unit">/{{itemData.proUnit}}</span>
                                     </template>
                                 </template>
-                            </view>
-                            <view class="buyBtn" v-if="showBtn && itemData.priceMethod === 2">
+                            </div>
+                            <div class="buyBtn" v-if="showBtn && itemData.priceMethod === 2">
                                 <span v-if="item.saleQuantity >= item.minQuantity" @click.stop="buyBtnClickFn(item)" class="xe-iconfont xe-icon-jinhuodan1"></span>
                                 <span v-else class="sold-out">售罄</span>
-                            </view>
-                            <view class="buyBtn" v-if="showBtn && itemData.priceMethod === 1 || itemData.priceMethod === 3">
+                            </div>
+                            <div class="buyBtn" v-if="showBtn && itemData.priceMethod === 1 || itemData.priceMethod === 3">
                                 <span v-if="item.saleQuantity >= item.minQuantity" @click.stop="inquiryBtnClickFn(item)" class="xe-iconfont xe-icon-xunjiadan"></span>
                                 <span v-else class="sold-out">售罄</span>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </CollapseTransition>
-                </view>
-            </view>
-        </view>
-    </view>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import CollapseTransition from 'utils/collapse-transition';

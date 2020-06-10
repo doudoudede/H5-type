@@ -1,6 +1,6 @@
 <template>
 	<view v-if="show" class="uni-noticebar" :style="{ backgroundColor: backgroundColor }" @click="onClick">
-		<!-- #ifdef MP-ALIPAY -->
+		<!-- #ifdef MP-aLIPaY -->
 		<view v-if="showClose === true || showClose === 'true'" class="uni-noticebar-close" @click="close">
 			<uni-icons type="closeempty" :color="color" size="12" />
 		</view>
@@ -8,7 +8,7 @@
 			<uni-icons type="sound" :color="color" size="14" />
 		</view>
 		<!-- #endif -->
-		<!-- #ifndef MP-ALIPAY -->
+		<!-- #ifndef MP-aLIPaY -->
 		<uni-icons v-if="showClose === true || showClose === 'true'" class="uni-noticebar-close" type="closeempty" :color="color" size="12" @click="close" />
 		<uni-icons v-if="showIcon === true || showIcon === 'true'" class="uni-noticebar-icon" type="sound" :color="color" size="14" />
 		<!-- #endif -->
@@ -26,7 +26,7 @@
 
 <script>
 	import uniIcons from '../uni-icons/uni-icons.vue'
-	// #ifdef APP-NVUE
+	// #ifdef aPP-NVUE
 	const dom = weex.requireModule('dom');
 	const animation = weex.requireModule('animation');
 	// #endif
@@ -116,8 +116,8 @@
 				boxWidth: 0,
 				wrapWidth: '',
 				webviewHide: false,
-				// #ifdef APP-NVUE
-				stopAnimation: false,
+				// #ifdef aPP-NVUE
+				stopanimation: false,
 				// #endif
 				elId: elId,
 				elIdBox: elIdBox,
@@ -128,10 +128,10 @@
 			}
 		},
 		mounted() {
-			// #ifdef APP-PLUS
+			// #ifdef aPP-PLUS
 			var pages = getCurrentPages();
 			var page = pages[pages.length - 1];
-			var currentWebview = page.$getAppWebview();
+			var currentWebview = page.$getappWebview();
 			currentWebview.addEventListener('hide', () => {
 				this.webviewHide = true
 			})
@@ -143,21 +143,21 @@
 				this.initSize()
 			})
 		},
-		// #ifdef APP-NVUE
+		// #ifdef aPP-NVUE
 		beforeDestroy() {
-			this.stopAnimation = true
+			this.stopanimation = true
 		},
 		// #endif
 		methods: {
 			initSize() {
 				if (this.scrollable) {
-					// #ifndef APP-NVUE
+					// #ifndef aPP-NVUE
 					let query = [],
 						boxWidth = 0,
 						textWidth = 0;
 					let textQuery = new Promise((resolve, reject) => {
 						uni.createSelectorQuery()
-							// #ifndef MP-ALIPAY
+							// #ifndef MP-aLIPaY
 							.in(this)
 							// #endif
 							.select(`#${this.elId}`)
@@ -169,7 +169,7 @@
 					})
 					let boxQuery = new Promise((resolve, reject) => {
 						uni.createSelectorQuery()
-							// #ifndef MP-ALIPAY
+							// #ifndef MP-aLIPaY
 							.in(this)
 							// #endif
 							.select(`#${this.elIdBox}`)
@@ -189,7 +189,7 @@
 						}, 1000)
 					})
 					// #endif
-					// #ifdef APP-NVUE
+					// #ifdef aPP-NVUE
 					dom.getComponentRect(this.$refs['animationEle'], (res) => {
 						let winWidth = uni.getSystemInfoSync().windowWidth
 						this.textWidth = res.size.width
@@ -201,7 +201,7 @@
 							timingFunction: 'linear',
 							delay: 0
 						}, () => {
-							if (!this.stopAnimation) {
+							if (!this.stopanimation) {
 								animation.transition(this.$refs['animationEle'], {
 									styles: {
 										transform: `translateX(-${this.textWidth}px)`
@@ -210,8 +210,8 @@
 									duration: (this.textWidth - winWidth) / this.speed * 1000,
 									delay: 1000
 								}, () => {
-									if (!this.stopAnimation) {
-										this.loopAnimation()
+									if (!this.stopanimation) {
+										this.loopanimation()
 									}
 								});
 							}
@@ -219,7 +219,7 @@
 					})
 					// #endif
 				}
-				// #ifdef APP-NVUE
+				// #ifdef aPP-NVUE
 				if (!this.scrollable && (this.single || this.moreText)) {
 					dom.getComponentRect(this.$refs['textBox'], (res) => {
 						this.wrapWidth = res.size.width
@@ -227,15 +227,15 @@
 				}
 				// #endif
 			},
-			loopAnimation() {
-				// #ifdef APP-NVUE
+			loopanimation() {
+				// #ifdef aPP-NVUE
 				animation.transition(this.$refs['animationEle'], {
 					styles: {
 						transform: `translateX(0px)`
 					},
 					duration: 0
 				}, () => {
-					if (!this.stopAnimation) {
+					if (!this.stopanimation) {
 						animation.transition(this.$refs['animationEle'], {
 							styles: {
 								transform: `translateX(-${this.textWidth}px)`
@@ -244,8 +244,8 @@
 							timingFunction: 'linear',
 							delay: 0
 						}, () => {
-							if (!this.stopAnimation) {
-								this.loopAnimation()
+							if (!this.stopanimation) {
+								this.loopanimation()
 							}
 						});
 					}
@@ -268,7 +268,7 @@
 
 <style scoped>
 	.uni-noticebar {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		width: 100%;
 		box-sizing: border-box;
@@ -294,7 +294,7 @@
 	}
 
 	.uni-noticebar__content-wrapper--single {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		line-height: 18px;
 		/* #endif */
 	}
@@ -304,7 +304,7 @@
 		flex-direction: row;
 	}
 
-	/* #ifndef APP-NVUE */
+	/* #ifndef aPP-NVUE */
 	.uni-noticebar__content-wrapper--scrollable {
 		position: relative;
 		height: 18px;
@@ -313,10 +313,10 @@
 	/* #endif */
 
 	.uni-noticebar__content--scrollable {
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		flex: 0;
 		/* #endif */
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		flex: 1;
 		display: block;
 		overflow: hidden;
@@ -324,7 +324,7 @@
 	}
 
 	.uni-noticebar__content--single {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		flex: none;
 		width: 100%;
@@ -335,16 +335,16 @@
 	.uni-noticebar__content-text {
 		font-size: 14px;
 		line-height: 18px;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		word-break: break-all;
 		/* #endif */
 	}
 
 	.uni-noticebar__content-text--single {
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		lines: 1;
 		/* #endif */
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: block;
 		width: 100%;
 		white-space: nowrap;
@@ -354,11 +354,11 @@
 	}
 
 	.uni-noticebar__content-text--scrollable {
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		lines: 1;
 		padding-left: 750rpx;
 		/* #endif */
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		position: absolute;
 		display: block;
 		height: 18px;
@@ -371,7 +371,7 @@
 	}
 
 	.uni-noticebar__more {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: inline-flex;
 		/* #endif */
 		flex-direction: row;

@@ -1,75 +1,75 @@
 <template>
     <xe-layout class="m-bg-dark">
-        <view class="p-userinfo-item">
-            <view class="m-list-block">
+        <div class="p-userinfo-item">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content align-right">
-                        <view class="item-inner">
-                            <view class="item-title">头像</view>
-                            <view class="item-after">
-                                <view class="pic">
+                        <div class="item-inner">
+                            <div class="item-title">头像</div>
+                            <div class="item-after">
+                                <div class="pic">
                                     <img src="../../static/images/u-headportrait.png" alt="">
-                                </view>
-                            </view>
-                        </view>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="p-userinfo-item">
-            <view class="m-list-block">
+            </div>
+        </div>
+        <div class="p-userinfo-item">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content align-right item-link" @click.prevent="navToEditorPhone">
-                        <view class="item-inner">
-                            <view class="item-title">绑定手机</view>
-                            <view class="item-after c333">
+                        <div class="item-inner">
+                            <div class="item-title">绑定手机</div>
+                            <div class="item-after c333">
                                 {{userInfo.mobile}}
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content item-link">
-                        <view class="item-inner">
-                            <view class="item-title">店铺名称</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">店铺名称</div>
+                            <div class="item-input">
                                 <input type="text" style="text-align: right;" placeholder="请输入店铺名" v-model="userInfo.shopName">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content item-link">
-                        <view class="item-inner">
-                            <view class="item-title">联系人</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">联系人</div>
+                            <div class="item-input">
                                 <input type="text" style="text-align: right;" placeholder="请输入联系人" v-model="userInfo.userName">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content align-right item-link" @click.prevent="showadr = true">
-                        <view class="item-inner">
-                            <view class="item-title">店铺地址</view>
-                            <view class="item-after c333">
+                        <div class="item-inner">
+                            <div class="item-title">店铺地址</div>
+                            <div class="item-after c333">
                                 {{userInfo.adrShop ? userInfo.adrShop : '请选择店铺地址'}}
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-text">
+                        <div class="item-inner">
+                            <div class="item-text">
                                 <textarea style="width: 100%;" v-model="userInfo.address">{{userInfo.address}}</textarea>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content align-right item-link" @click.prevent="showcust = true">
-                        <view class="item-inner">
-                            <view class="item-title">客户经理</view>
-                            <view class="item-after c333">{{userInfo.saleManNameAndPhone ? userInfo.saleManNameAndPhone : '请选择客户经理'}}</view>
-                        </view>
+                        <div class="item-inner">
+                            <div class="item-title">客户经理</div>
+                            <div class="item-after c333">{{userInfo.saleManNameAndPhone ? userInfo.saleManNameAndPhone : '请选择客户经理'}}</div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="p-userinfo-btn">
+            </div>
+        </div>
+        <div class="p-userinfo-btn">
             <mt-button type='primary' :disabled="disabled" class="xe-button-primary" style="width: 100%;" @click.prevent="updateMyInfo">保 存</mt-button>
-        </view>
+        </div>
         <!--地址插件-->
         <xe-popup
             slot="outer"
@@ -89,25 +89,25 @@
             :show.sync="showcust"
             popupTit="客户经理"
             position="bottom">
-            <view class="user-custon">
-                <view class="user-search">
+            <div class="user-custon">
+                <div class="user-search">
                     <input v-model='mtel' :maxlength="11" type="tel" placeholder="请输入客户经理手机号">
                     <span v-show="mtel.length" @click="mtel = ''" class="xe-iconfont xe-icon-cuowu"></span>
-                </view>
-                <view class="user-content">
+                </div>
+                <div class="user-content">
                     <ul v-if="mcustlist && mcustlist.length">
                         <li v-for="item in mcustlist" :key="item.salesmanId" @click.prevent="mcustClick(item)">{{item.phone}} {{item.salesmanName}}</li>
                     </ul>
-                    <view v-show="mcustlist && mcustlist.length === 0" class="m-cart-none">
-                        <view class="pic">
+                    <div v-show="mcustlist && mcustlist.length === 0" class="m-cart-none">
+                        <div class="pic">
                             <img src="../../static/images/cart-n1.png" alt="">
-                        </view>
-                        <view class="des">
+                        </div>
+                        <div class="des">
                             <p class="f32">没有找到相关的客户经理~</p>
-                        </view>
-                    </view>
-                </view>
-            </view>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </xe-popup>
     </xe-layout>
 </template>

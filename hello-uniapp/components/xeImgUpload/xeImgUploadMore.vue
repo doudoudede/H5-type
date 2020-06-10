@@ -1,27 +1,27 @@
 <template lang="html">
-    <view class="item-main-box">
-        <view class="detial-lis clearfix">
-            <view class="fl" style="width: auto">
+    <div class="item-main-box">
+        <div class="detial-lis clearfix">
+            <div class="fl" style="width: auto">
                 <!--上传图片-->
-                <view class="item-uploadImg_box clearfix">
+                <div class="item-uploadImg_box clearfix">
                     <ul v-if='uploadImgComputed.length' class="fl" style="width: auto">
                         <li v-for='(item, index) in uploadImgComputed' :key='index' class="h-brand-img">
                             <img :src="picServers + item" alt="">
                             <span @click.prevent='removeImg(index)' class="xe-iconfont xe-icon-guanbi"></span>
                         </li>
                     </ul>
-                    <view class="uploadImg-btn fl" @click="appImgupload(oldUploadImgComputed.type)" v-if="uploadImgComputed.length < maxLen">
+                    <div class="uploadImg-btn fl" @click="appImgupload(oldUploadImgComputed.type)" v-if="uploadImgComputed.length < maxLen">
                         <span class="xe-iconfont xe-icon-camra" style="color: #b5c0ce"></span>
                         <i class="upload-text">{{uploadText}}</i>
                         <form name='form2' id="formFile2">
                             <!--<input type="hidden" name="fileType" v-model="fileType">-->
                             <input type="file" name='imgUrl' class='inputFile2' @change='inputFile2Fn' accept="image/gif,image/jpeg,image/jpg,image/png">
                         </form>
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>

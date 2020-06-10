@@ -1,9 +1,9 @@
 <template>
     <li class="xe-step-item" :class="{'current': stepNumber <= current}">
-        <view class="radius-text xe-iconfont xe-icon-fenleizonghe" v-if="stepNumber <= current - 1"></view>
-        <view class="radius-text" v-else>{{stepNumber}}</view>
-        <view class="radius-bg"></view>
-        <view class="bottom-text"><slot name="text"></slot></view>
+        <div class="radius-text xe-iconfont xe-icon-fenleizonghe" v-if="stepNumber <= current - 1"></div>
+        <div class="radius-text" v-else>{{stepNumber}}</div>
+        <div class="radius-bg"></div>
+        <div class="bottom-text"><slot name="text"></slot></div>
     </li>
 </template>
 <script>

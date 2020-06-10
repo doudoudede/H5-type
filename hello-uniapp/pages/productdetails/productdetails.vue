@@ -1,8 +1,8 @@
 <template>
     <xe-layout class="m-page-details m-flexlay m-bg-dark">
         <template v-if="infoLoaded">
-            <view class="m-details-cz clearfix">
-                <view class="u-back fl xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></view>
+            <div class="m-details-cz clearfix">
+                <div class="u-back fl xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></div>
                 <p class="fr">
                     <router-link v-if="proSpuInfo.priceMethod === 2" :to="{name: 'Cart'}" tag="span" class="xe-iconfont xe-icon-jinhuodan2"></router-link>
                     <router-link v-else :to="{name: 'InquiryList'}" tag="span" class="xe-iconfont xe-icon-xiangqingye"></router-link>
@@ -11,8 +11,8 @@
                     </template> -->
                     <a href="http://xebest.udesk.cn/im_client?web_plugin_id=23247" class="xe-iconfont xe-icon-kefu" id="kefuId"></a>
                 </p>
-            </view>
-            <view class="m-details-slider m-content-view">
+            </div>
+            <div class="m-details-slider m-content-div">
                 <xe-slider
                     :picServer="picServer"
                     :keyProps="{keyName: 'proImg'}"
@@ -23,11 +23,11 @@
                     ref="proSlider"
                 >
                 </xe-slider>
-            </view>
+            </div>
             <!--预售 begin-->
-            <view v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.preSalePro" class="m-details-seckill m-content-view m-det-presale">
-                <view class="seckill-pri">
-                    <view class="n-price">
+            <div v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.preSalePro" class="m-details-seckill m-content-div m-det-presale">
+                <div class="seckill-pri">
+                    <div class="n-price">
                         <span class="n-pri">
                             <span class="currency-price" v-html='splitPrice(proSpuInfo.proSkuInfo.proArea.preSalePro.currentPreSalePrice)'></span>/{{proSpuInfo.proUnit}}
                         </span>
@@ -35,18 +35,18 @@
                             <span v-html="splitPrice(proSpuInfo.proSkuInfo.proArea.preSalePro.preSaleUnitPrice)"></span>/斤
                         </span>
                         <!-- <span class="d-pri"><s>&yen;{{skuDelPrice}}</s></span> -->
-                    </view>
-                    <!-- <view class="s-price">
+                    </div>
+                    <!-- <div class="s-price">
                         <span>{{proSpuInfo.proSkuInfo.proArea.preSalePro.preSaleUnitPrice | currency}}/斤</span>
-                    </view> -->
-                    <view class="pre-det-tips">
+                    </div> -->
+                    <div class="pre-det-tips">
                         <span class="xe-iconfont xe-icon-yushoufuben"></span>
                         <template v-if="proSpuInfo.proSkuInfo.proArea.preSalePro.activeSendTime > 0">{{proSpuInfo.proSkuInfo.proArea.preSalePro.activeSendTime | getDayByMis}}</template>
                         <template v-else>现货</template>
-                    </view>
-                </view>
-                <view class="seckill-time">
-                    <view class="time-count">
+                    </div>
+                </div>
+                <div class="seckill-time">
+                    <div class="time-count">
                         <!-- timeStatus 时间状态 1：距开始 2：距结束 3：已结束 -->
                         <!--<span class="xe-iconfont xe-icon-miaosha"></span>-->
                         <span class="time-text">
@@ -63,58 +63,58 @@
                                 </template>
                             </span>
                         </span>
-                    </view>
-                    <view class="time-progress">
+                    </div>
+                    <div class="time-progress">
                         <p>
                             <span :style="{width: proSpuInfo.proSkuInfo.proArea.preSalePro.activePercentage + '%'}"></span>
                             <em>已售{{proSpuInfo.proSkuInfo.proArea.preSalePro.activePercentage}}%</em>
                         </p>
-                    </view>
-                </view>
-            </view>
+                    </div>
+                </div>
+            </div>
             <!--预售 end-->
             <!--秒杀 begin-->
-            <view v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.venDisLimitPro !== null" class="m-details-seckill  m-content-view">
-                <view class="seckill-pri">
-                    <view class="n-price">
+            <div v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.venDisLimitPro !== null" class="m-details-seckill  m-content-div">
+                <div class="seckill-pri">
+                    <div class="n-price">
                         <span class="n-pri">
                             &yen;<em>{{proSpuInfo.proSkuInfo.proArea.venDisLimitPro.limitPrice | toFixed2}}</em>/{{proSpuInfo.proUnit}}
                         </span>
                         <span class="d-pri"><s>&yen;{{skuDelPrice}}</s></span>
-                    </view>
-                    <view class="s-price">
+                    </div>
+                    <div class="s-price">
                         <span>&yen;{{proSpuInfo.proSkuInfo.proArea.venDisLimitPro.limitPriceUnitPrice | toFixed2}}/斤</span>
-                    </view>
-                </view>
-                <view class="seckill-time">
-                    <view class="time-count">
+                    </div>
+                </div>
+                <div class="seckill-time">
+                    <div class="time-count">
                         <!--<span class="xe-iconfont xe-icon-miaosha"></span>-->
                         <span class="time-text">
                             <xe-countdown timetype="second" :time="proSpuInfo.proSkuInfo.proArea.venDisLimitPro.activeDate / 1000">
                                 距结束<span>{%d}<i>天</i></span><span>{%h}<i>时</i></span><span>{%m}<i>分</i></span><span>{%s}<i>秒</i></span>
                             </xe-countdown>
                         </span>
-                    </view>
-                    <view class="time-progress">
+                    </div>
+                    <div class="time-progress">
                         <p>
                             <span :style="{width: proSpuInfo.proSkuInfo.proArea.venDisLimitPro.activePercentage + '%'}"></span>
                             <em>已售{{proSpuInfo.proSkuInfo.proArea.venDisLimitPro.activePercentage}}%</em>
                         </p>
-                    </view>
-                </view>
-            </view>
+                    </div>
+                </div>
+            </div>
             <!--秒杀 end-->
-            <view class="m-details-item m-content-view" style="margin-top: 0;">
-                <view class="prouctname">
+            <div class="m-details-item m-content-div" style="margin-top: 0;">
+                <div class="prouctname">
                     {{proSpuInfo.proName}}
-                </view>
-                <view class="productdes" v-if='proSpuInfo.proIntro'>
+                </div>
+                <div class="productdes" v-if='proSpuInfo.proIntro'>
                     {{proSpuInfo.proIntro}}
-                </view>
+                </div>
                 <!-- 预售时间 begin -->
                 <YsTimes v-if='proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.preSalePro' :timedata="proSpuInfo.proSkuInfo.proArea.preSalePro.preSalePriceList" :priceUnit="proSpuInfo.proUnit"></YsTimes>
                 <!-- 预售时间 end -->
-                <view class="productpri">
+                <div class="productpri">
                     <!-- proSpuInfo.proSkuInfo.proArea && !proSpuInfo.proSkuInfo.proArea.venDisLimitPro && !proSpuInfo.proSkuInfo.proArea.preSalePro -->
                     <template v-if="proSpuInfo.priceMethod !== 3">
                         <!--非面议商品-->
@@ -122,10 +122,10 @@
                             <!--spu上架-->
                             <template v-if="!proSpuInfo.proSkuInfo.proArea">
                                 <!--SKU上没有有区域-->
-                                <view>
-                                    <view class="pri01">{{proSpuInfo.proSkuInfo.skuPrice | toFixed2}}元/{{proSpuInfo.proUnit}}</view>
-                                    <!-- <view class="pri02"><em>单价:</em> {{proSpuInfo.proSkuInfo.unitPrice | toFixed2}}元/斤</view> -->
-                                </view>
+                                <div>
+                                    <div class="pri01">{{proSpuInfo.proSkuInfo.skuPrice | toFixed2}}元/{{proSpuInfo.proUnit}}</div>
+                                    <!-- <div class="pri02"><em>单价:</em> {{proSpuInfo.proSkuInfo.unitPrice | toFixed2}}元/斤</div> -->
+                                </div>
                             </template>
                             <template v-else>
                                 <!--sku上有区域-->
@@ -133,19 +133,19 @@
                                     <!-- 无预售和秒杀 -->
                                     <template v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.stepFlag === 1">
                                         <!--SKU为阶梯价-->
-                                        <view v-for="(areaitem, areaindex) in proSpuInfo.proSkuInfo.proArea.areaStepList" :key="areaindex">
-                                            <view class="pri03">
+                                        <div v-for="(areaitem, areaindex) in proSpuInfo.proSkuInfo.proArea.areaStepList" :key="areaindex">
+                                            <div class="pri03">
                                                 {{areaitem.startNum}}-{{areaitem.endNum}}{{proSpuInfo.proUnit}}
-                                            </view>
-                                            <view class="pri01">&yen;{{areaitem.stepPrice | toFixed2}}</view>
-                                            <!-- <view class="pri02" style="color: #999;">&yen;{{areaitem.stepUnitPrice | toFixed2}}/斤</view> -->
-                                        </view>
+                                            </div>
+                                            <div class="pri01">&yen;{{areaitem.stepPrice | toFixed2}}</div>
+                                            <!-- <div class="pri02" style="color: #999;">&yen;{{areaitem.stepUnitPrice | toFixed2}}/斤</div> -->
+                                        </div>
                                     </template>
                                     <template v-else>
-                                        <view>
-                                            <view class="pri01">{{proSpuInfo.proSkuInfo.proArea.areaPrice | toFixed2}}元/{{proSpuInfo.proUnit}}</view>
-                                            <!-- <view class="pri02"><em>单价:</em> {{proSpuInfo.proSkuInfo.proArea.unitPrice | toFixed2}}元/斤</view> -->
-                                        </view>
+                                        <div>
+                                            <div class="pri01">{{proSpuInfo.proSkuInfo.proArea.areaPrice | toFixed2}}元/{{proSpuInfo.proUnit}}</div>
+                                            <!-- <div class="pri02"><em>单价:</em> {{proSpuInfo.proSkuInfo.proArea.unitPrice | toFixed2}}元/斤</div> -->
+                                        </div>
                                     </template>
                                 </template>
                             </template>
@@ -153,24 +153,24 @@
                     </template>
                     <template v-else>
                         <!--SKU上没有有区域-->
-                        <view>
-                            <view class="pri01">面议</view>
-                        </view>
+                        <div>
+                            <div class="pri01">面议</div>
+                        </div>
                     </template>
-                </view>
-                <view class="productmsg">
-                    <view v-if="proSpuInfo.priceMethod === 2 && proSpuInfo.proSkuInfo.proSkuStatus !== 4">运费：<template v-if='proSpuInfo.proSkuInfo.firstPrice'>&yen;{{proSpuInfo.proSkuInfo.firstPrice | toFixed2}}</template>
+                </div>
+                <div class="productmsg">
+                    <div v-if="proSpuInfo.priceMethod === 2 && proSpuInfo.proSkuInfo.proSkuStatus !== 4">运费：<template v-if='proSpuInfo.proSkuInfo.firstPrice'>&yen;{{proSpuInfo.proSkuInfo.firstPrice | toFixed2}}</template>
                         <template v-else>&yen;0</template>
-                    </view>
-                    <view>销售量：{{proSpuInfo.totalSale}}</view>
-                    <view v-if="proSpuInfo.madeinProvinceName && proSpuInfo.madeinCityName">产地：{{proSpuInfo.madeinProvinceName}} {{proSpuInfo.madeinCityName}}</view>
-                    <view v-else>
+                    </div>
+                    <div>销售量：{{proSpuInfo.totalSale}}</div>
+                    <div v-if="proSpuInfo.madeinProvinceName && proSpuInfo.madeinCityName">产地：{{proSpuInfo.madeinProvinceName}} {{proSpuInfo.madeinCityName}}</div>
+                    <div v-else>
                         产地：{{proSpuInfo.madeinCountryName}}
-                    </view>
-                </view>
-                <view class="productspec">
-                    <view class="spec-tit">规格：</view>
-                    <view class="spec-con">
+                    </div>
+                </div>
+                <div class="productspec">
+                    <div class="spec-tit">规格：</div>
+                    <div class="spec-con">
                         <ul class="spec-con-ul">
                             <li v-for="item in proSpuInfo.skuList" :key="item.proSku"
                                 :class="{'current': item.proSku === currentSku}"
@@ -178,167 +178,167 @@
                                 {{item.proSkuSpecList | skuNameFilter}}
                             </li>
                         </ul>
-                    </view>
-                </view>
+                    </div>
+                </div>
                 <template v-if="proSpuInfo.priceMethod === 2 && proSpuInfo.buyStatus !== '2' && proSpuInfo.proSkuInfo.proSkuStatus === 1">
                     <!--一口价商品时才展示数量加减-->
-                    <view class="productnum" v-if="proSpuInfo.proSkuInfo.proSkuStatus === 1">
-                        <view class="num-tit">数量：</view>
+                    <div class="productnum" v-if="proSpuInfo.proSkuInfo.proSkuStatus === 1">
+                        <div class="num-tit">数量：</div>
                         <!-- 判断是否为预售 -->
-                        <view class="num-con" v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.preSalePro">
+                        <div class="num-con" v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.preSalePro">
                             <!-- 为预售时 -->
-                            <view class="all-num">库存
+                            <div class="all-num">库存
                                 <!--{{proSpuInfo.proSkuInfo.proArea.preSalePro.preQuantity - proSpuInfo.proSkuInfo.proArea.preSalePro.soldQuantity}}-->
                                 {{proSpuInfo.proSkuInfo.saleQuantity}}
                                 {{proSpuInfo.proUnit}}
-                            </view>
-                            <view class="num-act">
+                            </div>
+                            <div class="num-act">
                                 <InputNumber
                                     v-model.trim="proSkuCountNum"
                                     @change="proSkuCountNumChange"
                                     :min="proSpuInfo.proSkuInfo.minQuantity"
                                     :max="proSpuInfo.proSkuInfo.saleQuantity"
                                 ></InputNumber>
-                            </view>
-                        </view>
-                        <view v-else class="num-con">
+                            </div>
+                        </div>
+                        <div v-else class="num-con">
                             <!-- 不为预售时 -->
-                            <view class="all-num">库存{{proSpuInfo.proSkuInfo.saleQuantity}}{{proSpuInfo.proUnit}}</view>
-                            <view class="num-act">
+                            <div class="all-num">库存{{proSpuInfo.proSkuInfo.saleQuantity}}{{proSpuInfo.proUnit}}</div>
+                            <div class="num-act">
                                 <InputNumber
                                     v-model.trim="proSkuCountNum"
                                     @change="proSkuCountNumChange"
                                     :min="proSpuInfo.proSkuInfo.minQuantity"
                                     :max="proSpuInfo.proSkuInfo.saleQuantity"
                                 ></InputNumber>
-                            </view>
-                        </view>
-                    </view>
+                            </div>
+                        </div>
+                    </div>
                 </template>
-            </view>
+            </div>
             <template v-if="proSpuInfo.priceMethod === 2 && proSpuInfo.buyStatus !== '2' && proSpuInfo.proSkuInfo.proSkuStatus === 1">
                 <!--一口价才展示领券-->
-                <v-touch tag="view" class="m-details-item" v-on:tap="couponVisibleFn" v-if="proSpuInfo.proSkuInfo.couponList && proSpuInfo.proSkuInfo.couponList.length > 0">
-                    <view class="productcoupon">
-                        <view class="coupon-tit">领券：</view>
-                        <view class="coupon-con arrow-right-commons">
-                            <view class="coupon-item" v-for="item in proSpuInfo.proSkuInfo.couponList" :key="item.couTempId">
+                <v-touch tag="div" class="m-details-item" v-on:tap="couponVisibleFn" v-if="proSpuInfo.proSkuInfo.couponList && proSpuInfo.proSkuInfo.couponList.length > 0">
+                    <div class="productcoupon">
+                        <div class="coupon-tit">领券：</div>
+                        <div class="coupon-con arrow-right-commons">
+                            <div class="coupon-item" v-for="item in proSpuInfo.proSkuInfo.couponList" :key="item.couTempId">
                                 <template v-if="item.useRuleType === 1">
                                     <span class="coupon-style">券</span>满&yen;{{item.useOrderAmount | toFixed2}}减&yen;{{item.useDisAmount | toFixed2}}
                                 </template>
                                 <template v-else>
                                     <span class="coupon-style">券</span>无门槛优惠券&yen;{{item.useDisAmount | toFixed2}}
                                 </template>
-                            </view>
-                        </view>
-                    </view>
+                            </div>
+                        </div>
+                    </div>
                 </v-touch>
             </template>
             <template v-if="proSpuInfo.priceMethod === 2">
                 <!--一口价才展示送至-->
-                <v-touch tag="view" class="m-details-item" v-on:tap="showadr = true">
-                    <view class="productadr">
-                        <view class="adr-tit">送至：</view>
-                        <view class="adr-con">
-                            <view class="adr-cons arrow-right-commons">
+                <v-touch tag="div" class="m-details-item" v-on:tap="showadr = true">
+                    <div class="productadr">
+                        <div class="adr-tit">送至：</div>
+                        <div class="adr-con">
+                            <div class="adr-cons arrow-right-commons">
                                 <span class="xe-iconfont xe-icon-dingwei"></span>
                                 {{defaultAdrsText.join(' ')}}
-                            </view>
-                            <view class="adr-des" v-if="proSpuInfo.preSaleFlag !== 1 && proSpuInfo.buyStatus !== '2' && proSpuInfo.proSkuInfo.proSkuStatus === 1">
+                            </div>
+                            <div class="adr-des" v-if="proSpuInfo.preSaleFlag !== 1 && proSpuInfo.buyStatus !== '2' && proSpuInfo.proSkuInfo.proSkuStatus === 1">
                                 <!--<span>现货</span>,当天22:30前下单，预计商品次日送达-->
                                 <!-- {{proSpuInfo.buyDateTitle}} -->
-                            </view>
-                            <view class="adr-des" v-else-if="proSpuInfo.proSkuInfo.proSkuStatus === 4">当前区域暂不支持配送</view>
-                            <view class="adr-des" v-else-if="proSpuInfo.proSkuInfo.proSkuStatus === 5">未设置预售活动</view>
-                        </view>
-                    </view>
+                            </div>
+                            <div class="adr-des" v-else-if="proSpuInfo.proSkuInfo.proSkuStatus === 4">当前区域暂不支持配送</div>
+                            <div class="adr-des" v-else-if="proSpuInfo.proSkuInfo.proSkuStatus === 5">未设置预售活动</div>
+                        </div>
+                    </div>
                 </v-touch>
             </template>
-            <router-link tag="view" v-if="proSpuInfo.venInfo" :to="{name: 'Store', query: {userCode: proSpuInfo.venInfo.userCode}}" class="m-details-item">
-                <view class="productshop">
-                    <view class="shop-pic">
+            <router-link tag="div" v-if="proSpuInfo.venInfo" :to="{name: 'Store', query: {userCode: proSpuInfo.venInfo.userCode}}" class="m-details-item">
+                <div class="productshop">
+                    <div class="shop-pic">
                         <img v-if="proSpuInfo.venInfo.shopLogo" v-lazy="picServer + proSpuInfo.venInfo.shopLogo" alt="">
                         <img v-else src="../../static/images/default.png" alt="">
-                    </view>
-                    <view class="shop-con arrow-right-commons">{{proSpuInfo.venInfo.shopName}}</view>
-                </view>
+                    </div>
+                    <div class="shop-con arrow-right-commons">{{proSpuInfo.venInfo.shopName}}</div>
+                </div>
             </router-link>
 
-            <view class="m-details-tabcon">
-                <view class="det-tab">
-                    <view
+            <div class="m-details-tabcon">
+                <div class="det-tab">
+                    <div
                         v-for="item in currentDetTab"
                         :key="item.id"
                         :class="{'active': currentDetTabIndex === item.id}"
                         @click.prevent="detTabClick(item)"
                     >
                         <span>{{item.name}}</span>
-                    </view>
-                </view>
-                <view class="det-tab-item tabitem01" v-show="currentDetTabIndex === 1">
-                    <view class="det-list-con">
-                        <view class="det-list">
-                            <view class="det-list-tit">品名</view>
-                            <view class="det-list-content">{{proSpuInfo.proName}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">货号</view>
-                            <view class="det-list-content">{{proSpuInfo.proSkuInfo.proNum}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">分类</view>
-                            <view class="det-list-content">{{proSpuInfo.categoryName}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">品牌</view>
-                            <view class="det-list-content">{{proSpuInfo.brandName}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">规格</view>
-                            <view class="det-list-content">{{specValue}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">贮存条件</view>
-                            <view class="det-list-content">{{proSpuInfo.reserveCondition}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">保质期</view>
-                            <view class="det-list-content">{{proSpuInfo.shelfLife}}{{proSpuInfo.shelfLifeUnit}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">生产日期</view>
-                            <view class="det-list-content" v-if="proSpuInfo.madeDate">{{proSpuInfo.madeDate | millisecondFormat}}</view>
-                            <view class="det-list-content" v-else>见商品包装</view>
-                        </view>
-                        <view class="det-list" v-for="(item, index) in proSpuInfo.propertyList" :key="index">
-                            <view class="det-list-tit">{{item.propertyName}}</view>
-                            <view class="det-list-content">{{item.propertyValue}}</view>
-                        </view>
-                    </view>
-                    <!--<view v-show="!proSpuInfo.propertyList.length" class="appDescNone">-->
+                    </div>
+                </div>
+                <div class="det-tab-item tabitem01" v-show="currentDetTabIndex === 1">
+                    <div class="det-list-con">
+                        <div class="det-list">
+                            <div class="det-list-tit">品名</div>
+                            <div class="det-list-content">{{proSpuInfo.proName}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">货号</div>
+                            <div class="det-list-content">{{proSpuInfo.proSkuInfo.proNum}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">分类</div>
+                            <div class="det-list-content">{{proSpuInfo.categoryName}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">品牌</div>
+                            <div class="det-list-content">{{proSpuInfo.brandName}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">规格</div>
+                            <div class="det-list-content">{{specValue}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">贮存条件</div>
+                            <div class="det-list-content">{{proSpuInfo.reserveCondition}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">保质期</div>
+                            <div class="det-list-content">{{proSpuInfo.shelfLife}}{{proSpuInfo.shelfLifeUnit}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">生产日期</div>
+                            <div class="det-list-content" v-if="proSpuInfo.madeDate">{{proSpuInfo.madeDate | millisecondFormat}}</div>
+                            <div class="det-list-content" v-else>见商品包装</div>
+                        </div>
+                        <div class="det-list" v-for="(item, index) in proSpuInfo.propertyList" :key="index">
+                            <div class="det-list-tit">{{item.propertyName}}</div>
+                            <div class="det-list-content">{{item.propertyValue}}</div>
+                        </div>
+                    </div>
+                    <!--<div v-show="!proSpuInfo.propertyList.length" class="appDescNone">-->
                         <!--此商品暂无规格参数~-->
-                    <!--</view>-->
-                </view>
-                <view class="det-tab-item tabitem02" v-show="currentDetTabIndex === 2">
-                    <view v-if="!appDesc && !appDescLoaded" class="page-loading-con">
-                        <view class="page-infinite-loading">
+                    <!--</div>-->
+                </div>
+                <div class="det-tab-item tabitem02" v-show="currentDetTabIndex === 2">
+                    <div v-if="!appDesc && !appDescLoaded" class="page-loading-con">
+                        <div class="page-infinite-loading">
                             <mt-spinner type="triple-bounce" class="sp-bounce"></mt-spinner>努力加载中...
-                        </view>
-                    </view>
-                    <view v-else-if="!appDesc && appDescLoaded" class="appDescNone">
+                        </div>
+                    </div>
+                    <div v-else-if="!appDesc && appDescLoaded" class="appDescNone">
                         此商品暂无图文详情~
-                    </view>
-                    <view v-else class="tabitem02-content" v-html="appDesc"></view>
-                    <!--<view class="det02-text">众品鲜猪头 带耳猪头 散装众品鲜猪头 带耳猪头 散装众品 鲜猪头 带耳猪头 散装</view>-->
-                    <!--<view class="det02-img">-->
+                    </div>
+                    <div v-else class="tabitem02-content" v-html="appDesc"></div>
+                    <!--<div class="det02-text">众品鲜猪头 带耳猪头 散装众品鲜猪头 带耳猪头 散装众品 鲜猪头 带耳猪头 散装</div>-->
+                    <!--<div class="det02-img">-->
                         <!--<img src="https://gw.alicdn.com/imgextra/i1/15534907/TB2Za6nXfAPyuJjy0FcXXbCzpXa_!!15534907.jpg_970x970q50s150.jpg_.webp" alt="">-->
                         <!--<img src="https://gw.alicdn.com/imgextra/i1/15534907/TB2lDF0vYplpuFjSspiXXcdfFXa_!!15534907.jpg_970x970q50s150.jpg_.webp" alt="">-->
-                    <!--</view>-->
-                </view>
-                <view class="det-tab-item tabitem03" v-show="currentDetTabIndex === 3"></view>
-            </view>
+                    <!--</div>-->
+                </div>
+                <div class="det-tab-item tabitem03" v-show="currentDetTabIndex === 3"></div>
+            </div>
             <!--详情页按钮-->
-            <view class="m-details-btns" slot="footer">
+            <div class="m-details-btns" slot="footer">
                 <!--判断SPU价格维护状态（buyStatus） 1.正常购买 2.价格维护中-->
                 <template v-if="proSpuInfo.buyStatus === '1'">
                     <template v-if="proSpuInfo.priceMethod === 2">
@@ -349,88 +349,88 @@
                                 <template v-if="proSpuInfo.proSkuInfo.proArea && proSpuInfo.proSkuInfo.proArea.preSalePro">
                                     <!-- 预售商品 -->
                                     <template v-if="proSpuInfo.proSkuInfo.proArea.preSalePro.status !== 1 || proSpuInfo.proSkuInfo.proArea.preSalePro.activityStatus !== 1" style="width: 100%">
-                                        <view class="det-btn-tips">
+                                        <div class="det-btn-tips">
                                             已结束
-                                        </view>
+                                        </div>
                                     </template>
                                     <template v-else style="width: 100%">
-                                        <view class="det-btns" v-if="proSpuInfo.proSkuInfo.proArea.preSalePro.timeStatus === 1">
-                                            <view class="det-tocart">活动即将开始</view>
-                                        </view>
-                                        <view class="det-btn-tips" v-else-if="proSpuInfo.proSkuInfo.proArea.preSalePro.timeStatus === 3">
+                                        <div class="det-btns" v-if="proSpuInfo.proSkuInfo.proArea.preSalePro.timeStatus === 1">
+                                            <div class="det-tocart">活动即将开始</div>
+                                        </div>
+                                        <div class="det-btn-tips" v-else-if="proSpuInfo.proSkuInfo.proArea.preSalePro.timeStatus === 3">
                                             已结束
-                                        </view>
+                                        </div>
                                         <template v-else>
-                                            <view class="det-pri">
+                                            <div class="det-pri">
                                                 <span>总价</span>{{skuTotalPrice | currency}}
-                                            </view>
-                                            <view class="det-btns">
-                                                <view class="det-tocart add" @click.prevent="addCart">加购物车</view>
-                                                <view class="det-tobuy xe-gradient-color buy" @click.prevent='buyNowFn'>立即购买</view>
-                                            </view>
+                                            </div>
+                                            <div class="det-btns">
+                                                <div class="det-tocart add" @click.prevent="addCart">加购物车</div>
+                                                <div class="det-tobuy xe-gradient-color buy" @click.prevent='buyNowFn'>立即购买</div>
+                                            </div>
                                         </template>
                                     </template>
                                 </template>
                                 <template v-else-if="proSpuInfo.preSaleFlag === 1 && !proSpuInfo.proSkuInfo.proArea.preSalePro">
-                                    <view class="det-btn-tips">
+                                    <div class="det-btn-tips">
                                         该商品预售活动已结束
-                                    </view>
+                                    </div>
                                 </template>
                                 <template v-else>
-                                    <view class="det-pri">
+                                    <div class="det-pri">
                                         <span>总价</span>{{skuTotalPrice | currency}}
-                                    </view>
-                                    <view class="det-btns">
-                                        <view class="det-tocart" @click.prevent="addCart">加购物车</view>
-                                        <view class="det-tobuy xe-gradient-color" @click.prevent='buyNowFn'>立即购买</view>
-                                    </view>
+                                    </div>
+                                    <div class="det-btns">
+                                        <div class="det-tocart" @click.prevent="addCart">加购物车</div>
+                                        <div class="det-tobuy xe-gradient-color" @click.prevent='buyNowFn'>立即购买</div>
+                                    </div>
                                 </template>
                             </template>
                             <template v-else>
-                                <view class="det-btn-tips">
+                                <div class="det-btn-tips">
                                     {{proSpuInfo.proSkuInfo.proSkuStatus | proSkuStatusToText}}
-                                </view>
+                                </div>
                             </template>
                         </template>
                         <template v-if="proSpuInfo.proSpuStatus === 2">
-                            <view class="det-btn-tips">
+                            <div class="det-btn-tips">
                                 {{proSpuInfo.proSpuStatus | proSkuStatusToText}}
-                            </view>
+                            </div>
                         </template>
                         <template v-if="proSpuInfo.proSpuStatus === 5">
-                            <view class="det-btn-tips">
+                            <div class="det-btn-tips">
                                 {{proSpuInfo.proSpuStatus | proSkuStatusToText}}
-                            </view>
+                            </div>
                         </template>
                     </template>
                     <template v-else>
                         <!--商品为询报价-->
                         <template v-if="proSpuInfo.proSpuStatus === 1">
                             <template v-if="proSpuInfo.proSkuInfo.proSkuStatus === 1">
-                                <view class="det-btns">
-                                    <view class="det-tocart" @click.prevent="addInquiryList(proSpuInfo.proSkuInfo.proSku)">加入询价单</view>
-                                    <view class="det-tobuy xe-gradient-color" @click.prevent="showInquiryVisible">立即询价</view>
-                                </view>
+                                <div class="det-btns">
+                                    <div class="det-tocart" @click.prevent="addInquiryList(proSpuInfo.proSkuInfo.proSku)">加入询价单</div>
+                                    <div class="det-tobuy xe-gradient-color" @click.prevent="showInquiryVisible">立即询价</div>
+                                </div>
                             </template>
                             <template v-else>
-                                <view class="det-btn-tips">
+                                <div class="det-btn-tips">
                                     {{proSpuInfo.proSkuInfo.proSkuStatus | proSkuStatusToText}}
-                                </view>
+                                </div>
                             </template>
                         </template>
                         <template v-if="proSpuInfo.proSpuStatus === 2">
-                            <view class="det-btn-tips">
+                            <div class="det-btn-tips">
                                 {{proSpuInfo.proSpuStatus | proSkuStatusToText}}
-                            </view>
+                            </div>
                         </template>
                     </template>
                 </template>
                 <template v-else>
-                    <view class="det-btn-tips">
+                    <div class="det-btn-tips">
                         {{proSpuInfo.priceUpdateTitle}}
-                    </view>
+                    </div>
                 </template>
-            </view>
+            </div>
 
             <!--加入询价单-->
             <xe-popup
@@ -439,106 +439,106 @@
                 popupTit="立即询价"
                 position="right"
             >
-                <view class="det-inquiry-box">
-                    <view class="det-inquiry-con">
-                        <view class="m-product-item">
-                            <view class="pic">
+                <div class="det-inquiry-box">
+                    <div class="det-inquiry-con">
+                        <div class="m-product-item">
+                            <div class="pic">
                                 <img v-lazy="picServer + 'product/150/150/' + proSpuInfo.proSkuInfo.proMainImg" alt="">
-                            </view>
-                            <view class="msg">
-                                <view class="msg-con">
-                                    <view class="name">
+                            </div>
+                            <div class="msg">
+                                <div class="msg-con">
+                                    <div class="name">
                                         <p v-html="proSpuInfo.proName"></p>
-                                    </view>
-                                    <view class="vendor">
+                                    </div>
+                                    <div class="vendor">
                                         {{proSpuInfo.venInfo.shopName ? proSpuInfo.venInfo.shopName : proSpuInfo.venInfo.venName}}
-                                    </view>
-                                    <view class="msg-scon">
-                                        <view class="qutaliy">{{proSpuInfo.proSkuInfo.minQuantity}}{{proSpuInfo.proUnit}}起订 ({{specValue}})</view>
-                                        <!--<view class="marketPri">-->
+                                    </div>
+                                    <div class="msg-scon">
+                                        <div class="qutaliy">{{proSpuInfo.proSkuInfo.minQuantity}}{{proSpuInfo.proUnit}}起订 ({{specValue}})</div>
+                                        <!--<div class="marketPri">-->
                                             <!--&yen;{{proSpuInfo.proSkuInfo.unitPrice}}/{{proSpuInfo.proUnit}}-->
-                                        <!--</view>-->
-                                        <view class="price" v-if="proSpuInfo.priceMethod !== 3">
+                                        <!--</div>-->
+                                        <div class="price" v-if="proSpuInfo.priceMethod !== 3">
                                             &yen;<span class="big-price">{{proSpuInfo.proSkuInfo.skuPrice | toFixed2}}</span><span class="unit">/{{proSpuInfo.proUnit}}</span>
-                                        </view>
-                                        <view class="price" v-else>
+                                        </div>
+                                        <div class="price" v-else>
                                             面议
-                                        </view>
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="det-inquiry-item">
-                            <view class="item">
-                                <view class="item-left">采购数量</view>
-                                <view class="item-right">
-                                    <view class="num-con">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="det-inquiry-item">
+                            <div class="item">
+                                <div class="item-left">采购数量</div>
+                                <div class="item-right">
+                                    <div class="num-con">
                                         <InputNumber
                                             v-model="inquiryParams.productCount"
                                             :min="proSpuInfo.proSkuInfo.minQuantity"
                                             :max="proSpuInfo.proSkuInfo.saleQuantity"
                                         ></InputNumber>
-                                    </view>
-                                </view>
-                            </view>
-                            <view class="item">
-                                <view class="item-left">采购询价</view>
-                                <view class="item-right">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-left">采购询价</div>
+                                <div class="item-right">
                                     <template v-if="proSpuInfo.priceMethod !== 3">
                                         <input maxlength="8" type="number" v-model.number="inquiryParams.proPrice" @blur="inquiryParams.proPrice = Number(Math.abs(parseFloat(inquiryParams.proPrice)).toFixed(2))" placeholder="请输入价格" class="inquiry-input"><span>元/{{proSpuInfo.proUnit}}</span>
                                     </template>
                                     <template v-else>
                                         <input maxlength="8" type="number" v-model.number="inquiryParams.myprice" @blur="inquiryParams.myprice = Number(Math.abs(parseFloat(inquiryParams.myprice)).toFixed(2))" placeholder="请输入价格" class="inquiry-input"><span>元/{{proSpuInfo.proUnit}}</span>
                                     </template>
-                                </view>
-                            </view>
-                            <view class="item">
-                                <view class="item-left">询价类型</view>
-                                <view class="item-right">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item-left">询价类型</div>
+                                <div class="item-right">
                                     <xe-radio-group v-model="inquiryParams.inquiryType">
-                                        <view class="clearfix" v-if="proSpuInfo.deliveryType === 1">
-                                            <view class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></view>
-                                        </view>
-                                        <view class="clearfix" v-else-if="proSpuInfo.deliveryType === 2">
-                                            <view class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></view>
-                                        </view>
-                                        <view class="clearfix" v-else>
-                                            <view class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></view>
-                                            <view class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></view>
-                                        </view>
+                                        <div class="clearfix" v-if="proSpuInfo.deliveryType === 1">
+                                            <div class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></div>
+                                        </div>
+                                        <div class="clearfix" v-else-if="proSpuInfo.deliveryType === 2">
+                                            <div class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></div>
+                                        </div>
+                                        <div class="clearfix" v-else>
+                                            <div class="fl radio-item"><xe-radio :label="1">配送价</xe-radio></div>
+                                            <div class="fl radio-item"><xe-radio :label="0">自提价</xe-radio></div>
+                                        </div>
                                     </xe-radio-group>
-                                </view>
-                            </view>
-                        </view>
-                        <v-touch v-if="proDetAdritem" class="det-inquiry-item det-inquiry-itemadr" tag="view" @tap="adrVisibleFn">
-                            <view class="arrow-right-commons">
-                                <view class="item">
-                                    <view class="item-left">收货人</view>
-                                    <view class="item-right">{{proDetAdritem.caConsignee}} {{proDetAdritem.caPhone}}</view>
-                                </view>
-                                <view class="item">
-                                    <view class="item-left">收货地址</view>
-                                    <view class="item-right">
-                                        <view class="item-right-adr">{{proDetAdritem.caProvName}}{{proDetAdritem.caCityName}}{{proDetAdritem.caAreaName}}{{proDetAdritem.caStreet}}</view>
-                                    </view>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
+                        </div>
+                        <v-touch v-if="proDetAdritem" class="det-inquiry-item det-inquiry-itemadr" tag="div" @tap="adrVisibleFn">
+                            <div class="arrow-right-commons">
+                                <div class="item">
+                                    <div class="item-left">收货人</div>
+                                    <div class="item-right">{{proDetAdritem.caConsignee}} {{proDetAdritem.caPhone}}</div>
+                                </div>
+                                <div class="item">
+                                    <div class="item-left">收货地址</div>
+                                    <div class="item-right">
+                                        <div class="item-right-adr">{{proDetAdritem.caProvName}}{{proDetAdritem.caCityName}}{{proDetAdritem.caAreaName}}{{proDetAdritem.caStreet}}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </v-touch>
-                        <view class="adr-none" v-else>
+                        <div class="adr-none" v-else>
                             <mt-button class="xe-button-primary is-radius" size="small" plain @click.prevent="navToAddNewAdr">+ 新增地址</mt-button>
-                        </view>
-                    </view>
-                    <view class="det-btns">
-                        <view class="m-details-btns">
-                            <view class="det-pri">
+                        </div>
+                    </div>
+                    <div class="det-btns">
+                        <div class="m-details-btns">
+                            <div class="det-pri">
                                 <span>总价：</span>&yen;{{inquiryPri}}
-                            </view>
-                            <view class="det-btns">
-                                <view class="det-tobuy xe-gradient-color" @click.prevent="realTimeInquiry(proSpuInfo.proSkuInfo.proSku)">{{inquiryText}}</view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
+                            </div>
+                            <div class="det-btns">
+                                <div class="det-tobuy xe-gradient-color" @click.prevent="realTimeInquiry(proSpuInfo.proSkuInfo.proSku)">{{inquiryText}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </xe-popup>
         </template>
 
@@ -548,9 +548,9 @@
             :show.sync="couponVisible"
             popupTit="优惠券"
             position="bottom">
-            <view class="pop-det-coupoon">
+            <div class="pop-det-coupoon">
                 <xe-couponItem :couponList="couponListPopup"></xe-couponItem>
-            </view>
+            </div>
         </xe-popup>
 
         <!--选择地址-->
@@ -1558,7 +1558,7 @@
         .det-btns {
             display: flex;
             flex: 1;
-            > view {
+            > div {
                 flex:1;
                 font-size: 34/$ppr;
                 text-align: center;
@@ -1605,7 +1605,7 @@
             margin: 20/$ppr 0;
             color: $main-color;
             display: flex;
-            > view {
+            > div {
                 margin-right: 20/$ppr;
                 flex: 1;
                 &:last-child {
@@ -1632,7 +1632,7 @@
             display: flex;
             justify-content: space-between;
             margin: 15/$ppr 0;
-            > view {
+            > div {
                 font-size: 24/$ppr;
                 color: $text-999;
             }

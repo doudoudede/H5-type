@@ -4,18 +4,18 @@
             <a href="#" @click.prevent="itemClickFn(item)">
                 <img :data-src="picServer + urlPath + item[keyProps.keyName]" class="swiper-lazy" @click="goStore(item)">
             </a>
-            <view class="swiper-lazy-preloader"></view>
-            <view class="pro-itemPicbox" v-if="vendorPicFlag && item.proSpuInfo.length">
-                <router-link tag="view"  class="pic-con"  v-for="(items, indexs) in item.proSpuInfo" :key="items.proSpu" v-if="indexs <= 2" :to="{name: 'ProductDetails', params: {prospu: items.proSpu}}">
+            <div class="swiper-lazy-preloader"></div>
+            <div class="pro-itemPicbox" v-if="vendorPicFlag && item.proSpuInfo.length">
+                <router-link tag="div"  class="pic-con"  v-for="(items, indexs) in item.proSpuInfo" :key="items.proSpu" v-if="indexs <= 2" :to="{name: 'ProductDetails', params: {prospu: items.proSpu}}">
                     <img :src="picServerPro + items.proMainImg" alt="">
                 </router-link>
-            </view>
+            </div>
         </swiper-slide>
-        <view class="swiper-pagination" v-if="!defautlOption" slot="pagination"></view>
+        <div class="swiper-pagination" v-if="!defautlOption" slot="pagination"></div>
     </swiper>
 </template>
 <script type="text/ecmascript-6">
-    // import {Swiper, swiper, swiperSlide} from 'vue-awesome-swiper';
+    import {Swiper, swiper, swiperSlide} from 'vue-awesome-swiper';
     import {getXeUrl} from 'utils';
     export default {
         name: 'xe-slider',

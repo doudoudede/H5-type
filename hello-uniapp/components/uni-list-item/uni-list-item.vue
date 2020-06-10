@@ -1,5 +1,5 @@
 <template>
-	<!-- #ifdef APP-NVUE -->
+	<!-- #ifdef aPP-NVUE -->
 	<cell>
 		<!-- #endif -->
 		<view :class="disabled ? 'uni-list-item--disabled' : ''" :hover-class="disabled || showSwitch ? '' : 'uni-list-item--hover'" class="uni-list-item" @click="onClick">
@@ -20,11 +20,11 @@
 					<uni-badge v-if="showBadge" :type="badgeType" :text="badgeText" />
 					<switch v-if="showSwitch" :disabled="disabled" :checked="switchChecked" @change="onSwitchChange" />
 					<slot name="right"></slot>
-					<uni-icons v-if="showArrow" :size="20" class="uni-icon-wrapper" color="#bbb" type="arrowright" />
+					<uni-icons v-if="showarrow" :size="20" class="uni-icon-wrapper" color="#bbb" type="arrowright" />
 				</view>
 			</view>
 		</view>
-		<!-- #ifdef APP-NVUE -->
+		<!-- #ifdef aPP-NVUE -->
 	</cell>
 	<!-- #endif -->
 </template>
@@ -44,7 +44,7 @@
 	 * @property {String} badgeType 数字角标类型，参考[uni-icons](https://ext.dcloud.net.cn/plugin?id=21)
 	 * @property {String} rightText 右侧文字内容
 	 * @property {Boolean} disabled = [true|false]是否禁用
-	 * @property {Boolean} showArrow = [true|false] 是否显示箭头图标
+	 * @property {Boolean} showarrow = [true|false] 是否显示箭头图标
 	 * @property {Boolean} showBadge = [true|false] 是否显示数字角标
 	 * @property {Boolean} showSwitch = [true|false] 是否显示Switch
 	 * @property {Boolean} switchChecked = [true|false] Switch是否被选中
@@ -74,7 +74,7 @@
 				type: [Boolean, String],
 				default: false
 			},
-			showArrow: {
+			showarrow: {
 				// 是否显示箭头
 				type: [Boolean, String],
 				default: true
@@ -137,8 +137,8 @@
 			}
 		},
 		mounted() {
-			if (!this.list.firstChildAppend) {
-				this.list.firstChildAppend = true
+			if (!this.list.firstChildappend) {
+				this.list.firstChildappend = true
 				this.isFirstChild = true
 			}
 		},
@@ -172,7 +172,7 @@
 
 	.uni-list-item__container {
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -182,7 +182,7 @@
 		position: relative;
 		justify-content: space-between;
 		align-items: center;
-		/* #ifdef APP-PLUS */
+		/* #ifdef aPP-PLUS */
 		border-top-color: #e5e5e5;
 		border-top-style: solid;
 		border-top-width: 0.5px;
@@ -193,7 +193,7 @@
 		border-top-width: 0px;
 	}
 
-	/* #ifndef APP-NVUE */
+	/* #ifndef aPP-NVUE */
 	.uni-list-item__container:after {
 		position: absolute;
 		top: 0;
@@ -217,7 +217,7 @@
 
 
 	.uni-list-item__content {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -243,7 +243,7 @@
 	.uni-list-item__extra {
 		/* width: 25%;
  */
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;

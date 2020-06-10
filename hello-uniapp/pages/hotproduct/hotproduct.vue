@@ -1,6 +1,6 @@
 <template>
     <xe-layout class='m-bg-dark'>
-        <view class="m-hot-pic" v-if="sliderData.length">
+        <div class="m-hot-pic" v-if="sliderData.length">
             <Slider
                 ref="slider"
                 :sliderData="sliderData"
@@ -9,14 +9,14 @@
                 :loop="sliderData.length > 1 ? true : false"
             >
             </Slider>
-        </view>
+        </div>
         <bannerItems :menuType="15"></bannerItems>
-        <view class="hot-content" v-if="navListData.length">
-            <view class="hot-content-nav">
+        <div class="hot-content" v-if="navListData.length">
+            <div class="hot-content-nav">
                 <xe-navtab-con :itemData="navListData" @swiperItemClick="swiperItemClick"></xe-navtab-con>
-            </view>
-            <view class="hot-pro-con">
-                <view class="hot-pro">
+            </div>
+            <div class="hot-pro-con">
+                <div class="hot-pro">
                     <proItem
                         :picServerPro="picServerPro"
                         v-for="item in proListData"
@@ -24,25 +24,25 @@
                         :key="item.proSpu"
                     >
                     </proItem>
-                </view>
-            </view>
+                </div>
+            </div>
             <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
                 <span slot="no-more" class="infinite-no-more">
                     没有更多了~
                 </span>
-                <view slot="no-results" class="m-cart-none">
-                    <view class="pic">
+                <div slot="no-results" class="m-cart-none">
+                    <div class="pic">
                         <img src="../../static/images/cart-n1.png" alt="">
-                    </view>
-                    <view class="des">
+                    </div>
+                    <div class="des">
                         <p class="f28">暂无此分类商品~</p>
-                    </view>
-                    <!--<view class="btn">-->
+                    </div>
+                    <!--<div class="btn">-->
                         <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-                    <!--</view>-->
-                </view>
+                    <!--</div>-->
+                </div>
             </infinite-loading>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

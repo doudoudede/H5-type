@@ -1,31 +1,31 @@
 <template>
     <xe-layout>
-        <view class="m-support-con">
-            <view class="m-support-top">
+        <div class="m-support-con">
+            <div class="m-support-top">
                 <h3>如来云商侵权投诉与申诉规则</h3>
                 <p>本规则适用于如来云商上由用户发布的信息引发的侵权投诉及申诉处理。</p>
                 <p>如来云商，系由河南如来云商络科技有限公司（下称"如来云商公司"）运营的网站（域名为www.xebest.com,包括PC端、移动端、微信端）。</p>
                 <p>本规则根据《侵权责任法》、《信息网络传播权保护条例》等法律法规制定，旨在最大程度保护知识产权等各项合法权益，维护良好的平台行为秩序，本规则为《如来云商用户注册协议》的组成部分。</p>
-            </view>
-            <view>
-                <view class="m-support-item" v-for="(item, index) in itemData" :key="index">
-                    <view class="m-list-block" @click.prevent="item.show = !item.show">
+            </div>
+            <div>
+                <div class="m-support-item" v-for="(item, index) in itemData" :key="index">
+                    <div class="m-list-block" @click.prevent="item.show = !item.show">
                         <ul>
                             <li class="item-content item-link">
-                                <view class="item-inner">
-                                    <view class="item-title f32">{{item.title}}</view>
-                                </view>
+                                <div class="item-inner">
+                                    <div class="item-title f32">{{item.title}}</div>
+                                </div>
                             </li>
                         </ul>
-                    </view>
+                    </div>
                     <CollapseTransition>
-                        <view class="m-support-text" v-show="item.show">
+                        <div class="m-support-text" v-show="item.show">
                             <p v-for="(content, cindex) in item.content" :key="cindex" v-html="content.text"></p>
-                        </view>
+                        </div>
                     </CollapseTransition>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

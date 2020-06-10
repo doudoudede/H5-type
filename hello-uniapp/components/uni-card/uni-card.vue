@@ -100,7 +100,7 @@
 
 <style scoped>
 	.uni-card {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		flex: 1;
 		box-shadow: 0 0 0 rgba(0, 0, 0, 0);
@@ -126,7 +126,7 @@
 	}
 
 	.uni-card__thumbnailimage-box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -139,7 +139,7 @@
 	}
 
 	.uni-card__thumbnailimage-title {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		position: absolute;
@@ -158,7 +158,7 @@
 	}
 
 	.uni-card__title {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -181,7 +181,7 @@
 	}
 
 	.uni-card__title-content {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
@@ -206,7 +206,7 @@
 	}
 
 	.uni-card__header {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		position: relative;
@@ -219,7 +219,7 @@
 	}
 
 	.uni-card__header-title {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -231,10 +231,10 @@
 	.uni-card__header-title-text {
 		font-size: 32rpx;
 		flex: 1;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		white-space: nowrap;
 		/* #endif */
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		lines: 1;
 		/* #endif */
 		overflow: hidden;
@@ -286,7 +286,7 @@
 		border-color: #e5e5e5;
 		border-style: solid;
 		border-width: 1px;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 		/* #endif */
 	}

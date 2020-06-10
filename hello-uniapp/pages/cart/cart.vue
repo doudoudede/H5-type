@@ -1,157 +1,157 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="m-cart-top m-content-view" slot="header">
-            <v-touch tag="view" class="m-cart-adr" v-on:tap="showadr = true">
+        <div class="m-cart-top m-content-div" slot="header">
+            <v-touch tag="div" class="m-cart-adr" v-on:tap="showadr = true">
                 <span class="xe-iconfont xe-icon-dingwei"></span>{{cityName}}
             </v-touch>
-            <view class="m-cart-edit" v-if="validVenProList && validVenProList.length > 0" @click.prevent="editorFlag = !editorFlag">
+            <div class="m-cart-edit" v-if="validVenProList && validVenProList.length > 0" @click.prevent="editorFlag = !editorFlag">
                 {{editorFlag ? '完成' : '编辑'}}
-            </view>
-        </view>
-        <view class="m-cart-contanier m-content-view">
-            <view
+            </div>
+        </div>
+        <div class="m-cart-contanier m-content-div">
+            <div
                 class="m-cart-item"
                 v-for="(item, index) in validVenProList"
                 :key="index"
                 v-if="item.proList.length"
             >
-                <view class="m-cart-title">
-                    <view class="m-cart-check">
+                <div class="m-cart-title">
+                    <div class="m-cart-check">
                         <xe-checkbox v-model="item.checkAll" :label="item.vendorCode" size="large" @input="proCheckAllFn(item)"></xe-checkbox>
-                    </view>
-                    <view class="m-cart-shop">
+                    </div>
+                    <div class="m-cart-shop">
                         <span class="arrow-right-commons" @click.prevent="shopNavToDet(item)">{{item.vendorName}}</span>
-                    </view>
-                    <view class="m-cart-after" v-if="item.couponFlag === 1 && !editorFlag" @click="listTempletByVen(item.vendorCode)">
+                    </div>
+                    <div class="m-cart-after" v-if="item.couponFlag === 1 && !editorFlag" @click="listTempletByVen(item.vendorCode)">
                         领券
-                    </view>
-                </view>
-                <view class="m-shop-coupon" v-if="item.couponList.length">
-                    <!--<view v-for="(item, index) in item.couponList" :key="index">本店铺单次购买满100元，送20元优惠券</view>-->
-                    <view v-for="(couponitem, couponindex) in item.couponList" :key="couponindex">本店铺单次购买满{{couponitem.sendOrderAmount}}元，送{{couponitem.useDisAmount}}元优惠券</view>
-                    <view v-if="item.supportPayType !== 3">
+                    </div>
+                </div>
+                <div class="m-shop-coupon" v-if="item.couponList.length">
+                    <!--<div v-for="(item, index) in item.couponList" :key="index">本店铺单次购买满100元，送20元优惠券</div>-->
+                    <div v-for="(couponitem, couponindex) in item.couponList" :key="couponindex">本店铺单次购买满{{couponitem.sendOrderAmount}}元，送{{couponitem.useDisAmount}}元优惠券</div>
+                    <div v-if="item.supportPayType !== 3">
                         <template v-if="item.supportPayType === 1">仅支持在线支付</template>
                         <template v-else>仅支持货到付款</template>
-                    </view>
-                </view>
-                <view class="m-cart-pros" v-if="item.proList && item.proList.length > 0">
+                    </div>
+                </div>
+                <div class="m-cart-pros" v-if="item.proList && item.proList.length > 0">
                     <xe-checkbox-group v-model="item.checkedPros" @change="proCheckedChange(item)">
-                        <view class="item" v-for="proItem in item.proList" :key="proItem.proSku">
-                            <view class="item-check">
+                        <div class="item" v-for="proItem in item.proList" :key="proItem.proSku">
+                            <div class="item-check">
                                 <xe-checkbox :label="proItem.proSku" size="large"></xe-checkbox>
-                            </view>
-                            <view class="item-pro-msg" @click.prevent="proNavToDet(proItem)">
-                                <view class="pic">
+                            </div>
+                            <div class="item-pro-msg" @click.prevent="proNavToDet(proItem)">
+                                <div class="pic">
                                     <img v-lazy="picServer + proItem.proMainImg" alt="">
-                                </view>
-                                <view class="msg">
-                                    <view class="name">
+                                </div>
+                                <div class="msg">
+                                    <div class="name">
                                         <p>
                                             <span v-if="proItem.preSaleFlag === 1" class="xe-iconfont xe-icon-yushoufuben coupon-style-icon1"></span><span v-if="proItem.disLimitProNum" class="xe-iconfont xe-icon-miaoshafuben coupon-style-icon"></span>{{proItem.proName}}
                                         </p>
-                                    </view>
-                                    <view class="pri">
-                                        <view class="mp">规格: {{proItem.specValue}}</view>
+                                    </div>
+                                    <div class="pri">
+                                        <div class="mp">规格: {{proItem.specValue}}</div>
                                         <template v-if="proItem.disLimitProNum">
                                             <!--商品为限时抢购-->
                                             <template v-if="proItem.originalProNum > 0">
                                                 <!--购买数量大于限时抢购库存-->
-                                                <view class="np"><span style="color: #999;">{{proItem.disLimitProNum}}x</span>&yen;{{proItem.disLimitProPrice | toFixed2}}<em>/{{proItem.unit}}</em></view>
-                                                <view class="np"><span style="color: #999;">{{proItem.originalProNum}}x</span>&yen;{{proItem.areaPrice | toFixed2}}<em>/{{proItem.unit}}</em></view>
+                                                <div class="np"><span style="color: #999;">{{proItem.disLimitProNum}}x</span>&yen;{{proItem.disLimitProPrice | toFixed2}}<em>/{{proItem.unit}}</em></div>
+                                                <div class="np"><span style="color: #999;">{{proItem.originalProNum}}x</span>&yen;{{proItem.areaPrice | toFixed2}}<em>/{{proItem.unit}}</em></div>
                                             </template>
                                             <template v-else>
-                                                <view class="np">&yen;{{proItem.disLimitProPrice | toFixed2}}<em>/{{proItem.unit}}</em></view>
+                                                <div class="np">&yen;{{proItem.disLimitProPrice | toFixed2}}<em>/{{proItem.unit}}</em></div>
                                             </template>
                                         </template>
                                         <template v-else>
-                                            <view class="np">&yen;{{proItem.areaPrice | toFixed2}}<em>/{{proItem.unit}}</em></view>
+                                            <div class="np">&yen;{{proItem.areaPrice | toFixed2}}<em>/{{proItem.unit}}</em></div>
                                         </template>
-                                    </view>
-                                </view>
-                                <view class="num-count" @click.stop>
-                                    <view class="countnum-con">
+                                    </div>
+                                </div>
+                                <div class="num-count" @click.stop>
+                                    <div class="countnum-con">
                                         <InputNumber :min="proItem.minQuantity" :max="proItem.saleQuantity" v-model="proItem.quantity" @change="proNumChange(proItem)"></InputNumber>
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </xe-checkbox-group>
-                </view>
-            </view>
-            <view class="m-cart-item m-cart-itemsx" v-if="inValidProList && inValidProList.length > 0">
-                <view class="m-cart-pros">
-                    <view class="item" v-for="item in inValidProList" :key="item.proSku">
-                        <view class="item-check">
+                </div>
+            </div>
+            <div class="m-cart-item m-cart-itemsx" v-if="inValidProList && inValidProList.length > 0">
+                <div class="m-cart-pros">
+                    <div class="item" v-for="item in inValidProList" :key="item.proSku">
+                        <div class="item-check">
                             失效
-                        </view>
-                        <view class="item-pro-msg">
-                            <view class="pic">
+                        </div>
+                        <div class="item-pro-msg">
+                            <div class="pic">
                                 <img :src="picServer + item.proMainImg" alt="">
-                            </view>
-                            <view class="msg">
-                                <view class="name">
+                            </div>
+                            <div class="msg">
+                                <div class="name">
                                     <p>
                                         {{item.proName}}
                                     </p>
-                                </view>
-                                <view class="pri">
-                                    <view class="mp">规格: {{item.specValue}}</view>
-                                    <!--<view class="mp">10kg/{{item.unit}}</view>-->
-                                    <view class="np">&yen;{{item.areaPrice}}<em>/{{item.unit}}</em></view>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="m-cart-clear">
+                                </div>
+                                <div class="pri">
+                                    <div class="mp">规格: {{item.specValue}}</div>
+                                    <!--<div class="mp">10kg/{{item.unit}}</div>-->
+                                    <div class="np">&yen;{{item.areaPrice}}<em>/{{item.unit}}</em></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-cart-clear">
                     <mt-button class="xe-button-primary" plain size="small" @click.prevent="clearSxPro">清空失效商品</mt-button>
-                </view>
-            </view>
-            <view class="m-cart-none" v-if="!validVenProList  && !inValidProList">
-                <view class="pic">
+                </div>
+            </div>
+            <div class="m-cart-none" v-if="!validVenProList  && !inValidProList">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">您的购物车暂无药品~</p>
                     <!-- <p class='f28'>主人快给我挑点食物吧</p> -->
-                </view>
-                <view class="btn">
+                </div>
+                <div class="btn">
                     <mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">马上采购</mt-button>
-                </view>
-            </view>
-        </view>
-        <view class="m-cart-btns" slot="footer" v-if="validVenProList && validVenProList.length > 0">
-            <view class="m-all-check">
+                </div>
+            </div>
+        </div>
+        <div class="m-cart-btns" slot="footer" v-if="validVenProList && validVenProList.length > 0">
+            <div class="m-all-check">
                     <xe-checkbox size="large" v-model="checkedAll" @input="checkedAllFn"></xe-checkbox><span v-if="editorFlag "  class="txt">全选</span>
-            </view>
-            <view class="det-pri">
+            </div>
+            <div class="det-pri">
                 <!-- <p v-show="!editorFlag">
                     <span>总价</span>{{totalPrice | currency}}
                 </p> -->
-                <view class="pay-coupon"  v-show="!editorFlag">
+                <div class="pay-coupon"  v-show="!editorFlag">
                     <p class="pay_all">合计: <span>{{totalPrice | currency}}</span></p>
                     <p class="pay_money" v-if="couponInfo">购物满{{parseFloat(couponInfo.sendOrderAmount ? couponInfo.sendOrderAmount : 0).toFixed(2)}}元，送{{parseFloat(couponInfo.useDisAmount ? couponInfo.useDisAmount : 0).toFixed(2)}}元优惠券</p>
-                </view>
-            </view>
-            <view class="det-btns">
-                <!--<router-link tag="view" class="det-tobuy xe-gradient-color" :to="{name: 'ConfirmOrder'}">结算(12)</router-link>-->
-                <view v-if="editorFlag" class="det-tobuy" :class="{'editorFlag': editorFlag}" @click.prevent="deleteCartBacths">
+                </div>
+            </div>
+            <div class="det-btns">
+                <!--<router-link tag="div" class="det-tobuy xe-gradient-color" :to="{name: 'ConfirmOrder'}">结算(12)</router-link>-->
+                <div v-if="editorFlag" class="det-tobuy" :class="{'editorFlag': editorFlag}" @click.prevent="deleteCartBacths">
                     删除 <span>({{getCheckedPros.length}})</span>
-                </view>
-                <view v-else class="det-tobuy xe-gradient-color" v-show="getCheckedPros.length > 0" @click.prevent="goConfirmOrder">
+                </div>
+                <div v-else class="det-tobuy xe-gradient-color" v-show="getCheckedPros.length > 0" @click.prevent="goConfirmOrder">
                     结算 <span>({{getCheckedPros.length}})</span>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
         <!--选择优惠券-->
         <xe-popup
             slot="outer"
             :show.sync="couponVisible"
             popupTit="优惠券"
             position="bottom">
-            <view class="pop-cart-coupoon coupon-box-more">
+            <div class="pop-cart-coupoon coupon-box-more">
                 <xe-couponItem :couponList="couponListPopup"></xe-couponItem>
-            </view>
+            </div>
         </xe-popup>
         <!--地址插件-->
         <xe-popup
@@ -625,7 +625,7 @@
             font-size: 24/$ppr;
             color: $text-666;
             border-bottom: 1/$ppr solid $border-color-e8e;
-            > view {
+            > div {
                 line-height: 1.4;
                 margin: 10/$ppr 0;
             }
@@ -770,7 +770,7 @@
         }
         .det-btns {
             display: flex;
-            > view {
+            > div {
                 flex:1;
                 font-size: 34/$ppr;
                 text-align: center;
@@ -789,7 +789,7 @@
     .pop-cart-coupoon {
         padding: 20/$ppr;
     }
-    .m-cart-btns .det-btns > view {
+    .m-cart-btns .det-btns > div {
   background: linear-gradient(left,rgb(255,83,11) ,rgb(255,33,22)  ) no-repeat;
     background: -webkit-linear-gradient(left,rgb(255,83,11) ,rgb(255,33,22) ) no-repeat; }
 .txt{display: block;line-height: .4rem}

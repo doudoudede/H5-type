@@ -68,14 +68,14 @@
 
 <style scoped>
 	.uni-grid-item {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		height: 100%;
 		display: flex;
 		/* #endif */
 	}
 
 	.uni-grid-item__box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		width: 100%;
 		/* #endif */
@@ -102,7 +102,7 @@
 		border-top-color: #e5e5e5;
 		border-top-style: solid;
 		border-top-width: 1px;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		height: 100%;
 		box-sizing: border-box;
 		/* #endif */

@@ -2,9 +2,9 @@
 * @1900-2100区间内的公历、农历互转
 * @charset UTF-8
 * @github  https://github.com/jjonline/calendar.js
-* @Author  Jea杨(JJonline@JJonline.Cn)
+* @author  Jea杨(JJonline@JJonline.Cn)
 * @Time    2014-7-21
-* @Time    2016-8-13 Fixed 2033hex、Attribution Annals
+* @Time    2016-8-13 Fixed 2033hex、attribution annals
 * @Time    2016-9-25 Fixed lunar LeapMonth Param Bug
 * @Time    2017-7-24 Fixed use getTerm Func Param Error.use solar year,NOT lunar year
 * @Version 1.0.3
@@ -16,7 +16,7 @@ var calendar = {
 
   /**
       * 农历1900-2100的润大小信息表
-      * @Array Of Property
+      * @array Of Property
       * @return Hex
       */
   lunarInfo: [0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0, 0x09ad0, 0x055d2, // 1900-1909
@@ -34,7 +34,7 @@ var calendar = {
     0x07954, 0x06aa0, 0x0ad50, 0x05b52, 0x04b60, 0x0a6e6, 0x0a4e0, 0x0d260, 0x0ea65, 0x0d530, // 2020-2029
     0x05aa0, 0x076a3, 0x096d0, 0x04afb, 0x04ad0, 0x0a4d0, 0x1d0b6, 0x0d250, 0x0d520, 0x0dd45, // 2030-2039
     0x0b5a0, 0x056d0, 0x055b2, 0x049b0, 0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0, // 2040-2049
-    /** Add By JJonline@JJonline.Cn**/
+    /** add By JJonline@JJonline.Cn**/
     0x14b63, 0x09370, 0x049f8, 0x04970, 0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0, // 2050-2059
     0x0a2e0, 0x0d2e3, 0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0, 0x0a6d0, 0x055d4, // 2060-2069
     0x052d0, 0x0a9b8, 0x0a950, 0x0b4a0, 0x0b6a6, 0x0ad50, 0x055a0, 0x0aba4, 0x0a5b0, 0x052b0, // 2070-2079
@@ -44,21 +44,21 @@ var calendar = {
 
   /**
       * 公历每个月份的天数普通表
-      * @Array Of Property
+      * @array Of Property
       * @return Number
       */
   solarMonth: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 
   /**
       * 天干地支之天干速查表
-      * @Array Of Property trans["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]
+      * @array Of Property trans["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]
       * @return Cn string
       */
   Gan: ['\u7532', '\u4e59', '\u4e19', '\u4e01', '\u620a', '\u5df1', '\u5e9a', '\u8f9b', '\u58ec', '\u7678'],
 
   /**
       * 天干地支之地支速查表
-      * @Array Of Property
+      * @array Of Property
       * @trans["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"]
       * @return Cn string
       */
@@ -66,15 +66,15 @@ var calendar = {
 
   /**
       * 天干地支之地支速查表<=>生肖
-      * @Array Of Property
+      * @array Of Property
       * @trans["鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪"]
       * @return Cn string
       */
-  Animals: ['\u9f20', '\u725b', '\u864e', '\u5154', '\u9f99', '\u86c7', '\u9a6c', '\u7f8a', '\u7334', '\u9e21', '\u72d7', '\u732a'],
+  animals: ['\u9f20', '\u725b', '\u864e', '\u5154', '\u9f99', '\u86c7', '\u9a6c', '\u7f8a', '\u7334', '\u9e21', '\u72d7', '\u732a'],
 
   /**
       * 24节气速查表
-      * @Array Of Property
+      * @array Of Property
       * @trans["小寒","大寒","立春","雨水","惊蛰","春分","清明","谷雨","立夏","小满","芒种","夏至","小暑","大暑","立秋","处暑","白露","秋分","寒露","霜降","立冬","小雪","大雪","冬至"]
       * @return Cn string
       */
@@ -82,7 +82,7 @@ var calendar = {
 
   /**
       * 1900-2100各年的24节气日期速查表
-      * @Array Of Property
+      * @array Of Property
       * @return 0x string For splice
       */
   sTermInfo: ['9778397bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e', '97bcf97c3598082c95f8c965cc920f',
@@ -155,7 +155,7 @@ var calendar = {
 
   /**
       * 数字转中文速查表
-      * @Array Of Property
+      * @array Of Property
       * @trans ['日','一','二','三','四','五','六','七','八','九','十']
       * @return Cn string
       */
@@ -163,7 +163,7 @@ var calendar = {
 
   /**
       * 日期转农历称呼速查表
-      * @Array Of Property
+      * @array Of Property
       * @trans ['初','十','廿','卅']
       * @return Cn string
       */
@@ -171,7 +171,7 @@ var calendar = {
 
   /**
       * 月份转农历称呼速查表
-      * @Array Of Property
+      * @array Of Property
       * @trans ['正','一','二','三','四','五','六','七','八','九','十','冬','腊']
       * @return Cn string
       */
@@ -258,7 +258,7 @@ var calendar = {
      * @param  cDay [description]
      * @return Cn string
      */
-  toAstro: function (cMonth, cDay) {
+  toastro: function (cMonth, cDay) {
     var s = '\u9b54\u7faf\u6c34\u74f6\u53cc\u9c7c\u767d\u7f8a\u91d1\u725b\u53cc\u5b50\u5de8\u87f9\u72ee\u5b50\u5904\u5973\u5929\u79e4\u5929\u874e\u5c04\u624b\u9b54\u7faf'
     var arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22]
     return s.substr(cMonth * 2 - (cDay < arr[cMonth - 1] ? 2 : 0), 2) + '\u5ea7'// 座
@@ -366,10 +366,10 @@ var calendar = {
       * 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是“立春”
       * @param y year
       * @return Cn string
-      * @eg:var animal = calendar.getAnimal(1987) ;//animal='兔'
+      * @eg:var animal = calendar.getanimal(1987) ;//animal='兔'
       */
-  getAnimal: function (y) {
-    return this.Animals[(y - 4) % 12]
+  getanimal: function (y) {
+    return this.animals[(y - 4) % 12]
   },
 
   /**
@@ -485,9 +485,9 @@ var calendar = {
     var dayCyclical = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
     var gzD = this.toGanZhi(dayCyclical + d - 1)
     // 该日期所属的星座
-    var astro = this.toAstro(m, d)
+    var astro = this.toastro(m, d)
 
-    return { 'lYear': year, 'lMonth': month, 'lDay': day, 'Animal': this.getAnimal(year), 'IMonthCn': (isLeap ? '\u95f0' : '') + this.toChinaMonth(month), 'IDayCn': this.toChinaDay(day), 'cYear': y, 'cMonth': m, 'cDay': d, 'gzYear': gzY, 'gzMonth': gzM, 'gzDay': gzD, 'isToday': isToday, 'isLeap': isLeap, 'nWeek': nWeek, 'ncWeek': '\u661f\u671f' + cWeek, 'isTerm': isTerm, 'Term': Term, 'astro': astro }
+    return { 'lYear': year, 'lMonth': month, 'lDay': day, 'animal': this.getanimal(year), 'IMonthCn': (isLeap ? '\u95f0' : '') + this.toChinaMonth(month), 'IDayCn': this.toChinaDay(day), 'cYear': y, 'cMonth': m, 'cDay': d, 'gzYear': gzY, 'gzMonth': gzM, 'gzDay': gzD, 'isToday': isToday, 'isLeap': isLeap, 'nWeek': nWeek, 'ncWeek': '\u661f\u671f' + cWeek, 'isTerm': isTerm, 'Term': Term, 'astro': astro }
   },
 
   /**
@@ -520,12 +520,12 @@ var calendar = {
     for (var i = 1900; i < y; i++) {
       offset += this.lYearDays(i)
     }
-    var leap = 0; var isAdd = false
+    var leap = 0; var isadd = false
     for (var i = 1; i < m; i++) {
       leap = this.leapMonth(y)
-      if (!isAdd) { // 处理闰月
+      if (!isadd) { // 处理闰月
         if (leap <= i && leap > 0) {
-          offset += this.leapDays(y); isAdd = true
+          offset += this.leapDays(y); isadd = true
         }
       }
       offset += this.monthDays(y, i)

@@ -1,40 +1,40 @@
 <template>
     <xe-layout class='m-bg-dark m-flexlay'>
-        <view class="m-editorpwd">
-            <view class="m-list-block">
+        <div class="m-editorpwd">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">原密码</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">原密码</div>
+                            <div class="item-input">
                                 <input v-if="pwdType1" class="input-cls" v-model="oldpwd" placeholder="输入原始密码" type="text">
                                 <input v-else class="input-cls" v-model="oldpwd" placeholder="输入原始密码" type="password">
-                            </view>
-                            <view class="act">
+                            </div>
+                            <div class="act">
                                 <span class="xe-iconfont " :class="[pwdType1 ? 'xe-icon-yanjing2' : 'xe-icon-yanjing']" @click.prevent="pwdType1 = !pwdType1"></span>
                                 <span class="xe-iconfont xe-icon-cuowu" v-if="oldpwd.length" @click.prevent="oldpwd = ''"></span>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">新密码</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">新密码</div>
+                            <div class="item-input">
                                 <input v-if="pwdType2" class="input-cls" v-model="newpwd" placeholder="输入新密码（6-20位数字+字母）" type="text">
                                 <input v-else class="input-cls" v-model="newpwd" placeholder="输入新密码（6-20位数字+字母）" type="password">
-                            </view>
-                            <view class="act">
+                            </div>
+                            <div class="act">
                                 <span class="xe-iconfont " :class="[pwdType2 ? 'xe-icon-yanjing2' : 'xe-icon-yanjing']" @click.prevent="pwdType2 = !pwdType2"></span>
                                 <span class="xe-iconfont xe-icon-cuowu" v-if="newpwd.length" @click.prevent="newpwd = ''"></span>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="m-editor-btn">
+            </div>
+        </div>
+        <div class="m-editor-btn">
             <mt-button type="primary" :disabled="disabledBtn" class="xe-button-primary" style="width: 100%;" @click.prevent="checkPwd">确 定</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

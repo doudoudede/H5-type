@@ -1,92 +1,92 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="auctionDetails">
-            <view class="auction-result-show mar_bot20">
-                <view class="result-tit">
+        <div class="auctionDetails">
+            <div class="auction-result-show mar_bot20">
+                <div class="result-tit">
                     <span v-if="mybidInfo.dealStatus == 1">恭喜您</span>{{mybidInfo.dealStatus | dealStatusToText}}
-                </view>
-                <view class="result-con">{{mybidInfo.dealStatus | dealStatusTexFilter}}</view>
-            </view>
-            <view class="auction-proNumcontent mar_bot20">
-                <view class="proNum-top" v-if="mybidInfo.dealStatus == 1">
-                    <view>
+                </div>
+                <div class="result-con">{{mybidInfo.dealStatus | dealStatusTexFilter}}</div>
+            </div>
+            <div class="auction-proNumcontent mar_bot20">
+                <div class="proNum-top" v-if="mybidInfo.dealStatus == 1">
+                    <div>
                         成交价&nbsp;&nbsp;{{mybidInfo.dealCurrency == 1 ? '¥' : '$'}}&nbsp;<span class="big_fot" :class="{'fot_si36': (mybidInfo.dealPrice.toString().split('.')[0].length) >= 7, 'fot_si38': (mybidInfo.dealPrice.toString().split('.')[0].length) < 7}">{{mybidInfo.dealPrice, mybidInfo.dealCurrency == 1 ? 'rmbs' : 'dollars' | moneySkinToText}}</span>
-                    </view>
-                    <view>
+                    </div>
+                    <div>
                         成交数量&nbsp;&nbsp;{{mybidInfo.dealNum ? mybidInfo.dealNum : 0}}{{mybidInfo.proUnit}}
-                    </view>
-                </view>
-                <view class="proNum-top" v-if="mybidInfo.dealStatus == 3">
-                    <view>
+                    </div>
+                </div>
+                <div class="proNum-top" v-if="mybidInfo.dealStatus == 3">
+                    <div>
                         竞拍价格&nbsp;&nbsp;{{mybidInfo.currency == 1 ? '¥' : '$'}}&nbsp;<span class="big_fot" :class="{'fot_si36': (mybidInfo.bidPrice.toString().split('.')[0].length) >= 7, 'fot_si38': (mybidInfo.bidPrice.toString().split('.')[0].length) < 7}">{{mybidInfo.bidPrice, mybidInfo.currency == 1 ? 'rmbs' : 'dollars' | moneySkinToText}}</span>
-                    </view>
-                    <view>
+                    </div>
+                    <div>
                         竞拍数量&nbsp;&nbsp;{{mybidInfo.bidNum}}{{mybidInfo.proUnit}}
-                    </view>
-                </view>
-                <view class="proNum-bot">
-                    <view>
+                    </div>
+                </div>
+                <div class="proNum-bot">
+                    <div>
                         <p  v-if="mybidInfo.dealStatus !== 3">竞拍价格&nbsp;&nbsp;{{mybidInfo.bidPrice, mybidInfo.currency == 1 ? 'rmb' : 'dollar' | moneySkinToText}}</p>
                         <p>提货港口&nbsp;&nbsp;{{mybidInfo.portName}}</p>
-                    </view>
-                    <view>
+                    </div>
+                    <div>
                         <p  v-if="mybidInfo.dealStatus !== 3">竞拍数量&nbsp;&nbsp;{{mybidInfo.bidNum}}{{mybidInfo.proUnit}}</p>
                         <p v-if="bidShipmentLast">船期&nbsp;&nbsp;{{bidShipmentLast}}</p>
-                    </view>
-                </view>
-            </view>
+                    </div>
+                </div>
+            </div>
             <!-- 出价次数 -->
-            <view class="bid-box" v-if="myPrice.length">
-                <view class="bid-tit">我的出价（{{myPrice.length}}次）</view>
-                <view class="bid-con">
+            <div class="bid-box" v-if="myPrice.length">
+                <div class="bid-tit">我的出价（{{myPrice.length}}次）</div>
+                <div class="bid-con">
                     <p v-for='(item, index) in myPrice' :key='index' :class="{active: index == 0}">{{item.bidPrice, item.currency == 1 ? 'rmb' : 'dollar' | moneySkinToText}}</p>
-                </view>
-            </view>
+                </div>
+            </div>
             <!-- 商品信息 -->
-            <view class="proDetails-content auction-list">
-                <view class="proDetails-tit" @click="goToAuctionPro">
-                    <view>竞品信息</view>
-                    <view class="arrow-right-commons">查看</view>
-                </view>
-                <view class="auction-bod-box">
-                    <view class="aution-pro-content">
-                        <view class="pro-imgbox">
+            <div class="proDetails-content auction-list">
+                <div class="proDetails-tit" @click="goToAuctionPro">
+                    <div>竞品信息</div>
+                    <div class="arrow-right-commons">查看</div>
+                </div>
+                <div class="auction-bod-box">
+                    <div class="aution-pro-content">
+                        <div class="pro-imgbox">
                             <img v-lazy="picServer + mybidInfo.proMainImg" alt="">
-                        </view>
-                        <view class="pro-details">
-                            <view class="pro-tit">
-                                <span class="sma_sub">{{mybidInfo.stockFlag | stockFlagToText}}</span>&nbsp;&nbsp;{{mybidInfo.proName}}</view>
-                            <view class="pro-contro-box pro-contro-boxSty">
-                                <view class="pro-price">
+                        </div>
+                        <div class="pro-details">
+                            <div class="pro-tit">
+                                <span class="sma_sub">{{mybidInfo.stockFlag | stockFlagToText}}</span>&nbsp;&nbsp;{{mybidInfo.proName}}</div>
+                            <div class="pro-contro-box pro-contro-boxSty">
+                                <div class="pro-price">
                                     起拍价&nbsp;&nbsp;$&nbsp;<span class="big_fot" v-if="mybidInfo.startPriceDoller" :class="{'fot_si36': (mybidInfo.startPriceDoller.toString().split('.')[0].length) >= 7, 'fot_si38': (mybidInfo.startPriceDoller.toString().split('.')[0].length) < 7}">{{mybidInfo.startPriceDoller,  'dollars' | moneySkinToText}}</span><span class="sma_fot">/{{mybidInfo.proUnit}}</span>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="auction-proItem_two">
-                    <view class="proItem-numCon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="auction-proItem_two">
+                    <div class="proItem-numCon">
                         <p>定金&nbsp;{{mybidInfo.payment,  mybidInfo.currency == 1 ? 'rmb' : 'dollar' | moneySkinToText}}</p>
                         <p>规格&nbsp;{{mybidInfo.proSpec}}</p>
                         <p>库存&nbsp;{{mybidInfo.bidQuantity}}{{mybidInfo.proUnit}}</p>
-                    </view>
-                    <view class="proItem-timeCon" @click="expand" v-if="bidShipmentList.length">
+                    </div>
+                    <div class="proItem-timeCon" @click="expand" v-if="bidShipmentList.length">
                         <span v-if="bidShipmentList.length > 4" class="xe-iconfont xe-icon-xiajiantou"></span>
-                        <view>船期&nbsp;</view>
-                        <view class="proItem-timeL">
-                            <view class="proItem-line">
+                        <div>船期&nbsp;</div>
+                        <div class="proItem-timeL">
+                            <div class="proItem-line">
                                 <p v-for='(item, index) in bidShipmentList' v-if="index <= 3" :key='index'>{{item}}月</p>
-                            </view>
+                            </div>
                             <CollapseTransition>
-                                <view class="proItem-line" v-show="bidShipmentList.length > 4 && expandFlag">
+                                <div class="proItem-line" v-show="bidShipmentList.length > 4 && expandFlag">
                                     <p v-for='(item, index) in bidShipmentList' v-if="index > 3" :key='index'>{{item}}月</p>
-                                </view>
+                                </div>
                             </CollapseTransition>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">
@@ -207,7 +207,7 @@
                 color: #ae2111;
                 font-size: 28/$ppr;
                 border-bottom: 1px solid #e8e8e8;
-                >view {
+                >div {
                     @include flex(1);
                     @include ellipsis();
                     line-height: 84/$ppr;
@@ -227,7 +227,7 @@
                 padding: 22/$ppr 0;
                 font-size: 28/$ppr;
                 color: #333;
-                >view {
+                >div {
                     @include flex(1);
                     width: 50%;
                     p {

@@ -1,79 +1,79 @@
 <template>
     <xe-layout class="m-flexlay m-bg-dark">
-        <view class="m-presell-tab" slot='header'>
-            <view v-for="(item, index) in navListData" :key="index" :class="{'active': currentTab === item.id}" @click="tabCheck(item.id)">
+        <div class="m-presell-tab" slot='header'>
+            <div v-for="(item, index) in navListData" :key="index" :class="{'active': currentTab === item.id}" @click="tabCheck(item.id)">
                 <span>{{item.name}}</span>
-            </view>
-        </view>
-        <view class="m-content-view">
-            <view class="m-sec-list m-presell-list" v-if="proList && proList.length">
-                <view class="item" v-for="(item, index) in proList" :key="index" @click.prevent="goDetails(item)">
-                    <view class="timecount">
+            </div>
+        </div>
+        <div class="m-content-div">
+            <div class="m-sec-list m-presell-list" v-if="proList && proList.length">
+                <div class="item" v-for="(item, index) in proList" :key="index" @click.prevent="goDetails(item)">
+                    <div class="timecount">
                         <xe-countdown :time="item.endTime" timetype="second" class='count-prets' :titTextFlag="true" :doneText="currentTab === 1 ? '已结束' : '已开始'" :countText="currentTab === 1 ? '距结束' : '距开始'">
                             <span class="prets">{%d}</span>天<span class="prets">{%h}</span>:<span class="prets">{%m}</span>:<span class="prets">{%s}</span>
                         </xe-countdown>
-                    </view>
-                    <view class="item-procon">
-                        <view class="pic">
+                    </div>
+                    <div class="item-procon">
+                        <div class="pic">
                             <img v-lazy="picServer + item.proMainImg" alt="">
-                        </view>
-                        <view class="msg">
-                            <view class="proname">
+                        </div>
+                        <div class="msg">
+                            <div class="proname">
                                 <span class="xe-iconfont xe-icon-yushoufuben coupon-style-icon1"></span>
                                 {{item.proName}}
-                            </view>
-                            <view class="pro-des">
+                            </div>
+                            <div class="pro-des">
                                 {{item.shopName}}
-                            </view>
-                            <view class="pro-spce">
+                            </div>
+                            <div class="pro-spce">
                                 规格：{{item.specValue ? item.specValue : '无'}}
-                            </view>
-                            <view class="pro-prcent">
+                            </div>
+                            <div class="pro-prcent">
                                 <span class='pr' :style="'width:' + item.prePercent + '%'"></span>
-                            </view>
-                            <view class="pro-price">
+                            </div>
+                            <div class="pro-price">
                                 <span class="price" v-html="splitPrice(item.activityPrice ? item.activityPrice : 0)"></span><em class="unit" v-if="item.proUnit">/{{item.proUnit}}</em>
                                 <!--<s class="del">&yen;100.00</s>-->
-                            </view>
-                            <view class="pro-btn">
+                            </div>
+                            <div class="pro-btn">
                                 <!-- prePercent 已售百分比 -->
                                 <a href="" v-if="item.endTime > 0 && item.prePercent !== 100 && item.minQuantity <= item.saleQuantity" class="gotoBuy">{{currentTab == 1 ? '立即预订' : '即将开始'}}</a>
                                 <a href="" v-else-if="item.minQuantity > item.saleQuantity" class="gotoBuy noneBuy">已抢光</a>
                                 <a href="" v-else-if="item.endTime <= 0 && item.prePercent !== 100 && item.minQuantity < item.saleQuantity" class="gotoBuy noneBuy">已结束</a>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="m-cart-none" v-if="!proList || proList.length === 0">
-                <view class="pic2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-cart-none" v-if="!proList || proList.length === 0">
+                <div class="pic2">
                     <img src="../../static/images/cart-n2.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">{{currentTab == 1 ? '当前城市暂无预售中的商品': '当前城市暂无未开始的预售商品'}}</p>
-                </view>
-                <view style="text-align: center">
+                </div>
+                <div style="text-align: center">
                     <mt-button class="xe-button-default" size="small" plain @click.prevent="goLocal">切换城市</mt-button>
                     <mt-button class="xe-button-default xe-button-red" size="small" plain @click.prevent="goCategory">随便逛逛</mt-button>
-                </view>
-            </view>
+                </div>
+            </div>
             <!--<infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">-->
                 <!--<span slot="no-more" class="infinite-no-more">-->
                     <!--暂无更多数据~-->
                 <!--</span>-->
-            <!--<view slot="no-results" class="m-cart-none">-->
-                <!--<view class="pic">-->
+            <!--<div slot="no-results" class="m-cart-none">-->
+                <!--<div class="pic">-->
                     <!--<img src="../../static/images/cart-n1.png" alt="">-->
-                <!--</view>-->
-                <!--<view class="des">-->
+                <!--</div>-->
+                <!--<div class="des">-->
                     <!--<p class="f32">当前城市暂无预售活动~</p>-->
-                <!--</view>-->
-                <!--&lt;!&ndash;<view class="btn">&ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<div class="btn">&ndash;&gt;-->
                 <!--&lt;!&ndash;<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>&ndash;&gt;-->
-                <!--&lt;!&ndash;</view>&ndash;&gt;-->
-            <!--</view>-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
         <!--</infinite-loading>-->
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script>
@@ -291,7 +291,7 @@
         display: flex;
         position: relative;
         border-bottom: 1/$ppr solid $border-color-e8e;
-        > view {
+        > div {
             flex: 1;
             text-align: center;
             span {

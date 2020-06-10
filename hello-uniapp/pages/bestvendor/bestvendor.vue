@@ -1,21 +1,21 @@
 <template>
     <xe-layout class='m-bg-dark m-flexlay'>
-        <view class="m-search-barcon" slot="header" style="background: #2a211f;">
-            <view class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></view>
-            <view class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
-                <view class="m-search-newcon">
+        <div class="m-search-barcon" slot="header" style="background: #2a211f;">
+            <div class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></div>
+            <div class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
+                <div class="m-search-newcon">
                     <form class="s-form" id="s-search" method="get" action="/" onsubmit="return false" @submit.prevent="searchBtnFn">
                         <label for="s-search-input" class="xe-iconfont xe-icon-sousuo"></label>
                         <input v-model.trim="searchText" class="s-search-input" id="s-search-input" @focus="focusFlag = true" @blur="focusFlag = false" type="search" placeholder="输入关键词">
                     </form>
                     <span v-show="searchText.length" @click="searchText = ''" class="xe-iconfont xe-icon-cuowu"></span>
-                    <view class="m-search-btn" @click="searchBtnFn">
+                    <div class="m-search-btn" @click="searchBtnFn">
                         <span>搜索</span>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="m-bvendor-pic" v-if="sliderData.length">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-bvendor-pic" v-if="sliderData.length">
             <Slider
                 ref="slider"
                 :sliderData="sliderData"
@@ -27,49 +27,49 @@
                 :loop="sliderData.length > 1 ? true : false"
             >
             </Slider>
-        </view>
-        <view class="m-bvendor-itemcon">
-            <view class="m-bvendor-con">
-                <view class="bvendor-item" v-for="(item, index) in aVendorList" :key="index" v-if="item.proCount">
-                    <router-link tag="view" class="item-topbox" :to="{name: 'Store', query: {userCode: item.userCode}}">
-                        <view class="item-logo">
+        </div>
+        <div class="m-bvendor-itemcon">
+            <div class="m-bvendor-con">
+                <div class="bvendor-item" v-for="(item, index) in aVendorList" :key="index" v-if="item.proCount">
+                    <router-link tag="div" class="item-topbox" :to="{name: 'Store', query: {userCode: item.userCode}}">
+                        <div class="item-logo">
                             <img v-if="item.shopLogo" v-lazy="picServer + item.shopLogo" alt="">
                             <img v-else src="../../static/images/default.png" alt="">
-                        </view>
-                        <view class="item-shopPro">
-                            <view class="shopName">
+                        </div>
+                        <div class="item-shopPro">
+                            <div class="shopName">
                                 {{item.shopName}}
-                            </view>
-                            <view class="shopOrderDetails">
-                                <view class="order-offer" v-if="item.couponInfoList.length">
+                            </div>
+                            <div class="shopOrderDetails">
+                                <div class="order-offer" v-if="item.couponInfoList.length">
                                     <template v-if="item.couponInfoList[0].useRuleType === 1">满&yen;{{item.couponInfoList[0].useOrderAmount | toFixed2}}减&yen;{{item.couponInfoList[0].useDisAmount | toFixed2}}</template>
                                     <template v-else><span class="coupon-style">券</span>无门槛优惠券&yen;{{item.couponInfoList[0].useDisAmount | toFixed2}}</template>
-                                </view>
-                                <view class="order-allCount">
+                                </div>
+                                <div class="order-allCount">
                                     <span>{{item.proCount}}件商品&nbsp;&nbsp;&nbsp;</span><span>&nbsp;&nbsp;&nbsp;月销{{item.orderCount}}单</span>
-                                </view>
-                            </view>
-                        </view>
+                                </div>
+                            </div>
+                        </div>
                     </router-link>
-                    <view class="item-botbox">
-                        <router-link tag="view" class="pro-flr" v-for="(items, indexs) in item.proSpuInfo" v-if="indexs <= 2" :key='indexs' :to="{name: 'ProductDetails', params: {prospu: items.proSpu}}">
-                            <view class="pro-picbox">
+                    <div class="item-botbox">
+                        <router-link tag="div" class="pro-flr" v-for="(items, indexs) in item.proSpuInfo" v-if="indexs <= 2" :key='indexs' :to="{name: 'ProductDetails', params: {prospu: items.proSpu}}">
+                            <div class="pro-picbox">
                                 <img v-lazy="picServerPro + items.proMainImg" alt="">
-                            </view>
-                            <view class="pro-txtbox">
+                            </div>
+                            <div class="pro-txtbox">
                                 <span class="cor_red sma_fot">¥</span><span class="cor_red big_fot">{{items.areaPrice | moneySkinToText('rmbs')}}</span>&nbsp;&nbsp;
                                 <!-- <span class="fot_deco">{{items.areaPrice | moneySkinToText('rmb')}}</span> -->
-                            </view>
+                            </div>
                         </router-link>
-                    </view>
-                </view>
-            </view>
+                    </div>
+                </div>
+            </div>
             <infinite-loading @infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
                 <span slot="no-more" class="infinite-no-more">
                     暂无更多数据~
                 </span>
             </infinite-loading>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

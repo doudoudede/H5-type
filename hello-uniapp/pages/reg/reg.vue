@@ -1,60 +1,60 @@
 <template>
     <xe-layout class="m-login">
-        <view class="ml-list">
-            <view class="ml-list-item">
-                <view class="con">
+        <div class="ml-list">
+            <div class="ml-list-item">
+                <div class="con">
                     <input class="input-cls" maxlength="11" v-model.trim="regTel" placeholder="输入手机号" type="tel">
-                </view>
-                <view class="act">
+                </div>
+                <div class="act">
                     <span class="xe-iconfont xe-icon-cuowu" v-show="regTel.length" @click.prevent="regTel = ''"></span>
-                </view>
-                <view class="getyzm" :class="{'nodisabled': regTel && regTel.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</view>
-            </view>
-            <view class="ml-list-item">
-                <view class="con">
+                </div>
+                <div class="getyzm" :class="{'nodisabled': regTel && regTel.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</div>
+            </div>
+            <div class="ml-list-item">
+                <div class="con">
                     <input class="input-cls" maxlength="6" v-model.trim='regYzm' placeholder="输入验证码" type="tel">
-                </view>
-                <view class="act">
+                </div>
+                <div class="act">
                     <span class="xe-iconfont xe-icon-cuowu" v-show="regYzm.length" @click.prevent="regYzm = ''"></span>
-                </view>
-            </view>
-            <view class="ml-list-item">
-                <view class="con">
+                </div>
+            </div>
+            <div class="ml-list-item">
+                <div class="con">
                     <input v-if="pwdType" class="input-cls" v-model.trim="regPass" placeholder="输入密码(6-20数字+字母)" type="text">
                     <input v-else class="input-cls" v-model.trim="regPass" placeholder="输入密码(6-20数字+字母)" type="password">
-                </view>
-                <view class="act">
+                </div>
+                <div class="act">
                     <span class="xe-iconfont " :class="[pwdType ? 'xe-icon-yanjing2' : 'xe-icon-yanjing']" @click.prevent="pwdType = !pwdType"></span>
                     <span class="xe-iconfont xe-icon-cuowu" v-if="regPass.length" @click.prevent="regPass = ''"></span>
-                </view>
-            </view>
-        </view>
-        <view class="ml-tips" style="display: block; text-align: right;">
+                </div>
+            </div>
+        </div>
+        <div class="ml-tips" style="display: block; text-align: right;">
             <span>已有账号? <router-link :to="{name: 'Login', query: {redirect: $route.query.redirect ? $route.query.redirect : ''}}" class="a-link-blue">返回登录</router-link></span>
-        </view>
-        <view class="m-login-btn">
+        </div>
+        <div class="m-login-btn">
             <mt-button type="primary" :disabled="disabledFlag" class="xe-button-primary" style="width: 100%;" @click.prevent="addUser">立即注册</mt-button>
-        </view>
-        <view class="m-login-xy">
+        </div>
+        <div class="m-login-xy">
             <span class="xe-iconfont xe-icon-ronud_check"></span>
-            <view class="con">我已阅读并同意<router-link :to="{name: 'Support'}">《如来云商用户注册协议》</router-link>和<router-link :to="{name: 'SupportTwo'}">《法律声明及隐私权政策》</router-link></view>
-        </view>
+            <div class="con">我已阅读并同意<router-link :to="{name: 'Support'}">《如来云商用户注册协议》</router-link>和<router-link :to="{name: 'SupportTwo'}">《法律声明及隐私权政策》</router-link></div>
+        </div>
         <!--Dialog-->
         <xe-dialog slot="outer" :show.sync="yzmDialog">
-            <view class="yzmcons">
-                <view class="yzm-input">
-                    <view class="yzm-inputin">
+            <div class="yzmcons">
+                <div class="yzm-input">
+                    <div class="yzm-inputin">
                         <input type="text" v-model="yzmvalue" maxlength="4" placeholder="请输入图形验证码">
-                    </view>
-                    <view class="yzmimgcon" @click.prevent="getImgCode">
+                    </div>
+                    <div class="yzmimgcon" @click.prevent="getImgCode">
                         <img :src="yzmImgCodeUrl" id="yzmImgsrc">
-                    </view>
-                </view>
-                <view class="yzm-tips">为了您的账户安全，请输入图文验证码！</view>
-            </view>
+                    </div>
+                </div>
+                <div class="yzm-tips">为了您的账户安全，请输入图文验证码！</div>
+            </div>
             <template slot="footer">
-                <view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>
-                <view class="m-dialog-btn sure" @click="yzmDialogSure">确认</view>
+                <div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>
+                <div class="m-dialog-btn sure" @click="yzmDialogSure">确认</div>
             </template>
         </xe-dialog>
     </xe-layout>

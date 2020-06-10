@@ -44,7 +44,7 @@
 		},
 		methods: {
 			openURL() {
-				// #ifdef APP-PLUS
+				// #ifdef aPP-PLUS
 				plus.runtime.openURL(this.href)
 				// #endif
 				// #ifdef H5

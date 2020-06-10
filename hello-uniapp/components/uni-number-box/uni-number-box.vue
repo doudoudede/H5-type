@@ -118,11 +118,11 @@
 	};
 </script>
 <style scoped>
-	/* #ifdef APP-NVUE */
+	/* #ifdef aPP-NVUE */
 	/* #endif */
 
 	.uni-numbox {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -145,7 +145,7 @@
 	}
 
 	.uni-numbox__minus {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -169,7 +169,7 @@
 	}
 
 	.uni-numbox__plus {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;

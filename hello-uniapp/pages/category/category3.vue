@@ -1,23 +1,23 @@
 <template>
     <xe-layout class="m-page-category m-flexlay">
-        <view class="m-cate-search" slot="header">
-            <view class="m-index-searchcon m-content-view">
-                <router-link tag="view" class="adr" :to="{name: 'Location', query: {redirect: $route.fullPath}}">
+        <div class="m-cate-search" slot="header">
+            <div class="m-index-searchcon m-content-div">
+                <router-link tag="div" class="adr" :to="{name: 'Location', query: {redirect: $route.fullPath}}">
                     <span class="xe-iconfont xe-icon-dingwei"></span>
                     <p>{{cityName}}</p>
                 </router-link>
-                <router-link tag="view" class="con" :to="{name: 'Search'}">
+                <router-link tag="div" class="con" :to="{name: 'Search'}">
                     <input type="text" value="搜索">
                     <span class="xe-iconfont xe-icon-sousuo"></span>
                 </router-link>
-                <v-touch tag="view" class="filter" @tap="filterFn">
+                <v-touch tag="div" class="filter" @tap="filterFn">
                     <span class="xe-iconfont xe-icon-filter"></span>
                     <p>筛选</p>
                 </v-touch>
-            </view>
-        </view>
-        <view v-if="cateList.length" class="m-category-con m-content-view">
-            <view class="m-category-nav" ref="categoryNav">
+            </div>
+        </div>
+        <div v-if="cateList.length" class="m-category-con m-content-div">
+            <div class="m-category-nav" ref="categoryNav">
                 <ul v-if="filterCateList.length">
                     <li
                         v-for="(item, index) in filterCateListed"
@@ -42,65 +42,65 @@
                     </li>
                 </ul>
                 <mt-spinner v-else class="sp-bounce"></mt-spinner>
-            </view>
-            <view class="m-category-right">
-                <!-- <view class="m-category-tab"> -->
-                    <!-- <view>
+            </div>
+            <div class="m-category-right">
+                <!-- <div class="m-category-tab"> -->
+                    <!-- <div>
                         <p @click="showDrop = !showDrop">{{consText}}<em class="xe-iconfont xe-icon-unfold"></em></p>
                         <transition name="slide-in">
-                            <view class="m-dropdown" v-show="showDrop">
-                                <view
+                            <div class="m-dropdown" v-show="showDrop">
+                                <div
                                     v-for="(item, index) in consData"
                                     :key="index + Math.random()"
                                     :class="{'active': consIndex === index}"
                                     @click.prevent="consClick(item, index)"
-                                >{{item.name}}</view>
-                            </view>
+                                >{{item.name}}</div>
+                            </div>
                         </transition>
-                    </view>
-                    <view :class="{'active': paramsData.productType === 2}" @click.prevent="paramsData.productType = 2"><p>一口价</p></view>
-                    <view :class="{'active': paramsData.productType === 1}" @click.prevent="paramsData.productType = 1"><p>询报价</p></view> -->
-                <!-- </view> -->
-                <view class="m-category-listcon" ref="mCatelistcon" @click.prevent="parentclick">
-                    <view v-if="cateProductList.length">
+                    </div>
+                    <div :class="{'active': paramsData.productType === 2}" @click.prevent="paramsData.productType = 2"><p>一口价</p></div>
+                    <div :class="{'active': paramsData.productType === 1}" @click.prevent="paramsData.productType = 1"><p>询报价</p></div> -->
+                <!-- </div> -->
+                <div class="m-category-listcon" ref="mCatelistcon" @click.prevent="parentclick">
+                    <div v-if="cateProductList.length">
                         <proItem
                             v-for="(item, index) in cateProductList"
                             :key="index"
                             :picServerPro="picServer"
                             :itemData="item"
                         ></proItem>
-                    </view>
+                    </div>
                     <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
                         <span slot="no-more" class="infinite-no-more">
                             暂无更多数据~
                         </span>
-                        <view slot="no-results" class="m-cart-none">
-                            <view class="pic">
+                        <div slot="no-results" class="m-cart-none">
+                            <div class="pic">
                                 <img src="../../static/images/cart-n1.png" alt="">
-                            </view>
-                            <view class="des">
+                            </div>
+                            <div class="des">
                                 <p class="f32">暂无商品</p>
-                            </view>
-                            <!--<view class="btn">-->
+                            </div>
+                            <!--<div class="btn">-->
                             <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-                            <!--</view>-->
-                        </view>
+                            <!--</div>-->
+                        </div>
                     </infinite-loading>
-                </view>
-            </view>
-        </view>
-        <view class="m-cart-none" v-else>
-            <view class="pic2">
+                </div>
+            </div>
+        </div>
+        <div class="m-cart-none" v-else>
+            <div class="pic2">
                 <img src="../../static/images/cart-n2.png" alt="">
-            </view>
-            <view class="des">
+            </div>
+            <div class="des">
                 <p class="f32">该城市暂无在售商品</p>
                 <p class="f28">去其他城市看看吧~</p>
-            </view>
-            <view class="btn">
+            </div>
+            <div class="btn">
                 <mt-button class="xe-button-default" size="small" plain @click.prevent="toLocation">切换城市</mt-button>
-            </view>
-        </view>
+            </div>
+        </div>
         <xe-popup
             class="popup-category-category"
             slot="outer"
@@ -108,33 +108,33 @@
             :show.sync="categoryFilter"
             popupTit="筛选"
             position="right">
-            <view class="popup-cate-cons">
-                <view class="p-cate-cons">
-                    <view class="p-cate-brands" v-if="cateProductBrand.length">
-                        <view class="p-cate-item">
-                            <view class="p-cate-title">
+            <div class="popup-cate-cons">
+                <div class="p-cate-cons">
+                    <div class="p-cate-brands" v-if="cateProductBrand.length">
+                        <div class="p-cate-item">
+                            <div class="p-cate-title">
                                 <h3>品牌</h3>
                                 <span @click.prevent="showBrandAll" :class="{'active': filterBrandAllFlag}">
                                     {{filterBrandAllFlag ? '收起' : '全部'}} <em class="xe-iconfont xe-icon-unfold"></em>
                                 </span>
-                            </view>
-                            <view class="p-cate-list">
+                            </div>
+                            <div class="p-cate-list">
                                 <a href="#"
                                    v-for="item in cateProductBrand.slice(0, filterBrandNum)"
                                    :key="item.brandId + Math.random()"
                                    :class="{'active': brandIds.indexOf(parseInt(item.brandId)) >= 0}"
                                    @click.prevent="brandIdFn(parseInt(item.brandId))"
                                 >{{item.brandName}}</a>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="p-cate-propertys" v-if="cateProductPropertys">
-                        <view class="p-cate-item" v-for="(item, key) in cateProductPropertys">
-                            <view class="p-cate-title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-cate-propertys" v-if="cateProductPropertys">
+                        <div class="p-cate-item" v-for="(item, key) in cateProductPropertys">
+                            <div class="p-cate-title">
                                 <h3>{{key}}</h3>
                                 <!--<span>全部 <em class="xe-iconfont xe-icon-unfold"></em></span>-->
-                            </view>
-                            <view class="p-cate-list">
+                            </div>
+                            <div class="p-cate-list">
                                 <a href="#"
                                    v-for="(subitem, index) in item"
                                    :class="{'active': propertys.indexOf(key+'-'+subitem) >= 0}"
@@ -143,15 +143,15 @@
                                 >
                                     {{subitem}}
                                 </a>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="p-cate-btns">
-                    <view @click.prevent="filterReset">重置</view>
-                    <view style="background:#26a2ff" @click.prevent="filterSure">确定</view>
-                </view>
-            </view>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-cate-btns">
+                    <div @click.prevent="filterReset">重置</div>
+                    <div style="background:#26a2ff" @click.prevent="filterSure">确定</div>
+                </div>
+            </div>
         </xe-popup>
     </xe-layout>
 </template>
@@ -630,7 +630,7 @@
             -webkit-overflow-scrolling: touch;
         }
     }
-.m-category-tab > view.active p{
+.m-category-tab > div.active p{
     color: #1A8EEF;
 }
 </style>

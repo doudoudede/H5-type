@@ -72,7 +72,7 @@
 	 * @property {Boolean} insert = [true|false] 插入模式,默认为false
 	 * 	@value true 弹窗模式
 	 * 	@value false 插入模式
-	 * @property {Array} selected 打点，期待格式[{date: '2019-06-27', info: '签到', data: { custom: '自定义信息', name: '自定义消息头',xxx:xxx... }}]
+	 * @property {array} selected 打点，期待格式[{date: '2019-06-27', info: '签到', data: { custom: '自定义信息', name: '自定义消息头',xxx:xxx... }}]
 	 * @property {Boolean} showMonth 是否选择月份为背景
 	 * @event {Function} change 日期改变，`insert :ture` 时生效
 	 * @event {Function} confirm 确认选择`insert :false` 时生效
@@ -89,7 +89,7 @@
 				default: ''
 			},
 			selected: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -241,7 +241,7 @@
 
 <style scoped>
 	.uni-calendar {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
@@ -257,7 +257,7 @@
 		transition-property: opacity;
 		transition-duration: 0.3s;
 		opacity: 0;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		z-index: 99;
 		/* #endif */
 	}
@@ -274,7 +274,7 @@
 		transition-property: transform;
 		transition-duration: 0.3s;
 		transform: translateY(460px);
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		z-index: 99;
 		/* #endif */
 	}
@@ -289,7 +289,7 @@
 
 	.uni-calendar__header {
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -302,7 +302,7 @@
 	}
 
 	.uni-calendar--fixed-top {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -341,7 +341,7 @@
 	}
 
 	.uni-calendar__header-btn-box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -373,7 +373,7 @@
 
 	.uni-calendar__weeks {
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -385,7 +385,7 @@
 
 	.uni-calendar__weeks-day {
 		flex: 1;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
@@ -406,7 +406,7 @@
 	}
 
 	.uni-calendar__box-bg {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		justify-content: center;
@@ -424,7 +424,7 @@
 		color: #999;
 		opacity: 0.1;
 		text-align: center;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		line-height: 1;
 		/* #endif */
 	}

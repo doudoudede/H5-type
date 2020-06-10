@@ -1,79 +1,79 @@
 <template>
     <xe-layout class="m-bg-dark">
-        <view class="p-setting-item">
-            <view class="m-list-block">
+        <div class="p-setting-item">
+            <div class="m-list-block">
                 <ul>
                     <router-link tag="li" :to="{name: 'EditorPwd'}" class="item-content align-right item-link align-center">
-                        <view class="item-media"><i class="xe-iconfont xe-icon-xgmm color1"></i></view>
-                        <view class="item-inner">
-                            <view class="item-title">修改密码</view>
-                            <view class="item-after"></view>
-                        </view>
+                        <div class="item-media"><i class="xe-iconfont xe-icon-xgmm color1"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">修改密码</div>
+                            <div class="item-after"></div>
+                        </div>
                     </router-link>
                     <router-link tag="li" :to="{name: 'EditorPhone', query: {phone: $route.query.phone}}" class="item-content align-right item-link align-center">
-                        <view class="item-media"><i class="xe-iconfont xe-icon-xgsj color2"></i></view>
-                        <view class="item-inner">
-                            <view class="item-title">修改绑定手机</view>
-                            <view class="item-after"></view>
-                        </view>
+                        <div class="item-media"><i class="xe-iconfont xe-icon-xgsj color2"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">修改绑定手机</div>
+                            <div class="item-after"></div>
+                        </div>
                     </router-link>
                 </ul>
-            </view>
-        </view>
-        <view class="p-setting-item">
-            <view class="m-list-block">
+            </div>
+        </div>
+        <div class="p-setting-item">
+            <div class="m-list-block">
                 <ul>
                     <!--<router-link :to="{name: 'Support'}" tag="li" class="item-content align-right item-link align-center">-->
-                        <!--<view class="item-media"><i class="xe-iconfont xe-icon-bbsm color3"></i></view>-->
-                        <!--<view class="item-inner">-->
-                            <!--<view class="item-title">帮助说明</view>-->
-                            <!--<view class="item-after"></view>-->
-                        <!--</view>-->
+                        <!--<div class="item-media"><i class="xe-iconfont xe-icon-bbsm color3"></i></div>-->
+                        <!--<div class="item-inner">-->
+                            <!--<div class="item-title">帮助说明</div>-->
+                            <!--<div class="item-after"></div>-->
+                        <!--</div>-->
                     <!--</router-link>-->
 
                     <!--             暂     时        隐            藏           -->
                     <!-- <router-link tag="li" :to="{name: 'Cutility'}" class="item-content align-right item-link align-center">
-                        <view class="item-media"><i class="xe-iconfont xe-icon-shzc color4"></i></view>
-                        <view class="item-inner">
-                            <view class="item-title">售后政策</view>
-                            <view class="item-after"></view>
-                        </view>
+                        <div class="item-media"><i class="xe-iconfont xe-icon-shzc color4"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">售后政策</div>
+                            <div class="item-after"></div>
+                        </div>
                     </router-link>
                     <router-link :to="{name: 'infringement'}" tag="li" class="item-content align-right item-link align-center">
-                        <view class="item-media"><i class="xe-iconfont xe-icon-shensu color6"></i></view>
-                        <view class="item-inner">
-                            <view class="item-title">侵权申诉规则</view>
-                            <view class="item-after"></view>
-                        </view>
+                        <div class="item-media"><i class="xe-iconfont xe-icon-shensu color6"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">侵权申诉规则</div>
+                            <div class="item-after"></div>
+                        </div>
                     </router-link>
                     <router-link :to="{name: 'AboutUs'}" tag="li" class="item-content align-right item-link align-center">
-                        <view class="item-media"><i class="xe-iconfont xe-icon-gywm color5"></i></view>
-                        <view class="item-inner">
-                            <view class="item-title">关于我们</view>
-                            <view class="item-after"></view>
-                        </view>
+                        <div class="item-media"><i class="xe-iconfont xe-icon-gywm color5"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">关于我们</div>
+                            <div class="item-after"></div>
+                        </div>
                     </router-link> -->
                       <!--             暂     时        隐            藏     完        -->
                     <!--<li class="item-content align-right item-link align-center">-->
-                        <!--<view class="item-media"><i class="xe-iconfont xe-icon-qchc"></i></view>-->
-                        <!--<view class="item-inner">-->
-                            <!--<view class="item-title">清空缓存</view>-->
-                            <!--<view class="item-after"></view>-->
-                        <!--</view>-->
+                        <!--<div class="item-media"><i class="xe-iconfont xe-icon-qchc"></i></div>-->
+                        <!--<div class="item-inner">-->
+                            <!--<div class="item-title">清空缓存</div>-->
+                            <!--<div class="item-after"></div>-->
+                        <!--</div>-->
                     <!--</li>-->
                     <!--<li class="item-content align-right item-link align-center">-->
-                        <!--<view class="item-media"><i class="xe-iconfont xe-icon-shezhi-banben"></i></view>-->
-                        <!--<view class="item-inner">-->
-                            <!--<view class="item-title">检测新版本</view>-->
-                            <!--<view class="item-after"></view>-->
-                        <!--</view>-->
+                        <!--<div class="item-media"><i class="xe-iconfont xe-icon-shezhi-banben"></i></div>-->
+                        <!--<div class="item-inner">-->
+                            <!--<div class="item-title">检测新版本</div>-->
+                            <!--<div class="item-after"></div>-->
+                        <!--</div>-->
                     <!--</li>-->
                 </ul>
-            </view>
-        </view>
-        <view class="p-setting-btn">
+            </div>
+        </div>
+        <div class="p-setting-btn">
             <mt-button class="xe-button-white" style="width: 100%;" @click.prevent="logoutFn">退出登录</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

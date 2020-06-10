@@ -1,34 +1,34 @@
 <template>
     <xe-layout>
-        <view class="m-support-con">
-            <view class="m-cutility-top">
+        <div class="m-support-con">
+            <div class="m-cutility-top">
                 <h3>如来云商的售后条款</h3>
                 <p>尊敬的如来云商会员，感谢您选择如来云商！为保护您的权益，请仔细阅读以下内容：</p>
                 <p>1、依据《中华人民共和国产品质量法》、《中华人民共和国消费者权益保护法》等法律法规，如来云商承诺规定完善的退换货管理制度保障用户的权利,为已销售的存在质量问题的商品办理退换货。</p>
                 <p>2、您签收商品时请按照如来云商验货签收与拒收之要求进行验货，检查无误后再行签收。</p>
                 <p>3、请保管好需办理售后业务的商品及其包装、票据和赠品，作为办理相关业务的依据，若发生退换货时，需事先与如来云商客服中心取得确认。</p>
-            </view>
-            <view>
-                <view class="m-cutility-item" v-for="(item, index) in itemData" :key="index">
-                    <view class="m-list-block" @click.prevent="item.show = !item.show">
+            </div>
+            <div>
+                <div class="m-cutility-item" v-for="(item, index) in itemData" :key="index">
+                    <div class="m-list-block" @click.prevent="item.show = !item.show">
                         <ul>
                             <li class="item-content item-link">
-                                <view class="item-inner">
-                                    <view class="item-title f32">{{item.title}}</view>
-                                </view>
+                                <div class="item-inner">
+                                    <div class="item-title f32">{{item.title}}</div>
+                                </div>
                             </li>
                         </ul>
-                    </view>
+                    </div>
                     <CollapseTransition>
-                        <view class="m-cutility-text" v-show="item.show">
+                        <div class="m-cutility-text" v-show="item.show">
                             <p v-for="(content, cindex) in item.content" :key="cindex">
                                 {{content.text}}
                             </p>
-                        </view>
+                        </div>
                     </CollapseTransition>
-                </view>
-            </view>
-        </view>
+                </div>
+            </div>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

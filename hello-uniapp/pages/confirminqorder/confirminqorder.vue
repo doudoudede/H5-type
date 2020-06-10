@@ -1,104 +1,104 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
         <template v-if="loaded">
-            <!-- <view class="m-corder-warning" slot="header" v-if="authPerson.status !== '3'" @click.prevent="navToWallet">
-                <view class="xe-iconfont xe-icon-renzheng"></view>
-                <view class="con arrow-right-commons">您的账户安全等级过低，建议先进行身份认证！</view>
-            </view> -->
-            <view class="m-corder-item" v-for="(item, index) in orderMsg.orderList" :key="index">
-                <view class="order-item-shop">
+            <!-- <div class="m-corder-warning" slot="header" v-if="authPerson.status !== '3'" @click.prevent="navToWallet">
+                <div class="xe-iconfont xe-icon-renzheng"></div>
+                <div class="con arrow-right-commons">您的账户安全等级过低，建议先进行身份认证！</div>
+            </div> -->
+            <div class="m-corder-item" v-for="(item, index) in orderMsg.orderList" :key="index">
+                <div class="order-item-shop">
                     <span class="xe-iconfont xe-icon-dian"></span>
                     <span>{{item.sellerName}}</span>
-                </view>
-                <view class="m-corder-pros">
-                    <view class="item" v-for="proItem in item.productList" :key="proItem.proSku">
-                        <view class="pic">
+                </div>
+                <div class="m-corder-pros">
+                    <div class="item" v-for="proItem in item.productList" :key="proItem.proSku">
+                        <div class="pic">
                             <img :src="picServer + proItem.productImg" alt="">
-                        </view>
-                        <view class="msg">
-                            <view class="name">
+                        </div>
+                        <div class="msg">
+                            <div class="name">
                                 <p>{{proItem.productName}}</p>
-                            </view>
-                            <view class="msg-con">
-                                <view class="spec">规格: {{proItem.specvalue}}</view>
-                                <view class="pricenum">
-                                    <view class="price">
+                            </div>
+                            <div class="msg-con">
+                                <div class="spec">规格: {{proItem.specvalue}}</div>
+                                <div class="pricenum">
+                                    <div class="price">
                                         <span>&yen;</span>{{proItem.productPrice | toFixed2}}<span>/{{proItem.unit}}</span>
-                                    </view>
-                                    <view class="num">
+                                    </div>
+                                    <div class="num">
                                         x{{proItem.productCount}}
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="m-list-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-list-block">
                     <ul>
                         <li class="item-content align-right align-top">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     收货人
-                                </view>
-                                <view class="item-text2">
+                                </div>
+                                <div class="item-text2">
                                     {{item.conName}} {{item.conPhone}}
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right align-top">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     收货地址
-                                </view>
-                                <view class="item-text2">
+                                </div>
+                                <div class="item-text2">
                                     {{item.buyerAddress}}
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     配送方式
-                                </view>
-                                <view class="item-after">
+                                </div>
+                                <div class="item-after">
                                     {{item.inquiryType === 1 ? '配送' : '自提'}}
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right item-link">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     订单备注
-                                </view>
-                                <view class="item-input2">
+                                </div>
+                                <div class="item-input2">
                                     <input class="item-input-right" type="text" v-model="item.orderRemark" placeholder="输入对商家的留言（30字内）" :maxlength="30">
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                </view>
-            </view>
-            <view class="m-corder-item">
-                <view class="m-list-block">
+                </div>
+            </div>
+            <div class="m-corder-item">
+                <div class="m-list-block">
                     <ul>
                         <li class="item-content align-right item-link">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     支付方式
-                                </view>
-                                <view class="item-input">
+                                </div>
+                                <div class="item-input">
                                     <select v-model="paytypeValue">
                                         <option v-for="item in paytypeArrs" :value='item.type' :key="item.type">{{item.name}}</option>
                                     </select>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right item-link" @click="setInvoice">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     发票信息
-                                </view>
-                                <view class="item-after">
+                                </div>
+                                <div class="item-after">
                                     <template v-if="!orderMsg.taxInfoDto.taxTitle">
                                         请填写发票信息
                                     </template>
@@ -108,33 +108,33 @@
                                     <template v-else>
                                         {{orderMsg.taxInfoDto.taxTitle | taxTitleToText}}
                                     </template>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                </view>
-            </view>
-            <view class="m-corder-item">
-                <view class="corder-total">
-                    <view>
-                        <view class="tit">商品总额</view>
-                        <view class="pri">&yen;{{orderMsg.totalPrice | toFixed2}}</view>
-                    </view>
-                </view>
-            </view>
-            <!-- <view class="m-payment-agree" v-if="orderMsg.orderCount === 0">
+                </div>
+            </div>
+            <div class="m-corder-item">
+                <div class="corder-total">
+                    <div>
+                        <div class="tit">商品总额</div>
+                        <div class="pri">&yen;{{orderMsg.totalPrice | toFixed2}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="m-payment-agree" v-if="orderMsg.orderCount === 0">
                 <xe-checkbox v-model="checkboxAgres" size="large">
-                    <view class="con">阅读并同意<router-link :to="{name: 'PaymentAgreement'}">《如来云商支付协议》</router-link>所有条款</view>
+                    <div class="con">阅读并同意<router-link :to="{name: 'PaymentAgreement'}">《如来云商支付协议》</router-link>所有条款</div>
                 </xe-checkbox>
-            </view> -->
-            <view class="m-corder-btns" slot="footer">
-                <view class="det-pri">
+            </div> -->
+            <div class="m-corder-btns" slot="footer">
+                <div class="det-pri">
                     <span>合计：</span>&yen;{{orderMsg.totalPrice | toFixed2}}
-                </view>
-                <view class="det-btns">
-                    <view class="det-tobuy xe-gradient-color" @click.prevent="submitOrder">提交订单</view>
-                </view>
-            </view>
+                </div>
+                <div class="det-btns">
+                    <div class="det-tobuy xe-gradient-color" @click.prevent="submitOrder">提交订单</div>
+                </div>
+            </div>
 
             <!--发票信息-->
             <xe-popup
@@ -463,7 +463,7 @@
     .corder-total {
         padding: 5/$ppr 20/$ppr;
         font-size: 28/$ppr;
-        > view {
+        > div {
             display: flex;
             justify-content: space-between;
             margin: 15/$ppr 0;
@@ -497,7 +497,7 @@
         }
         .det-btns {
             display: flex;
-            > view {
+            > div {
                 flex:1;
                 font-size: 34/$ppr;
                 text-align: center;

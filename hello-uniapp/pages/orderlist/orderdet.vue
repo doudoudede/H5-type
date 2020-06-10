@@ -1,217 +1,217 @@
 <template>
     <transition name="slideInRight">
-        <view class="det-inquiry-box">
-            <view class="det-inquiry-con" v-if="orderDetMsg">
-                <view class="det-inquiry-content">
-                    <view class="m-item">
-                        <view class="det-inquiry-status">
-                            <view class="sta-con">
+        <div class="det-inquiry-box">
+            <div class="det-inquiry-con" v-if="orderDetMsg">
+                <div class="det-inquiry-content">
+                    <div class="m-item">
+                        <div class="det-inquiry-status">
+                            <div class="sta-con">
                                 <!--"orderStatus": 10,//订单状态  ：1 已完成 2 已发货 3待发货 4已取消 10待处理 11支付处理中-->
                                 <template v-if="orderDetMsg.orderStatus === 1">
                                     <!--已完成-->
-                                    <view class="sta-text">
+                                    <div class="sta-text">
                                         <span class="xe-iconfont xe-icon-daifukuan"></span> 已完成
-                                    </view>
+                                    </div>
                                 </template>
                                 <template v-if="orderDetMsg.orderStatus === 2">
                                     <!--已发货-->
-                                    <view class="sta-text">
+                                    <div class="sta-text">
                                         <span class="xe-iconfont xe-icon-daifukuan"></span> 待收货
-                                    </view>
+                                    </div>
                                 </template>
                                 <template v-if="orderDetMsg.orderStatus === 3">
                                     <!--待发货-->
-                                    <view class="sta-text">
+                                    <div class="sta-text">
                                         <span class="xe-iconfont xe-icon-daifukuan"></span> 待发货
-                                    </view>
+                                    </div>
                                 </template>
                                 <template v-if="orderDetMsg.orderStatus === 4">
                                     <!--已取消-->
-                                    <view class="sta-text">
+                                    <div class="sta-text">
                                         <span class="xe-iconfont xe-icon-daifukuan"></span> 已取消
-                                    </view>
+                                    </div>
                                 </template>
                                 <template v-if="orderDetMsg.orderStatus === 10">
                                     <!--待处理-->
-                                    <view class="sta-text">
+                                    <div class="sta-text">
                                         <span class="xe-iconfont xe-icon-daifukuan"></span> 待付款
-                                    </view>
+                                    </div>
                                 </template>
                                 <template v-if="orderDetMsg.orderStatus === 11">
                                     <!--支付处理中-->
-                                    <view class="sta-text">
+                                    <div class="sta-text">
                                         <span class="xe-iconfont xe-icon-daifukuan"></span> 待收货
-                                    </view>
+                                    </div>
                                 </template>
-                                <view class="sta-time" v-if="orderDetMsg.orderStatus === 10">
+                                <div class="sta-time" v-if="orderDetMsg.orderStatus === 10">
                                     剩余：<xe-countdown :time="orderDetMsg.endTime" timetype="second" format="{%h}时{%m}分{%s}秒"></xe-countdown>
-                                </view>
-                            </view>
-                            <view class="sta-num">订单编号：{{orderDetMsg.orderId}}</view>
-                            <view class="sta-remark" v-if="orderDetMsg.orderStatus === 4 && orderDetMsg.cancelRemark">取消原因：{{orderDetMsg.cancelRemark}}</view>
-                        </view>
-                        <view class="det-inquiry-adr">
-                            <view class="adr-user">
+                                </div>
+                            </div>
+                            <div class="sta-num">订单编号：{{orderDetMsg.orderId}}</div>
+                            <div class="sta-remark" v-if="orderDetMsg.orderStatus === 4 && orderDetMsg.cancelRemark">取消原因：{{orderDetMsg.cancelRemark}}</div>
+                        </div>
+                        <div class="det-inquiry-adr">
+                            <div class="adr-user">
                                 <span>{{orderDetMsg.caConsignee}}</span><span>{{orderDetMsg.caPhone}}</span>
-                            </view>
-                            <view class="adr-msg">
-                                <view class="xe-iconfont xe-icon-dingwei"></view>
-                                <view class="adr-msg-text">{{orderDetMsg.addrDetail}}</view>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="m-item">
-                        <view class="orderlist-item">
-                            <view class="order-item-shop">
+                            </div>
+                            <div class="adr-msg">
+                                <div class="xe-iconfont xe-icon-dingwei"></div>
+                                <div class="adr-msg-text">{{orderDetMsg.addrDetail}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-item">
+                        <div class="orderlist-item">
+                            <div class="order-item-shop">
                                 <span class="xe-iconfont xe-icon-dian"></span>
                                 <router-link :to="{name: 'Store', query: {userCode: orderDetMsg.userCode}}" class="arrow-right-commons">{{orderDetMsg.venName ? orderDetMsg.venName : orderDetMsg.storeName}}</router-link>
-                            </view>
-                            <view class="order-item-procon">
+                            </div>
+                            <div class="order-item-procon">
                                 <router-link
-                                    tag="view"
+                                    tag="div"
                                     class="order-item-pro"
                                     v-for="proItem in orderDetMsg.orderDetailList"
                                     :to="{name: 'ProductDetails', params: {prospu: proItem.proSpu}, query: {prosku: proItem.proSku}}"
                                     :key="proItem.itemId">
-                                    <view class="pic">
+                                    <div class="pic">
                                         <img v-lazy="picServer + proItem.proPicture" alt="">
-                                    </view>
-                                    <view class="msg">
-                                        <view class="pro-name">
+                                    </div>
+                                    <div class="msg">
+                                        <div class="pro-name">
                                             <span v-if="proItem.proType === 4" class="coupon-style coupon-style-miao">秒</span>
                                             <span v-if="proItem.proType === 6" class="xe-iconfont xe-icon-yushoufuben coupon-style-icon1" style="padding: 0 6px"></span>
                                             {{proItem.proName}}
-                                        </view>
-                                        <view class="pro-spec">规格：{{proItem.specValue}}</view>
-                                        <view class="pro-spec" v-if="proItem.realSendNum">实发量：{{proItem.realSendNum}}{{proItem.proUnit}}</view>
-                                    </view>
-                                    <view class="pri">
-                                        <view class="price">
+                                        </div>
+                                        <div class="pro-spec">规格：{{proItem.specValue}}</div>
+                                        <div class="pro-spec" v-if="proItem.realSendNum">实发量：{{proItem.realSendNum}}{{proItem.proUnit}}</div>
+                                    </div>
+                                    <div class="pri">
+                                        <div class="price">
                                             <p class="npri">&yen;{{proItem.proCostPrice | toFixed2}}/{{proItem.proUnit}}</p>
                                             <p class="opri" v-if="proItem.proCostPrice !== proItem.proBasePrice"><s>&yen;{{proItem.proBasePrice | toFixed2}}/{{proItem.proUnit}}</s></p>
-                                        </view>
-                                        <view class="nums">
+                                        </div>
+                                        <div class="nums">
                                             x{{proItem.purchaseNum}}
-                                        </view>
-                                    </view>
+                                        </div>
+                                    </div>
                                 </router-link>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="m-item">
-                        <view class="m-list-block">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-item">
+                        <div class="m-list-block">
                             <ul>
                                 <li class="item-content" v-if="orderDetMsg.orderType === 1">
-                                    <view class="item-media"></view>
-                                    <view class="item-inner">
-                                        <view class="item-title">店铺优惠券</view>
-                                        <view class="item-after">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">店铺优惠券</div>
+                                        <div class="item-after">
                                             <template v-if="orderDetMsg.cpnsPmtAomount">
                                                 &yen;{{orderDetMsg.cpnsPmtAomount | toFixed2}}
                                             </template>
                                             <template v-else>无</template>
-                                        </view>
-                                    </view>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="item-content">
-                                    <view class="item-media"></view>
-                                    <view class="item-inner">
-                                        <view class="item-title">配送方式</view>
-                                        <view class="item-after">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">配送方式</div>
+                                        <div class="item-after">
                                             {{orderDetMsg.shipType | shipTypeToText}}<template v-if="orderDetMsg.shipCarDes">,{{orderDetMsg.shipCarDes}}</template>
-                                        </view>
-                                    </view>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="item-content">
-                                    <view class="item-media"></view>
-                                    <view class="item-inner">
-                                        <view class="item-title">订单备注</view>
-                                        <view class="item-after">{{orderDetMsg.orderRemark ? orderDetMsg.orderRemark : '无'}}</view>
-                                    </view>
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">订单备注</div>
+                                        <div class="item-after">{{orderDetMsg.orderRemark ? orderDetMsg.orderRemark : '无'}}</div>
+                                    </div>
                                 </li>
                             </ul>
-                        </view>
-                    </view>
-                    <view class="m-item">
-                        <view class="m-list-block">
+                        </div>
+                    </div>
+                    <div class="m-item">
+                        <div class="m-list-block">
                             <ul>
                                 <li class="item-content">
-                                    <view class="item-media"></view>
-                                    <view class="item-inner">
-                                        <view class="item-title">支付方式</view>
-                                        <view class="item-after">{{orderDetMsg.payType | payTypeToText}}</view>
-                                    </view>
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">支付方式</div>
+                                        <div class="item-after">{{orderDetMsg.payType | payTypeToText}}</div>
+                                    </div>
                                 </li>
                                 <li class="item-content" v-if="orderDetMsg.orderType === 1">
-                                    <view class="item-media"></view>
-                                    <view class="item-inner">
-                                        <view class="item-title">如来云商优惠券</view>
-                                        <view class="item-after">
+                                    <div class="item-media"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">如来云商优惠券</div>
+                                        <div class="item-after">
                                             <template v-if="orderDetMsg.platPmtAmount">
                                                 &yen;{{orderDetMsg.platPmtAmount | toFixed2}}
                                             </template>
                                             <template v-else>无</template>
-                                        </view>
-                                    </view>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="item-content">
-                                    <view class="item-media"></view>
-                                    <view class="item-inner" v-if='!orderDetMsg.taxTitle'>
-                                        <view class="item-title">发票</view>
-                                        <view class="item-after">无</view>
-                                    </view>
-                                    <view class="item-inner item-inner-column" v-else>
-                                        <view class="item-inner-con">
-                                            <view class="item-title">发票类型</view>
-                                            <view class="item-after">{{orderDetMsg.taxType | taxTypeToText}}</view>
-                                        </view>
-                                        <view class="item-inner-con">
-                                            <view class="item-title">发票抬头</view>
-                                            <view class="item-after">{{orderDetMsg.taxCompany}}</view>
-                                        </view>
-                                        <view class="item-inner-con">
-                                            <view class="item-title">发票内容</view>
-                                            <view class="item-after">{{orderDetMsg.taxContent | taxContentToText}}</view>
-                                        </view>
-                                    </view>
+                                    <div class="item-media"></div>
+                                    <div class="item-inner" v-if='!orderDetMsg.taxTitle'>
+                                        <div class="item-title">发票</div>
+                                        <div class="item-after">无</div>
+                                    </div>
+                                    <div class="item-inner item-inner-column" v-else>
+                                        <div class="item-inner-con">
+                                            <div class="item-title">发票类型</div>
+                                            <div class="item-after">{{orderDetMsg.taxType | taxTypeToText}}</div>
+                                        </div>
+                                        <div class="item-inner-con">
+                                            <div class="item-title">发票抬头</div>
+                                            <div class="item-after">{{orderDetMsg.taxCompany}}</div>
+                                        </div>
+                                        <div class="item-inner-con">
+                                            <div class="item-title">发票内容</div>
+                                            <div class="item-after">{{orderDetMsg.taxContent | taxContentToText}}</div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
-                        </view>
-                    </view>
-                    <view class="m-item">
-                        <view class="det-inquiry-top gray">
-                            <view>
-                                <view>商品总额</view>
-                                <view>¥{{orderDetMsg.goodsAmount | toFixed2}}</view>
-                            </view>
-                            <view v-if="orderDetMsg.orderType === 1">
-                                <view>优惠券</view>
-                                <view>-¥{{orderDetMsg.totalPmtAomount | toFixed2}}</view>
-                            </view>
-                            <view v-if="orderDetMsg.specialDisamount">
-                                <view>撮合总额</view>
-                                <view>
+                        </div>
+                    </div>
+                    <div class="m-item">
+                        <div class="det-inquiry-top gray">
+                            <div>
+                                <div>商品总额</div>
+                                <div>¥{{orderDetMsg.goodsAmount | toFixed2}}</div>
+                            </div>
+                            <div v-if="orderDetMsg.orderType === 1">
+                                <div>优惠券</div>
+                                <div>-¥{{orderDetMsg.totalPmtAomount | toFixed2}}</div>
+                            </div>
+                            <div v-if="orderDetMsg.specialDisamount">
+                                <div>撮合总额</div>
+                                <div>
                                     <template v-if="orderDetMsg.specialDisamount > 0">-</template>
-                                    <template v-else>+</template>¥{{Math.abs(orderDetMsg.specialDisamount) | toFixed2}}</view>
-                            </view>
-                            <view>
-                                <view>运费</view>
-                                <view>+¥{{orderDetMsg.freAmount | toFixed2}}</view>
-                            </view>
-                        </view>
-                        <view class="det-inquiry-top border">
-                            <view>
-                                <view>订单总额</view>
-                                <view>¥{{orderDetMsg.totalAmount | toFixed2}}</view>
-                            </view>
-                            <view v-if="orderDetMsg.realRefundedAmount">
-                                <view>差异退款</view>
-                                <view>-¥{{orderDetMsg.realRefundedAmount | toFixed2}}</view>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="m-item">
-                        <view class="det-inquiry-bottom">
+                                    <template v-else>+</template>¥{{Math.abs(orderDetMsg.specialDisamount) | toFixed2}}</div>
+                            </div>
+                            <div>
+                                <div>运费</div>
+                                <div>+¥{{orderDetMsg.freAmount | toFixed2}}</div>
+                            </div>
+                        </div>
+                        <div class="det-inquiry-top border">
+                            <div>
+                                <div>订单总额</div>
+                                <div>¥{{orderDetMsg.totalAmount | toFixed2}}</div>
+                            </div>
+                            <div v-if="orderDetMsg.realRefundedAmount">
+                                <div>差异退款</div>
+                                <div>-¥{{orderDetMsg.realRefundedAmount | toFixed2}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-item">
+                        <div class="det-inquiry-bottom">
                             <p class="ypay">
                                 <template v-if="orderDetMsg.orderStatus === 1">实付款: </template>
                                 <template v-else>
@@ -226,64 +226,64 @@
                             </p>
                             <p class="ctime">下单时间: {{orderDetMsg.createDate}}</p>
                             <p class="ctime" v-if="orderDetMsg.parentOrderid !== '0' && orderDetMsg.parentOrderid ">关联订单号: {{orderDetMsg.parentOrderid}}</p>
-                        </view>
-                    </view>
-                </view>
-                <view class="det-inquiry-btns">
-                    <view class="lcon">
+                        </div>
+                    </div>
+                </div>
+                <div class="det-inquiry-btns">
+                    <div class="lcon">
                         <!--<mt-button size="small" class="xe-button-default" plain @click="back">返回</mt-button>-->
-                    </view>
+                    </div>
                     <!--"orderStatus": 10,//订单状态  ：1 已完成 2 已发货 3待发货 4已取消 10待处理 11支付处理中-->
                     <template v-if="orderDetMsg.orderStatus === 1">
                         <!--已完成-->
-                        <view class="rcon">
+                        <div class="rcon">
                             <mt-button size="small" class="xe-button-default" plain @click="goToOrderTracking">查看物流</mt-button>
                             <mt-button class="xe-button-default" plain  size="small" v-if="orderDetMsg.payType == 1" @click.prevent.stop="detailsOfMethod(orderDetMsg)">付款详情</mt-button>
                             <mt-button v-if="orderDetMsg.orderType === 1" type='primary' size="small" class="xe-button-primary" @click="buyAgain">再次购买</mt-button>
                             <mt-button v-else type='primary' size="small" class="xe-button-primary" @click="inquiryAgain">再次询价</mt-button>
-                        </view>
+                        </div>
                     </template>
                     <template v-if="orderDetMsg.orderStatus === 2">
                         <!--待收货-->
-                        <view class="rcon">
+                        <div class="rcon">
                             <mt-button size="small" class="xe-button-default" plain @click="goToOrderTracking">查看物流</mt-button>
                             <mt-button type='primary' size="small" class="xe-button-primary" v-if="orderDetMsg.payStatus == 2 && orderDetMsg.payType == 1" @click.prevent.stop="goToPay()">立即支付</mt-button>
                             <mt-button class="xe-button-default" plain  size="small" v-if="orderDetMsg.payStatus !== 2 && orderDetMsg.payType == 1" @click.prevent.stop="detailsOfMethod(orderDetMsg)">付款详情</mt-button>
                             <mt-button type='primary' size="small" class="xe-button-primary" @click.prevent="confirmReceipt">确认收货</mt-button>
-                        </view>
+                        </div>
                     </template>
                     <template v-if="orderDetMsg.orderStatus === 3">
                         <!--待发货-->
-                        <view class="rcon">
+                        <div class="rcon">
                             <mt-button size="small" class="xe-button-default" plain @click="goToOrderTracking">查看物流</mt-button>
-                        </view>
+                        </div>
                     </template>
                     <template v-if="orderDetMsg.orderStatus === 4">
                         <!--已取消-->
-                        <view class="rcon">
+                        <div class="rcon">
                             <mt-button size="small" class="xe-button-default" plain @click="confirmDelOrder">删除订单</mt-button>
                             <mt-button v-if="orderDetMsg.orderType === 1" type='primary' size="small" class="xe-button-primary" @click="buyAgain">再次购买</mt-button>
                             <mt-button v-else type='primary' size="small" class="xe-button-primary" @click="inquiryAgain">再次询价</mt-button>
-                        </view>
+                        </div>
                     </template>
                     <template v-if="orderDetMsg.orderStatus === 10">
                         <!--待付款-->
-                        <view class="rcon">
+                        <div class="rcon">
                             <mt-button size="small" class="xe-button-default" plain @click="confirmCancelOrder">取消订单</mt-button>
                             <mt-button type='primary' size="small" class="xe-button-primary" @click.prevent="goToPay()">立即支付</mt-button>
-                        </view>
+                        </div>
                     </template>
                     <template v-if="orderDetMsg.orderStatus === 11">
-                        <view class="rcon">
+                        <div class="rcon">
                             <mt-button size="small" class="xe-button-default" plain @click="goToOrderTracking">查看物流</mt-button>
                             <mt-button class="xe-button-default" plain  size="small" v-if="orderDetMsg.payType == 1" @click.prevent.stop="detailsOfMethod(orderDetMsg)">付款详情</mt-button>
                             <mt-button type='primary' size="small" class="xe-button-primary" @click.prevent="confirmReceipt">确认收货</mt-button>
-                        </view>
+                        </div>
                     </template>
-                </view>
-            </view>
+                </div>
+            </div>
 
-        </view>
+        </div>
     </transition>
 </template>
 <script type="text/ecmascript-6">
@@ -506,21 +506,21 @@
                 border-top: 1/$ppr solid $border-color-e8e;
              }
             &.gray {
-                > view {
+                > div {
                     color: $text-999;
-                    > view {
+                    > div {
                         &:nth-child(2) {
                             color: $text-666;
                         }
                     }
                 }
             }
-            > view {
+            > div {
                 display: flex;
                 justify-content: space-between;
                 font-size: 28/$ppr;
                 margin: 20/$ppr 0;
-                > view {
+                > div {
                     &:nth-child(2) {
                         color: $main-color;
                     }

@@ -59,7 +59,7 @@
 <style scoped>
 	.uni-indexed-list__list {
 		background-color: #ffffff;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
@@ -70,7 +70,7 @@
 
 	.uni-indexed-list__item {
 		font-size: 32rpx;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -83,7 +83,7 @@
 		padding-left: 30rpx;
 		flex: 1;
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		box-sizing: border-box;
 		/* #endif */
@@ -95,7 +95,7 @@
 	.uni-indexed-list__item-border {
 		flex: 1;
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		box-sizing: border-box;
 		/* #endif */
@@ -120,14 +120,14 @@
 	}
 
 	.uni-indexed-list {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
 	}
 
 	.uni-indexed-list__title-wrapper {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		width: 100%;
 		/* #endif */

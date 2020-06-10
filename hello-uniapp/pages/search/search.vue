@@ -1,80 +1,80 @@
 <template>
     <xe-layout>
-        <view class="m-search-barcon" slot="header">
-            <view class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></view>
-            <view class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
-                <view class="m-search-newcon">
-                    <view class="search-bar-down" @click="barDownShow = !barDownShow">
-                        <view>{{ searchCate | searchCateToText}}</view>
+        <div class="m-search-barcon" slot="header">
+            <div class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></div>
+            <div class="m-search-bar m-search-bar2" :class="{'m-search-typing': focusFlag}">
+                <div class="m-search-newcon">
+                    <div class="search-bar-down" @click="barDownShow = !barDownShow">
+                        <div>{{ searchCate | searchCateToText}}</div>
                         <transition name="slide-in">
-                            <view class="bar-down" v-show="barDownShow">
-                                <view class="bar-down-con">
-                                    <view @click="searchCate = 1">
+                            <div class="bar-down" v-show="barDownShow">
+                                <div class="bar-down-con">
+                                    <div @click="searchCate = 1">
                                         <span><em class="xe-iconfont xe-icon-shangpin"></em>商品</span>
-                                    </view>
-                                    <view @click="searchCate = 2">
+                                    </div>
+                                    <div @click="searchCate = 2">
                                         <span><em class="xe-iconfont xe-icon-dian"></em>店铺</span>
-                                    </view>
-                                </view>
-                            </view>
+                                    </div>
+                                </div>
+                            </div>
                         </transition>
-                    </view>
+                    </div>
                         <form class="s-form" id="s-search" method="get" action="/" onsubmit="return false" @submit.prevent="searchBtnFn">
                             <label for="s-search-input" class="xe-iconfont xe-icon-sousuo"></label>
                             <input v-model.trim="searchText" class="s-search-input" id="s-search-input" @focus="focusFlag = true" @blur="focusFlag = false" type="search" placeholder="输入关键词">
                         </form>
                         <span v-show="searchText.length" @click="searchText = ''" class="xe-iconfont xe-icon-cuowu"></span>
-                        <view class="m-search-btn" @click="searchBtnFn">
+                        <div class="m-search-btn" @click="searchBtnFn">
                             <span>搜索</span>
-                        </view>
-                    </view>
-                </view>
-            </view>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <template v-if="suggestProductList === null">
-            <view class="search-item-con search-item-his" v-if="historySearchList.length">
-                <view class="search-item-tit clearfix">
+            <div class="search-item-con search-item-his" v-if="historySearchList.length">
+                <div class="search-item-tit clearfix">
                     <h3 class='fl'>历史搜索</h3>
                     <span class="fr xe-iconfont xe-icon-delete" v-if="historySearchList.length" @click="delWordFn"></span>
-                </view>
-                <view class="search-item">
+                </div>
+                <div class="search-item">
                     <a href="#" v-for="(item, index) in historySearchList" :key="index" @click.prevent="wordClickFn(item)">{{item}}</a>
-                </view>
-                <!--<view class="search-item-none">-->
+                </div>
+                <!--<div class="search-item-none">-->
                     <!--暂无最近搜索内容-->
-                <!--</view>-->
-            </view>
-            <view class="search-item-con" v-if="hotWordList && hotWordList.length">
-                <view class="search-item-tit clearfix">
+                <!--</div>-->
+            </div>
+            <div class="search-item-con" v-if="hotWordList && hotWordList.length">
+                <div class="search-item-tit clearfix">
                     <h3 class='fl'>热门搜索</h3>
-                </view>
-                <view class="search-item">
+                </div>
+                <div class="search-item">
                     <a href="#" @click.prevent="wordClickFn('预售')">预售</a>
                     <a href="#" @click.prevent="wordClickFn('秒杀')">秒杀</a>
                     <a href="#" v-for="(item, index) in hotWordList" :key="index" @click.prevent="wordClickFn(item)" v-if="item !== '预售' && item !== '秒杀'">{{item}}</a>
-                </view>
-            </view>
+                </div>
+            </div>
         </template>
-        <view class="suggest m-content-view" v-else>
+        <div class="suggest m-content-div" v-else>
             <ul v-show="suggestProductList.length">
                 <li v-for="(item, index) in suggestProductList" @click.prevent="wordClickFn(item.keyWord)">
                     <span>{{item.keyWord}}</span>
                     <!--<em v-show="item.count">{{item.count}}</em>-->
                 </li>
             </ul>
-            <!--<view class="none" v-show="!suggestProductList.length">-->
-                <!--<view class="m-cart-none">-->
-                    <!--<view class="pic">-->
+            <!--<div class="none" v-show="!suggestProductList.length">-->
+                <!--<div class="m-cart-none">-->
+                    <!--<div class="pic">-->
                         <!--<img src="../../static/images/cart-n1.png" alt="">-->
-                    <!--</view>-->
-                    <!--<view class="des">-->
+                    <!--</div>-->
+                    <!--<div class="des">-->
                         <!--<p class="f28">抱歉，没有找到条件的{{searchCate === 1 ? '商品' : '店铺'}}</p>-->
-                    <!--</view>-->
-                    <!--<view class="btn">-->
+                    <!--</div>-->
+                    <!--<div class="btn">-->
                         <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="searchText = ''">清空条件</mt-button>-->
-                    <!--</view>-->
-                <!--</view>-->
-            <!--</view>-->
-        </view>
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

@@ -1,10 +1,10 @@
 <template>
-    <view class="m-cityselect" :class="{'m-cityselect-active': showBox, 'm-cityselect-next': isNext}">
-            <view class="cityselect-header">
-                <!--<view class="c-header-title">-->
+    <div class="m-cityselect" :class="{'m-cityselect-active': showBox, 'm-cityselect-next': isNext}">
+            <div class="cityselect-header">
+                <!--<div class="c-header-title">-->
                     <!--{{title}}-->
-                <!--</view>-->
-                <view class="c-header-nav">
+                <!--</div>-->
+                <div class="c-header-nav">
                     <template v-if="currentIndex">
                         <a href="#" :class="{'current': currentIndex === (index + 1)}" v-for="(item, index) in selectedAdr" v-show="item.areaId" @click.prevent="adrTopclick(item, index)">
                             {{item.areaName}}
@@ -13,32 +13,32 @@
                     <a v-else href="#" class="current" @click.prevent>
                         请选择
                     </a>
-                </view>
-            </view>
+                </div>
+            </div>
             <ul class="cityselect-content">
                 <li class="cityselect-item" ref="elProvince">
-                    <view class="cityselect-item-box">
+                    <div class="cityselect-item-box">
                         <a v-for="(item, index) in columns.columnItems1" :class="{'cityselect-item-active': proviceSelected.areaId === item.areaId}" href="#" @click.prevent="provinceClick(item)">
                             <span>{{item.areaName}}</span>
                         </a>
-                    </view>
+                    </div>
                 </li>
                 <li class="cityselect-item" ref="elCity">
-                    <view class="cityselect-item-box">
+                    <div class="cityselect-item-box">
                         <a v-for="(item, index) in columns.columnItems2" :class="{'cityselect-item-active': citySelected.areaId === item.areaId}" href="#" @click.prevent="cityClick(item)">
                             <span>{{item.areaName}}</span>
                         </a>
-                    </view>
+                    </div>
                 </li>
                 <li class="cityselect-item" ref="elArea">
-                    <view class="cityselect-item-box">
+                    <div class="cityselect-item-box">
                         <a v-for="(item, index) in columns.columnItems3" :class="{'cityselect-item-active': areaSelected.areaId === item.areaId}" href="#" @click.prevent="areaClick(item)">
                             <span>{{item.areaName}}</span>
                         </a>
-                    </view>
+                    </div>
                 </li>
             </ul>
-        </view>
+        </div>
 </template>
 <script type="text/ecmascript-6">
     export default {

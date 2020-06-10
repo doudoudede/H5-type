@@ -1,7 +1,7 @@
 <template>
 	<view class="uni-swipe">
 		<!-- 在微信小程序 app vue端 h5 使用wxs 实现-->
-		<!-- #ifdef APP-VUE || MP-WEIXIN || H5 -->
+		<!-- #ifdef aPP-VUE || MP-WEIXIN || H5 -->
 		<view class="uni-swipe_content">
 			<view :data-disabled="disabled" :data-position="pos" :change:prop="swipe.sizeReady" :prop="pos" class="uni-swipe_move-box selector-query-hock move-hock" @touchstart="swipe.touchstart" @touchmove="swipe.touchmove" @touchend="swipe.touchend" @change="change">
 				<view class="uni-swipe_box">
@@ -18,7 +18,7 @@
 		<!-- #endif -->
 
 		<!--  app nvue端 使用 bindingx -->
-		<!-- #ifdef APP-NVUE -->
+		<!-- #ifdef aPP-NVUE -->
 		<view ref="selector-box-hock" class="uni-swipe_content" @horizontalpan="touchstart" @touchend="touchend">
 			<view ref="selector-button-hock" class="uni-swipe_button-group selector-query-hock move-hock" :style="{width:right+'px'}">
 				<view ref="button-hock" v-for="(item,index) in options" :key="index" :style="{
@@ -33,7 +33,7 @@
 		<!-- #endif -->
 
 		<!-- 在非 app 端、非微信小程序、支付宝小程序、h5端使用 js -->
-		<!-- #ifndef APP-PLUS || MP-WEIXIN || MP-ALIPAY || H5 -->
+		<!-- #ifndef aPP-PLUS || MP-WEIXIN || MP-aLIPaY || H5 -->
 		<view class="uni-swipe_content">
 			<view ref="selector-button-hock" class="uni-swipe_button-group selector-query-hock move-hock">
 				<view v-for="(item,index) in options" :data-button="btn" :key="index" :style="{
@@ -50,7 +50,7 @@
 			</view>
 		</view>
 		<!-- #endif -->
-		<!-- #ifdef MP-ALIPAY -->
+		<!-- #ifdef MP-aLIPaY -->
 		<view class="uni-swipe-box" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
 			<view class="viewWidth-hook">
 				<movable-area v-if="viewWidth !== 0" class="movable-area" :style="{width:(viewWidth-buttonWidth)+'px'}">
@@ -73,48 +73,48 @@
 </template>
 <script src="./index.wxs" module="swipe" lang="wxs"></script>
 <script>
-	// #ifdef APP-VUE|| MP-WEIXIN || H5
+	// #ifdef aPP-VUE|| MP-WEIXIN || H5
 	import mpwxs from './mpwxs'
 	// #endif
 
-	// #ifdef APP-NVUE
+	// #ifdef aPP-NVUE
 	import bindingx from './bindingx.js'
 	// #endif
 
-	// #ifndef APP-PLUS|| MP-WEIXIN || MP-ALIPAY ||  H5
+	// #ifndef aPP-PLUS|| MP-WEIXIN || MP-aLIPaY ||  H5
 	import mixins from './mpother'
 	// #endif
 
-	// #ifdef MP-ALIPAY
+	// #ifdef MP-aLIPaY
 	import mpalipay from './mpalipay'
 	// #endif
 
 	/**
-	 * SwipeActionItem 滑动操作子组件
+	 * SwipeactionItem 滑动操作子组件
 	 * @description 通过滑动触发选项的容器
 	 * @tutorial https://ext.dcloud.net.cn/plugin?id=181
 	 * @property {Boolean} show = [true|false] 开启关闭组件，auto-close = false 时生效
 	 * @property {Boolean} disabled = [true|false] 是否禁止滑动
 	 * @property {Boolean} autoClose = [true|false] 其他组件开启的时候，当前组件是否自动关闭
-	 * @property {Array} options 组件选项内容及样式
+	 * @property {array} options 组件选项内容及样式
 	 * @event {Function} click 点击选项按钮时触发事件，e = {content,index} ，content（点击内容）、index（下标)
 	 * @event {Function} change 组件打开或关闭时触发，true：开启状态；false：关闭状态
 	 */
 
 	export default {
-		// #ifdef APP-VUE|| MP-WEIXIN||H5
+		// #ifdef aPP-VUE|| MP-WEIXIN||H5
 		mixins: [mpwxs],
 		// #endif
 
-		// #ifdef APP-NVUE
+		// #ifdef aPP-NVUE
 		mixins: [bindingx],
 		// #endif
 
-		// #ifndef APP-PLUS|| MP-WEIXIN || MP-ALIPAY ||  H5
+		// #ifndef aPP-PLUS|| MP-WEIXIN || MP-aLIPaY ||  H5
 		mixins: [mixins],
 		// #endif
 
-		// #ifdef MP-ALIPAY
+		// #ifdef MP-aLIPaY
 		mixins: [mpalipay],
 		// #endif
 
@@ -123,7 +123,7 @@
 			 * 按钮内容
 			 */
 			options: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -171,7 +171,7 @@
 	}
 
 	.uni-swipe_move-box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		position: relative;
@@ -179,13 +179,13 @@
 	}
 
 	.uni-swipe_box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		flex-direction: row;
 		width: 100%;
 		flex-shrink: 0;
 		/* #endif */
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		flex: 1;
 		/* #endif */
 		font-size: 14px;
@@ -193,14 +193,14 @@
 	}
 
 	.uni-swipe_button-group {
-		/* #ifndef APP-VUE|| MP-WEIXIN||H5 */
+		/* #ifndef aPP-VUE|| MP-WEIXIN||H5 */
 		position: absolute;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		z-index: 0;
 		/* #endif */
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		flex-shrink: 0;
 		/* #endif */
@@ -208,13 +208,13 @@
 	}
 
 	.uni-swipe_button {
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		position: absolute;
 		left: 0;
 		top: 0;
 		bottom: 0;
 		/* #endif */
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -224,7 +224,7 @@
 	}
 
 	.uni-swipe_button-text {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		flex-shrink: 0;
 		/* #endif */
 		font-size: 14px;
@@ -236,7 +236,7 @@
 		transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 	}
 
-	/* #ifdef MP-ALIPAY */
+	/* #ifdef MP-aLIPaY */
 	.movable-area {
 		width: 300px;
 		height: 100%;

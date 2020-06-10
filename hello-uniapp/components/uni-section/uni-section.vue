@@ -58,7 +58,7 @@
 <style scoped>
 	.uni-section {
 		position: relative;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		margin-top: 10px;
@@ -67,7 +67,7 @@
 		padding: 0 10px;
 		height: 50px;
 		background-color: #f8f8f8;
-		/* #ifdef APP-NVUE */
+		/* #ifdef aPP-NVUE */
 		border-bottom-color: #e5e5e5;
 		border-bottom-style: solid;
 		border-bottom-width: 0.5px;
@@ -75,7 +75,7 @@
 		font-weight: normal;
 	}
 
-	/* #ifndef APP-NVUE */
+	/* #ifndef aPP-NVUE */
 	.uni-section:after {
 		position: absolute;
 		bottom: 0;

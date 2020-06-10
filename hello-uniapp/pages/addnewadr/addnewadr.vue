@@ -1,56 +1,56 @@
 <template>
     <xe-layout class="m-bg-dark">
-        <view class="m-addnewadr">
-            <view class="m-list-block">
+        <div class="m-addnewadr">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">店铺名称</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">店铺名称</div>
+                            <div class="item-input">
                                 <input type="text" v-model="shopName" placeholder="店铺名称">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">收货人</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">收货人</div>
+                            <div class="item-input">
                                 <input type="text" v-model="caConsignee" placeholder="收货人">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-title">手机号</view>
-                            <view class="item-input">
+                        <div class="item-inner">
+                            <div class="item-title">手机号</div>
+                            <div class="item-input">
                                 <input type="tel" v-model="caPhone" maxlength="11" placeholder="手机号">
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content item-link">
-                        <view class="item-inner" @click.prevent="showadr = true">
-                            <view class="item-title">店铺地址</view>
-                            <view class="item-after">
+                        <div class="item-inner" @click.prevent="showadr = true">
+                            <div class="item-title">店铺地址</div>
+                            <div class="item-after">
                                 {{adrText}}
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                     <li class="item-content">
-                        <view class="item-inner">
-                            <view class="item-text">
+                        <div class="item-inner">
+                            <div class="item-text">
                                 <textarea style="width: 100%;" v-model="caStreet" placeholder="请输入详细地址"></textarea>
-                            </view>
-                        </view>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-        </view>
-        <view class="m-addadr-default">
+            </div>
+        </div>
+        <div class="m-addadr-default">
             <xe-checkbox v-model="defaultFlag">设为默认地址</xe-checkbox>
-        </view>
-        <view class="m-addadr-btn">
+        </div>
+        <div class="m-addadr-btn">
             <mt-button type="primary" :disabled="disabledBtn" class="xe-button-primary" style="width: 100%;" @click.prevent="insertAddress">确 定</mt-button>
-        </view>
+        </div>
         <!--地址插件-->
         <xe-popup
             slot="outer"

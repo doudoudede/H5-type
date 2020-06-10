@@ -1,86 +1,86 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay">
-        <view class="couponlist-nav" slot='header'>
+        <div class="couponlist-nav" slot='header'>
             <xe-navtab-con :itemData="navListData" @swiperItemClick="swiperItemClick" ref="navTab"></xe-navtab-con>
-        </view>
-        <view>
-            <view class="popup-coupon-itemcon couponlist-item">
-                <view class="item" v-for="(item, index) in mainCouponList" :key="index" :class="{disabled: couponType ===3 || couponType === 1 || item.sendStatus === 3}" @click.prevent.stop="ConponDetNew(item)">
-                    <view class="item-circle-bot"></view>
-                    <view class="item-circle">
+        </div>
+        <div>
+            <div class="popup-coupon-itemcon couponlist-item">
+                <div class="item" v-for="(item, index) in mainCouponList" :key="index" :class="{disabled: couponType ===3 || couponType === 1 || item.sendStatus === 3}" @click.prevent.stop="ConponDetNew(item)">
+                    <div class="item-circle-bot"></div>
+                    <div class="item-circle">
                         <i v-for="item in 20" :key="item"></i>
-                    </view>
-                    <view class="item-left">
-                        <view class="item-left-con">
-                            <view class="item-t">
+                    </div>
+                    <div class="item-left">
+                        <div class="item-left-con">
+                            <div class="item-t">
                                 <em>&yen;</em><span class="big-pri">{{item.useDisAmount | retainedDecimalToNum}}</span><!--span class="small-pri">.00</span-->
-                            </view>
-                            <view class="item-d">
+                            </div>
+                            <div class="item-d">
                                 <template v-if="item.useRuleType === 1">
                                     满&yen;{{item.useOrderAmount}}可用
                                 </template>
                                 <template v-else>
                                     无门槛优惠券
                                 </template>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="item-right">
-                        <view class="item-r-name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-right">
+                        <div class="item-r-name">
                             <!-- 发放平台：1、平台 2、商户 -->
                             <span v-if='item.sendPlat == 1'> 如来云商优惠券</span>
                             <span v-if='!item.sendPlat || item.sendPlat == 2'> {{item.shopName ? item.shopName : item.venName}}</span>
-                        </view>
-                        <view class="item-r-msg">{{item.useRange, item.sendPlat | useRangeToText}}</view>
+                        </div>
+                        <div class="item-r-msg">{{item.useRange, item.sendPlat | useRangeToText}}</div>
                         <template v-if="couponType === 0">
-                            <view class="item-r-time" v-if="item.useTimeType === 1">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</view>
-                            <view class="item-r-time" v-else>优惠券到账后{{item.activeDay}}天内有效</view>
+                            <div class="item-r-time" v-if="item.useTimeType === 1">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</div>
+                            <div class="item-r-time" v-else>优惠券到账后{{item.activeDay}}天内有效</div>
                         </template>
                         <template v-else>
-                            <view class="item-r-time">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</view>
+                            <div class="item-r-time">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</div>
                         </template>
                         <template v-if="couponType === 0">
-                            <view class="item-r-tipsnone xe-iconfont xe-icon-yilingwan" v-if="item.sendStatus === 3">
+                            <div class="item-r-tipsnone xe-iconfont xe-icon-yilingwan" v-if="item.sendStatus === 3">
                                 <!--已发完-->
-                            </view>
-                            <view class="item-r-btn" v-else>
+                            </div>
+                            <div class="item-r-btn" v-else>
                                 <mt-button type="primary" size='small' class="xe-button-primary is-radius" plain @click.prevent.stop="ConponDet(item)">立即领取</mt-button>
-                            </view>
+                            </div>
                         </template>
                         <template v-if="couponType === 1">
-                            <view class="item-r-tipsnone xe-iconfont xe-icon-yishiyong">
+                            <div class="item-r-tipsnone xe-iconfont xe-icon-yishiyong">
                                 <!--已使用-->
-                            </view>
+                            </div>
                         </template>
                         <template v-if="couponType === 2">
-                            <view class="item-r-btn">
+                            <div class="item-r-btn">
                                 <mt-button type="primary" size='small' class="xe-button-primary is-radius" plain @click.prevent.stop="useCoupon(item)">立即使用</mt-button>
-                            </view>
+                            </div>
                         </template>
                         <template v-if="couponType === 3">
-                            <view class="item-r-tipsnone xe-iconfont xe-icon-yiguoqi">
+                            <div class="item-r-tipsnone xe-iconfont xe-icon-yiguoqi">
                                 <!--已过期-->
-                            </view>
+                            </div>
                         </template>
-                    </view>
-                </view>
-            </view>
-        </view>
+                    </div>
+                </div>
+            </div>
+        </div>
         <infinite-loading @infinite="onInfinite" :distance="50" ref="infiniteLoading" class="infinite-contanier">
             <span slot="no-more" class="infinite-no-more">
                 暂无更多数据~
             </span>
-            <view slot="no-results" class="m-cart-none">
-                <view class="pic">
+            <div slot="no-results" class="m-cart-none">
+                <div class="pic">
                     <img src="../../static/images/cart-n1.png" alt="">
-                </view>
-                <view class="des">
+                </div>
+                <div class="des">
                     <p class="f32">暂无优惠券~</p>
-                </view>
-                <!--<view class="btn">-->
+                </div>
+                <!--<div class="btn">-->
                 <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-                <!--</view>-->
-            </view>
+                <!--</div>-->
+            </div>
         </infinite-loading>
         <router-view slot="outer"></router-view>
     </xe-layout>

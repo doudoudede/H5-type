@@ -1,9 +1,9 @@
 <template>
-    <view class="xe-step">
+    <div class="xe-step">
         <ul class="xe-step-content">
             <slot></slot>
         </ul>
-    </view>
+    </div>
 </template>
 <script>
     export default {

@@ -1,234 +1,234 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay my-new-style" ref="layout">
-        <!-- <view id="fixedTop">
-            <view class="m-index-search">
-                <view class="m-index-search-cover xe-gradient-color" :style="{opacity: searchOpacity}"></view>
-                    <view class="headerbtns" v-if="loginStatus">
-                        <router-link tag="view" :to="{name: 'Message'}" class="xe-iconfont xe-icon-xiaoxi">
+        <!-- <div id="fixedTop">
+            <div class="m-index-search">
+                <div class="m-index-search-cover xe-gradient-color" :style="{opacity: searchOpacity}"></div>
+                    <div class="headerbtns" v-if="loginStatus">
+                        <router-link tag="div" :to="{name: 'Message'}" class="xe-iconfont xe-icon-xiaoxi">
                             <em v-show="showcircle" class="xx-circle"></em>
                         </router-link>
-                        <router-link tag="view" :to="{name: 'Setting', query: {phone: userInfo.mobile}}" class="xe-iconfont xe-icon-settings"></router-link>
-                    </view>
-            </view>
-        </view> -->
-        <view class="m-my-header">
-            <view class="m-my-header-top">
-                <view class="headerbtns" v-if="loginStatus">
-                    <router-link tag="view" :to="{name: 'Message'}" class="xe-iconfont xe-icon-xiaoxi">
+                        <router-link tag="div" :to="{name: 'Setting', query: {phone: userInfo.mobile}}" class="xe-iconfont xe-icon-settings"></router-link>
+                    </div>
+            </div>
+        </div> -->
+        <div class="m-my-header">
+            <div class="m-my-header-top">
+                <div class="headerbtns" v-if="loginStatus">
+                    <router-link tag="div" :to="{name: 'Message'}" class="xe-iconfont xe-icon-xiaoxi">
                         <em v-show="showcircle" class="xx-circle"></em>
                     </router-link>
-                    <router-link tag="view" :to="{name: 'Setting', query: {phone: userInfo.mobile}}" class="xe-iconfont xe-icon-settings"></router-link>
-                </view>
-                <view class="m-user-msg m-content-view person-auth-style" @click.prevent="toUserInfo">
-                    <view class="pic">
+                    <router-link tag="div" :to="{name: 'Setting', query: {phone: userInfo.mobile}}" class="xe-iconfont xe-icon-settings"></router-link>
+                </div>
+                <div class="m-user-msg m-content-div person-auth-style" @click.prevent="toUserInfo">
+                    <div class="pic">
                         <img src="../../static/images/u-01.png" alt="">
-                    </view>
-                    <view v-show="!noLogin" class="msg">
-                        <view class="name" v-if="userInfo.shopName">{{userInfo.shopName}}</view>
-                        <!-- <view class="name" v-if="userInfo.shopName && authPerson.status === 3">{{userInfo.shopName}}</view> -->
-                        <view class="num">{{userInfo.mobile.substr(0, 3) + '****' + userInfo.mobile.substr(7)}}
-                            <view v-if="loginStatus" class="auth-lab" @click.stop="toPerson">
+                    </div>
+                    <div v-show="!noLogin" class="msg">
+                        <div class="name" v-if="userInfo.shopName">{{userInfo.shopName}}</div>
+                        <!-- <div class="name" v-if="userInfo.shopName && authPerson.status === 3">{{userInfo.shopName}}</div> -->
+                        <div class="num">{{userInfo.mobile.substr(0, 3) + '****' + userInfo.mobile.substr(7)}}
+                            <div v-if="loginStatus" class="auth-lab" @click.stop="toPerson">
                                 <span class="xe-iconfont xe-icon-renzheng1"></span>
                                 <template v-if="authPerson.status === '3'">已认证</template>
                                 <template v-else>身份认证</template>
                                 <span class="xe-iconfont xe-icon-unfold"></span>
-                            </view>
-                        </view>
-                    </view>
-                    <view v-show="noLogin" class="msg f32 arrow-right-commons">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-show="noLogin" class="msg f32 arrow-right-commons">
                         登录/注册
-                    </view>
-                </view>
-            </view>
-            <view class="m-my-header-bot">
-                <view class="m-my-item" style="width:100%">
-                    <view class="m-list-block">
+                    </div>
+                </div>
+            </div>
+            <div class="m-my-header-bot">
+                <div class="m-my-item" style="width:100%">
+                    <div class="m-list-block">
                         <ul>
                             <li class="item-content">
-                                <view class="item-inner" style="background:#fff">
-                                    <view class="item-title">我的钱包</view>
-                                </view>
-                                <view class="item-inner"  style="background:#fff;margin-left:178px">
-                                <!-- <view class="item-title" @click.prevent="toSeller"  style="padding-left:120px;color: darkgray;font-weight: 400;">实名认证></view> -->
-                            </view>
+                                <div class="item-inner" style="background:#fff">
+                                    <div class="item-title">我的钱包</div>
+                                </div>
+                                <div class="item-inner"  style="background:#fff;margin-left:178px">
+                                <!-- <div class="item-title" @click.prevent="toSeller"  style="padding-left:120px;color: darkgray;font-weight: 400;">实名认证></div> -->
+                            </div>
                             </li>
                         </ul>
-                        <view class="m-my-navs">
+                        <div class="m-my-navs">
                             <a @click.prevent="navToCoupon">
-                                <view class="user-number">{{userInfo.couponCount ? userInfo.couponCount : 0}}</view>
-                                <view class="user-item">我的奖励</view>
+                                <div class="user-number">{{userInfo.couponCount ? userInfo.couponCount : 0}}</div>
+                                <div class="user-item">我的奖励</div>
                             </a>
                             <a @click.prevent="navToCoupon">
-                                <view class="user-number">{{userInfo.couponCount ? userInfo.couponCount : 0}}</view>
-                                <view class="user-item">优惠券</view>
+                                <div class="user-number">{{userInfo.couponCount ? userInfo.couponCount : 0}}</div>
+                                <div class="user-item">优惠券</div>
                             </a>
                             <a @click.prevent="navToMyBankList">
-                                <view class="user-number">{{userBankCount ? userBankCount : 0}}</view>
-                                <view class="user-item">银行卡</view>
+                                <div class="user-number">{{userBankCount ? userBankCount : 0}}</div>
+                                <div class="user-item">银行卡</div>
                             </a>
-                        </view>
-                    </view>
-                </view>
+                        </div>
+                    </div>
+                </div>
                 <!-- <a @click.prevent="navToCoupon">
-                    <view class="user-number">{{userInfo.couponCount ? userInfo.couponCount : 0}}</view>
-                    <view class="user-item">优惠券</view>
+                    <div class="user-number">{{userInfo.couponCount ? userInfo.couponCount : 0}}</div>
+                    <div class="user-item">优惠券</div>
                 </a>
                 <a @click.prevent="navToMyBankList">
-                    <view class="user-number">{{userBankCount ? userBankCount : 0}}</view>
-                    <view class="user-item">银行卡</view>
+                    <div class="user-number">{{userBankCount ? userBankCount : 0}}</div>
+                    <div class="user-item">银行卡</div>
                 </a> -->
-            </view>
-        </view>
-        <view class="m-my-item" style="margin-top:1rem">
-            <view class="m-list-block">
+            </div>
+        </div>
+        <div class="m-my-item" style="margin-top:1rem">
+            <div class="m-list-block">
                 <ul>
                     <li class="item-content">
-                        <view class="item-inner" style="background:#fff">
-                            <view class="item-title">我的订单</view>
-                        </view>
-                        <view class="item-inner" @click.prevent="navToOrder(0)" style="background:#fff;">
-                            <view class="item-title"  style="padding-left:120px;color: darkgray;font-weight: 400;">全部订单></view>
-                        </view>
+                        <div class="item-inner" style="background:#fff">
+                            <div class="item-title">我的订单</div>
+                        </div>
+                        <div class="item-inner" @click.prevent="navToOrder(0)" style="background:#fff;">
+                            <div class="item-title"  style="padding-left:120px;color: darkgray;font-weight: 400;">全部订单></div>
+                        </div>
                     </li>
                 </ul>
-            </view>
-            <view class="m-my-navs">
-                <view @click.prevent="navToOrder(5)">
-                    <view class="pic">
+            </div>
+            <div class="m-my-navs">
+                <div @click.prevent="navToOrder(5)">
+                    <div class="pic">
                         <img src="../../static/images/u-02.png" alt="">
-                        <view class="badge" v-if="userInfo.notPayCount > 0">{{userInfo.notPayCount}}</view>
-                    </view>
-                    <view class="text">待付款</view>
-                </view>
-                <view @click.prevent="navToOrder(3)">
-                    <view class="pic">
+                        <div class="badge" v-if="userInfo.notPayCount > 0">{{userInfo.notPayCount}}</div>
+                    </div>
+                    <div class="text">待付款</div>
+                </div>
+                <div @click.prevent="navToOrder(3)">
+                    <div class="pic">
                         <img src="../../static/images/u-03.png" alt="">
-                        <view class="badge" v-if="userInfo.payCount > 0">{{userInfo.payCount}}</view>
-                    </view>
-                    <view class="text">待发货</view>
-                </view>
-                <view @click.prevent="navToOrder(2)">
-                    <view class="pic">
+                        <div class="badge" v-if="userInfo.payCount > 0">{{userInfo.payCount}}</div>
+                    </div>
+                    <div class="text">待发货</div>
+                </div>
+                <div @click.prevent="navToOrder(2)">
+                    <div class="pic">
                         <img src="../../static/images/u-04.png" alt="">
-                        <view class="badge" v-if="userInfo.deliverCount > 0">{{userInfo.deliverCount}}</view>
-                    </view>
-                    <view class="text">待收货</view>
-                </view>
-            </view>
-            <view class="my-logistics"  v-if="orderLogisticsInfo"  @click.prevent="queryLogistic(orderLogisticsInfo.orderIdStr)">
-                <view class="my-logistics-left">
+                        <div class="badge" v-if="userInfo.deliverCount > 0">{{userInfo.deliverCount}}</div>
+                    </div>
+                    <div class="text">待收货</div>
+                </div>
+            </div>
+            <div class="my-logistics"  v-if="orderLogisticsInfo"  @click.prevent="queryLogistic(orderLogisticsInfo.orderIdStr)">
+                <div class="my-logistics-left">
                     <p class="text">最新物流</p>
                     <p class="time">{{orderLogisticsInfo.createDateStr.split(' ')[0].split('-').slice(1).join('-')}}</p>
-                </view>
-                <view class="my-logistics-right">
-                    <view class="img">
+                </div>
+                <div class="my-logistics-right">
+                    <div class="img">
                         <img :src="orderLogisticsInfo.picServer + orderLogisticsInfo.proImage" alt="">
-                    </view>
-                    <view class="msg">
-                        <view class="status">
+                    </div>
+                    <div class="msg">
+                        <div class="status">
                             <em class="xe-iconfont" :class="classObject"></em>{{orderLogisticsInfo.logtsStatus | logtsStatusToText}}
-                        </view>
-                        <view class="tips">
+                        </div>
+                        <div class="tips">
                             {{orderLogisticsInfo.logtsDesc}}
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="m-my-item">
-            <view class="m-list-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-my-item">
+            <div class="m-list-block">
                 <ul>
                     <!-- <li class="item-content item-link align-right">
-                        <view class="item-inner" style="background:#fff">
-                            <view class="item-title f32">我的意向单</view>
-                        </view>
+                        <div class="item-inner" style="background:#fff">
+                            <div class="item-title f32">我的意向单</div>
+                        </div>
                     </li> -->
                 </ul>
-            </view>
-            <!-- <view class="m-my-navs">
-                <view @click.prevent="navToInquiry(1)">
-                    <view class="pic">
+            </div>
+            <!-- <div class="m-my-navs">
+                <div @click.prevent="navToInquiry(1)">
+                    <div class="pic">
                         <img src="../../static/images/u-06.png" alt="">
-                        <view class="badge" v-if="userInfo.confirmCountWish > 0">{{userInfo.confirmCountWish}}</view>
-                    </view>
-                    <view class="text">待确认</view>
-                </view>
-                <view @click.prevent="navToInquiry(2)">
-                    <view class="pic">
+                        <div class="badge" v-if="userInfo.confirmCountWish > 0">{{userInfo.confirmCountWish}}</div>
+                    </div>
+                    <div class="text">待确认</div>
+                </div>
+                <div @click.prevent="navToInquiry(2)">
+                    <div class="pic">
                         <img src="../../static/images/u-07.png" alt="">
-                        <view class="badge" v-if="userInfo.finishCountWish > 0">{{userInfo.finishCountWish}}</view>
-                    </view>
-                    <view class="text">已完成</view>
-                </view>
-                <view @click.prevent="navToInquiry(3)">
-                    <view class="pic">
+                        <div class="badge" v-if="userInfo.finishCountWish > 0">{{userInfo.finishCountWish}}</div>
+                    </div>
+                    <div class="text">已完成</div>
+                </div>
+                <div @click.prevent="navToInquiry(3)">
+                    <div class="pic">
                         <img src="../../static/images/u-08.png" alt="">
-                        <view class="badge" v-if="userInfo.loseCountWish > 0">{{userInfo.loseCountWish}}</view>
-                    </view>
-                    <view class="text">已失效</view>
-                </view>
-                <view @click.prevent="navToInquiry(1)">
-                    <view class="pic">
+                        <div class="badge" v-if="userInfo.loseCountWish > 0">{{userInfo.loseCountWish}}</div>
+                    </div>
+                    <div class="text">已失效</div>
+                </div>
+                <div @click.prevent="navToInquiry(1)">
+                    <div class="pic">
                         <img src="../../static/images/u-09.png" alt="">
-                    </view>
-                    <view class="text">全部意向单</view>
-                </view>
-            </view> -->
-        </view>
-        <view class="my-userlist-content">
+                    </div>
+                    <div class="text">全部意向单</div>
+                </div>
+            </div> -->
+        </div>
+        <div class="my-userlist-content">
             <ul>
                 <!-- <li @click.prevent="navToWallet">
                     <span class="xe-iconfont xe-icon-wodezhanghu"></span>
-                    <view>我的账户</view>
+                    <div>我的账户</div>
                 </li> -->
                 <!-- <li @click.prevent="navToMyAuction">
                     <span class="xe-iconfont xe-icon-jingpai"></span>
-                    <view>我的竞拍</view>
+                    <div>我的竞拍</div>
                 </li> -->
                 <!-- <li @click.prevent="navToInquiryList">
                     <span class="xe-iconfont xe-icon-xunjiadan3"></span>
-                    <view>询价单</view>
+                    <div>询价单</div>
                 </li> -->
                 
                 <!-- <li>
                     <a href="tel:400-662-6366" >
                         <span class="xe-iconfont xe-icon-dianhua1"></span>
-                        <view>热线电话</view>
-                        <view>400-662-6366&nbsp;&nbsp;&nbsp;</view>
+                        <div>热线电话</div>
+                        <div>400-662-6366&nbsp;&nbsp;&nbsp;</div>
                     </a>
                 </li> -->
                 <li @click.prevent="extension">
                     <span class="xe-iconfont xe-icon-yijianfankui1"></span>
-                    <view>我要推广</view>
+                    <div>我要推广</div>
                     
                 </li>
                 <!-- <li @click.prevent="toKeFu">
                     <span class="xe-iconfont icon-zaixiankefu"></span>
-                    <view>在线客服</view>
+                    <div>在线客服</div>
                 </li> -->
                 <li @click.prevent="toPartner">
                     <span class="xe-iconfont xe-icon-yijianfankui1"></span>
                     
-                    <view>成为合伙人</view>
+                    <div>成为合伙人</div>
                     <i style="padding-right:100px">{{msg1}}</i>
                 </li>
                 <li @click.prevent="toSeller">
                     <span class="xe-iconfont xe-icon-yijianfankui1"></span>
                     
-                    <view>成为卖家</view>
+                    <div>成为卖家</div>
                     <i style="padding-right:100px">{{msg}}</i>
                 </li>
                 
                 <li @click.prevent="navToAdrList">
                     <span class="xe-iconfont xe-icon-dizhi"></span>
-                    <view>收货地址</view>
+                    <div>收货地址</div>
                 </li>
                 <li @click.prevent="feedback">
                     <span class="xe-iconfont xe-icon-yijianfankui1"></span>
-                    <view>意见反馈</view>
+                    <div>意见反馈</div>
                 </li>
             </ul>
-        </view>
+        </div>
         <xe-logistics slot="outer" :show.sync="logisticsVisible" :datas="logisticInfo"></xe-logistics>
     </xe-layout>
 </template>
@@ -778,7 +778,7 @@
         &.no-border {
             border: none;
         }
-        > view {
+        > div {
             flex: 1;
             margin-right: 20/$ppr;
             padding: 30/$ppr 0;
@@ -823,7 +823,7 @@
         }
     }
     .m-my-navs {
-        > view {
+        > div {
             padding: 15/$ppr 0 22/$ppr 0;
         }
     }

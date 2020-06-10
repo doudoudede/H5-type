@@ -1,37 +1,37 @@
 <template>
-    <view class="m-support-con">
-        <view class="m-support-top">
+    <div class="m-support-con">
+        <div class="m-support-top">
             <h3>如来云商支付服务协议</h3>
             <p>【概述及审慎阅读】</p>
             <p>本协议是如来云商、与如来云商合作的第三方支付公司（本公司）与您就支付服务所订立的有效合约，您通过网络页面点击确认或以其他方式接受本协议，即表示您与如来云商及与如来云商合作的第三方支付公司已达成协议并同意接受本协议的全部约定内容。在接受本协议前，请您仔细阅读本协议全部内容（特别是以粗体标注的内容）。如您不同意接受本协议的任意内容，请不要进行后续操作</p>
-        </view>
-        <view>
-            <view class="m-support-item m-item-list" style="margin: 0" v-for="(item, index) in itemData" :key="index">
-                <view class="m-list-block" @click.prevent="item.show = !item.show">
+        </div>
+        <div>
+            <div class="m-support-item m-item-list" style="margin: 0" v-for="(item, index) in itemData" :key="index">
+                <div class="m-list-block" @click.prevent="item.show = !item.show">
                     <ul>
                         <!-- <li class="item-content item-link">
-                            <view class="item-inner">
-                                <view class="item-title f32">{{item.title}}</view>
-                            </view>
+                            <div class="item-inner">
+                                <div class="item-title f32">{{item.title}}</div>
+                            </div>
                         </li> -->
                         <li>
-                             <view class="item-content item-link">
-                                <view class="item-inner">
-                                    <view class="item-text">{{item.title}}</view>
-                                </view>
-                            </view>
+                             <div class="item-content item-link">
+                                <div class="item-inner">
+                                    <div class="item-text">{{item.title}}</div>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                </view>
+                </div>
                 <CollapseTransition>
-                    <view class="m-support-text" v-show="item.show">
+                    <div class="m-support-text" v-show="item.show">
                         <p v-for="(content, cindex) in item.content" :key="cindex" v-html="content.text">
                         </p>
-                    </view>
+                    </div>
                 </CollapseTransition>
-            </view>
-        </view>
-    </view>
+            </div>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import CollapseTransition from 'utils/collapse-transition';

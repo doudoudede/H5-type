@@ -1,14 +1,14 @@
 <template>
-    <view class="m-layout">
-        <view class="g-flexview" :class="{'navBottom': !$route.meta.noShowBar}">
+    <div class="m-layout">
+        <div class="g-flexview" :class="{'navBottom': !$route.meta.noShowBar}">
             <slot name="header"></slot>
-            <view class="scrollview" id="scrollview">
+            <div class="scrollview" id="scrollview">
                 <slot></slot>
-            </view>
+            </div>
             <slot name="footer"></slot>
-        </view>
+        </div>
         <slot name="outer"></slot>
-    </view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default {

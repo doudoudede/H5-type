@@ -1,7 +1,7 @@
 <template>
-    <view class="van-checkbox-group">
+    <div class="van-checkbox-group">
         <slot></slot>
-    </view>
+    </div>
 </template>
 
 <script>

@@ -13,18 +13,18 @@ const router = new VueRouter({
 
 // router.beforeEach((to, from, next) => {
 //     document.title = to.meta.name;
-//     let areaRegionMap = getLocalStorage('REGIONMAP');
-//     let loginStatus = getLocalStorage('LOGINSTATUS');
+//     let areaRegionMap = getLocalStorage('REGIONMaP');
+//     let loginStatus = getLocalStorage('LOGINSTaTUS');
 //     if (loginStatus === 'undefined') {
-//         removeLocalStorage('LOGINSTATUS');
+//         removeLocalStorage('LOGINSTaTUS');
 //     }
-//     if (to.meta.noAuthArea) {
+//     if (to.meta.noautharea) {
 //         // 不需要验证是否有区域信息
 //         next();
 //     } else {
-//         if ((to.name === 'PersonalInfor' || to.name === 'AuFailure' || to.name === 'IdentityAuthentication' || to.name === 'AuctionArea' || to.name === 'MyAuction') && to.query.loginStatus && to.query.areaId) {
-//             // 实名认证且是在APP下打开
-//             setLocalStorage('REGIONMAP', JSON.stringify({
+//         if ((to.name === 'PersonalInfor' || to.name === 'auFailure' || to.name === 'Identityauthentication' || to.name === 'auctionarea' || to.name === 'Myauction') && to.query.loginStatus && to.query.areaId) {
+//             // 实名认证且是在aPP下打开
+//             setLocalStorage('REGIONMaP', JSON.stringify({
 //                 areaId: decodeURI(to.query.areaId),
 //                 areaName: decodeURI(to.query.areaName),
 //                 cityId: decodeURI(to.query.cityId),
@@ -32,7 +32,7 @@ const router = new VueRouter({
 //                 provinceId: decodeURI(to.query.provinceId),
 //                 provinceName: decodeURI(to.query.provinceName)
 //             }));
-//             setLocalStorage('LOGINSTATUS', to.query.loginStatus);
+//             setLocalStorage('LOGINSTaTUS', to.query.loginStatus);
 //             next();
 //         } else {
 //             if (!areaRegionMap) {

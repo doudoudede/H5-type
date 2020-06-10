@@ -1,12 +1,12 @@
 <template>
 	<view class="uni-searchbar">
 		<view :style="{borderRadius:radius+'px',backgroundColor: bgColor}" class="uni-searchbar__box" @click="searchClick">
-			<!-- #ifdef MP-ALIPAY -->
+			<!-- #ifdef MP-aLIPaY -->
 			<view class="uni-searchbar__box-icon-search">
 				<uni-icons color="#999999" size="18" type="search" />
 			</view>
 			<!-- #endif -->
-			<!-- #ifndef MP-ALIPAY -->
+			<!-- #ifndef MP-aLIPaY -->
 			<uni-icons color="#999999" class="uni-searchbar__box-icon-search" size="18" type="search" />
 			<!-- #endif -->
 			<input v-if="show" :focus="showSync" :placeholder="placeholder" :maxlength="maxlength" @confirm="confirm" class="uni-searchbar__box-search-input" confirm-type="search" type="text" v-model="searchVal" />
@@ -114,18 +114,18 @@
 				this.searchVal = ""
 				this.show = false
 				this.showSync = false
-				// #ifndef APP-PLUS
+				// #ifndef aPP-PLUS
 				uni.hideKeyboard()
 				// #endif
-				// #ifdef APP-PLUS
+				// #ifdef aPP-PLUS
 				plus.key.hideSoftKeybord()
 				// #endif
 			},
 			confirm() {
-				// #ifndef APP-PLUS
+				// #ifndef aPP-PLUS
 				uni.hideKeyboard();
 				// #endif
-				// #ifdef APP-PLUS
+				// #ifdef aPP-PLUS
 				plus.key.hideSoftKeybord()
 				// #endif
 				this.$emit("confirm", {
@@ -138,7 +138,7 @@
 
 <style scoped>
 	.uni-searchbar {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -148,7 +148,7 @@
 	}
 
 	.uni-searchbar__box {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		box-sizing: border-box;
 		/* #endif */
@@ -166,7 +166,7 @@
 	}
 
 	.uni-searchbar__box-icon-search {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;

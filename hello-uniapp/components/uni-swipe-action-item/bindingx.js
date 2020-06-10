@@ -15,7 +15,7 @@ export default {
 		show(newVal) {
 			if (!this.position || JSON.stringify(this.position) === '{}') return;
 			if (this.autoClose) return
-			if (this.isInAnimation) return
+			if (this.isInanimation) return
 			if (newVal) {
 				this.open()
 			} else {
@@ -65,7 +65,7 @@ export default {
 			})
 		},
 		touchstart(e) {
-			if (this.isInAnimation) return
+			if (this.isInanimation) return
 			if (this.stop) return
 			this.stop = true
 			if (this.autoClose) {
@@ -113,7 +113,7 @@ export default {
 		},
 		touchend(e) {
 			this.$nextTick(() => {
-				if (this.isopen && !this.isDrag && !this.isInAnimation) {
+				if (this.isopen && !this.isDrag && !this.isInanimation) {
 					this.close()
 				}
 			})
@@ -152,7 +152,7 @@ export default {
 			this.isDrag = true
 			let endWidth = this.right
 			let time = 200
-			this.isInAnimation = true;
+			this.isInanimation = true;
 
 			let exit = `t>${time}`;
 			let translate_x_expression = `easeOutExpo(t,${this.x},${type?(-endWidth-this.x):(-this.x)},${time})`
@@ -185,7 +185,7 @@ export default {
 			}, (e) => {
 				if (e.state === 'end' || e.state === 'exit') {
 					this.x = type ? -endWidth : 0
-					this.isInAnimation = false;
+					this.isInanimation = false;
 
 					this.isopen = this.isopen || false
 					if (this.isopen !== type) {

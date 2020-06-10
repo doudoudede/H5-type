@@ -71,7 +71,7 @@ export default {
 		getSize() {
 			const views = uni.createSelectorQuery().in(this)
 			views
-				.selectAll('.selector-query-hock')
+				.selectall('.selector-query-hock')
 				.boundingClientRect(data => {
 					if (this.autoClose) {
 						data[0].show = false
@@ -85,7 +85,7 @@ export default {
 		getButtonSize() {
 			const views = uni.createSelectorQuery().in(this)
 			views
-				.selectAll('.button-hock')
+				.selectall('.button-hock')
 				.boundingClientRect(data => {
 					this.button = data
 				})

@@ -1,33 +1,33 @@
 <template>
     <xe-layout>
-        <view class="m-support-con">
-            <view class="m-support-top">
+        <div class="m-support-con">
+            <div class="m-support-top">
                 <h3>如来云商身份认证服务协议</h3>
                 <p>身份认证服务协议（以下简称“本协议”）所述内容是身份认证服务是由河南如来云商络科技有限公司 （以下简称“如来云商/本公司”）提供如来云商用户（以下简称“用户”）身份认证服务所达成的协议。</p>
-            </view>
-            <view>
-                <view class="m-support-item" v-for="(item, index) in itemData" :key="index">
-                    <view class="m-list-block" @click.prevent="item.show = !item.show">
+            </div>
+            <div>
+                <div class="m-support-item" v-for="(item, index) in itemData" :key="index">
+                    <div class="m-list-block" @click.prevent="item.show = !item.show">
                         <ul>
                             <li class="item-content item-link">
-                                <view class="item-inner">
-                                    <view class="item-title f32">{{item.title}}</view>
-                                </view>
+                                <div class="item-inner">
+                                    <div class="item-title f32">{{item.title}}</div>
+                                </div>
                             </li>
                         </ul>
-                    </view>
+                    </div>
                     <CollapseTransition>
-                        <view class="m-support-text" v-show="item.show">
+                        <div class="m-support-text" v-show="item.show">
                             <p v-for="(content, cindex) in item.content" :key="cindex" v-html="content.text">
                             </p>
-                        </view>
+                        </div>
                     </CollapseTransition>
-                </view>
-            </view>
-        </view>
-        <view class="person-repeat">
+                </div>
+            </div>
+        </div>
+        <div class="person-repeat">
             <mt-button class="xe-button-primary" @click.prevent="goBackFn">返回</mt-button>
-        </view>
+        </div>
     </xe-layout>
 </template>
 <script type="text/ecmascript-6">

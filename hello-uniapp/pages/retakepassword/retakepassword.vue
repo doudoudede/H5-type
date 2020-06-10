@@ -1,53 +1,53 @@
 <template>
     <xe-layout>
-        <view class="ml-list ml-list-top50">
-            <view class="ml-list-item">
-                <view class="con">
+        <div class="ml-list ml-list-top50">
+            <div class="ml-list-item">
+                <div class="con">
                     <input class="input-cls" v-model="reTakeTel" placeholder="输入手机号" type="tel">
-                </view>
-                <view class="act">
+                </div>
+                <div class="act">
                     <span class="xe-iconfont xe-icon-cuowu" v-show="reTakeTel.length" @click.prevent="reTakeTel = ''"></span>
-                </view>
-                <view class="getyzm" :class="{'nodisabled': reTakeTel && reTakeTel.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</view>
-            </view>
-            <view class="ml-list-item">
-                <view class="con">
+                </div>
+                <div class="getyzm" :class="{'nodisabled': reTakeTel && reTakeTel.length === 11}" @click="getYzmCode">{{isNaN(yzbtnText) ? yzbtnText : yzbtnText + 's'}}</div>
+            </div>
+            <div class="ml-list-item">
+                <div class="con">
                     <input class="input-cls" v-model="reTakeYzm" placeholder="输入验证码" maxlength="4" type="tel">
-                </view>
-                <view class="act">
+                </div>
+                <div class="act">
                     <span class="xe-iconfont xe-icon-cuowu" v-show="reTakeYzm.length" @click.prevent="reTakeYzm = ''"></span>
-                </view>
-            </view>
-            <view class="ml-list-item">
-                <view class="con">
+                </div>
+            </div>
+            <div class="ml-list-item">
+                <div class="con">
                     <input v-if="pwdType" class="input-cls" v-model="reTakePass" placeholder="输入密码(6-20数字+字母)" type="text">
                     <input v-else class="input-cls" v-model="reTakePass" placeholder="输入密码(6-20数字+字母)" type="password">
-                </view>
-                <view class="act">
+                </div>
+                <div class="act">
                     <span class="xe-iconfont " :class="[pwdType ? 'xe-icon-yanjing2' : 'xe-icon-yanjing']" @click.prevent="pwdType = !pwdType"></span>
                     <span class="xe-iconfont xe-icon-cuowu" v-if="reTakePass.length" @click.prevent="reTakePass = ''"></span>
-                </view>
-            </view>
-        </view>
-        <view class="m-login-btn">
+                </div>
+            </div>
+        </div>
+        <div class="m-login-btn">
             <mt-button type="primary" :disabled="disabledFlag" class="xe-button-primary" style="width: 100%;" @click.prevent="findPwd">确 定</mt-button>
-        </view>
+        </div>
         <!--Dialog-->
         <xe-dialog slot="outer" :show.sync="yzmDialog">
-            <view class="yzmcons">
-                <view class="yzm-input">
-                    <view class="yzm-inputin">
+            <div class="yzmcons">
+                <div class="yzm-input">
+                    <div class="yzm-inputin">
                         <input type="text" v-model="yzmvalue" maxlength="4" placeholder="请输入图形验证码">
-                    </view>
-                    <view class="yzmimgcon" @click.prevent="getImgCode">
+                    </div>
+                    <div class="yzmimgcon" @click.prevent="getImgCode">
                         <img :src="yzmImgCodeUrl" id="yzmImgsrc">
-                    </view>
-                </view>
-                <view class="yzm-tips">为了您的账户安全，请输入图文验证码！</view>
-            </view>
+                    </div>
+                </div>
+                <div class="yzm-tips">为了您的账户安全，请输入图文验证码！</div>
+            </div>
             <template slot="footer">
-                <view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>
-                <view class="m-dialog-btn sure" @click="yzmDialogSure">确认</view>
+                <div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>
+                <div class="m-dialog-btn sure" @click="yzmDialogSure">确认</div>
             </template>
         </xe-dialog>
     </xe-layout>

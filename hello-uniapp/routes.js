@@ -19,7 +19,7 @@ const appRouter = [{
             name: '定位',
             scrollToTop: true,
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/location/location'], resolve)
     },
@@ -59,7 +59,7 @@ const appRouter = [{
         meta: {
             name: '搜索',
             scrollToTop: true,
-            keepAlive: true,
+            keepalive: true,
             noShowBar: true
         },
         component: resolve => require(['pages/search/search'], resolve)
@@ -70,13 +70,13 @@ const appRouter = [{
         meta: {
             name: '商品列表',
             noShowBar: true,
-            keepAlive: true
+            keepalive: true
         },
         component: resolve => require(['pages/searchresult/searchresult'], resolve)
     },
     {
         path: '/alwaysbuy',
-        name: 'AlwaysBuy',
+        name: 'alwaysBuy',
         meta: {
             name: '常购清单',
             scrollToTop: true,
@@ -91,7 +91,7 @@ const appRouter = [{
             name: '秒杀专区',
             scrollToTop: true,
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/seckillList/seckillList'], resolve)
     },
@@ -102,7 +102,7 @@ const appRouter = [{
             name: '预售专区',
             scrollToTop: true,
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/presell/preSell'], resolve)
     },
@@ -155,7 +155,7 @@ const appRouter = [{
         name: 'List',
         meta: {
             name: '列表',
-            keepAlive: true
+            keepalive: true
         },
         component: resolve => require(['pages/list/list'], resolve)
     },
@@ -174,7 +174,7 @@ const appRouter = [{
         name: 'Category',
         meta: {
             name: '分类',
-            keepAlive: true
+            keepalive: true
         },
         component: resolve => require(['pages/category/category'], resolve)
     },
@@ -184,7 +184,7 @@ const appRouter = [{
         meta: {
             noShowBar: true,
             name: '分类',
-            keepAlive: true
+            keepalive: true
         },
         component: resolve => require(['pages/category/categoryDetails'], resolve)
     },
@@ -232,7 +232,7 @@ const appRouter = [{
                 meta: {
                     name: '店铺搜索',
                     noShowBar: true,
-                    keepAlive: true
+                    keepalive: true
                 },
                 component: resolve => require(['pages/store/storesearch'], resolve)
             }
@@ -243,7 +243,7 @@ const appRouter = [{
         name: 'OrderList',
         meta: {
             name: '订单列表',
-            keepAlive: true,
+            keepalive: true,
             auth: true,
             noShowBar: true
         },
@@ -254,7 +254,7 @@ const appRouter = [{
                 meta: {
                     name: '订单详情',
                     auth: true,
-                    keepAlive: true,
+                    keepalive: true,
                     noShowBar: true
                 },
                 component: resolve => require(['pages/orderlist/orderdet'], resolve)
@@ -265,13 +265,13 @@ const appRouter = [{
                 meta: {
                     name: '订单跟踪',
                     auth: true,
-                    keepAlive: true,
+                    keepalive: true,
                     noShowBar: true
                 },
                 component: resolve => require(['pages/orderlist/ordertracking'], resolve)
             }
-            // {     path: ':id',     name: 'AfterSale',     meta: {         name: '售后详情',
-            //     auth: true,         keepAlive: true,         noShowBar: true     },
+            // {     path: ':id',     name: 'afterSale',     meta: {         name: '售后详情',
+            //     auth: true,         keepalive: true,         noShowBar: true     },
             // component: resolve => require(['pages/orderlist/aftersale'], resolve) }
         ]
     },
@@ -280,7 +280,7 @@ const appRouter = [{
         name: 'InquiryList',
         meta: {
             name: '询价单',
-            keepAlive: true,
+            keepalive: true,
             auth: true,
             noShowBar: true
         },
@@ -403,7 +403,7 @@ const appRouter = [{
                 meta: {
                     name: '商品列表',
                     noShowBar: true
-                        // keepAlive: true
+                        // keepalive: true
                 },
                 component: resolve => require(['pages/couponlist/usecouponpro'], resolve)
             }
@@ -415,7 +415,7 @@ const appRouter = [{
         meta: {
             name: '帮助中心',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/support/support'], resolve)
     },
@@ -425,29 +425,29 @@ const appRouter = [{
         meta: {
             name: '如来云商侵权投诉与申诉规则',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/support/infringement'], resolve)
     },
     {
-        path: '/biddingAgreement',
-        name: 'biddingAgreement',
+        path: '/biddingagreement',
+        name: 'biddingagreement',
         meta: {
             name: '招标服务协议',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
-        component: resolve => require(['pages/support/biddingAgreement'], resolve)
+        component: resolve => require(['pages/support/biddingagreement'], resolve)
     },
     {
-        path: '/bidAgreement',
-        name: 'bidAgreement',
+        path: '/bidagreement',
+        name: 'bidagreement',
         meta: {
             name: '竞标服务协议',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
-        component: resolve => require(['pages/support/bidAgreement'], resolve)
+        component: resolve => require(['pages/support/bidagreement'], resolve)
     },
     {
         path: '/bidRules',
@@ -455,19 +455,19 @@ const appRouter = [{
         meta: {
             name: '如来云商招标投标活动管理规则',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/support/bidRules'], resolve)
     },
     {
-        path: '/paymentAgreement',
-        name: 'PaymentAgreement',
+        path: '/paymentagreement',
+        name: 'Paymentagreement',
         meta: {
             name: '支付协议',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
-        component: resolve => require(['pages/support/paymentAgreement'], resolve)
+        component: resolve => require(['pages/support/paymentagreement'], resolve)
     },
     {
         path: '/supportTwo',
@@ -475,13 +475,13 @@ const appRouter = [{
         meta: {
             name: '帮助中心',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/supportTwo/supportTwo'], resolve)
     },
     {
         path: '/aboutus',
-        name: 'AboutUs',
+        name: 'aboutUs',
         meta: {
             name: '关于我们',
             noShowBar: true
@@ -490,7 +490,7 @@ const appRouter = [{
     },
     {
         path: '/adrlist',
-        name: 'AdrList',
+        name: 'adrList',
         meta: {
             name: '收货地址',
             noShowBar: true
@@ -499,7 +499,7 @@ const appRouter = [{
     },
     {
         path: '/addnewadr',
-        name: 'AddNewAdr',
+        name: 'addNewadr',
         meta: {
             name: '新增地址',
             noShowBar: true
@@ -539,7 +539,7 @@ const appRouter = [{
         meta: {
             name: '售后政策',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/cutility/cutility'], resolve)
     },
@@ -549,7 +549,7 @@ const appRouter = [{
         meta: {
             name: '意见反馈',
             noShowBar: true,
-            noAuthArea: true // 不验证是否有区域信息
+            noautharea: true // 不验证是否有区域信息
         },
         component: resolve => require(['pages/feedback/feedback'], resolve)
     },
@@ -583,7 +583,7 @@ const appRouter = [{
     },
     {
         path: '/auFailure', // 身份认证状态回馈页
-        name: 'AuFailure',
+        name: 'auFailure',
         meta: {
             name: '身份认证',
             auth: true,
@@ -622,18 +622,18 @@ const appRouter = [{
         component: resolve => require(['pages/personalInfor/certificationDetails'], resolve)
     },
     {
-        path: '/identityAuthentication', // 身份认证起始页
-        name: 'IdentityAuthentication',
+        path: '/identityauthentication', // 身份认证起始页
+        name: 'Identityauthentication',
         meta: {
             name: '身份认证',
             auth: true,
             noShowBar: true
         },
-        component: resolve => require(['pages/personalInfor/identityAuthentication'], resolve)
+        component: resolve => require(['pages/personalInfor/identityauthentication'], resolve)
     },
     {
         path: '/authSupport', // 身份认证服务协议
-        name: 'AuthSupport',
+        name: 'authSupport',
         meta: {
             name: '身份认证服务协议',
             auth: true,
@@ -651,17 +651,17 @@ const appRouter = [{
         component: resolve => require(['pages/contactads/helan61'], resolve)
     },
     {
-        path: '/myAuction',
-        name: 'MyAuction',
+        path: '/myauction',
+        name: 'Myauction',
         meta: {
             name: '我的竞拍',
             noShowBar: true
         },
-        component: resolve => require(['pages/auction/myAuction'], resolve)
+        component: resolve => require(['pages/auction/myauction'], resolve)
     },
     {
         path: '/auctionDetails',
-        name: 'AuctionDetails',
+        name: 'auctionDetails',
         meta: {
             name: '竞拍详情',
             noShowBar: true
@@ -670,7 +670,7 @@ const appRouter = [{
     },
     {
         path: '/auctionProDetails',
-        name: 'AuctionProDetails',
+        name: 'auctionProDetails',
         meta: {
             name: '竞拍商品',
             noShowBar: true
@@ -678,13 +678,13 @@ const appRouter = [{
         component: resolve => require(['pages/auction/auctionProDetails'], resolve)
     },
     {
-        path: '/auctionArea',
-        name: 'AuctionArea',
+        path: '/auctionarea',
+        name: 'auctionarea',
         meta: {
             name: '竞拍专区',
             noShowBar: true
         },
-        component: resolve => require(['pages/auction/auctionArea'], resolve)
+        component: resolve => require(['pages/auction/auctionarea'], resolve)
     },
     {
         path: '/filltheBidInfor',
@@ -715,21 +715,21 @@ const appRouter = [{
     },
     {
         path: '/audit',
-        name: 'AuDit',
+        name: 'auDit',
         meta: {
             name: '审核结果',
             noShowBar: true,
         },
-        component: resolve => require(['pages/audit/AuDit'], resolve)
+        component: resolve => require(['pages/audit/auDit'], resolve)
     },
     // {
     //     path: '/audit',
-    //     name: 'AuDit',
+    //     name: 'auDit',
     //     meta: {
     //         name: '审核结果',
     //         noShowBar: true,
     //     },
-    //     component: resolve => require(['pages/audit/AuDit'], resolve)
+    //     component: resolve => require(['pages/audit/auDit'], resolve)
     // },
     {
         path: '/shopDetial',

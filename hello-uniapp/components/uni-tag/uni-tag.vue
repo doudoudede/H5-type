@@ -85,7 +85,7 @@
 
 <style scoped>
 	.uni-tag {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		padding: 0px 16px;

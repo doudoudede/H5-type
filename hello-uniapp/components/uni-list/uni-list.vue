@@ -1,10 +1,10 @@
 <template>
-	<!-- #ifndef APP-NVUE -->
+	<!-- #ifndef aPP-NVUE -->
 	<view class="uni-list">
 		<slot />
 	</view>
 	<!-- #endif -->
-	<!-- #ifdef APP-NVUE -->
+	<!-- #ifdef aPP-NVUE -->
 	<list class="uni-list" :enableBackToTop="enableBackToTop" loadmoreoffset="15" :scroll-y="scrollY" @loadmore="loadMore">
 		<slot />
 	</list>
@@ -40,7 +40,7 @@
 			}
 		},
 		created() {
-			this.firstChildAppend = false
+			this.firstChildappend = false
 		},
 		methods: {
 			loadMore(e) {
@@ -51,7 +51,7 @@
 </script>
 <style scoped>
 	.uni-list {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		background-color: #ffffff;
@@ -65,7 +65,7 @@
  */
 	}
 
-	/* #ifndef APP-NVUE */
+	/* #ifndef aPP-NVUE */
 	.uni-list:before {
 		height: 0;
 	}

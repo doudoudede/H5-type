@@ -1,21 +1,21 @@
 <template>
-    <view class="popup-adr-con" v-if="cAdrDatas.length">
-        <view class="popup-adr-group">
-            <view class="adr-group-item" v-for="item in cAdrDatas" :key="item.caId" @click.prevent="adrChange(item)">
-                <view class="adr-group-check xe-iconfont" :class="{'checked': item.caId === result}"></view>
-                <view class="shUser clearfix">
+    <div class="popup-adr-con" v-if="cAdrDatas.length">
+        <div class="popup-adr-group">
+            <div class="adr-group-item" v-for="item in cAdrDatas" :key="item.caId" @click.prevent="adrChange(item)">
+                <div class="adr-group-check xe-iconfont" :class="{'checked': item.caId === result}"></div>
+                <div class="shUser clearfix">
                     <span class="fl">{{item.caConsignee}}</span>
                     <span class="fr">{{item.caPhone}}</span>
-                </view>
-                <view class="shadr">
+                </div>
+                <div class="shadr">
                     收货地址：{{item.caProvName}}{{item.caCityName}}{{item.caAreaName}}{{item.caStreet}}
-                </view>
-            </view>
-        </view>
-        <view class="adr-con-btns" @click.prevent="navToAddNewAdr">
+                </div>
+            </div>
+        </div>
+        <div class="adr-con-btns" @click.prevent="navToAddNewAdr">
             + 新建地址
-        </view>
-    </view>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     export default {

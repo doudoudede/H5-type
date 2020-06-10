@@ -1,50 +1,50 @@
 <template>
     <transition name="slideInRight">
-        <view class="m-order-tracking" v-if="logisticInfo">
-            <view class="m-tracktext">
-                <view class="m-tracktext-item">
-                    <view class="title">物流单号:</view>
-                    <view class="msg">{{logisticInfo.logtsCode}}</view>
-                </view>
-                <view class="m-tracktext-item">
-                    <view class="title">收货人:</view>
-                    <view class="msg">{{logisticInfo.caConsignee}} {{logisticInfo.caPhone}}</view>
-                </view>
-                <view class="m-tracktext-item">
-                    <view class="title">收货地址:</view>
-                    <view class="msg">{{logisticInfo.addrDetail}}</view>
-                </view>
-                <view class="m-tracktext-item" v-if="logisticInfo.logtsCompany">
-                    <view class="title">物流公司:</view>
-                    <view class="msg">{{logisticInfo.logtsCompany}}</view>
-                </view>
-                <view class="m-tracktext-item" v-if='logisticInfo.logtsNumber'>
-                    <view class="title">运单号:</view>
-                    <view class="msg">{{logisticInfo.logtsNumber}}</view>
-                </view>
-                <view class="m-tracktext-item" v-if="logisticInfo.driverCarNumber">
-                    <view class="title">车牌号:</view>
-                    <view class="msg">{{logisticInfo.driverCarNumber}}</view>
-                </view>
-                <view class="m-tracktext-item" v-if='logisticInfo.driverPhone'>
-                    <view class="title">联系方式:</view>
-                    <view class="msg">{{logisticInfo.driverName}} {{logisticInfo.driverPhone}}</view>
-                </view>
-            </view>
-            <view class="m-tracktext">
-                <view class="m-logistics-tracking">
-                    <view class="list-con" v-for="(item, index) in logisticInfo.logisticDetail" :class="{'current': index === 0}">
-                        <view class="time">
+        <div class="m-order-tracking" v-if="logisticInfo">
+            <div class="m-tracktext">
+                <div class="m-tracktext-item">
+                    <div class="title">物流单号:</div>
+                    <div class="msg">{{logisticInfo.logtsCode}}</div>
+                </div>
+                <div class="m-tracktext-item">
+                    <div class="title">收货人:</div>
+                    <div class="msg">{{logisticInfo.caConsignee}} {{logisticInfo.caPhone}}</div>
+                </div>
+                <div class="m-tracktext-item">
+                    <div class="title">收货地址:</div>
+                    <div class="msg">{{logisticInfo.addrDetail}}</div>
+                </div>
+                <div class="m-tracktext-item" v-if="logisticInfo.logtsCompany">
+                    <div class="title">物流公司:</div>
+                    <div class="msg">{{logisticInfo.logtsCompany}}</div>
+                </div>
+                <div class="m-tracktext-item" v-if='logisticInfo.logtsNumber'>
+                    <div class="title">运单号:</div>
+                    <div class="msg">{{logisticInfo.logtsNumber}}</div>
+                </div>
+                <div class="m-tracktext-item" v-if="logisticInfo.driverCarNumber">
+                    <div class="title">车牌号:</div>
+                    <div class="msg">{{logisticInfo.driverCarNumber}}</div>
+                </div>
+                <div class="m-tracktext-item" v-if='logisticInfo.driverPhone'>
+                    <div class="title">联系方式:</div>
+                    <div class="msg">{{logisticInfo.driverName}} {{logisticInfo.driverPhone}}</div>
+                </div>
+            </div>
+            <div class="m-tracktext">
+                <div class="m-logistics-tracking">
+                    <div class="list-con" v-for="(item, index) in logisticInfo.logisticDetail" :class="{'current': index === 0}">
+                        <div class="time">
                             <p>{{item.createDateStr.split(' ')[1]}}</p>
                             <p>{{item.createDateStr.split(' ')[0]}}</p>
-                        </view>
-                        <view class="msg">
+                        </div>
+                        <div class="msg">
                             {{item.logtsDesc}}
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </transition>
 </template>
 <script type="text/ecmascript-6">

@@ -1,114 +1,114 @@
 <template>
-    <view class="m-invoice-con">
-        <view class="m-invoice-content">
-            <view class="invoice-item">
-                <view class="title">发票类型</view>
+    <div class="m-invoice-con">
+        <div class="m-invoice-content">
+            <div class="invoice-item">
+                <div class="title">发票类型</div>
                 <xe-radio-group v-model="taxInfoDto.taxType">
-                <view class="con">
-                    <view>
+                <div class="con">
+                    <div>
                         <xe-radio :label="1">普通发票</xe-radio>
-                    </view>
-                </view>
+                    </div>
+                </div>
                 </xe-radio-group>
-            </view>
-            <view class="invoice-item">
-                <view class="title">发票抬头</view>
+            </div>
+            <div class="invoice-item">
+                <div class="title">发票抬头</div>
                 <xe-radio-group v-model="taxInfoDto.taxTitle">
-                    <view class="con">
-                        <view>
+                    <div class="con">
+                        <div>
                             <xe-radio :label="2">个人</xe-radio>
-                        </view>
-                        <view>
+                        </div>
+                        <div>
                             <xe-radio :label="1">公司</xe-radio>
-                        </view>
-                    </view>
+                        </div>
+                    </div>
                 </xe-radio-group>
-                <view class="company-content" v-show='taxInfoDto.taxTitle === 1'>
-                    <view class="m-list-block">
+                <div class="company-content" v-show='taxInfoDto.taxTitle === 1'>
+                    <div class="m-list-block">
                         <ul>
                             <li class="item-content">
-                                <view class="item-inner">
-                                    <view class="item-title">
+                                <div class="item-inner">
+                                    <div class="item-title">
                                         <span style="color: red;">*</span>公司名称
-                                    </view>
-                                    <view class="item-input">
+                                    </div>
+                                    <div class="item-input">
                                         <input type="text" maxlength="50" v-model='taxInfoDto.taxCompany' placeholder="请输入公司名称">
-                                    </view>
-                                </view>
+                                    </div>
+                                </div>
                             </li>
                             <li class="item-content">
-                                <view class="item-inner">
-                                    <view class="item-title">
+                                <div class="item-inner">
+                                    <div class="item-title">
                                         <span style="color: red;">*</span>税号
-                                    </view>
-                                    <view class="item-input">
+                                    </div>
+                                    <div class="item-input">
                                         <input type="number" v-model='taxInfoDto.taxNum' maxlength="20" placeholder="请输入税号">
-                                    </view>
-                                </view>
+                                    </div>
+                                </div>
                             </li>
                             <li class="item-content">
-                                <view class="item-inner">
-                                    <view class="item-title">
+                                <div class="item-inner">
+                                    <div class="item-title">
                                         开户银行
-                                    </view>
-                                    <view class="item-input">
+                                    </div>
+                                    <div class="item-input">
                                         <input type="text" v-model='taxInfoDto.taxBankName' maxlength="20" placeholder="请输入开户银行">
-                                    </view>
-                                </view>
+                                    </div>
+                                </div>
                             </li>
                             <li class="item-content">
-                                <view class="item-inner">
-                                    <view class="item-title">
+                                <div class="item-inner">
+                                    <div class="item-title">
                                         银行账号
-                                    </view>
-                                    <view class="item-input">
+                                    </div>
+                                    <div class="item-input">
                                         <input type="number" v-model='taxInfoDto.taxBankCardNum' maxlength="20" placeholder="请输入开户银行账号">
-                                    </view>
-                                </view>
+                                    </div>
+                                </div>
                             </li>
                             <li class="item-content">
-                                <view class="item-inner">
-                                    <view class="item-title">
+                                <div class="item-inner">
+                                    <div class="item-title">
                                         公司地址
-                                    </view>
-                                    <view class="item-input">
+                                    </div>
+                                    <div class="item-input">
                                         <input maxlength="40" type="text" v-model='taxInfoDto.taxComAddr' placeholder="请输入公司地址">
-                                    </view>
-                                </view>
+                                    </div>
+                                </div>
                             </li>
                             <li class="item-content">
-                                <view class="item-inner">
-                                    <view class="item-title">
+                                <div class="item-inner">
+                                    <div class="item-title">
                                         公司电话
-                                    </view>
-                                    <view class="item-input">
+                                    </div>
+                                    <div class="item-input">
                                         <input maxlength="20" type="tel" v-model='taxInfoDto.taxComPhone' placeholder="请输入公司电话">
-                                    </view>
-                                </view>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
-                    </view>
-                </view>
-            </view>
-            <view class="invoice-item">
-                <view class="title">发票内容</view>
+                    </div>
+                </div>
+            </div>
+            <div class="invoice-item">
+                <div class="title">发票内容</div>
                 <xe-radio-group v-model="taxInfoDto.taxContent">
-                    <view class="con">
-                        <view>
+                    <div class="con">
+                        <div>
                             <xe-radio :label="1">明细</xe-radio>
-                        </view>
-                        <view>
+                        </div>
+                        <div>
                             <xe-radio :label="2">食品</xe-radio>
-                        </view>
-                    </view>
+                        </div>
+                    </div>
                 </xe-radio-group>
-            </view>
-        </view>
-        <view class="m-invoice-btns">
+            </div>
+        </div>
+        <div class="m-invoice-btns">
             <a href="#" class="no" @click.prevent="noFn">不需要发票</a>
             <a href="#" class="sure" @click.prevent="sureFn">保存</a>
-        </view>
-    </view>
+        </div>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     import {Radio, RadioGroup} from 'components/Radio';
@@ -202,7 +202,7 @@
             .con {
                 display: flex;
                 border-top: 1/$ppr solid $border-color-e8e;
-                > view {
+                > div {
                     flex: 1;
                     padding: 25/$ppr 0;
                 }

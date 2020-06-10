@@ -201,7 +201,7 @@ u {
     overflow: hidden;
 }
 
-.m-content-view {
+.m-content-div {
     max-width: 750/$ppr !important;
     margin: 0 auto !important;
 }
@@ -597,7 +597,7 @@ u {
         flex: 1;
         display: flex;
         justify-content: space-around;
-        >view {
+        >div {
             flex: 1;
             &.router-link-active {
                 .nimg {
@@ -854,7 +854,7 @@ u {
     justify-content: space-between;
     line-height: 60/$ppr;
     font-size: 28/$ppr;
-    >view {
+    >div {
         display: block;
     }
 }
@@ -1080,7 +1080,7 @@ u {
     }
     .banner-right-top {
         height: 160/$ppr;
-        view {
+        div {
             width: 210/$ppr;
             height: 100%;
             border-radius: 8/$ppr;
@@ -1291,7 +1291,7 @@ u {
         }
         .coupon {
             margin-top: 15/$ppr;
-            view {
+            div {
                 line-height: 30/$ppr;
                 color: $text-666;
             }
@@ -1303,7 +1303,7 @@ u {
     margin: 10/$ppr 0 20/$ppr 0;
     display: flex;
     justify-content: flex-start;
-    >view {
+    >div {
         flex: 0 0 162/$ppr;
         margin-right: 20/$ppr;
         &:last-child {
@@ -1474,7 +1474,7 @@ u {
                 font-weight: normal;
                 color: #fff;
                 text-align: center;
-                view {
+                div {
                     height: 86/$ppr;
                     line-height: 86/$ppr;
                     border-bottom: 1/$ppr solid #535353;
@@ -1860,7 +1860,7 @@ u {
         bottom: 0;
         right: 0;
         height: 4/$ppr;
-        background: url(data:image/gif;base64,R0lGODlhMAAEAMQAAOonME5Ch0U4gP309U1AhmNXlWddmP729vJ3fry40vivtPJvdoh/reolL7Wwzff3+fvc3e1BSu1HT/amq93b6OHg6/vW2JCIs/b1+UY4gOodJuodJeocJekcJUY5gf///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMviewMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJDNzU3NzgyNjdFMjZCNTM3MDA3MkE5NTg1REU5M0MwMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRURCNjEyRTdCNkUxMUU3QThGQkZGNzk1RDFBQTBBRSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRURCNjEyRDdCNkUxMUU3QThGQkZGNzk1RDFBQTBBRSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZkMmE4NTkxLTMyNDctNDJhNi05NWFjLTMwYTEyYWU4NWRjNSIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmJhYTAzMmEwLTdkNWItMTE3OC1hNzU5LTk0NGEzZjBiY2M0NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAAwAAQAAAVP4PdBAKdtXLp17BYNYiyLVeDdeO4V2Pwdko5Jw0oRNQ2Lb/Yw6DwZ6I1AWSJQqs6qo+FsJsvZ5Sn1CDyOpYIjJJpYWs4iLEvcovdchhEOAQA7) repeat-x;
+        background: url(data:image/gif;base64,R0lGODlhMAAEAMQAAOonME5Ch0U4gP309U1AhmNXlWddmP729vJ3fry40vivtPJvdoh/reolL7Wwzff3+fvc3e1BSu1HT/amq93b6OHg6/vW2JCIs/b1+UY4gOodJuodJeocJekcJUY5gf///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJDNzU3NzgyNjdFMjZCNTM3MDA3MkE5NTg1REU5M0MwMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRURCNjEyRTdCNkUxMUU3QThGQkZGNzk1RDFBQTBBRSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRURCNjEyRDdCNkUxMUU3QThGQkZGNzk1RDFBQTBBRSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZkMmE4NTkxLTMyNDctNDJhNi05NWFjLTMwYTEyYWU4NWRjNSIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmJhYTAzMmEwLTdkNWItMTE3OC1hNzU5LTk0NGEzZjBiY2M0NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAAwAAQAAAVP4PdBAKdtXLp17BYNYiyLVeDdeO4V2Pwdko5Jw0oRNQ2Lb/Yw6DwZ6I1AWSJQqs6qo+FsJsvZ5Sn1CDyOpYIjJJpYWs4iLEvcovdchhEOAQA7) repeat-x;
         background-size: 48/$ppr 4/$ppr;
     }
     .adr-user {
@@ -2045,7 +2045,7 @@ u {
     .p-cate-btns {
         height: 88/$ppr;
         display: flex;
-        >view {
+        >div {
             flex: 1;
             text-align: center;
             line-height: 88/$ppr;
@@ -2185,7 +2185,7 @@ u {
     font-size: 26/$ppr;
     display: flex;
     flex: 0 0 100/$ppr;
-    >view {
+    >div {
         flex: 1;
         text-align: center;
         padding: 30/$ppr 0;
@@ -2243,7 +2243,7 @@ u {
         left: 50%;
         margin-left: -12/$ppr;
     }
-    view {
+    div {
         font-size: 28/$ppr;
         padding: 25/$ppr 0;
         border-bottom: 1/$ppr solid $border-color-e8e;
@@ -2684,7 +2684,7 @@ u {
             bottom: 0;
             border-bottom: 1/$ppr solid $border-color-e8e;
         }
-        >view {
+        >div {
             flex: 1;
             text-align: center;
             line-height: 90/$ppr;

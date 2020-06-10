@@ -1,52 +1,52 @@
 <template>
     <xe-layout class="m-flexlay">
         <FixedCart slot="header"></FixedCart>
-        <view class="m-search-barcon" slot="header">
-            <view class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></view>
-            <view class="m-search-bar m-searchresult-top">
-                <view class="m-search-newcon">
-                    <router-link tag="view" class="search-bar-down" :to="{name: 'Search'}">
-                        <view>{{ $route.query.type ? parseInt($route.query.type) : 1 | searchCateToText}}</view>
+        <div class="m-search-barcon" slot="header">
+            <div class="m-search-back xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></div>
+            <div class="m-search-bar m-searchresult-top">
+                <div class="m-search-newcon">
+                    <router-link tag="div" class="search-bar-down" :to="{name: 'Search'}">
+                        <div>{{ $route.query.type ? parseInt($route.query.type) : 1 | searchCateToText}}</div>
                     </router-link>
-                    <view class="m-index-searchcons">
-                        <router-link tag="view" class="con" :to="{name: 'Search'}">
+                    <div class="m-index-searchcons">
+                        <router-link tag="div" class="con" :to="{name: 'Search'}">
                             <input type="text" value="搜索" v-model="paramsData.keyWord">
                             <span class="xe-iconfont xe-icon-sousuo"></span>
                         </router-link>
-                    </view>
-                </view>
-                <v-touch tag="view" class="filter" @tap="filterFn" v-if="cateProductBrand.length || JSON.stringify(cateProductPropertys) !== '{}'">
+                    </div>
+                </div>
+                <v-touch tag="div" class="filter" @tap="filterFn" v-if="cateProductBrand.length || JSON.stringify(cateProductPropertys) !== '{}'">
                     <span class="xe-iconfont xe-icon-filter"></span>
                 </v-touch>
-            </view>
-        </view>
-        <view class="m-category-tab" slot="header">
-            <view>
+            </div>
+        </div>
+        <div class="m-category-tab" slot="header">
+            <div>
                 <p @click="showDrop = !showDrop">{{consText}}<em class="xe-iconfont xe-icon-unfold"></em></p>
                 <transition name="slide-in">
-                    <view class="m-dropdown" v-show="showDrop">
-                        <view
+                    <div class="m-dropdown" v-show="showDrop">
+                        <div
                             v-for="(item, index) in consData"
                             :key="index"
                             :class="{'active': consIndex === index}"
                             @click.prevent="consClick(item, index)"
-                        >{{item.name}}</view>
-                    </view>
+                        >{{item.name}}</div>
+                    </div>
                 </transition>
-            </view>
-            <!-- <view :class="{'active': paramsData.productType === 2}" @click.prevent="paramsData.productType = 2"><p>一口价</p></view>
-            <view :class="{'active': paramsData.productType === 1}" @click.prevent="paramsData.productType = 1"><p>询报价</p></view> -->
-        </view>
-        <view class="m-searchresult-listcon m-content-view">
-            <view v-if="(!$route.query.type || parseInt($route.query.type) === 1) && productList.length">
+            </div>
+            <!-- <div :class="{'active': paramsData.productType === 2}" @click.prevent="paramsData.productType = 2"><p>一口价</p></div>
+            <div :class="{'active': paramsData.productType === 1}" @click.prevent="paramsData.productType = 1"><p>询报价</p></div> -->
+        </div>
+        <div class="m-searchresult-listcon m-content-div">
+            <div v-if="(!$route.query.type || parseInt($route.query.type) === 1) && productList.length">
                 <proItem
                     v-for="(item, index) in productList"
                     :key="item.proSpu + index"
                     :picServerPro="picServerPro"
                     :itemData="item"
                 ></proItem>
-            </view>
-            <view class="m-searchven-con" v-if="parseInt($route.query.type) === 2 && vendorList.length">
+            </div>
+            <div class="m-searchven-con" v-if="parseInt($route.query.type) === 2 && vendorList.length">
                 <VendorCon
                     v-for="(item, index) in vendorList"
                     :key="item.userCode + index"
@@ -54,24 +54,24 @@
                     :showBusinessTypeName="true"
                     :itemData="item"
                 ></VendorCon>
-            </view>
+            </div>
             <infinite-loading @infinite="onInfinite" ref="infiniteLoading" class="infinite-contanier">
                 <span slot="no-more" class="infinite-no-more">
                     暂无更多数据~
                 </span>
-                <view slot="no-results" class="m-cart-none">
-                    <view class="pic">
+                <div slot="no-results" class="m-cart-none">
+                    <div class="pic">
                         <img src="../../static/images/cart-n1.png" alt="">
-                    </view>
-                    <view class="des">
+                    </div>
+                    <div class="des">
                         <p class="f32">暂无符合条件的{{!$route.query.type ? '商品' : parseInt($route.query.type) === 1 ? '商品' : '店铺'}}</p>
-                    </view>
-                    <!--<view class="btn">-->
+                    </div>
+                    <!--<div class="btn">-->
                     <!--<mt-button class="xe-button-default" size="small" plain @click.prevent="toCategory">去购买~</mt-button>-->
-                    <!--</view>-->
-                </view>
+                    <!--</div>-->
+                </div>
             </infinite-loading>
-        </view>
+        </div>
         <xe-popup
             class="popup-search-result"
             slot="outer"
@@ -79,33 +79,33 @@
             :show.sync="categoryFilter"
             popupTit="筛选"
             position="right">
-            <view class="popup-cate-cons">
-                <view class="p-cate-cons">
-                    <view class="p-cate-brands" v-if="cateProductBrand.length">
-                        <view class="p-cate-item">
-                            <view class="p-cate-title">
+            <div class="popup-cate-cons">
+                <div class="p-cate-cons">
+                    <div class="p-cate-brands" v-if="cateProductBrand.length">
+                        <div class="p-cate-item">
+                            <div class="p-cate-title">
                                 <h3>品牌</h3>
                                 <span @click.prevent="showBrandAll" :class="{'active': filterBrandAllFlag}">
                                     {{filterBrandAllFlag ? '收起' : '全部'}} <em class="xe-iconfont xe-icon-unfold"></em>
                                 </span>
-                            </view>
-                            <view class="p-cate-list">
+                            </div>
+                            <div class="p-cate-list">
                                 <a href="#"
                                     v-for="item in cateProductBrand.slice(0, filterBrandNum)"
                                     :key="item.brandId"
                                     :class="{'active': brandIds.indexOf(parseInt(item.brandId)) >= 0}"
                                     @click.prevent="brandIdFn(parseInt(item.brandId))"
                                 >{{item.brandName}}</a>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="p-cate-propertys" v-if="cateProductPropertys">
-                        <view class="p-cate-item" v-for="(item, key) in cateProductPropertys" :key="key">
-                            <view class="p-cate-title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-cate-propertys" v-if="cateProductPropertys">
+                        <div class="p-cate-item" v-for="(item, key) in cateProductPropertys" :key="key">
+                            <div class="p-cate-title">
                                 <h3>{{key}}</h3>
                                 <span>全部 <em class="xe-iconfont xe-icon-unfold"></em></span>
-                            </view>
-                            <view class="p-cate-list">
+                            </div>
+                            <div class="p-cate-list">
                                 <a href="#"
                                     v-for="(subitem, index) in item"
                                     :class="{'active': propertys.indexOf(key+'-'+subitem) >= 0}"
@@ -114,15 +114,15 @@
                                 >
                                     {{subitem}}
                                 </a>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="p-cate-btns">
-                    <view @click.prevent="filterReset">重置</view>
-                    <view @click.prevent="filterSure">确定</view>
-                </view>
-            </view>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-cate-btns">
+                    <div @click.prevent="filterReset">重置</div>
+                    <div @click.prevent="filterSure">确定</div>
+                </div>
+            </div>
         </xe-popup>
     </xe-layout>
 </template>
@@ -468,6 +468,6 @@
             left: 120/$ppr;
         }
     }
-        .m-category-tab>view p{width:30%; }
+        .m-category-tab>div p{width:30%; }
     .m-dropdown{position:absolute;left:3.2rem;top:0.2rem}
 </style>

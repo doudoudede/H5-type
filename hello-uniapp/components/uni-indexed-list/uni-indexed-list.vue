@@ -1,19 +1,19 @@
 <template>
 	<view class="uni-indexed-list" ref="list" id="list">
-		<!-- #ifdef APP-NVUE -->
+		<!-- #ifdef aPP-NVUE -->
 		<list class="uni-indexed-list__scroll" scrollable="true" show-scrollbar="false">
 			<cell v-for="(list, idx) in lists" :key="idx" :ref="'uni-indexed-list-' + idx">
 				<!-- #endif -->
-				<!-- #ifndef APP-NVUE -->
+				<!-- #ifndef aPP-NVUE -->
 				<scroll-view :scroll-into-view="scrollviewId" class="uni-indexed-list__scroll" scroll-y>
 					<view v-for="(list, idx) in lists" :key="idx" :id="'uni-indexed-list-' + idx">
 						<!-- #endif -->
 						<uni-indexed-list-item :list="list" :loaded="loaded" :idx="idx" :showSelect="showSelect" @itemClick="onClick"></uni-indexed-list-item>
-						<!-- #ifndef APP-NVUE -->
+						<!-- #ifndef aPP-NVUE -->
 					</view>
 				</scroll-view>
 				<!-- #endif -->
-				<!-- #ifdef APP-NVUE -->
+				<!-- #ifdef aPP-NVUE -->
 			</cell>
 		</list>
 		<!-- #endif -->
@@ -30,10 +30,10 @@
 <script>
 	import uniIcons from '../uni-icons/uni-icons.vue'
 	import uniIndexedListItem from './uni-indexed-list-item.vue'
-	// #ifdef APP-NVUE
+	// #ifdef aPP-NVUE
 	const dom = weex.requireModule('dom');
 	// #endif
-	// #ifdef APP-PLUS
+	// #ifdef aPP-PLUS
 	function throttle(func, delay) {
 		var prev = Date.now();
 		return function() {
@@ -55,11 +55,11 @@
 		}
 		let item = this.lists[index]
 		if (item) {
-			// #ifndef APP-NVUE
+			// #ifndef aPP-NVUE
 			this.scrollviewId = 'uni-indexed-list-' + index
 			this.touchmoveIndex = index
 			// #endif
-			// #ifdef APP-NVUE
+			// #ifdef aPP-NVUE
 			dom.scrollToElement(this.$refs['uni-indexed-list-' + index][0], {
 				animated: false
 			})
@@ -89,7 +89,7 @@
 		},
 		props: {
 			options: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -153,7 +153,7 @@
 						itemIndex: indexBefore
 					})
 				})
-				// #ifndef APP-NVUE
+				// #ifndef aPP-NVUE
 				uni.createSelectorQuery()
 					.in(this)
 					.select('#list')
@@ -164,7 +164,7 @@
 						this.itemHeight = this.winHeight / this.lists.length
 					})
 				// #endif
-				// #ifdef APP-NVUE
+				// #ifdef aPP-NVUE
 				dom.getComponentRect(this.$refs['list'], (res) => {
 					this.winOffsetY = res.size.top
 					this.winHeight = res.size.height
@@ -180,7 +180,7 @@
 				if (item) {
 					this.scrollviewId = 'uni-indexed-list-' + index
 					this.touchmoveIndex = index
-					// #ifdef APP-NVUE
+					// #ifdef aPP-NVUE
 					dom.scrollToElement(this.$refs['uni-indexed-list-' + index][0], {
 						animated: false
 					})
@@ -188,7 +188,7 @@
 				}
 			},
 			touchMove(e) {
-				// #ifndef APP-PLUS
+				// #ifndef aPP-PLUS
 				let pageY = e.touches[0].pageY
 				let index = Math.floor((pageY - this.winOffsetY) / this.itemHeight)
 				if (this.touchmoveIndex === index) {
@@ -200,7 +200,7 @@
 					this.touchmoveIndex = index
 				}
 				// #endif
-				// #ifdef APP-PLUS
+				// #ifdef aPP-PLUS
 				throttleTouchMove.call(this, e)
 				// #endif
 			},
@@ -247,7 +247,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
@@ -260,14 +260,14 @@
 	.uni-indexed-list__menu {
 		width: 24px;
 		background-color: lightgrey;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
 	}
 
 	.uni-indexed-list__menu-item {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex: 1;
@@ -296,7 +296,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;

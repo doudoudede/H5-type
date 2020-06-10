@@ -1,10 +1,10 @@
 <template>
     <xe-layout class="m-page-details m-bg-dark m-flexlay auctionProDetails">
         <template>
-            <view class="m-details-cz clearfix">
-                <view class="u-back fl xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></view>
-            </view>
-            <view class="m-details-sliders m-content-view">
+            <div class="m-details-cz clearfix">
+                <div class="u-back fl xe-iconfont xe-icon-fanhui-" @click.prevent="goBackFn"></div>
+            </div>
+            <div class="m-details-sliders m-content-div">
                 <xe-slider
                     :picServer="picServer"
                     :keyProps="{keyName: 'proImg'}"
@@ -15,10 +15,10 @@
                     ref="proSlider"
                 >
                 </xe-slider>
-            </view>
+            </div>
             <!-- 内容区域 -->
             <!-- auctionStatus-box 加上class bjcol_211 变为红底色 -->
-            <view class="auctionStatus-box bjcol_211">
+            <div class="auctionStatus-box bjcol_211">
                 <span class="xe-iconfont xe-icon-jingpai"></span>
                 <span v-if="biddingPro.disEndTime > 0">
                     正在竞价&nbsp;&nbsp;&nbsp;距结束 <xe-countdown timetype="second" ref="countdown" :time="biddingPro.disEndTime">
@@ -26,49 +26,49 @@
                     </xe-countdown>
                 </span> 
                 <span v-else>竞拍已结束</span>
-            </view>
-            <view class="auction-content">
-                <view class="auction-proItem_one">
-                    <view class="pro-titcon">
+            </div>
+            <div class="auction-content">
+                <div class="auction-proItem_one">
+                    <div class="pro-titcon">
                         <span class="sma_sub">{{biddingPro.stockFlag | stockFlagToText}}</span>{{biddingPro.proName}}
-                    </view>
-                    <view class="pro-pricon">
+                    </div>
+                    <div class="pro-pricon">
                         <span>起拍价&nbsp;&nbsp;$&nbsp;</span><span class="big_fot">{{biddingPro.startPriceDoller, 'do' | moneySkinToText}}</span>（{{biddingPro.startPriceRmb, 'rmb' | moneySkinToText}}/{{proSpuInfo.proUnit}}）
-                    </view>
-                </view>
-                <view class="auction-proItem_two">
-                    <view class="proItem-numCon">
+                    </div>
+                </div>
+                <div class="auction-proItem_two">
+                    <div class="proItem-numCon">
                         <p>定金&nbsp;{{biddingPro.payment | moneySkinToText('rmb')}}</p>
                         <p>规格&nbsp;{{biddingPro.proSpec}}</p>
                         <p>库存&nbsp;{{biddingPro.bidQuantity}}{{proSpuInfo.proUnit}}</p>
-                    </view>
-                    <view class="proItem-timeCon" @click="expand" v-if="bidShipment.length">
+                    </div>
+                    <div class="proItem-timeCon" @click="expand" v-if="bidShipment.length">
                         <span v-if="bidShipment.length > 4" class="xe-iconfont xe-icon-xiajiantou"></span>
-                        <view>船期&nbsp;</view>
-                        <view class="proItem-timeL">
-                            <view class="proItem-line">
+                        <div>船期&nbsp;</div>
+                        <div class="proItem-timeL">
+                            <div class="proItem-line">
                                 <p v-for='(item, index) in bidShipment' v-if="index <= 3" :key='index'>{{item}}月</p>
-                            </view>
+                            </div>
                             <CollapseTransition>
-                                <view class="proItem-line" v-show="bidShipment.length > 4 && expandFlag">
+                                <div class="proItem-line" v-show="bidShipment.length > 4 && expandFlag">
                                     <p v-for='(item, index) in bidShipment' v-if="index > 3" :key='index'>{{item}}月</p>
-                                </view>
+                                </div>
                             </CollapseTransition>
-                        </view>
-                    </view>
-                </view>
-            </view>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- 出价次数 -->
-            <view class="bid-box" v-if="biddingPro.myPrice && biddingPro.myPrice.length">
-                <view class="bid-tit">我的出价（{{biddingPro.myPrice.length}}次）</view>
-                <view class="bid-con">
+            <div class="bid-box" v-if="biddingPro.myPrice && biddingPro.myPrice.length">
+                <div class="bid-tit">我的出价（{{biddingPro.myPrice.length}}次）</div>
+                <div class="bid-con">
                     <p v-for='(item, index) in biddingPro.myPrice' :key='index' :class="{active: index == 0}">{{item.bidPrice, item.currency == 1 ? 'rmb' : 'dollar' | moneySkinToText}}</p>
-                </view>
-            </view>
+                </div>
+            </div>
             <!-- 竞拍流程 -->
-            <view class="bid-box">
-                <view class="bid-tit">竞拍流程</view>
-                <view class="auction-process">
+            <div class="bid-box">
+                <div class="bid-tit">竞拍流程</div>
+                <div class="auction-process">
                     <p>
                         <span class="xe-iconfont xe-icon-jingpaibuzhou"></span>出价竞拍
                     </p>
@@ -84,72 +84,72 @@
                     <p>
                         <span class="xe-iconfont xe-icon-jingpaibuzhou4"></span>交易成功
                     </p>
-                </view>
-            </view>
+                </div>
+            </div>
             <!-- 规格、图文详情 -->
-            <view class="m-details-tabcon">
-                <view class="det-tab">
-                    <view
+            <div class="m-details-tabcon">
+                <div class="det-tab">
+                    <div
                         v-for="item in currentDetTab"
                         :key="item.id"
                         :class="{'active': currentDetTabIndex === item.id}"
                         @click.prevent="detTabClick(item)"
                     >
                         <span>{{item.name}}</span>
-                    </view>
-                </view>
-                <view class="det-tab-item tabitem01" v-show="currentDetTabIndex === 1">
-                    <view class="det-list-con">
-                        <view class="det-list">
-                            <view class="det-list-tit">品名</view>
-                            <view class="det-list-content">{{proSpuInfo.proName}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">货号</view>
-                            <view class="det-list-content">{{proSpuInfo.proSkuInfo ? proSpuInfo.proSkuInfo.proNum : '无'}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">品牌</view>
-                            <view class="det-list-content">{{proSpuInfo.brandName}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">规格</view>
-                            <view class="det-list-content">{{biddingPro.proSpec}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">贮存条件</view>
-                            <view class="det-list-content">{{proSpuInfo.reserveCondition}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">保质期</view>
-                            <view class="det-list-content">{{proSpuInfo.shelfLife}}{{proSpuInfo.shelfLifeUnit}}</view>
-                        </view>
-                        <view class="det-list">
-                            <view class="det-list-tit">产地</view>
-                            <view class="det-list-content">{{proSpuInfo.madeinCountryName}}</view>
-                        </view>
-                        <!-- <view class="det-list" v-for="(item, index) in proSpuInfo.propertyList" :key="index">
-                            <view class="det-list-tit">{{item.propertyName}}</view>
-                            <view class="det-list-content">{{item.propertyValue}}</view>
-                        </view> -->
-                    </view>
-                </view>
-                <view class="det-tab-item tabitem02" v-show="currentDetTabIndex === 2">
-                    <view v-if="!appDesc && !appDescLoaded" class="page-loading-con">
-                        <view class="page-infinite-loading">
+                    </div>
+                </div>
+                <div class="det-tab-item tabitem01" v-show="currentDetTabIndex === 1">
+                    <div class="det-list-con">
+                        <div class="det-list">
+                            <div class="det-list-tit">品名</div>
+                            <div class="det-list-content">{{proSpuInfo.proName}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">货号</div>
+                            <div class="det-list-content">{{proSpuInfo.proSkuInfo ? proSpuInfo.proSkuInfo.proNum : '无'}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">品牌</div>
+                            <div class="det-list-content">{{proSpuInfo.brandName}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">规格</div>
+                            <div class="det-list-content">{{biddingPro.proSpec}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">贮存条件</div>
+                            <div class="det-list-content">{{proSpuInfo.reserveCondition}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">保质期</div>
+                            <div class="det-list-content">{{proSpuInfo.shelfLife}}{{proSpuInfo.shelfLifeUnit}}</div>
+                        </div>
+                        <div class="det-list">
+                            <div class="det-list-tit">产地</div>
+                            <div class="det-list-content">{{proSpuInfo.madeinCountryName}}</div>
+                        </div>
+                        <!-- <div class="det-list" v-for="(item, index) in proSpuInfo.propertyList" :key="index">
+                            <div class="det-list-tit">{{item.propertyName}}</div>
+                            <div class="det-list-content">{{item.propertyValue}}</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="det-tab-item tabitem02" v-show="currentDetTabIndex === 2">
+                    <div v-if="!appDesc && !appDescLoaded" class="page-loading-con">
+                        <div class="page-infinite-loading">
                             <mt-spinner type="triple-bounce" class="sp-bounce"></mt-spinner>努力加载中...
-                        </view>
-                    </view>
-                    <view v-else-if="!appDesc && appDescLoaded" class="appDescNone">
+                        </div>
+                    </div>
+                    <div v-else-if="!appDesc && appDescLoaded" class="appDescNone">
                         此商品暂无图文详情~
-                    </view>
-                    <view v-else class="tabitem02-content" v-html="appDesc"></view>
-                </view>
-                <view class="det-tab-item tabitem03" v-show="currentDetTabIndex === 3"></view>
-            </view>
-            <view class="auctionPro-footer" slot="footer" @click='goAuctionFrom' v-if="biddingPro.disEndTime > 0">
+                    </div>
+                    <div v-else class="tabitem02-content" v-html="appDesc"></div>
+                </div>
+                <div class="det-tab-item tabitem03" v-show="currentDetTabIndex === 3"></div>
+            </div>
+            <div class="auctionPro-footer" slot="footer" @click='goAuctionFrom' v-if="biddingPro.disEndTime > 0">
                 我要竞价
-            </view>
+            </div>
         </template>
     </xe-layout>
 </template>

@@ -1,27 +1,27 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay" ref="layout">
-        <view id="fixedTop">
-            <view class="m-index-search">
-                <view class="m-index-search-cover xe-gradient-color" :style="{opacity: searchOpacity}"></view>
-                <!--<view class="m-index-searchcon m-index-searchconnomsg">-->
-                <view class="m-index-searchcon m-index-searchcon-type1">
-                    <router-link tag="view" class="adrress" :to="{name: 'Location'}">
+        <div id="fixedTop">
+            <div class="m-index-search">
+                <div class="m-index-search-cover xe-gradient-color" :style="{opacity: searchOpacity}"></div>
+                <!--<div class="m-index-searchcon m-index-searchconnomsg">-->
+                <div class="m-index-searchcon m-index-searchcon-type1">
+                    <router-link tag="div" class="adrress" :to="{name: 'Location'}">
                        <img  class="img " src="../../static/images/location.png" alt="">
-                        <view>{{cityName}}</view>
+                        <div>{{cityName}}</div>
                     </router-link>
-                    <router-link tag="view" class="con" :to="{name: 'Search'}">
+                    <router-link tag="div" class="con" :to="{name: 'Search'}">
                         <input type="text" value="搜索">
                         <!-- <span class="xe-iconfont xe-icon-sousuo"></span> -->
                     </router-link>
-                    <router-link tag="view" :to="{name: 'Message'}" class="message">
+                    <router-link tag="div" :to="{name: 'Message'}" class="message">
                         <em class="msg-circle" v-show="showcircle"></em>
                         <span class="xe-iconfont xe-icon-xiaoxi"></span>
                     </router-link>
-                </view>
-            </view>
-        </view>
-        <view class="m-emptybj-red xe-gradient-color"></view>
-        <view class="m-index-slider m-index-slider_other xe-gradient-color">
+                </div>
+            </div>
+        </div>
+        <div class="m-emptybj-red xe-gradient-color"></div>
+        <div class="m-index-slider m-index-slider_other xe-gradient-color">
             <xe-slider
                 ref="slider"
                 :defautlOption='true'
@@ -32,7 +32,7 @@
                 :loop="sliderData.length > 1 ? true : false"
             >
             </xe-slider>
-        </view>
+        </div>
         <!--八宫格-->
         <GridEight ref="eightBlock"></GridEight>
         <!--四个广告位-->

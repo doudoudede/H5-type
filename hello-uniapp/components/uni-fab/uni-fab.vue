@@ -12,7 +12,7 @@
           'uni-fab__content--flexDirection': direction === 'vertical',
           'uni-fab__content--flexDirectionStart': flexDirectionStart,
           'uni-fab__content--flexDirectionEnd': flexDirectionEnd,
-		  'uni-fab__content--other-platform': !isAndroidNvue
+		  'uni-fab__content--other-platform': !isandroidNvue
         }" :style="{ width: boxWidth, height: boxHeight, backgroundColor: styles.backgroundColor }" class="uni-fab__content" elevation="5">
 				<view v-if="flexDirectionStart || horizontalLeft" class="uni-fab__item uni-fab__item--first" />
 				<view v-for="(item, index) in content" :key="index" :class="{ 'uni-fab__item--active': isShow }" class="uni-fab__item" @click="_onItemClick(index, item)">
@@ -27,7 +27,7 @@
 		  'uni-fab__circle--rightBottom': rightBottom,
 		  'uni-fab__circle--leftTop': leftTop,
 		  'uni-fab__circle--rightTop': rightTop,
-		  'uni-fab__content--other-platform': !isAndroidNvue
+		  'uni-fab__content--other-platform': !isandroidNvue
 		}" class="uni-fab__circle uni-fab__plus" :style="{ 'background-color': styles.buttonColor }" @click="_onClick">
 			<view class="fab-circle-v" :class="{'uni-fab__plus--active': isShow}"></view>
 			<view class="fab-circle-h" :class="{'uni-fab__plus--active': isShow}"></view>
@@ -37,7 +37,7 @@
 
 <script>
 	let platform = 'other'
-	// #ifdef APP-NVUE
+	// #ifdef aPP-NVUE
 	platform = uni.getSystemInfoSync().platform
 	// #endif
 
@@ -55,7 +55,7 @@
 	 * @property {Object} direction = [horizontal | vertical] 展开菜单显示方式
 	 * 	@value horizontal 水平显示
 	 * 	@value vertical 垂直显示
-	 * @property {Array} content 展开菜单内容配置项
+	 * @property {array} content 展开菜单内容配置项
 	 * @property {Boolean} popMenu 是否使用弹出菜单
 	 * @event {Function} trigger 展开菜单点击事件，返回点击信息
 	 * @event {Function} fabClick 悬浮按钮点击事件
@@ -82,7 +82,7 @@
 				default: 'horizontal'
 			},
 			content: {
-				type: Array,
+				type: array,
 				default () {
 					return []
 				}
@@ -100,10 +100,10 @@
 			return {
 				fabShow: false,
 				isShow: false,
-				isAndroidNvue: platform === 'android',
+				isandroidNvue: platform === 'android',
 				styles: {
 					color: '#3c3e49',
-					selectedColor: '#007AFF',
+					selectedColor: '#007aFF',
 					backgroundColor: '#fff',
 					buttonColor: '#3c3e49'
 				}
@@ -192,15 +192,15 @@
 			/**
 			 * 获取 位置信息
 			 */
-			getPosition(types, paramA, paramB) {
+			getPosition(types, parama, paramB) {
 				if (types === 0) {
-					return this.horizontal === paramA && this.vertical === paramB
+					return this.horizontal === parama && this.vertical === paramB
 				} else if (types === 1) {
-					return this.direction === paramA && this.vertical === paramB
+					return this.direction === parama && this.vertical === paramB
 				} else if (types === 2) {
-					return this.direction === paramA && this.horizontal === paramB
+					return this.direction === parama && this.horizontal === paramB
 				} else {
-					return this.isShow && this.direction === paramA ? this.contentWidth : this.contentWidthMin
+					return this.isShow && this.direction === parama ? this.contentWidth : this.contentWidthMin
 				}
 			}
 		}
@@ -210,7 +210,7 @@
 <style scoped>
 	.uni-fab {
 		position: fixed;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		justify-content: center;
@@ -260,7 +260,7 @@
 
 	.uni-fab__circle {
 		position: fixed;
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		justify-content: center;
@@ -351,7 +351,7 @@
 	}
 
 	.uni-fab__content {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		box-sizing: border-box;
 		display: flex;
 		/* #endif */
@@ -395,7 +395,7 @@
 	}
 
 	.uni-fab__item {
-		/* #ifndef APP-NVUE */
+		/* #ifndef aPP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;

@@ -1,46 +1,46 @@
 <template>
     <xe-layout class="m-bg-dark m-flexlay m-flexlay-confirm">
         <template v-if="loaded">
-            <!-- <view class="m-corder-warning" slot="header" v-if="orderMsg.authFlag === '2'" @click.prevent="navToWallet">
-                <view class="xe-iconfont xe-icon-renzheng"></view>
-                <view class="con arrow-right-commons">您的账户安全等级过低，建议先进行实名认证！</view>
-            </view> -->
-            <view class="det-inquiry-adr">
-                <!--<view @click.prevent="adrVisibleFn" v-if="adrTempItem">-->
-                <view v-if="adrTempItem">
-                    <view class="adr-user">
+            <!-- <div class="m-corder-warning" slot="header" v-if="orderMsg.authFlag === '2'" @click.prevent="navToWallet">
+                <div class="xe-iconfont xe-icon-renzheng"></div>
+                <div class="con arrow-right-commons">您的账户安全等级过低，建议先进行实名认证！</div>
+            </div> -->
+            <div class="det-inquiry-adr">
+                <!--<div @click.prevent="adrVisibleFn" v-if="adrTempItem">-->
+                <div v-if="adrTempItem">
+                    <div class="adr-user">
                         <span>{{adrTempItem.caConsignee}}</span><span>{{adrTempItem.caPhone}}</span>
-                    </view>
-                    <view class="adr-msg">
-                        <view class="xe-iconfont xe-icon-dingwei"></view>
+                    </div>
+                    <div class="adr-msg">
+                        <div class="xe-iconfont xe-icon-dingwei"></div>
                         <!--arrow-right-commons-->
-                        <view class="adr-msg-text">{{adrTempItem.caProvName}}{{adrTempItem.caCityName}}{{adrTempItem.caAreaName}}{{adrTempItem.caStreet}}</view>
-                    </view>
-                </view>
-            </view>
-            <view class="m-corder-item" v-for="(item, index) in orderMsg.venProList" :key="index">
-                <view class="order-item-shop">
+                        <div class="adr-msg-text">{{adrTempItem.caProvName}}{{adrTempItem.caCityName}}{{adrTempItem.caAreaName}}{{adrTempItem.caStreet}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-corder-item" v-for="(item, index) in orderMsg.venProList" :key="index">
+                <div class="order-item-shop">
                     <span class="xe-iconfont xe-icon-dian"></span>
                     <span>{{item.venName}}</span>
-                </view>
-                <view class="m-corder-pros">
-                    <view class="item" v-for="proItem in item.proList" :key="proItem.proSku">
-                        <view class="pic">
+                </div>
+                <div class="m-corder-pros">
+                    <div class="item" v-for="proItem in item.proList" :key="proItem.proSku">
+                        <div class="pic">
                             <img :src="picServer + proItem.proMainImg" alt="">
-                        </view>
-                        <view class="msg">
-                            <view class="name">
+                        </div>
+                        <div class="msg">
+                            <div class="name">
                                 <p>
                                     <!-- <span v-if="proItem.disLimitProNum" class="coupon-style coupon-style-miao">秒</span>{{proItem.proName}} -->
                                     <span v-if="proItem.disLimitProNum" class="xe-iconfont xe-icon-miaoshafuben coupon-style-icon"></span>
                                     <span v-if="proItem.preSaleFlag === 1" class="xe-iconfont xe-icon-yushoufuben coupon-style-icon1"></span>
                                     {{proItem.proName}}
                                 </p>
-                            </view>
-                            <view class="msg-con">
-                                <view class="spec">规格: {{proItem.specValue}}</view>
-                                <view class="pricenum">
-                                    <view class="price">
+                            </div>
+                            <div class="msg-con">
+                                <div class="spec">规格: {{proItem.specValue}}</div>
+                                <div class="pricenum">
+                                    <div class="price">
                                         <template v-if="proItem.disLimitProNum">
                                             <!--商品为限时抢购-->
                                             <template v-if="proItem.buyNum > proItem.disLimitProNum">
@@ -55,98 +55,98 @@
                                         <template v-else>
                                             <p><span>&yen;</span>{{proItem.areaPrice | toFixed2}}<span>/{{proItem.proUnit}}</span></p>
                                         </template>
-                                    </view>
-                                    <view class="num">
+                                    </div>
+                                    <div class="num">
                                         x{{proItem.buyNum}}
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="m-list-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-list-block">
                     <ul>
                         <li class="item-content align-right" @click="showCouponList(item)" :class="{'item-link': item.couponList && item.couponList.length > 0}">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     店铺优惠券
-                                </view>
-                                <view class="item-after" v-if="item.couponList && item.couponList.length > 0">
+                                </div>
+                                <div class="item-after" v-if="item.couponList && item.couponList.length > 0">
                                     <span class="coupon-mark" v-if="item.disAomuntZw === 0 || !item.disAomuntZw">可用{{item.couponList.length}}张</span>
                                     <span v-else>&yen;{{item.disAomuntZw}}</span>
-                                </view>
-                                <view v-else class="item-after">
+                                </div>
+                                <div v-else class="item-after">
                                     暂无可用优惠券
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right item-link">
-                            <view class="item-inner" style="background: #fff">
-                                <view class="item-title">
+                            <div class="item-inner" style="background: #fff">
+                                <div class="item-title">
                                     配送方式
-                                </view>
-                                <view class="item-after">
+                                </div>
+                                <div class="item-after">
                                     {{orderMsg.shipType | shipTypeToText}}
                                     <span v-if="orderMsg.shipType === 1 && orderMsg.shipCarDes">({{orderMsg.shipCarDes}})</span>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     订单备注
-                                </view>
-                                <view class="item-input">
+                                </div>
+                                <div class="item-input">
                                     <input type="text" v-model="item.orderRemark" placeholder="输入对商家的留言（30字内）" :maxlength="30">
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                </view>
-            </view>
-            <view class="m-corder-item">
-                <view class="m-list-block">
+                </div>
+            </div>
+            <div class="m-corder-item">
+                <div class="m-list-block">
                     <ul>
                         <li class="item-content align-right item-link">
-                            <view class="item-inner" v-if="orderMsg.payType === '3'">
-                                <view class="item-title">
+                            <div class="item-inner" v-if="orderMsg.payType === '3'">
+                                <div class="item-title">
                                     支付方式
-                                </view>
-                                <view class="item-input">
+                                </div>
+                                <div class="item-input">
                                     <select v-model="paytypeValue">
                                         <option v-for="item in paytypeArrs" :value='item.type' :key="item.type">{{item.name}}</option>
                                     </select>
-                                </view>
-                            </view>
-                            <view class="item-inner" v-else style="background:#fff">
-                                <view class="item-title">
+                                </div>
+                            </div>
+                            <div class="item-inner" v-else style="background:#fff">
+                                <div class="item-title">
                                     支付方式
-                                </view>
-                                <view class="item-input">
+                                </div>
+                                <div class="item-input">
                                     {{orderMsg.payType | payTypeToText}}}
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right" @click="showCouponListxb()" :class="{'item-link': orderMsg.platCouponList && orderMsg.platCouponList.length > 0}">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     如来云商优惠券
-                                </view>
-                                <view class="item-after" v-if="orderMsg.platCouponList && orderMsg.platCouponList.length > 0">
+                                </div>
+                                <div class="item-after" v-if="orderMsg.platCouponList && orderMsg.platCouponList.length > 0">
                                     <span class="coupon-mark" v-if="!couponTypePlatAmount">可用{{orderMsg.platCouponList.length}}张</span>
                                     <span v-else>&yen;{{couponTypePlatAmount}}</span>
-                                </view>
-                                <view v-else class="item-after">
+                                </div>
+                                <div v-else class="item-after">
                                     暂无可用如来云商优惠券
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                         <li class="item-content align-right item-link" @click="setInvoice">
-                            <view class="item-inner">
-                                <view class="item-title">
+                            <div class="item-inner">
+                                <div class="item-title">
                                     发票信息
-                                </view>
-                                <view class="item-after">
+                                </div>
+                                <div class="item-after">
                                     <template v-if="!orderMsg.taxInfoDto.taxTitle">
                                         请填写发票信息
                                     </template>
@@ -156,48 +156,48 @@
                                     <template v-else>
                                         {{orderMsg.taxInfoDto.taxTitle | taxTitleToText}}
                                     </template>
-                                </view>
-                            </view>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                </view>
-            </view>
-            <view class="m-corder-item">
-                <view class="corder-total">
-                    <view>
-                        <view class="tit">商品总额</view>
-                        <view class="pri">&yen;{{orderMsg.totalAmount | toFixed2}}</view>
-                    </view>
-                    <view>
-                        <view class="tit">优惠金额</view>
-                        <!-- <view class="pri">-&yen;{{disAmount | toFixed2}}</view> -->
-                        <view class="pri">-&yen;{{(parseFloat(disAmount) + parseFloat(couponTypePlatAmount)) | toFixed2}}</view>
-                    </view>
-                    <view>
-                        <view class="tit">运费</view>
-                        <view class="pri">+&yen;{{freAmount | toFixed2}}</view>
-                    </view>
-                </view>
-            </view>
-            <view class="m-payment-agree"  v-if="orderMsg.orderCount === 0">
+                </div>
+            </div>
+            <div class="m-corder-item">
+                <div class="corder-total">
+                    <div>
+                        <div class="tit">商品总额</div>
+                        <div class="pri">&yen;{{orderMsg.totalAmount | toFixed2}}</div>
+                    </div>
+                    <div>
+                        <div class="tit">优惠金额</div>
+                        <!-- <div class="pri">-&yen;{{disAmount | toFixed2}}</div> -->
+                        <div class="pri">-&yen;{{(parseFloat(disAmount) + parseFloat(couponTypePlatAmount)) | toFixed2}}</div>
+                    </div>
+                    <div>
+                        <div class="tit">运费</div>
+                        <div class="pri">+&yen;{{freAmount | toFixed2}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-payment-agree"  v-if="orderMsg.orderCount === 0">
                 <xe-checkbox v-model="checkboxAgres" size="large">
-                    <view class="con">阅读并同意<router-link :to="{name: 'PaymentAgreement'}">《如来云商支付协议》</router-link>所有条款</view>
+                    <div class="con">阅读并同意<router-link :to="{name: 'PaymentAgreement'}">《如来云商支付协议》</router-link>所有条款</div>
                 </xe-checkbox>
-            </view>
-            <view class="m-corder-btns" slot="footer">
-                <view class="det-pri">
+            </div>
+            <div class="m-corder-btns" slot="footer">
+                <div class="det-pri">
                     <!-- <span>合计：</span>&yen;{{payTotalPrice}} -->
-                    <view class="allmoney">
-                        <view class="pay-coupon no-margin">
+                    <div class="allmoney">
+                        <div class="pay-coupon no-margin">
                             <p class="pay_all" :class="{'pay_top': !couponTempMaxNum}">合计: <span>&yen;{{payTotalPrice}}</span></p>
                             <p class="pay_money" v-if="couponTempMaxNum" >订单确认收货后可得{{couponTempMaxNum}}元优惠券</p>
-                        </view>
-                    </view>
-                </view>
-                <view class="det-btns">
-                    <view class="det-tobuy" @click.prevent="submitOrderBefor">提交订单</view>
-                </view>
-            </view>
+                        </div>
+                    </div>
+                </div>
+                <div class="det-btns">
+                    <div class="det-tobuy" @click.prevent="submitOrderBefor">提交订单</div>
+                </div>
+            </div>
             <!--发票信息-->
             <xe-popup
                 slot="outer"
@@ -214,73 +214,73 @@
                 :show.sync="couponVisible"
                 popupTit="优惠券"
                 position="bottom">
-                <view class="popup-coupon-itemcon coupon-itemcon-confirm" v-if="couponList.length">
-                    <view class="itemcon-confirm">
-                        <view class="item" v-for="item in couponList" :key="item.couTempId">
-                        <view class="item-circle-bot"></view>
-                        <view class="item-circle">
+                <div class="popup-coupon-itemcon coupon-itemcon-confirm" v-if="couponList.length">
+                    <div class="itemcon-confirm">
+                        <div class="item" v-for="item in couponList" :key="item.couTempId">
+                        <div class="item-circle-bot"></div>
+                        <div class="item-circle">
                             <i v-for="item in 20" :key="item"></i>
-                        </view>
-                        <view class="item-left">
-                            <view class="item-left-con">
-                                <view class="item-t">
+                        </div>
+                        <div class="item-left">
+                            <div class="item-left-con">
+                                <div class="item-t">
                                     <em>&yen;</em><span class="big-pri">{{item.useDisAmount | retainedDecimalToNum}}</span><!--span class="small-pri">.00</span-->
-                                </view>
-                                <view class="item-d">
+                                </div>
+                                <div class="item-d">
                                     <template v-if="item.useRuleType === 1">
                                         满&yen;{{item.useOrderAmount}}可用
                                     </template>
                                     <template v-else>
                                         无门槛优惠券
                                     </template>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="item-right">
-                            <view class="item-r-msg">{{item.useRange, item.sendPlat | useRangeToText}}</view>
-                            <view class="item-r-time">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</view>
-                            <view class="item-r-btn">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-right">
+                            <div class="item-r-msg">{{item.useRange, item.sendPlat | useRangeToText}}</div>
+                            <div class="item-r-time">{{item.activeTimeStart | millisecondFormat}} - {{item.activeTimeEnd | millisecondFormat}}</div>
+                            <div class="item-r-btn">
                                 <mt-button type="primary" size='small' class="xe-button-primary is-radius" plain @click.prevent="createCoupTempletById(item)">立即使用</mt-button>
-                            </view>
-                        </view>
-                    </view>
-                    </view>
-                    <view class="item-btn" @click.prevent="delCoupTemplet">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="item-btn" @click.prevent="delCoupTemplet">
                         暂不使用优惠券
-                    </view>
-                </view>
+                    </div>
+                </div>
             </xe-popup>
             <!--Dialog 短信验证-->
             <xe-dialog slot="outer" :show.sync="yzmDialogs">
-                <view class="yzmcons">
-                    <view v-if="userInformobile">已向您{{userInformobile.slice(0, 3)}}****{{userInformobile.slice(7, 11)}}发送短信验证码</view>
-                    <view class="yzm-input">
-                        <view class="yzm-inputin">
+                <div class="yzmcons">
+                    <div v-if="userInformobile">已向您{{userInformobile.slice(0, 3)}}****{{userInformobile.slice(7, 11)}}发送短信验证码</div>
+                    <div class="yzm-input">
+                        <div class="yzm-inputin">
                             <input type="tel" v-model.trim="verifyCode" maxlength="4" placeholder="请输入4位验证码">
-                        </view>
-                    </view>
-                </view>
+                        </div>
+                    </div>
+                </div>
                 <template slot="footer">
-                    <view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>
-                    <view class="m-dialog-btn sure" @click="yzmDialogSure">确认</view>
+                    <div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>
+                    <div class="m-dialog-btn sure" @click="yzmDialogSure">确认</div>
                 </template>
             </xe-dialog>
             <!--Dialog形验证码-->
             <!--<xe-dialog slot="outer" :show.sync="yzmDialogPic">-->
-                <!--<view class="yzmcons">-->
-                    <!--<view class="yzm-input">-->
-                        <!--<view class="yzm-inputin">-->
+                <!--<div class="yzmcons">-->
+                    <!--<div class="yzm-input">-->
+                        <!--<div class="yzm-inputin">-->
                             <!--<input type="text" v-model="yzmvaluePic" maxlength="4" placeholder="请输入图形验证码">-->
-                        <!--</view>-->
-                        <!--<view class="yzmimgcon" @click.prevent="getImgCode">-->
+                        <!--</div>-->
+                        <!--<div class="yzmimgcon" @click.prevent="getImgCode">-->
                             <!--<img :src="yzmImgCodeUrl" id="yzmImgsrc">-->
-                        <!--</view>-->
-                    <!--</view>-->
-                    <!--<view class="yzm-tips">为了您的账户安全，请输入图文验证码！</view>-->
-                <!--</view>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="yzm-tips">为了您的账户安全，请输入图文验证码！</div>-->
+                <!--</div>-->
                 <!--<template slot="footer">-->
-                    <!--<view class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</view>-->
-                    <!--<view class="m-dialog-btn sure" @click="yzmDialogPicSure">确认</view>-->
+                    <!--<div class="m-dialog-btn cancel" @click="yzmDialogCancel">取消</div>-->
+                    <!--<div class="m-dialog-btn sure" @click="yzmDialogPicSure">确认</div>-->
                 <!--</template>-->
             <!--</xe-dialog>-->
         </template>
@@ -1252,7 +1252,7 @@
     .corder-total {
         padding: 5/$ppr 20/$ppr;
         font-size: 28/$ppr;
-        > view {
+        > div {
             display: flex;
             justify-content: space-between;
             margin: 15/$ppr 0;
@@ -1286,7 +1286,7 @@
         }
         .det-btns {
             display: flex;
-            > view {
+            > div {
                 flex:1;
                 font-size: 34/$ppr;
                 text-align: center;

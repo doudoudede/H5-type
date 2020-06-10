@@ -1,120 +1,120 @@
 <template>
     <transition name="slideInRight">
-        <view class="m-aftersale">
-            <view class="item">
-                <view class="item-time">
+        <div class="m-aftersale">
+            <div class="item">
+                <div class="item-time">
                     <span>05-02 12:00:00</span>
-                </view>
-                <view class="item-con">
-                    <view class="item-con-tit">已建售后单</view>
-                    <view class="item-con-msg">
-                        <view class="con">
-                            <view class="tit">商品名称</view>
-                            <view class="msg">众品下浓缩电击文库地级市地方</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">售后原因</view>
-                            <view class="msg">质量问题</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">退货数量</view>
-                            <view class="msg">200箱</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">售后说明</view>
-                            <view class="msg">助教的文件还大雾霾单位吗</view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="item">
-                <view class="item-time">
+                </div>
+                <div class="item-con">
+                    <div class="item-con-tit">已建售后单</div>
+                    <div class="item-con-msg">
+                        <div class="con">
+                            <div class="tit">商品名称</div>
+                            <div class="msg">众品下浓缩电击文库地级市地方</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">售后原因</div>
+                            <div class="msg">质量问题</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">退货数量</div>
+                            <div class="msg">200箱</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">售后说明</div>
+                            <div class="msg">助教的文件还大雾霾单位吗</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-time">
                     <span>05-02 12:00:00</span>
-                </view>
-                <view class="item-con">
-                    <view class="item-con-tit">已建退款单</view>
-                    <view class="item-con-msg">
-                        <view class="con">
-                            <view class="tit">商品名称</view>
-                            <view class="msg">众品下浓缩电击文库地级市地方</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">退款金额</view>
-                            <view class="msg"><span class="c-red">&yen;180.00</span></view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="item">
-                <view class="item-time">
+                </div>
+                <div class="item-con">
+                    <div class="item-con-tit">已建退款单</div>
+                    <div class="item-con-msg">
+                        <div class="con">
+                            <div class="tit">商品名称</div>
+                            <div class="msg">众品下浓缩电击文库地级市地方</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">退款金额</div>
+                            <div class="msg"><span class="c-red">&yen;180.00</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-time">
                     <span>05-02 12:00:00</span>
-                </view>
-                <view class="item-con">
-                    <view class="item-con-tit">退款已返还您的中国银行账户</view>
-                    <view class="item-con-msg">
-                        <view class="con">
-                            <view class="tit">退款金额</view>
-                            <view class="msg"><span class="c-red">&yen;180.00</span></view>
-                        </view>
-                        <view class="con">
-                            <view class="msg">请至尾号为xxxx的银行账户查收</view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="item">
-                <view class="item-time">
+                </div>
+                <div class="item-con">
+                    <div class="item-con-tit">退款已返还您的中国银行账户</div>
+                    <div class="item-con-msg">
+                        <div class="con">
+                            <div class="tit">退款金额</div>
+                            <div class="msg"><span class="c-red">&yen;180.00</span></div>
+                        </div>
+                        <div class="con">
+                            <div class="msg">请至尾号为xxxx的银行账户查收</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-time">
                     <span>05-02 12:00:00</span>
-                </view>
-                <view class="item-con">
-                    <view class="item-con-tit">已建售后单</view>
-                    <view class="item-con-msg">
-                        <view class="con">
-                            <view class="tit">商品名称</view>
-                            <view class="msg">众品下浓缩电击文库地级市地方</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">售后原因</view>
-                            <view class="msg">质量问题</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">退货数量</view>
-                            <view class="msg">200箱</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">售后说明</view>
-                            <view class="msg">助教的文件还大雾霾单位吗</view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="item">
-                <view class="item-time">
+                </div>
+                <div class="item-con">
+                    <div class="item-con-tit">已建售后单</div>
+                    <div class="item-con-msg">
+                        <div class="con">
+                            <div class="tit">商品名称</div>
+                            <div class="msg">众品下浓缩电击文库地级市地方</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">售后原因</div>
+                            <div class="msg">质量问题</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">退货数量</div>
+                            <div class="msg">200箱</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">售后说明</div>
+                            <div class="msg">助教的文件还大雾霾单位吗</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-time">
                     <span>05-02 12:00:00</span>
-                </view>
-                <view class="item-con">
-                    <view class="item-con-tit">已建售后单</view>
-                    <view class="item-con-msg">
-                        <view class="con">
-                            <view class="tit">商品名称</view>
-                            <view class="msg">众品下浓缩电击文库地级市地方</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">售后原因</view>
-                            <view class="msg">质量问题</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">退货数量</view>
-                            <view class="msg">200箱</view>
-                        </view>
-                        <view class="con">
-                            <view class="tit">售后说明</view>
-                            <view class="msg">助教的文件还大雾霾单位吗</view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
+                </div>
+                <div class="item-con">
+                    <div class="item-con-tit">已建售后单</div>
+                    <div class="item-con-msg">
+                        <div class="con">
+                            <div class="tit">商品名称</div>
+                            <div class="msg">众品下浓缩电击文库地级市地方</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">售后原因</div>
+                            <div class="msg">质量问题</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">退货数量</div>
+                            <div class="msg">200箱</div>
+                        </div>
+                        <div class="con">
+                            <div class="tit">售后说明</div>
+                            <div class="msg">助教的文件还大雾霾单位吗</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </transition>
 </template>
 <script type="text/ecmascript-6">
